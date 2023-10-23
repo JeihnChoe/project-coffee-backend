@@ -1,5 +1,7 @@
 package shop.mtcoding.projectcoffeebackend.promotion;
 
-public class PromotionJPARepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PromotionJPARepository extends JpaRepository<Promotion, Integer> {
 
 }

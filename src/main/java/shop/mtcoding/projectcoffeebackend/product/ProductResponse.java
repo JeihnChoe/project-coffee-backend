@@ -13,14 +13,14 @@ public class ProductResponse {
     @Setter
     public static class FindAllDTO {
         private Integer id;
-        private String image;
+        private String productPicUrl;
         private String productName;
         private String productEngName;
         private Integer productPrice;
 
         public FindAllDTO(Product product) {
             this.id = product.getId();
-            this.image = product.getImage();
+            this.productPicUrl = product.getProductPicUrl();
             this.productName = product.getProductName();
             this.productEngName = product.getProductEngName();
             this.productPrice = product.getProductPrice();
@@ -32,7 +32,7 @@ public class ProductResponse {
     @Setter
     public static class FindByProductIdDTO {
         private Integer id;
-        private String image;
+        private String productPicUrl;
         private String productName;
         private String productEngName;
         private String description;
@@ -42,7 +42,7 @@ public class ProductResponse {
 
         public FindByProductIdDTO(Product product) {
             this.id = product.getId();
-            this.image = product.getImage();
+            this.productPicUrl = product.getProductPicUrl();
             this.productName = product.getProductName();
             this.productEngName = product.getProductEngName();
             this.description = product.getDescription();
