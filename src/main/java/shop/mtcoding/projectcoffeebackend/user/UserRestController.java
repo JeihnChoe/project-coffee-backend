@@ -38,7 +38,12 @@ public class UserRestController {
     // 회원가입
     @PostMapping("/join")
     public ResponseEntity<?> join(@RequestBody @Valid UserRequest.JoinDTO requestDTO, Errors errors) {
+        // 입구
         userService.join(requestDTO);
+
+        // 결과물을만들어서
+        // 출구
+
         return ResponseEntity.ok().body(ApiUtils.success(null));
     }
 
