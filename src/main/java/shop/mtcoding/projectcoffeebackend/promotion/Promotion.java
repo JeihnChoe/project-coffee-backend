@@ -32,19 +32,20 @@ public class Promotion {
     private LocalDate endDate;
     private Boolean isOpen; // 공개 여부
 
-    private String picUrl;
+    private String productPicUrl;
     private String thumbnail; // 홈 화면의 What's New / See All 썸네일
     private String homeThumbnail; // 홈 화면에서 큼지막한 썸네일
 
     @Builder
-    public Promotion(int id, String title, String subContent, LocalDate startDate, LocalDate endDate, String picUrl,
+    public Promotion(int id, String title, String subContent, LocalDate startDate, LocalDate endDate,
+            String productPicUrl,
             String thumbnail, String homeThumbnail, Boolean isOpen) {
         this.id = id;
         this.title = title;
         this.subContent = subContent;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.picUrl = picUrl;
+        this.productPicUrl = productPicUrl;
         this.thumbnail = thumbnail;
         this.homeThumbnail = homeThumbnail;
         this.isOpen = isOpen;
