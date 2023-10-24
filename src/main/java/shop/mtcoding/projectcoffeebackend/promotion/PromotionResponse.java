@@ -72,7 +72,7 @@ public class PromotionResponse {
         private String title;
         private LocalDate startDate;
         private LocalDate endDate;
-        private String picUrl;
+        private String productPicUrl;
         private Boolean isOpen;
 
         public FindByPromotionIdDTO(Promotion promotion) {
@@ -80,7 +80,7 @@ public class PromotionResponse {
             this.title = promotion.getTitle();
             this.startDate = promotion.getStartDate();
             this.endDate = promotion.getEndDate();
-            this.picUrl = promotion.getPicUrl();
+            this.productPicUrl = promotion.getProductPicUrl();
             this.isOpen = promotion.getIsOpen();
         }
 

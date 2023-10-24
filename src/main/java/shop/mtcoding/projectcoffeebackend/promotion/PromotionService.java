@@ -35,7 +35,7 @@ public class PromotionService {
         List<Promotion> promotionPS = promotionJPARepository.findAll();
         List<PromotionResponse.FindByAllHomeThumbnailDTO> responseDTOs = promotionPS.stream()
                 .map(promotion -> new PromotionResponse.FindByAllHomeThumbnailDTO(promotion))
-                .filter(null)
+                .filter(promotion -> promotion.getHomeThumbnail() != null)
                 .collect(Collectors.toList());
         return responseDTOs;
     }
