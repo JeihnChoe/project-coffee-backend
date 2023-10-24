@@ -25,12 +25,16 @@ public class UserRequest {
         @NotEmpty
         private String username;
 
+        @NotEmpty
+        private String phonenumber;
+
         public User toEntity() {
             return User
                     .builder()
                     .email(email)
                     .password(password)
                     .username(username)
+                    .phonenumber(phonenumber)
                     .build();
         }
     }
@@ -45,6 +49,14 @@ public class UserRequest {
         @NotEmpty
         @Size(min = 8, max = 20, message = "8에서 20자 이내여야 합니다.")
         @Pattern(regexp = "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[@#$%^&+=!~`<>,./?;:'\"\\[\\]{}\\\\()|_-])\\S*$", message = "영문, 숫자, 특수문자가 포함되어야하고 공백이 포함될 수 없습니다.")
+        private String password;
+    }
+
+    @Getter
+    @Setter
+    public static class PwdUpdateDTO {
+        // private String presentPwd;
+        private String email;
         private String password;
     }
 }

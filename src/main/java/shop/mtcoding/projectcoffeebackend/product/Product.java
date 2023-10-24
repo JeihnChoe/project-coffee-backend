@@ -30,7 +30,7 @@ public class Product {
     @Column(length = 1000, nullable = false)
     private String description; // 상품설명
     @Column(length = 500)
-    private String image; // 상품이미지
+    private String productPicUrl; // 상품이미지
     private int productPrice; // 가격
     @Column(nullable = true)
     private String note; // hot,new,best
@@ -40,14 +40,15 @@ public class Product {
     private String productAllergy; // 알레르기유발요인
 
     @Builder
-    public Product(int id, String productName, String productEngName, int code, String description, String image,
+    public Product(int id, String productName, String productEngName, int code, String description,
+            String productPicUrl,
             int productPrice, String note, String productInfo, String productAllergy) {
         this.id = id;
         this.productName = productName;
         this.productEngName = productEngName;
         this.code = code;
         this.description = description;
-        this.image = image;
+        this.productPicUrl = productPicUrl;
         this.productPrice = productPrice;
         this.note = note;
         this.productInfo = productInfo;
