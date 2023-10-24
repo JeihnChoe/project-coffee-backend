@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
 import shop.mtcoding.projectcoffeebackend.promotion.PromotionResponse.FindAllListDTO;
+import shop.mtcoding.projectcoffeebackend.promotion.PromotionResponse.FindByAllHomeThumbnailDTO;
 import shop.mtcoding.projectcoffeebackend.promotion.PromotionResponse.FindByPromotionIdDTO;
 
 @Transactional(readOnly = true)
@@ -22,10 +23,19 @@ public class PromotionService {
     @Autowired
     PromotionJPARepository promotionJPARepository;
 
-    public List<PromotionResponse.FindAllToHomeDTO> findAllPromotion() {
+    public List<PromotionResponse.FindAllWhatsNewDTO> findAllWhatsNewPromotion() {
         List<Promotion> promotionPS = promotionJPARepository.findAll();
-        List<PromotionResponse.FindAllToHomeDTO> responseDTOs = promotionPS.stream()
-                .map(promotion -> new PromotionResponse.FindAllToHomeDTO(promotion))
+        List<PromotionResponse.FindAllWhatsNewDTO> responseDTOs = promotionPS.stream()
+                .map(promotion -> new PromotionResponse.FindAllWhatsNewDTO(promotion))
+                .collect(Collectors.toList());
+        return responseDTOs;
+    }
+
+    public List<PromotionResponse.FindByAllHomeThumbnailDTO> findAllHomePromotion() {
+        List<Promotion> promotionPS = promotionJPARepository.findAll();
+        List<PromotionResponse.FindByAllHomeThumbnailDTO> responseDTOs = promotionPS.stream()
+                .map(promotion -> new PromotionResponse.FindByAllHomeThumbnailDTO(promotion))
+                .filter(null)
                 .collect(Collectors.toList());
         return responseDTOs;
     }

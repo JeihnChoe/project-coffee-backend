@@ -25,12 +25,16 @@ public class UserRequest {
         @NotEmpty
         private String username;
 
+        @NotEmpty
+        private String phonenumber;
+
         public User toEntity() {
             return User
                     .builder()
                     .email(email)
                     .password(password)
                     .username(username)
+                    .phonenumber(phonenumber)
                     .build();
         }
     }

@@ -30,7 +30,7 @@ public class User {
     private String password;
     @Column(length = 256, nullable = true)
     private String username;
-    @Column(length = 45, nullable = true)
+    @Column(length = 256, nullable = false)
     private String phonenumber;
     @Column(length = 256, nullable = true)
     private int manager; // 1 : 유저 / 2 : 관리자
