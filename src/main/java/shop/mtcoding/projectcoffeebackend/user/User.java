@@ -28,7 +28,7 @@ public class User {
     private String password;
     @Column(length = 256, nullable = false)
     private String username;
-    @Column(length = 45, nullable = false)
+    @Column(length = 256, nullable = false)
     private String phonenumber;
     @Column(length = 256, nullable = false)
     private int manager; // 1 : 유저 / 2 : 관리자
