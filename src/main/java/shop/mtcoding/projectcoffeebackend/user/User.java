@@ -29,24 +29,24 @@ public class User {
     @Column(length = 256, nullable = false)
     private String username;
     @Column(length = 45, nullable = false)
-    private String phoneNumber;
+    private String phonenumber;
     @Column(length = 256, nullable = false)
-    private int manager; // true : 관리자 / false : 유저
-    @Column(length = 256, nullable = false)
+    private int manager; // 1 : 유저 / 2 : 관리자
+    @Column(length = 256, nullable = true)
     @CreationTimestamp
     private Timestamp createdAt; // 가입일시
-    @Column(length = 256, nullable = false)
+    @Column(length = 256, nullable = true)
     @UpdateTimestamp
     private Timestamp updatedAt; // 수정일시
 
     @Builder
-    public User(int id, String email, String password, String username, String phoneNumber, int manager,
+    public User(int id, String email, String password, String username, String phonenumber, int manager,
             Timestamp createdAt, Timestamp updatedAt) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.username = username;
-        this.phoneNumber = phoneNumber;
+        this.phonenumber = phonenumber;
         this.manager = manager;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
