@@ -39,8 +39,8 @@ public class UserService {
 
         // 현비밀번호 == 조회한거랑 같은지?
         if (!user.getPassword().equals(pwdUpdateDTO.getPassword())) {
-            user.setPassword(pwdUpdateDTO.getPassword()); // 기존 사용자 객체에서 비밀번호를 수정
-            userJPARepository.save(user); // 업데이트된 사용자 객체를 저장
+            user.setPassword(pwdUpdateDTO.getPassword());
+            userJPARepository.save(user);
         }
         // 다르면?
         // (다쓰고나면 받을거 있음?) == (return 있음?)

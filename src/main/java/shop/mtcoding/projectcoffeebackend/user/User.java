@@ -35,10 +35,8 @@ public class User {
     @Column(length = 256, nullable = true)
     private int manager; // 1 : 유저 / 2 : 관리자
     @Column(length = 256, nullable = true)
-    @CreationTimestamp
     private Timestamp createdAt; // 가입일시
     @Column(length = 256, nullable = true)
-    @UpdateTimestamp
     private Timestamp updatedAt; // 수정일시
 
     @Builder
