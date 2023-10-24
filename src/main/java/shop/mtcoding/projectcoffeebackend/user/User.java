@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
@@ -14,6 +15,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "user_tb")
@@ -22,15 +24,15 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(length = 100, nullable = false, unique = true)
+    @Column(length = 100, nullable = true, unique = true)
     private String email; // 인증시 필요한 필드
-    @Column(length = 256, nullable = false)
+    @Column(length = 256, nullable = true)
     private String password;
-    @Column(length = 256, nullable = false)
+    @Column(length = 256, nullable = true)
     private String username;
     @Column(length = 256, nullable = false)
     private String phonenumber;
-    @Column(length = 256, nullable = false)
+    @Column(length = 256, nullable = true)
     private int manager; // 1 : 유저 / 2 : 관리자
     @Column(length = 256, nullable = true)
     @CreationTimestamp

@@ -51,4 +51,12 @@ public class UserRequest {
         @Pattern(regexp = "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[@#$%^&+=!~`<>,./?;:'\"\\[\\]{}\\\\()|_-])\\S*$", message = "영문, 숫자, 특수문자가 포함되어야하고 공백이 포함될 수 없습니다.")
         private String password;
     }
+
+    @Getter
+    @Setter
+    public static class PwdUpdateDTO {
+        // private String presentPwd;
+        private String email;
+        private String password;
+    }
 }
