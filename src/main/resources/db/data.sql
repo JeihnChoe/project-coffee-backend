@@ -9,7 +9,7 @@ INSERT INTO user_tb (`id`, `login_id`, `email`, `password`, `user_name`, `phone_
 --     private String phoneNumber;
 --     private int manager; 
 --     private Timestamp userCreatedAt; 
---     private Timestamp userUpdatedAt; 
+--     private Timestamp userUpdatedAt; 13개
 
 
 
@@ -58,13 +58,31 @@ INSERT INTO beverage_tb (`id`,`beverage_name`,`beverage_eng_name`,`beverage_desc
 
 
 
-INSERT INTO option_tb (`id`, `size`, `optionPrice`, `beverage`)
- VALUES (1, 'Short', 4500, '진한 에스프레소와 뜨거운 물을 섞어 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽게 잘 느낄 수 있는 커피', '블론드/디카페인 커피 Tab에서 블론드, 디카페인, 1/2디카페인 카페 아메리카노를 주문할 수 있습니다.', 'hot', '아메리카노_사진', 1);
+INSERT INTO size_tb (`id`, `size`, `liquid_amount`, `size_pic_url`)
+ VALUES (1, 'Tall', '355ml', 'Tall사진');
+INSERT INTO size_tb (`id`, `size`, `liquid_amount`, `size_pic_url`)
+ VALUES (2, 'Grande', '473ml', 'Grande사진');
+INSERT INTO size_tb (`id`, `size`, `liquid_amount`, `size_pic_url`)
+ VALUES (3, 'Venti', '591ml', 'Venti사진');
 
-    private int id;
-    private String size;
-    private int optionPrice;
-    private Beverage beverage;
+--     private int id;
+--     private String size;
+--     private String liquid_amount;
+--     private String size_pic_url;
+
+
+
+INSERT INTO option_tb (`id`, `size_id`, `option_price`, `beverage_id`)
+ VALUES (1, 1, 4500, 1);
+INSERT INTO option_tb (`id`, `size_id`, `option_price`, `beverage_id`)
+ VALUES (2, 2, 5000, 1);
+INSERT INTO option_tb (`id`, `size_id`, `option_price`, `beverage_id`)
+ VALUES (3, 3, 5500, 1);
+
+--     private int id;
+--     private int optionPrice;
+--     private Beverage beverage;
+--     private Size size;
 
 
 
