@@ -1,7 +1,6 @@
 package shop.mtcoding.projectcoffeebackend.promotion;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
-import shop.mtcoding.projectcoffeebackend.promotion.PromotionResponse.FindAllListDTO;
-import shop.mtcoding.projectcoffeebackend.promotion.PromotionResponse.FindByAllHomeThumbnailDTO;
-import shop.mtcoding.projectcoffeebackend.promotion.PromotionResponse.FindByPromotionIdDTO;
 
 @Transactional(readOnly = true)
 @NoArgsConstructor
