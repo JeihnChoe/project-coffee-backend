@@ -13,23 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception401;
-import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
-import shop.mtcoding.projectcoffeebackend._core.utils.JwtTokenUtils;
-import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils.ApiResult;
-import shop.mtcoding.projectcoffeebackend.user.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception401;
+import shop.mtcoding.projectcoffeebackend._core.utils.JwtTokenUtils;
+import shop.mtcoding.projectcoffeebackend.user.User;
 
 /**
  * /carts/**
  * /orders/**
- * /products/**
  * 이 주소만 필터가 동작하면 된다
  */
 public class JwtAuthorizationFilter implements Filter {
