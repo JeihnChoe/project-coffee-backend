@@ -29,7 +29,7 @@ public class PromotionService {
         return responseDTOs;
     }
 
-    public List<PromotionResponse.FindByAllHomeThumbnailDTO> findAllHomePromotion() {
+    public List<PromotionResponse.FindByAllHomeThumbnailDTO> findAllHomePromotion() { //
         List<Promotion> promotionPS = promotionJPARepository.findAll();
         List<PromotionResponse.FindByAllHomeThumbnailDTO> responseDTOs = promotionPS.stream()
                 .map(promotion -> new PromotionResponse.FindByAllHomeThumbnailDTO(promotion))
@@ -38,7 +38,7 @@ public class PromotionService {
         return responseDTOs;
     }
 
-    public List<PromotionResponse.FindAllListDTO> findAllListPromotion() {
+    public List<PromotionResponse.FindAllListDTO> findAllListPromotion() { // 프로모션 리스트
         List<Promotion> promotionPS = promotionJPARepository.findAll();
         List<PromotionResponse.FindAllListDTO> responseDTOs = promotionPS.stream()
                 .map(promotion -> new PromotionResponse.FindAllListDTO(promotion))

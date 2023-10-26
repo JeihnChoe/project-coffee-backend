@@ -18,4 +18,8 @@ public class UserResponse {
             this.email = user.getEmail();
         }
     }
+
+    public static class loginDTO {
+
+    }
 }
