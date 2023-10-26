@@ -40,6 +40,7 @@ public class UserRestController {
     @PostMapping("/join")
     public ResponseEntity<?> join(@RequestBody @Valid UserRequest.JoinDTO requestDTO, Errors errors) {
         userService.join(requestDTO);
+        System.out.println(requestDTO.getUsername());
         return ResponseEntity.ok().body(ApiUtils.success(null));
     }
 
