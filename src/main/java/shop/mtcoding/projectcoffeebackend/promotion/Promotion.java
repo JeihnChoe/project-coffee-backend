@@ -27,6 +27,7 @@ public class Promotion {
     @Column(nullable = false, length = 256)
     private String subContent;
     // @Temporal(TemporalType.DATE) // 시간까지 필요하면 TemporalType.TIMESTAMP로
+
     @Column(nullable = false)
     private LocalDate startDate; // 이벤트 시작 날짜
     // @Temporal(TemporalType.DATE) // 시간까지 필요하면 TemporalType. TIMESTAMP로

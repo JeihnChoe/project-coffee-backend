@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.NoArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
+import shop.mtcoding.projectcoffeebackend.promotion.PromotionResponse.FindAllListDTO;
+import shop.mtcoding.projectcoffeebackend.promotion.PromotionResponse.FindByAllHomeThumbnailDTO;
+import shop.mtcoding.projectcoffeebackend.promotion.PromotionResponse.FindByPromotionIdDTO;
 
 @Transactional(readOnly = true)
 @NoArgsConstructor
