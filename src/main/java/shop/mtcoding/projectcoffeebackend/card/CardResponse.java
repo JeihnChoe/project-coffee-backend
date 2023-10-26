@@ -46,4 +46,20 @@ public class CardResponse {
         }
 
     }
+
+    @Getter
+    @Setter
+    public static class CardRegistrationDTO {
+        private String cardName;
+        private Integer cardNumber;
+        private Integer pinNumber;
+
+        public CardRegistrationDTO(Card card) {
+            this.cardName = card.getCardName();
+            this.cardNumber = card.getCardNumber();
+            this.pinNumber = card.getPinNumber();
+        }
+
+    }
+
 }
