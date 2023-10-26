@@ -3,9 +3,12 @@ package shop.mtcoding.projectcoffeebackend.card;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -56,6 +59,29 @@ public class CardRestController {
         return responseDTO;
 
     }
+
+    @PostMapping("/card/cardregistrationpage")
+    public List<CardRequest.CardRegistrationDTO> registerCard(
+            @RequestBody @Valid CardRequest.CardRegistrationDTO cardRegistrationDTO) {
+
+        // 1. 유효성검사(로그인이 되어있는지)
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+
+        }
+
+        int userId = sessionUser.getId();
+
+        // 2. 서비스한테 비지니스메서드 소환
+        // (서비스한테 줘야하는 매개변수 : RequestDTO, userId)
+        cardService.cardRegistration(cardRegistrationDTO, userId);
+        // 4. 서비스한테 전달받은 DTO 리턴하기
+
+        return null;
+    }
+    // User sessionUser = (User) session.getAttribute("sessionUser");
+    // int userId = sessionUser.getId();
+    // cardService.cardRegistration(cardRegistrationDTO, userId);
 
 }
 
