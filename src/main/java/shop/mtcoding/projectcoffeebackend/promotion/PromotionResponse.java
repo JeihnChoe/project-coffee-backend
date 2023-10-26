@@ -1,7 +1,6 @@
 package shop.mtcoding.projectcoffeebackend.promotion;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -72,7 +71,7 @@ public class PromotionResponse {
         private String title;
         private LocalDate startDate;
         private LocalDate endDate;
-        private String picUrl;
+        private String promotionPicUrl;
         private Boolean isOpen;
 
         public FindByPromotionIdDTO(Promotion promotion) {
@@ -80,9 +79,8 @@ public class PromotionResponse {
             this.title = promotion.getTitle();
             this.startDate = promotion.getStartDate();
             this.endDate = promotion.getEndDate();
-            this.picUrl = promotion.getPicUrl();
+            this.promotionPicUrl = promotion.getPromotionPicUrl();
             this.isOpen = promotion.getIsOpen();
-
         }
 
     }

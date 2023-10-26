@@ -5,18 +5,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
-
 import lombok.RequiredArgsConstructor;
+import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
 
 @RequiredArgsConstructor
 @RestController
@@ -28,7 +25,7 @@ public class UserRestController {
     @GetMapping("/test")
     public String test(HttpServletResponse response) {
         session.setAttribute("hello", "hello");
-        Cookie cookie = new Cookie("name", "ssar");
+        Cookie cookie = new Cookie("name", "ssar"); // 변수명 바껴서 안될때 name수정
         cookie.setHttpOnly(false);
         response.setStatus(200);
         response.addCookie(cookie);
@@ -40,7 +37,6 @@ public class UserRestController {
     @PostMapping("/join")
     public ResponseEntity<?> join(@RequestBody @Valid UserRequest.JoinDTO requestDTO, Errors errors) {
         userService.join(requestDTO);
-        System.out.println(requestDTO.getUsername());
         return ResponseEntity.ok().body(ApiUtils.success(null));
     }
 

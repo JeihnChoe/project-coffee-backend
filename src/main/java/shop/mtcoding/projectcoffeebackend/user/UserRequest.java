@@ -6,7 +6,6 @@ import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 public class UserRequest {
     @Getter
@@ -23,7 +22,10 @@ public class UserRequest {
         private String password;
 
         @NotEmpty
-        private String username;
+        private String userName;
+
+        @NotEmpty
+        private String phoneNumber;
 
         @NotEmpty
         private String phonenumber;
@@ -33,8 +35,8 @@ public class UserRequest {
                     .builder()
                     .email(email)
                     .password(password)
-                    .username(username)
-                    .phonenumber(phonenumber)
+                    .userName(userName)
+                    .phoneNumber(phoneNumber)
                     .build();
         }
     }

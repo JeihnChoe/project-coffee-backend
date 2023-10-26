@@ -9,12 +9,12 @@ public class UserResponse {
     @Setter
     public static class FindById {
         private int id;
-        private String username;
+        private String userName;
         private String email;
 
         public FindById(User user) {
             this.id = user.getId();
-            this.username = user.getUsername();
+            this.userName = user.getUserName();
             this.email = user.getEmail();
         }
     }

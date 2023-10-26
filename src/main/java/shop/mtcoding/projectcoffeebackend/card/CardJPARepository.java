@@ -12,4 +12,5 @@ public interface CardJPARepository extends JpaRepository<Card, Integer> {
 
     List<Card> findByUserId(int userId);
 
+
 }
