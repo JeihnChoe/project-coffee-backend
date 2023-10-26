@@ -25,7 +25,7 @@ public class Category {
     @Column(nullable = false, length = 50)
     private String categoryEngName;
     @Column(nullable = false)
-    private int code;
+    private int code; // 음료 1, 푸드 2
 
     @Builder
     public Category(int id, String categoryName, String categoryEngName, int code) {

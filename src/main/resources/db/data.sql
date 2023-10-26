@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-INSERT INTO user_tb (`id`,`email`,`password`,`username`,`phonenumber`,`manager`,`created_at`,`updated_at`) VALUES ('1', 'ssar@nate.com', 'a12345678!', 'ssar','01022222222',1,'2023-10-24 14:20:36.077','2023-10-24 14:20:36.077'); -- ssar 유저 id 임
-INSERT INTO user_tb (`id`,`email`,`password`,`username`,`phonenumber`,`manager`,`created_at`,`updated_at`) VALUES ('2', 'cos@nate.com', 'a12345678!', 'cos','01022221122',2,'2023-10-24 14:20:36.077','2023-10-24 14:20:36.077'); -- cos 관리자 id 임
-=======
 INSERT INTO user_tb (`id`, `login_id`, `email`, `password`, `user_name`, `phone_number`, `manager`, `user_created_at`, `user_updated_at`)
  VALUES (1, 'ssar', 'ssar@nate.com', '1234', '김쌀', '010-1212-1212', 1, '2020-02-02', '2020-02-02');
->>>>>>> 493ec65f3b3cf36dfe71baa9605ef46a85657413
+
 
 --     private int id;
 --     private String loginId;
