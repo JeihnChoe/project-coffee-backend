@@ -26,16 +26,17 @@ public class CardRestController {
 
     @GetMapping("/card/viewdetailpage")
     public CardResponse.CardDetailDTO viewCardDetail() {
+        System.out.println("실행됨?");
+        // User sessionUser = (User) session.getAttribute("sessionUser"); // 로그인한사용자정보
+        // if (sessionUser == null) {
 
-        User sessionUser = (User) session.getAttribute("sessionUser"); // 로그인한사용자정보
-        if (sessionUser == null) {
+        // }
 
-        }
+        // int userId = sessionUser.getId();
 
-        int userId = sessionUser.getId();
+        CardResponse.CardDetailDTO cardDetailDTO = cardService.viewCardDetail(1);
 
-        cardService.viewCardDetail(userId);
-        return null;
+        return cardDetailDTO;
     }
 
     @GetMapping("/card/viewcardlistpage")

@@ -20,9 +20,9 @@ public class CardService {
     public CardResponse.CardDetailDTO viewCardDetail(int userId) {
 
         Card cardPS = cardJPARepository.findById(userId).orElseThrow(() -> new Exception400("카드id가 없습니다"));
-
+        System.out.println("레파지토리");
         CardResponse.CardDetailDTO cardDetailDTO = new CardResponse.CardDetailDTO(cardPS);
-
+        System.out.println("여기됨?");
         return cardDetailDTO;
         // return new CardResponse.CardDetailDTO(cardPS);
 
