@@ -1,0 +1,116 @@
+{{> layout/header}}
+<style>
+  .mySlides {
+    display: none;
+    opacity: 0;
+    transition: opacity 0s ease-in-out;
+  }
+
+  .mySlides.active {
+    display: block;
+    opacity: 1;
+  }
+</style>
+
+<div class="frame">
+
+  <!-- 슬라이드 -->
+  <div class="slideshow-container" style="margin-top: 33px;">
+    <!-- 이벤트 목록을 Mustache 반복문을 사용하여 출력합니다. -->
+    {{#events}}
+    <div class="mySlides fade">
+      <a href="http://{{eventAddress}}" target="_blank">
+        <!-- 이벤트 이미지를 출력합니다. -->
+        <img src="/images/{{eventPicUrl}}" style="width:100%">
+      </a>
+    </div>
+    {{/events}}
+  </div>
+  <div class="dots">
+    {{#events}}
+    <span class="choice-dot index-dot"></span>
+    {{/events}}
+  </div>
+  <!--슬라이드-->
+
+  <hr>
+
+
+  <!--파워 링크 글자-->
+  <div class="파워링크 mt-2">채용공고</div>
+  <!--파워 링크 글자-->
+
+  <!--파워 링크 이미지-->
+  <div class="image-container">
+    {{#noticeList}}
+    <div class="notice-image">
+      <a href="/notice/noticeDetail/{{id}}" class="rounded-image">
+        <div class="index-notice-title mb-2">{{title}}</div>
+        <img src="/images/{{companyPicUrl}}" />
+        <div class="my-1">{{companyName}}</div>
+
+        <div class="d-flex flex-wrap">
+          {{#wishDutys}}
+          <div class="p-1 skill">{{duty.dutyName}}</div>
+          {{/wishDutys}}
+        </div>
+      </a>
+    </div>
+    {{/noticeList}}
+  </div>
+  <!--파워 링크 이미지-->
+  <br>
+  <hr>
+
+
+
+
+  <hr>
+
+</div>
+
+<script>
+  var slideIndex = 0;
+  showSlides();
+  function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("choice-dot");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].classList.remove("active");
+      dots[i].classList.remove("active-dot"); // 모든 슬라이드의 active 클래스 제거
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+      slideIndex = 1
+    }
+    slides[slideIndex - 1].classList.add("active");
+    dots[slideIndex - 1].classList.add("active-dot"); // 현재 슬라이드에 active 클래스 추가
+    setTimeout(showSlides, 3000); // n초마다 바뀜
+  }
+
+  // 각 닷에 클릭 이벤트 추가
+  var dots = document.getElementsByClassName("choice-dot");
+  for (var i = 0; i < dots.length; i++) {
+    dots[i].addEventListener("click", function () {
+      // 클릭한 닷의 인덱스를 가져옴
+      var dotIndex = Array.prototype.indexOf.call(dots, this);
+
+      // 클릭한 닷의 인덱스를 현재 슬라이드 인덱스로 설정
+      slideIndex = dotIndex;
+
+      // 모든 슬라이드와 닷의 클래스를 초기화
+      var slides = document.getElementsByClassName("mySlides");
+      for (var j = 0; j < slides.length; j++) {
+        slides[j].classList.remove("active");
+        dots[j].classList.remove("active-dot");
+      }
+
+      // 클릭한 닷과 해당하는 슬라이드를 활성화
+      slides[dotIndex].classList.add("active");
+      dots[dotIndex].classList.add("active-dot");
+    });
+  }
+</script>
+
+{{> layout/footer}}

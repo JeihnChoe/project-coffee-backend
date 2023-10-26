@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
+import shop.mtcoding.projectcoffeebackend.user.UserResponse.loginDTO;
 
 @RequiredArgsConstructor
 @RestController
@@ -44,6 +45,7 @@ public class UserRestController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody @Valid UserRequest.LoginDTO requestDTO, Errors errors) {
         String jwt = userService.login(requestDTO);
+
         return ResponseEntity.ok().header("Authorization", "Bearer " + jwt).body(ApiUtils.success(null));
     }
 
