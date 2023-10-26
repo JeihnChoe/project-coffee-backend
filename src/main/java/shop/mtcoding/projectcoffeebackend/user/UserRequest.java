@@ -27,6 +27,9 @@ public class UserRequest {
         @NotEmpty
         private String phoneNumber;
 
+        @NotEmpty
+        private String phonenumber;
+
         public User toEntity() {
             return User
                     .builder()

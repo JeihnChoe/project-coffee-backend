@@ -29,8 +29,6 @@ public class Nutrition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, length = 50)
-    private String optionId;
-    @Column(nullable = false, length = 50)
     private String calorie;
     @Column(nullable = false, length = 20)
     private String carbohydrate;
@@ -60,7 +58,6 @@ public class Nutrition {
             String protein, String fat, String cholesterol, String transFat, String saturatedFat, String caution,
             Option option) {
         this.id = id;
-        this.optionId = optionId;
         this.calorie = calorie;
         this.carbohydrate = carbohydrate;
         this.saccharides = saccharides;
