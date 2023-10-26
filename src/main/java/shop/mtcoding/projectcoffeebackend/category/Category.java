@@ -26,6 +26,8 @@ public class Category {
     private String categoryEngName;
     @Column(nullable = false)
     private int code; // 음료 1, 푸드 2
+    @Column(nullable = false, length = 500)
+    private String categoryPicUrl;
 
     @Builder
     public Category(int id, String categoryName, String categoryEngName, int code) {

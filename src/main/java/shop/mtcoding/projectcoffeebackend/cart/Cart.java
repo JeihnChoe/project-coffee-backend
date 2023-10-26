@@ -32,7 +32,7 @@ public class Cart {
     @Column(nullable = false)
     private int cartQuantity;
     @Column(nullable = false)
-    private int cartPrice;
+    private int cartPrice; // quantity * 상품가격
     @Column(nullable = false)
     private Boolean isChecked;
 

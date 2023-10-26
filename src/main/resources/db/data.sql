@@ -48,10 +48,10 @@ INSERT INTO promotion_tb (`id`,`title`, `sub_content`, `start_date`, `end_date`,
 
 
 
-INSERT INTO category_tb (`id`, `category_name`, `category_eng_name`, `code`)
- VALUES (1, '에스프레소', 'Espresso', 1);
-INSERT INTO category_tb (`id`, `category_name`, `category_eng_name`, `code`)
- VALUES (2, '브레드', 'Bread', 2);
+INSERT INTO category_tb (`id`, `category_name`, `category_eng_name`, `code`, `category_pic_url`)
+ VALUES (1, '에스프레소', 'Espresso', 1, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000000038]_20210430113202458.jpg');
+INSERT INTO category_tb (`id`, `category_name`, `category_eng_name`, `code`, `category_pic_url`)
+ VALUES (2, '브레드', 'Bread', 2, 'https://image.istarbucks.co.kr/upload/store/skuimg/2023/10/[9300000004824]_20231004111431349.jpg');
 
 --     private int id;
 --     private String categoryName;
