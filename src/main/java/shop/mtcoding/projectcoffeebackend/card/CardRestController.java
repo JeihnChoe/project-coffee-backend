@@ -61,23 +61,23 @@ public class CardRestController {
     }
 
     @PostMapping("/card/cardregistrationpage")
-    public List<CardRequest.CardRegistrationDTO> registerCard(
+    public CardResponse.CardRegistrationDTO registerCard(
             @RequestBody @Valid CardRequest.CardRegistrationDTO cardRegistrationDTO) {
 
         // 1. 유효성검사(로그인이 되어있는지)
-        User sessionUser = (User) session.getAttribute("sessionUser");
-        if (sessionUser == null) {
+        // User sessionUser = (User) session.getAttribute("sessionUser");
+        // if (sessionUser == null) {
 
-        }
+        // }
 
-        int userId = sessionUser.getId();
+        // int userId = sessionUser.getId();
 
         // 2. 서비스한테 비지니스메서드 소환
         // (서비스한테 줘야하는 매개변수 : RequestDTO, userId)
-        cardService.cardRegistration(cardRegistrationDTO, userId);
+        CardResponse.CardRegistrationDTO responseDTO = cardService.cardRegistration(cardRegistrationDTO, 1);
         // 4. 서비스한테 전달받은 DTO 리턴하기
 
-        return null;
+        return responseDTO;
     }
     // User sessionUser = (User) session.getAttribute("sessionUser");
     // int userId = sessionUser.getId();

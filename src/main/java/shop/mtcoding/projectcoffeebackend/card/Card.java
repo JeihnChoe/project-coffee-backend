@@ -16,9 +16,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import shop.mtcoding.projectcoffeebackend.user.User;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "card_tb")
@@ -33,7 +35,7 @@ public class Card {
     private String cardName;
     @Column(nullable = false)
     private int cardMoney;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private int cardNumber;
     @Column(nullable = false)
     private int pinNumber;

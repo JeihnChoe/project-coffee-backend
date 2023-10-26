@@ -1,6 +1,7 @@
 package shop.mtcoding.projectcoffeebackend.card;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
@@ -9,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
+
+import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception500;
 import shop.mtcoding.projectcoffeebackend.card.CardResponse.CardDetailDTO;
+import shop.mtcoding.projectcoffeebackend.user.User;
 
 import java.util.stream.Collectors;
 
@@ -48,24 +52,44 @@ public class CardService {
     }
 
     @Transactional
-    public List<CardRequest.CardRegistrationDTO> cardRegistration(CardRequest.CardRegistrationDTO cardRegistrationDTO,
+    public CardResponse.CardRegistrationDTO cardRegistration(CardRequest.CardRegistrationDTO cardRegistrationDTO,
             int userId) {
 
-        // List<Card> cardPS = cardJPARepository.findByCardNumber(userId)
-        // 1. DB에서 DTO에 받은 카드번호로 일치하는 카드 있는지 찾기
-        // 1-1 없으면 return "카드가없습니다."
+        Card cardPS = cardJPARepository.findByCardNumber(cardRegistrationDTO.getCardNumber());
+        System.out.println("입력한 핀번호" + cardRegistrationDTO.getPinNumber());
 
-        // 1-2 있으면
-        // 2. 찾은 카드 행의 user_id 에 유저번호 넣어주기
-        // 3. return 디티오
+        if (cardPS == null) {
+            System.out.println("db에 cardPS없음");
+            String fail = "카드번호 또는 핀번호를 잘못 입력하였습니다";
+            CardResponse.CardRegistrationDTO responseDTO = new CardResponse.CardRegistrationDTO(fail);
 
-        // List<Card> cardPS = cardJPARepository.findByUserId(userId);
+            return responseDTO;
+        }
+        if (cardRegistrationDTO.getPinNumber() != cardPS.getPinNumber()) {
+            String fail = "카드번호 또는 핀번호를 잘못 입력하였습니다";
+            CardResponse.CardRegistrationDTO responseDTO = new CardResponse.CardRegistrationDTO(fail);
+            return responseDTO;
+        }
+        String fail = "";
+        User user = User.builder().id(userId).build();
+        cardPS.setUser(user);
+        System.out.println("성공");
+        CardResponse.CardRegistrationDTO responseDTO = new CardResponse.CardRegistrationDTO(cardPS, fail);
+        return responseDTO;
 
-        // List<CardResponse.CardRegistrationDTO> cardRegistrationDTOs = cardPS.stream()
-        // .map(card -> new CardResponse.CardRegistrationDTO(card))
-        // .collect(Collectors.toList());
-
-        return null;
     }
+
+    // 1. DB에서 DTO에 받은 카드번호로 일치하는 카드 있는지 찾기
+    // 1-1 없으면 return "카드가없습니다."
+
+    // 1-2 있으면
+    // 2. 찾은 카드 행의 user_id 에 유저번호 넣어주기
+    // 3. return 디티오
+
+    // List<Card> cardPS = cardJPARepository.findByUserId(userId);
+
+    // List<CardResponse.CardRegistrationDTO> cardRegistrationDTOs = cardPS.stream()
+    // .map(card -> new CardResponse.CardRegistrationDTO(card))
+    // .collect(Collectors.toList());
 
 }
