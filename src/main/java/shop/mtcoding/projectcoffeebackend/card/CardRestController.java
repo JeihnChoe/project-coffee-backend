@@ -6,13 +6,16 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
+import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
 import shop.mtcoding.projectcoffeebackend.user.User;
+import shop.mtcoding.projectcoffeebackend.user.UserService;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,10 +29,13 @@ public class CardRestController {
     CardService cardService;
     @Autowired
     private HttpSession session;
+    @Autowired
+    UserService userService;
 
-    @GetMapping("/card/viewdetailpage")
-    public CardResponse.CardDetailDTO viewCardDetail() {
+    @GetMapping("/api/cards/viewdetailpage")
+    public ResponseEntity<?> viewCardDetail() {
         System.out.println("실행됨?");
+        String jwt = "1";
         // User sessionUser = (User) session.getAttribute("sessionUser"); // 로그인한사용자정보
         // if (sessionUser == null) {
 
@@ -39,12 +45,13 @@ public class CardRestController {
 
         CardResponse.CardDetailDTO cardDetailDTO = cardService.viewCardDetail(1);
 
-        return cardDetailDTO;
+        return ResponseEntity.ok().header("Authorization", "Bearer " + jwt).body(ApiUtils.success(cardDetailDTO));
+
     }
 
-    @GetMapping("/card/viewcardlistpage")
-    public List<CardResponse.CardListDTO> viewCardList() {
-
+    @GetMapping("/api/cards/viewcardlistpage")
+    public ResponseEntity<?> viewCardList() {
+        String jwt = "1";
         System.out.println("실행됨?");
 
         // User sessionUser = (User) session.getAttribute("sessionUser");
@@ -56,13 +63,14 @@ public class CardRestController {
         System.out.println("userId" + 1);
         List<CardResponse.CardListDTO> responseDTO = cardService.viewCardList(1);
 
-        return responseDTO;
+        return ResponseEntity.ok().header("Authorization", "Bearer " + jwt).body(ApiUtils.success(responseDTO));
 
     }
 
-    @PostMapping("/card/cardregistrationpage")
-    public CardResponse.CardRegistrationDTO registerCard(
+    @PostMapping("/api/cards/cardregistrationpage")
+    public ResponseEntity<?> registerCard(
             @RequestBody @Valid CardRequest.CardRegistrationDTO cardRegistrationDTO) {
+        String jwt = "1";
 
         // 1. 유효성검사(로그인이 되어있는지)
         // User sessionUser = (User) session.getAttribute("sessionUser");
@@ -77,18 +85,17 @@ public class CardRestController {
         CardResponse.CardRegistrationDTO responseDTO = cardService.cardRegistration(cardRegistrationDTO, 1);
         // 4. 서비스한테 전달받은 DTO 리턴하기
 
-        return responseDTO;
+        return ResponseEntity.ok().header("Authorization", "Bearer " + jwt).body(ApiUtils.success(responseDTO));
     }
-    // User sessionUser = (User) session.getAttribute("sessionUser");
-    // int userId = sessionUser.getId();
-    // cardService.cardRegistration(cardRegistrationDTO, userId);
+
+    // @GetMapping("/api/cards/paycardchargepage")
+    // public ResponseEntity<?> chargePayCardPage(@RequestBody @Valid
+    // CardRequest.PayCardChargeDTO payCardChargeDTO) {
+
+    // String jwt = "1";
+    // CardRequest.PayCardChargeDTO responseDTO = cardService.
+    // return ResponseEntity.ok().header("Authorization", "Bearer " +
+    // jwt).body(ApiUtils.success(null));
+    // }
 
 }
-
-// 0. 어떤 일을 할건지? - 그게 메소드 이름이됨
-// 1. 어디로 요청을 받아야하는가? - 그게 겟메핑주소가됨
-// 2. 프론트가 정보를 주나?? 주면 어디다받아야하지?? - 안줌, 주면 CardRequestDTO
-// 3. 비지니스로직 작성
-// 3-1. 유효성검사
-// 3-2. 서비스한테 위임
-// 4. 리턴 머할지? -

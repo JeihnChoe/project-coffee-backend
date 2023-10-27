@@ -17,22 +17,17 @@ public class CardRequest {
 
         private Integer pinNumber;
 
-        public CardRegistrationDTO(String cardName, Integer cardNumber, Integer pinNumber) {
-            this.cardName = cardName;
-            this.cardNumber = cardNumber;
-            this.pinNumber = pinNumber;
-        }
-
-        // public Card toEntity() {
-        // return Card
-        // .builder()
-        // .email(email)
-        // .password(password)
-        // .userName(userName)
-        // .phoneNumber(phoneNumber)
-        // .build();
-        // }
-
     }
     // 카드이름 카드번호 핀번호
+
+    @Setter
+    @Getter
+    public static class PayCardChargeDTO {
+        private int id;
+        private String cardName;
+        private String cardPicUrl;
+        private int cardMoney; // 현재 잔액
+        private int chargeMoney; // 충전 금액
+
+    }
 }
