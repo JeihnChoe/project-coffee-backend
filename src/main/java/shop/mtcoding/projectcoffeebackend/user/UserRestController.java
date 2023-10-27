@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
-import shop.mtcoding.projectcoffeebackend.user.UserResponse.loginDTO;
 
 @RequiredArgsConstructor
 @RestController

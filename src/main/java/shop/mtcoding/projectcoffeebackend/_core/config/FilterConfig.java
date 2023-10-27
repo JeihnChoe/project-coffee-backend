@@ -12,9 +12,9 @@ public class FilterConfig {
     FilterRegistrationBean<JwtAuthorizationFilter> jwtFilter() {
         FilterRegistrationBean<JwtAuthorizationFilter> bean = new FilterRegistrationBean<>(
                 new JwtAuthorizationFilter());
-        bean.addUrlPatterns("/carts/*");
-        bean.addUrlPatterns("/orders/*");
-        bean.addUrlPatterns("/cards/*");
+        bean.addUrlPatterns("/api/carts/*");
+        bean.addUrlPatterns("/api/orders/*");
+        bean.addUrlPatterns("/api/cards/*");
         bean.setOrder(0); // 낮은 번호부터 실행됨
         return bean;
     }

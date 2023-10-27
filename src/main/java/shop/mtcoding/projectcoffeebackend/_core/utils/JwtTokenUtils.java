@@ -13,11 +13,11 @@ public class JwtTokenUtils {
 
     public static String create(User user) {
         String jwt = JWT.create()
-                .withSubject("metacoding-key")
-                .withClaim("id", user.getId())
-                .withClaim("email", user.getEmail())
-                .withExpiresAt(Instant.now().plusMillis(1000 * 60 * 60 * 24 * 7L))
-                .sign(Algorithm.HMAC512("meta"));
+                .withSubject("metacoding-key") // 해당 토큰 이름 정하는 메소드
+                .withClaim("id", user.getId()) // 페이로드에 담길 정보(인증된 회원의 유효한 정보 담을 수 있음)
+                .withClaim("loginId", user.getLoginId())
+                .withExpiresAt(Instant.now().plusMillis(1000 * 60 * 60 * 24 * 7L)) // 해당 토큰 유효기간 만료 정하는 메소드
+                .sign(Algorithm.HMAC512("meta")); // 비밀 키 값을 입력하여 어떤 알고리즘으로 암호화할지 결정
         return jwt;
     }
 
