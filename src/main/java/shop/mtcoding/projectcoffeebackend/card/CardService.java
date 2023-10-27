@@ -56,7 +56,7 @@ public class CardService {
             int userId) {
 
         Card cardPS = cardJPARepository.findByCardNumber(cardRegistrationDTO.getCardNumber());
-        System.out.println("입력한 핀번호" + cardRegistrationDTO.getPinNumber());
+        // System.out.println("입력한 핀번호" + cardRegistrationDTO.getPinNumber());
 
         if (cardPS == null) {
             System.out.println("db에 cardPS없음");
@@ -65,13 +65,17 @@ public class CardService {
 
             return responseDTO;
         }
+
         if (cardRegistrationDTO.getPinNumber() != cardPS.getPinNumber()) {
             String fail = "카드번호 또는 핀번호를 잘못 입력하였습니다";
             CardResponse.CardRegistrationDTO responseDTO = new CardResponse.CardRegistrationDTO(fail);
             return responseDTO;
         }
+
         String fail = "";
-        User user = User.builder().id(userId).build();
+        User user = User.builder()
+                .id(userId)
+                .build();
         cardPS.setUser(user);
         System.out.println("성공");
         CardResponse.CardRegistrationDTO responseDTO = new CardResponse.CardRegistrationDTO(cardPS, fail);

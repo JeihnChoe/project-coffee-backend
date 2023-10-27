@@ -35,14 +35,14 @@ public class UserRestController {
     }
 
     // 회원가입
-    @PostMapping("/join")
+    @PostMapping("/api/join")
     public ResponseEntity<?> join(@RequestBody @Valid UserRequest.JoinDTO requestDTO, Errors errors) {
         userService.join(requestDTO);
         return ResponseEntity.ok().body(ApiUtils.success(null));
     }
 
     // 로그인
-    @PostMapping("/login")
+    @PostMapping("/api/login")
     public ResponseEntity<?> login(@RequestBody @Valid UserRequest.LoginDTO requestDTO, Errors errors) {
         String jwt = userService.login(requestDTO);
 
@@ -50,14 +50,14 @@ public class UserRestController {
     }
 
     // 로그아웃
-    @GetMapping("/logout")
+    @GetMapping("/api/logout")
     public ResponseEntity<?> logout() {
         session.invalidate();
         return ResponseEntity.ok().body(ApiUtils.success(null));
     }
 
     // 비밀번호 변경
-    @PostMapping("/pwdupdate")
+    @PostMapping("/api/pwdupdate")
     public ResponseEntity<?> pwdupdate(@RequestBody @Valid UserRequest.PwdUpdateDTO pwdUpdateDTO, Errors errors) {
         System.out.println("패스워드 진입 전 ");
         userService.pwdupdate(pwdUpdateDTO);

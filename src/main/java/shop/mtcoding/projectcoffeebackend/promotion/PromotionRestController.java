@@ -30,14 +30,14 @@ public class PromotionRestController {
     }
 
     // See All화면의 이벤트 리스트
-    @GetMapping("/promotion/viewListPage")
+    @GetMapping("/api/promotion/viewListPage")
     public List<PromotionResponse.FindAllListDTO> viewPromotionList() {
         List<PromotionResponse.FindAllListDTO> promotionList = promotionService.findAllListPromotion();
         return promotionList;
     }
 
     // 이벤트 상세 페이지
-    @GetMapping("/promotion/{id}/detailPage")
+    @GetMapping("/api/promotion/{id}/detailPage")
     public PromotionResponse.FindByPromotionIdDTO detailPromotion(@PathVariable Integer id) {
         PromotionResponse.FindByPromotionIdDTO promotionList = promotionService.findById(id);
         return promotionList;
