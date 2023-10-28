@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
+import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception401;
 import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
 import shop.mtcoding.projectcoffeebackend.user.User;
 import shop.mtcoding.projectcoffeebackend.user.UserService;
@@ -35,7 +36,6 @@ public class CardRestController {
     @GetMapping("/api/cards/viewdetailpage")
     public ResponseEntity<?> viewCardDetail() {
         System.out.println("실행됨?");
-        String jwt = "1";
         // User sessionUser = (User) session.getAttribute("sessionUser"); // 로그인한사용자정보
         // if (sessionUser == null) {
 
@@ -45,32 +45,30 @@ public class CardRestController {
 
         CardResponse.CardDetailDTO cardDetailDTO = cardService.viewCardDetail(1);
 
-        return ResponseEntity.ok().header("Authorization", "Bearer " + jwt).body(ApiUtils.success(cardDetailDTO));
+        return ResponseEntity.ok().body(ApiUtils.success(cardDetailDTO));
 
     }
 
     @GetMapping("/api/cards/viewcardlistpage")
     public ResponseEntity<?> viewCardList() {
-        String jwt = "1";
-        System.out.println("실행됨?");
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        System.out.println("세션있음아이디 : " + sessionUser.getId());
+        System.out.println("세션있음매니저아이디 : " + sessionUser.getManager());
+        System.out.println("세션있음이름 : " + sessionUser.getUserName());
+        System.out.println("세션있음로그인아이디 : " + sessionUser.getLoginId());
+        System.out.println("세션있음이메일 : " + sessionUser.getEmail());
+        System.out.println("세션있음비밀번호 : " + sessionUser.getPassword());
+        System.out.println("세션있음폰번호 : " + sessionUser.getPhoneNumber());
+        System.out.println("세션있음생성일자 : " + sessionUser.getUserCreatedAt());
 
-        // User sessionUser = (User) session.getAttribute("sessionUser");
-        // if (sessionUser == null) {
+        List<CardResponse.CardListDTO> responseDTO = cardService.viewCardList(sessionUser.getId());
 
-        // }
-
-        // int userId = sessionUser.getId();
-        System.out.println("userId" + 1);
-        List<CardResponse.CardListDTO> responseDTO = cardService.viewCardList(1);
-
-        return ResponseEntity.ok().header("Authorization", "Bearer " + jwt).body(ApiUtils.success(responseDTO));
-
+        return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
     @PostMapping("/api/cards/cardregistrationpage")
     public ResponseEntity<?> registerCard(
             @RequestBody @Valid CardRequest.CardRegistrationDTO cardRegistrationDTO) {
-        String jwt = "1";
 
         // 1. 유효성검사(로그인이 되어있는지)
         // User sessionUser = (User) session.getAttribute("sessionUser");
@@ -85,7 +83,7 @@ public class CardRestController {
         CardResponse.CardRegistrationDTO responseDTO = cardService.cardRegistration(cardRegistrationDTO, 1);
         // 4. 서비스한테 전달받은 DTO 리턴하기
 
-        return ResponseEntity.ok().header("Authorization", "Bearer " + jwt).body(ApiUtils.success(responseDTO));
+        return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
     // @GetMapping("/api/cards/paycardchargepage")

@@ -24,16 +24,22 @@ public class UserService {
     }
 
     public String login(UserRequest.LoginDTO requestDTO) {
-        User userPS = userJPARepository.findByEmail(requestDTO.getEmail())
-                .orElseThrow(() -> new Exception400("email을 찾을 수 없습니다 : " + requestDTO.getEmail()));
-        return JwtTokenUtils.create(userPS);
+        User userPS = userJPARepository.findByLoginId(requestDTO.getLoginId())
+                .orElseThrow(() -> new Exception400("아이디를 찾을 수 없습니다 : " + requestDTO.getLoginId()));
+        // System.out.println("입력한 비번 : " + requestDTO.getPassword());
+        // System.out.println("db 비번 : " + userPS.getPassword());
+        if (requestDTO.getPassword().equals(userPS.getPassword())) {
+            // System.out.println("아이디, 비밀번호 일치");
+            return JwtTokenUtils.create(userPS);
+        }
+        throw new Exception400("비밀번호가 일치하지 않습니다.");
     }
 
     @Transactional
     public void pwdupdate(UserRequest.PwdUpdateDTO pwdUpdateDTO) {
         // 조회완료
-        User user = userJPARepository.findByEmail(pwdUpdateDTO.getEmail())
-                .orElseThrow(() -> new Exception400("email을 찾을 수 없습니다 : " + pwdUpdateDTO.getPassword()));
+        User user = userJPARepository.findByLoginId(pwdUpdateDTO.getLoginId())
+                .orElseThrow(() -> new Exception400("아이디를 찾을 수 없습니다 : " + pwdUpdateDTO.getPassword()));
         System.out.println("유저 안에 머가있지? " + user.getEmail());
         System.out.println("유저 안에 머가있지? " + user.getPassword());
 

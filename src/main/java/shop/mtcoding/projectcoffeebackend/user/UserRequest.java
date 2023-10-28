@@ -1,6 +1,7 @@
 package shop.mtcoding.projectcoffeebackend.user;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -14,7 +15,7 @@ public class UserRequest {
 
         @NotEmpty
         @Pattern(regexp = "^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$", message = "이메일 형식으로 작성해주세요")
-        private String email;
+        private String loginId;
 
         @NotEmpty
         @Size(min = 8, max = 20, message = "8에서 20자 이내여야 합니다.")
@@ -22,18 +23,26 @@ public class UserRequest {
         private String password;
 
         @NotEmpty
+        @Pattern(regexp = "^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$", message = "이메일 형식으로 작성해주세요")
+        private String email;
+
+        @NotEmpty
         private String userName;
 
         @NotEmpty
         private String phoneNumber;
+        @NotNull
+        private int manager;
 
         public User toEntity() {
             return User
                     .builder()
-                    .email(email)
+                    .loginId(loginId)
                     .password(password)
                     .userName(userName)
                     .phoneNumber(phoneNumber)
+                    .email(email)
+                    .manager(manager)
                     .build();
         }
     }
@@ -42,8 +51,9 @@ public class UserRequest {
     @Setter
     public static class LoginDTO {
         @NotEmpty
-        @Pattern(regexp = "^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$", message = "이메일 형식으로 작성해주세요")
-        private String email;
+        // @Pattern(regexp = "^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$", message = "이메일
+        // 형식으로 작성해주세요")
+        private String loginId;
 
         @NotEmpty
         @Size(min = 8, max = 20, message = "8에서 20자 이내여야 합니다.")
@@ -55,7 +65,7 @@ public class UserRequest {
     @Setter
     public static class PwdUpdateDTO {
         // private String presentPwd;
-        private String email;
+        private String loginId;
         private String password;
     }
 }
