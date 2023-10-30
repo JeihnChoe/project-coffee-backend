@@ -35,14 +35,14 @@ public class CardRestController {
     @GetMapping("/api/cards/viewdetailpage")
     public ResponseEntity<?> viewCardDetail() {
         System.out.println("실행됨?");
-        // User sessionUser = (User) session.getAttribute("sessionUser"); // 로그인한사용자정보
+        User sessionUser = (User) session.getAttribute("sessionUser"); // 로그인한사용자정보
         // if (sessionUser == null) {
 
         // }
 
         // int userId = sessionUser.getId();
 
-        CardResponse.CardDetailDTO cardDetailDTO = cardService.viewCardDetail(1);
+        CardResponse.CardDetailDTO cardDetailDTO = cardService.viewCardDetail(sessionUser.getId());
 
         return ResponseEntity.ok().body(ApiUtils.success(cardDetailDTO));
 
@@ -70,7 +70,7 @@ public class CardRestController {
             @RequestBody @Valid CardRequest.RegistrationCardDTO registrationCardDTO) {
 
         // 1. 유효성검사(로그인이 되어있는지)
-        // User sessionUser = (User) session.getAttribute("sessionUser");
+        User sessionUser = (User) session.getAttribute("sessionUser");
         // if (sessionUser == null) {
 
         // }
@@ -79,7 +79,8 @@ public class CardRestController {
 
         // 2. 서비스한테 비지니스메서드 소환
         // (서비스한테 줘야하는 매개변수 : RequestDTO, userId)
-        CardResponse.RegistrationCardDTO responseDTO = cardService.registrationCard(registrationCardDTO, 1);
+        CardResponse.RegistrationCardDTO responseDTO = cardService.registrationCard(registrationCardDTO,
+                sessionUser.getId());
         // 4. 서비스한테 전달받은 DTO 리턴하기
 
         return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
@@ -99,10 +100,11 @@ public class CardRestController {
     public ResponseEntity<?> viewCardChargePage(
             @RequestBody @Valid CardRequest.ViewCardChargeDTO payCardChargeDTO) {
         // 0. 주소 제대로 줬는지, 프론트가 주는게 있는지
-
+        User sessionUser = (User) session.getAttribute("sessionUser");
         // 1. 유효성검사
         // 2. 서비스한테위임
-        CardResponse.CardChargePageDTO cardChargePageDTO = cardService.viewCardChargePage(payCardChargeDTO, 1);
+        CardResponse.CardChargePageDTO cardChargePageDTO = cardService.viewCardChargePage(payCardChargeDTO,
+                sessionUser.getId());
 
         return ResponseEntity.ok().body(ApiUtils.success(cardChargePageDTO));
     }

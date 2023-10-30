@@ -42,13 +42,16 @@ public class Card {
     @Column(nullable = false)
     private Timestamp cardCreatedAt; // 카드 생성 시간(초 단위까지)
 
+    @Column(nullable = false)
+    private int status; // 1. 비어있음 2. 사용중 3. 분실중
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     private User user;
 
     @Builder
     public Card(int id, String cardPicUrl, String cardName, int cardMoney, int cardNumber, int pinNumber,
-            Timestamp cardCreatedAt, User user) {
+            Timestamp cardCreatedAt, int status, User user) {
         this.id = id;
         this.cardPicUrl = cardPicUrl;
         this.cardName = cardName;
@@ -56,6 +59,7 @@ public class Card {
         this.cardNumber = cardNumber;
         this.pinNumber = pinNumber;
         this.cardCreatedAt = cardCreatedAt;
+        this.status = status;
         this.user = user;
     }
 
