@@ -65,12 +65,23 @@ public class CardService {
             CardResponse.RegistrationCardDTO responseDTO = new CardResponse.RegistrationCardDTO(fail);
             return responseDTO;
         }
+        if (cardPS.getStatus() == 2) {
+            String fail = "사용중인 카드입니다";
+            CardResponse.RegistrationCardDTO responseDTO = new CardResponse.RegistrationCardDTO(fail);
+            return responseDTO;
+        }
+        if (cardPS.getStatus() == 3) {
+            String fail = "분실중인 카드입니다";
+            CardResponse.RegistrationCardDTO responseDTO = new CardResponse.RegistrationCardDTO(fail);
+            return responseDTO;
+        }
 
         String fail = "";
         User user = User.builder()
                 .id(userId)
                 .build();
         cardPS.setUser(user);
+        cardPS.setStatus(2);
         System.out.println("성공");
         CardResponse.RegistrationCardDTO responseDTO = new CardResponse.RegistrationCardDTO(cardPS, fail);
         return responseDTO;
