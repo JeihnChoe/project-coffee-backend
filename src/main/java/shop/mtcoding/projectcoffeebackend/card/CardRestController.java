@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception401;
 import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
 import shop.mtcoding.projectcoffeebackend.user.User;
 import shop.mtcoding.projectcoffeebackend.user.UserService;
@@ -68,7 +67,7 @@ public class CardRestController {
 
     @PostMapping("/api/cards/cardregistrationpage")
     public ResponseEntity<?> registerCard(
-            @RequestBody @Valid CardRequest.RegistrationCardDTO cardRegistrationDTO) {
+            @RequestBody @Valid CardRequest.RegistrationCardDTO registrationCardDTO) {
 
         // 1. 유효성검사(로그인이 되어있는지)
         // User sessionUser = (User) session.getAttribute("sessionUser");
@@ -80,7 +79,7 @@ public class CardRestController {
 
         // 2. 서비스한테 비지니스메서드 소환
         // (서비스한테 줘야하는 매개변수 : RequestDTO, userId)
-        CardResponse.CardRegistrationDTO responseDTO = cardService.cardRegistration(cardRegistrationDTO, 1);
+        CardResponse.RegistrationCardDTO responseDTO = cardService.registrationCard(registrationCardDTO, 1);
         // 4. 서비스한테 전달받은 DTO 리턴하기
 
         return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
@@ -96,7 +95,7 @@ public class CardRestController {
     // jwt).body(ApiUtils.success(null));
     // }
 
-    @GetMapping("/api/cards/viewcardchargepage")
+    @GetMapping("/api/cards/viewchargecardpage")
     public ResponseEntity<?> viewCardChargePage(
             @RequestBody @Valid CardRequest.ViewCardChargeDTO payCardChargeDTO) {
         // 0. 주소 제대로 줬는지, 프론트가 주는게 있는지
@@ -108,16 +107,26 @@ public class CardRestController {
         return ResponseEntity.ok().body(ApiUtils.success(cardChargePageDTO));
     }
 
-    @PostMapping("/api/cards/cardcharge")
-    public ResponseEntity<?> chargeCard(@RequestBody @Valid CardRequest.ChargeCardDTO ChargeCardDTO) {
+    @PostMapping("/api/cards/chargecard")
+    public ResponseEntity<?> chargeCard(@RequestBody @Valid CardRequest.ChargeCardDTO chargeCardDTO) {
 
         // PayCardChargeDTO.builder().cardId(1).chargeMoney(5000).build();
 
         User sessionUser = (User) session.getAttribute("sessionUser");
 
-        CardResponse.CardChargeDTO cardChargeDTO = cardService.chargeCard(ChargeCardDTO, sessionUser.getId());
+        CardResponse.CardChargeDTO cardChargeDTO = cardService.chargeCard(chargeCardDTO, sessionUser.getId());
 
         return ResponseEntity.ok().body(ApiUtils.success(cardChargeDTO));
+    }
+
+    @PostMapping("/api/cards/deletecard")
+    public ResponseEntity<?> deleteCard(@RequestBody @Valid CardRequest.DeleteCardDTO deleteCardDTO) {
+
+        User sessionUser = (User) session.getAttribute("sessionUser");
+
+        cardService.deleteCard(deleteCardDTO, sessionUser.getId());
+
+        return ResponseEntity.ok().body(ApiUtils.success(null));
     }
 
 }

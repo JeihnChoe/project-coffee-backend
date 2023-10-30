@@ -1,21 +1,15 @@
 package shop.mtcoding.projectcoffeebackend.card;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
-import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
-
-import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception500;
-import shop.mtcoding.projectcoffeebackend.card.CardResponse.CardDetailDTO;
 import shop.mtcoding.projectcoffeebackend.user.User;
-
-import java.util.stream.Collectors;
 
 @Service
 public class CardService {
@@ -52,7 +46,7 @@ public class CardService {
     }
 
     @Transactional
-    public CardResponse.CardRegistrationDTO cardRegistration(CardRequest.RegistrationCardDTO cardRegistrationDTO,
+    public CardResponse.RegistrationCardDTO registrationCard(CardRequest.RegistrationCardDTO cardRegistrationDTO,
             int userId) {
 
         Card cardPS = cardJPARepository.findByCardNumber(cardRegistrationDTO.getCardNumber());
@@ -61,14 +55,14 @@ public class CardService {
         if (cardPS == null) {
             System.out.println("db에 cardPS없음");
             String fail = "카드번호 또는 핀번호를 잘못 입력하였습니다";
-            CardResponse.CardRegistrationDTO responseDTO = new CardResponse.CardRegistrationDTO(fail);
+            CardResponse.RegistrationCardDTO responseDTO = new CardResponse.RegistrationCardDTO(fail);
 
             return responseDTO;
         }
 
         if (cardRegistrationDTO.getPinNumber() != cardPS.getPinNumber()) {
             String fail = "카드번호 또는 핀번호를 잘못 입력하였습니다";
-            CardResponse.CardRegistrationDTO responseDTO = new CardResponse.CardRegistrationDTO(fail);
+            CardResponse.RegistrationCardDTO responseDTO = new CardResponse.RegistrationCardDTO(fail);
             return responseDTO;
         }
 
@@ -78,7 +72,7 @@ public class CardService {
                 .build();
         cardPS.setUser(user);
         System.out.println("성공");
-        CardResponse.CardRegistrationDTO responseDTO = new CardResponse.CardRegistrationDTO(cardPS, fail);
+        CardResponse.RegistrationCardDTO responseDTO = new CardResponse.RegistrationCardDTO(cardPS, fail);
         return responseDTO;
 
     }
@@ -129,6 +123,21 @@ public class CardService {
 
         CardResponse.CardChargeDTO cardChargeDTO = new CardResponse.CardChargeDTO(cardPS, userId);
         return cardChargeDTO;
+
+    }
+
+    @Transactional
+    public void deleteCard(CardRequest.DeleteCardDTO deleteCardDTO, int userId) {
+
+        Card cardPS = cardJPARepository.findById(deleteCardDTO.getCardId())
+                .orElseThrow(() -> new Exception400("카드가 없습니다"));
+
+        if (cardPS.getCardMoney() == 0) {
+            cardJPARepository.deleteById(cardPS.getId());
+        } else {
+            cardPS.setUser(null);
+
+        }
 
     }
 

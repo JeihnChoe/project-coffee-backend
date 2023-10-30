@@ -1,9 +1,7 @@
 package shop.mtcoding.projectcoffeebackend.card;
 
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
-import shop.mtcoding.projectcoffeebackend.user.User;
 
 public class CardResponse {
 
@@ -49,20 +47,20 @@ public class CardResponse {
 
     @Getter
     @Setter
-    public static class CardRegistrationDTO {
+    public static class RegistrationCardDTO {
         private String cardName;
         private Integer cardNumber;
         private Integer pinNumber;
         private String fail;
 
-        public CardRegistrationDTO(Card card, String fail) {
+        public RegistrationCardDTO(Card card, String fail) {
             this.cardName = card.getCardName();
             this.cardNumber = card.getCardNumber();
             this.pinNumber = card.getPinNumber();
             this.fail = null;
         }
 
-        public CardRegistrationDTO(String fail) {
+        public RegistrationCardDTO(String fail) {
             this.cardName = null;
             this.cardNumber = null;
             this.pinNumber = null;
