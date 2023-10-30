@@ -30,4 +30,11 @@ public class CardRequest {
         private int chargeMoney; // 충전 금액
 
     }
+
+    @Getter
+    @Setter
+    public static class PayCardChargeDTO {
+        private Integer cardId;
+        private Integer chargeMoney;
+    }
 }

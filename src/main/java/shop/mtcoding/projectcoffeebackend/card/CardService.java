@@ -96,4 +96,19 @@ public class CardService {
     // .map(card -> new CardResponse.CardRegistrationDTO(card))
     // .collect(Collectors.toList());
 
+    @Transactional
+    public CardResponse.CardChargeDTO cardCharge(CardRequest.PayCardChargeDTO payCardCharge) {
+
+        Card cardPS = cardJPARepository.findById(payCardCharge.getCardId())
+                .orElseThrow(() -> new Exception400("카드가 없습니다"));
+
+        if (payCardCharge.getCardId().equals(cardPS.getId())) {
+            int currentBalance = cardPS.getCardMoney();
+            cardPS.setCardMoney(currentBalance + payCardCharge.getChargeMoney());
+
+        }
+        throw new Exception400("카드가 일치하지않습니다");
+
+    }
+
 }

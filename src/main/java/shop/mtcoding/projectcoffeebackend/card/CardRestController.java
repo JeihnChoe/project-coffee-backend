@@ -96,4 +96,12 @@ public class CardRestController {
     // jwt).body(ApiUtils.success(null));
     // }
 
+    @GetMapping("/api/cards/paycardcharege")
+    public ResponseEntity<?> payCardCharge(@RequestBody @Valid CardRequest.PayCardChargeDTO payCardChargeDTO) {
+
+        cardService.cardCharge(payCardChargeDTO);
+
+        return null;
+    }
+
 }
