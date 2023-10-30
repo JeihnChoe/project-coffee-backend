@@ -11,5 +11,12 @@ public class ManagerController {
 
         return "index";
     }
+
+    // 상품, 이벤트, 카드, 매출
+    @GetMapping("/beverage")
+    public String viewBeverage() {
+
+        return "beverage";
+    }
     // 상품, 이벤트, 카드, 매출
 }
