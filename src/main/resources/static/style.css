@@ -60,7 +60,7 @@ footer {
     margin: 0 auto;
 
     border-radius: 20px;
-    border-color: (0, 0, 0, 0.15);
+
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
     padding: 10px;
 }
@@ -108,7 +108,6 @@ footer {
 }
 
 
-
 .input-smallbox {
     width: 100px;
     height: 15px;
@@ -126,7 +125,7 @@ footer {
     gap: 25px;
 }
 
-.subgrid-box{
+.subgrid-box {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 25px;
