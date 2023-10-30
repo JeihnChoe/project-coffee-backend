@@ -16,7 +16,7 @@ INSERT INTO user_tb (`id`, `login_id`, `email`, `password`, `user_name`, `phone_
 
 
 
-INSERT INTO card_tb (`id`,`card_pic_url`,`card_name`,`card_money`,`card_number`, `pin_number`, `card_created_at`,`user_id`) VALUES(1,'사진','스타벅스e카드',12300,123456780,123123,'2020-12-12',1);
+INSERT INTO card_tb (`id`,`card_pic_url`,`card_name`,`card_money`,`card_number`, `pin_number`, `card_created_at`,`user_id`) VALUES(1,'사진','스타벅스e카드',12000,123456780,123123,'2020-12-12',1);
 INSERT INTO card_tb (`id`,`card_pic_url`,`card_name`,`card_money`,`card_number`,`pin_number`,`card_created_at`,`user_id`) VALUES(2,'사진','스타벅스e카드',12300,123456789,456789,'2020-12-12',1);
 INSERT INTO card_tb (`id`,`card_pic_url`,`card_name`,`card_money`,`card_number`,`pin_number`,`card_created_at`,`user_id`) VALUES(3,'사진','스타벅스e카드',12300,123456788,456123,'2020-12-12',1);
 

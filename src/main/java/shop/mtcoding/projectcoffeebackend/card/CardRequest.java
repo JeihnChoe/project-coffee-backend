@@ -1,8 +1,5 @@
 package shop.mtcoding.projectcoffeebackend.card;
 
-import java.sql.Timestamp;
-
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,10 +36,17 @@ public class CardRequest {
         private Integer cardId;
         private Integer chargeMoney;
 
-        @Builder
         public ChargeCardDTO(Integer cardId, Integer chargeMoney) {
             this.cardId = cardId;
             this.chargeMoney = chargeMoney;
         }
     }
+
+    @Getter
+    @Setter
+    public static class DeleteCardDTO {
+        private Integer cardId;
+
+    }
+
 }
