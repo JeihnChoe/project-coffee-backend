@@ -4,262 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <meta http-equiv="Expires" content="Mon, 06 Jan 1990 00:00:01 GMT">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
 
-    <style>
-        /* 햄버거 버튼 스타일링 */
-        .hamburger-menu {
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            display: none;
-            cursor: pointer;
-            position: relative;
-        }
 
-        #mini-pop {
-            display: none;
-            position: absolute;
-            width: 120px;
-            background: #00000094;
-            color: #fff;
-            border-radius: 10px;
-            padding: 10px;
-            top: 30px;
-            z-index: 10;
-        }
+    <title>스타벅스 관리자페이지</title>
 
-        #mini-pop .nav-item {
-            margin-bottom: 5px;
-        }
+    <link rel="stylesheet" href="/style.css">
 
-        #mini-pop .nav-item button,
-        #mini-pop .nav-item a {
-            color: #fff;
-            background-color: #fff0;
-            border: none;
-        }
-
-        #close_btn {
-            font-size: 35px;
-            height: 25px;
-            justify-content: end;
-            cursor: pointer;
-        }
-
-        .bar {
-            width: 30px;
-            height: 3px;
-            background-color: #333;
-            margin: 3px 0;
-            transition: 0.4s;
-        }
-
-        /* 햄버거 버튼 애니메이션 */
-        .hamburger-menu.active .bar:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .hamburger-menu.active .bar:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger-menu.active .bar:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-        /* 모바일 스타일 (768px 미만) */
-        @media (min-width: 300px) {
-            .hamburger-menu {
-                display: block;
-            }
-
-            .header-link {
-                display: none !important;
-            }
-        }
-    </style>
 </head>
 
-
-<body>
-    <div class="header-class">
-        <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-sm">
-            <div class="container-fluid d-flex justify-content-between">
-                <div>
-                    <ul class="navbar-nav text-center">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/">
-                                <img src="/images/logo.png" style="max-width: 100px;">
-                            </a>
-                        </li>
-                        <li class="nav-item2">
-                            <a class="nav-link" href="/jobPosting">채용공고</a>
-                        </li>
-                        <li class="nav-item2">
-                            <a class="nav-link" href="/event">이벤트</a>
-                        </li>
-                        <li class="nav-item2">
-                            <a class="nav-link" href="/csForm">고객센터</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="d-flex justify-content-around header-link">
-                    <ul class="navbar-nav nav-item2">
-                        <li class="nav-item">
-                            <img src="/images/search.png" alt="">
-                            <img src="/images/resume.png" alt="">
-                        </li>
-                    </ul>
-                    <div class="join_and_login">
-                        {{^sessionUser}}
-                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                            data-bs-target="#myModal">
-                            회원가입
-                        </button>
-                        <a href="/loginForm" class="btn btn-secondary">
-                            로그인
-                        </a>
-                        {{/sessionUser}}
-
-                        {{#sessionUser}}
-                        {{#sessionUser.distinguish}} <!-- sessionUser 객체의 distinguish 속성을 확인하여 개인회원 여부를 판단 -->
-                        <a href="/userInformation" class="btn btn-secondary">나의 정보</a>
-                        {{/sessionUser.distinguish}}
-
-                        {{^sessionUser.distinguish}} <!-- sessionUser 객체의 distinguish 속성을 확인하여 기업회원 여부를 판단 -->
-                        <a href="/companyNoticeList" class="btn btn-secondary">나의 정보</a>
-                        {{/sessionUser.distinguish}}
-
-                        <a href="/logout" class="btn btn-secondary">로그아웃</a>
-                        {{/sessionUser}}
-                    </div>
-
-                </div>
-                <div class="hamburger-menu">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-
-                    <div id="mini-pop">
-                        <li class="nav-item" id="close_btn">
-                            ×
-                        </li>
-                        <li class="nav-item">
-                            검색
-                        </li>
+<header>
+    <div class="main-container" style="display: flex; background-color: #fff;">
 
 
-                        {{^sessionUser}}
-                        <li class="nav-item">
-                            <a href="/loginForm">등록</a>
-                        </li>
-                        <li class="nav-item">
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">
-                                회원가입
-                            </button>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/loginForm">
-                                로그인
-                            </a>
-                        </li>
-                        {{/sessionUser}}
-
-                        {{#sessionUser}}
-                        {{#sessionUser.distinguish}} <!-- sessionUser 객체의 distinguish 속성을 확인하여 개인회원 여부를 판단 -->
-                        <li class="nav-item">
-                            <a href="/userInformation/{{sessionUser.id}}">나의 정보</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/resumeWrite">이력서 등록</a>
-                        </li>
-                        {{/sessionUser.distinguish}}
-
-                        {{^sessionUser.distinguish}} <!-- sessionUser 객체의 distinguish 속성을 확인하여 기업회원 여부를 판단 -->
-                        <li class="nav-item">
-                            <a href="/companyNoticeList/{{sessionUser.id}}">나의 정보</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/noticeWrite">채용공고 등록</a>
-                        </li>
-                        {{/sessionUser.distinguish}}
-                        <li class="nav-item">
-                            <a href="/logout">로그아웃</a>
-                        </li>
-                        {{/sessionUser}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">선택해주세요</h4>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-
-                        <!-- Modal body -->
-                        <div class="image-container text-center">
-
-                            <a href="/userJoinForm">
-                                <img src="/images/개인회원.png" alt="개인회원 이미지">
-                            </a>
-                            <a href="/compJoinForm">
-                                <img src="/images/기업회원.png" alt="기업회원 이미지">
-                            </a>
-
-                        </div>
-
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <hr>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">상품</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">등록</a></li>
+                <li><a class="dropdown-item" href="#">수정</a></li>
+                <li><a class="dropdown-item" href="#">제거</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Dropdown</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Link</a></li>
+                <li><a class="dropdown-item" href="#">Another link</a></li>
+                <li><a class="dropdown-item" href="#">A third link</a></li>
+            </ul>
+        </li>
     </div>
-    <!--여기까지 헤더-->
+    <hr class="line" style="margin-top: 0;">
+</header>
 
-
-    <script>
-        // Simulate session user logged in
-        var sessionUserLoggedIn = true; // Set this to true if the user is logged in
-
-        // Get reference to the mypage button
-        var mypageBtn = document.getElementById('mypageBtn');
-
-        // Check if the user is logged in
-        // if (sessionUserLoggedIn) {
-        //     // Show the mypage button
-        //     mypageBtn.style.display = 'block';
-        // } else {
-        //     // Hide the mypage button
-        //     mypageBtn.style.display = 'none';
-        // }
-
-        $(".hamburger-menu").click(function () {
-            $('#mini-pop').fadeIn(300);
-        });
-
-        $("#close_btn").click(function (e) {
-            e.stopPropagation(); // Stop the click event from propagating to parent elements
-            $('#mini-pop').css('display', 'none');
-        });
-
-
-    </script>
+<body style="margin-top: 60px;">
