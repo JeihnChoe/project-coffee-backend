@@ -10,7 +10,7 @@ public class CardRequest {
 
     @Getter
     @Setter
-    public static class CardRegistrationDTO {
+    public static class RegistrationCardDTO {
 
         private String cardName;
 
@@ -35,12 +35,12 @@ public class CardRequest {
 
     @Getter
     @Setter
-    public static class CardChargeDTO {
+    public static class ChargeCardDTO {
         private Integer cardId;
         private Integer chargeMoney;
 
         @Builder
-        public CardChargeDTO(Integer cardId, Integer chargeMoney) {
+        public ChargeCardDTO(Integer cardId, Integer chargeMoney) {
             this.cardId = cardId;
             this.chargeMoney = chargeMoney;
         }
