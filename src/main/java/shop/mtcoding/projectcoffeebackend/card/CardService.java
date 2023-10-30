@@ -52,7 +52,7 @@ public class CardService {
     }
 
     @Transactional
-    public CardResponse.CardRegistrationDTO cardRegistration(CardRequest.CardRegistrationDTO cardRegistrationDTO,
+    public CardResponse.CardRegistrationDTO cardRegistration(CardRequest.RegistrationCardDTO cardRegistrationDTO,
             int userId) {
 
         Card cardPS = cardJPARepository.findByCardNumber(cardRegistrationDTO.getCardNumber());
@@ -119,13 +119,13 @@ public class CardService {
     }
 
     @Transactional
-    public CardResponse.CardChargeDTO cardCharge(CardRequest.CardChargeDTO payCardCharge, int userId) {
+    public CardResponse.CardChargeDTO chargeCard(CardRequest.ChargeCardDTO chargeCardDTO, int userId) {
 
-        Card cardPS = cardJPARepository.findById(payCardCharge.getCardId())
+        Card cardPS = cardJPARepository.findById(chargeCardDTO.getCardId())
                 .orElseThrow(() -> new Exception400("카드가 없습니다"));
 
         int currentBalance = cardPS.getCardMoney();
-        cardPS.setCardMoney(currentBalance + payCardCharge.getChargeMoney());
+        cardPS.setCardMoney(currentBalance + chargeCardDTO.getChargeMoney());
 
         CardResponse.CardChargeDTO cardChargeDTO = new CardResponse.CardChargeDTO(cardPS, userId);
         return cardChargeDTO;

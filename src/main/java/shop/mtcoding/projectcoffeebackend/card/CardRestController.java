@@ -68,7 +68,7 @@ public class CardRestController {
 
     @PostMapping("/api/cards/cardregistrationpage")
     public ResponseEntity<?> registerCard(
-            @RequestBody @Valid CardRequest.CardRegistrationDTO cardRegistrationDTO) {
+            @RequestBody @Valid CardRequest.RegistrationCardDTO cardRegistrationDTO) {
 
         // 1. 유효성검사(로그인이 되어있는지)
         // User sessionUser = (User) session.getAttribute("sessionUser");
@@ -109,13 +109,13 @@ public class CardRestController {
     }
 
     @PostMapping("/api/cards/cardcharge")
-    public ResponseEntity<?> cardCharge(@RequestBody @Valid CardRequest.CardChargeDTO CardChargeDTO) {
+    public ResponseEntity<?> chargeCard(@RequestBody @Valid CardRequest.ChargeCardDTO ChargeCardDTO) {
 
         // PayCardChargeDTO.builder().cardId(1).chargeMoney(5000).build();
 
         User sessionUser = (User) session.getAttribute("sessionUser");
 
-        CardResponse.CardChargeDTO cardChargeDTO = cardService.cardCharge(CardChargeDTO, sessionUser.getId());
+        CardResponse.CardChargeDTO cardChargeDTO = cardService.chargeCard(ChargeCardDTO, sessionUser.getId());
 
         return ResponseEntity.ok().body(ApiUtils.success(cardChargeDTO));
     }
