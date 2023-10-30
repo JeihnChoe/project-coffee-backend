@@ -96,12 +96,28 @@ public class CardRestController {
     // jwt).body(ApiUtils.success(null));
     // }
 
-    @GetMapping("/api/cards/paycardcharege")
-    public ResponseEntity<?> payCardCharge(@RequestBody @Valid CardRequest.PayCardChargeDTO payCardChargeDTO) {
+    @GetMapping("/api/cards/viewcardchargepage")
+    public ResponseEntity<?> viewCardChargePage(
+            @RequestBody @Valid CardRequest.ViewCardChargeDTO payCardChargeDTO) {
+        // 0. 주소 제대로 줬는지, 프론트가 주는게 있는지
 
-        cardService.cardCharge(payCardChargeDTO);
+        // 1. 유효성검사
+        // 2. 서비스한테위임
+        CardResponse.CardChargePageDTO cardChargePageDTO = cardService.viewCardChargePage(payCardChargeDTO, 1);
 
-        return null;
+        return ResponseEntity.ok().body(ApiUtils.success(cardChargePageDTO));
+    }
+
+    @PostMapping("/api/cards/cardcharge")
+    public ResponseEntity<?> cardCharge(@RequestBody @Valid CardRequest.CardChargeDTO CardChargeDTO) {
+
+        // PayCardChargeDTO.builder().cardId(1).chargeMoney(5000).build();
+
+        User sessionUser = (User) session.getAttribute("sessionUser");
+
+        CardResponse.CardChargeDTO cardChargeDTO = cardService.cardCharge(CardChargeDTO, sessionUser.getId());
+
+        return ResponseEntity.ok().body(ApiUtils.success(cardChargeDTO));
     }
 
 }

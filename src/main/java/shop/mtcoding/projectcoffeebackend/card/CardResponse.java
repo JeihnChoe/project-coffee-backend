@@ -73,6 +73,26 @@ public class CardResponse {
 
     @Getter
     @Setter
+    public static class CardChargePageDTO {
+        private String cardPicUrl;
+        private String cardName;
+        private Integer cardMoney;
+        private Integer userId;
+        private Integer cardId;
+
+        public CardChargePageDTO(Card card,
+                Integer userId) {
+            this.cardPicUrl = card.getCardPicUrl();
+            this.cardName = card.getCardName();
+            this.cardMoney = card.getCardMoney();
+            this.userId = userId;
+            this.cardId = card.getId();
+        }
+
+    }
+
+    @Getter
+    @Setter
     public static class CardChargeDTO {
         // private String cardPicUrl;
         // private String cardName;
@@ -81,7 +101,7 @@ public class CardResponse {
         private Integer userId;
         private Integer cardId;
 
-        public CardChargeDTO(Card card, Integer chargeMoney,
+        public CardChargeDTO(Card card,
                 Integer userId) {
             // this.cardPicUrl = card.getCardPicUrl();
             // this.cardName = card.getCardName();

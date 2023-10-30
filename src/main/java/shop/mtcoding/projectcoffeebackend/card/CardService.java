@@ -97,17 +97,38 @@ public class CardService {
     // .collect(Collectors.toList());
 
     @Transactional
-    public CardResponse.CardChargeDTO cardCharge(CardRequest.PayCardChargeDTO payCardCharge) {
+    public CardResponse.CardChargePageDTO viewCardChargePage(CardRequest.ViewCardChargeDTO viewPayCardChargeDTO,
+            int userId) {
+        // 1. DB에서 값 긁어오기(레파지토리에 위임) : 프론트가 준 유저 아이디로.
+        Card cardPS = cardJPARepository.findById(viewPayCardChargeDTO.getCardId())
+                .orElseThrow(() -> new Exception400("카드가 없습니다"));
+        // 2. 값의 핀넘버랑 유저가 준 핀넘버 비교
+        if (viewPayCardChargeDTO.getCardId().equals(cardPS.getId())) {
+            CardResponse.CardChargePageDTO cardChargePageDTO = new CardResponse.CardChargePageDTO(cardPS, userId);
+            return cardChargePageDTO;
+        }
+
+        throw new Exception400("카드가 일치하지않습니다");
+
+        // 3. 일치여부확인
+        // 3-1. 일치 -> 리턴 ~~~~~~~~~~
+        // 3-2. 일치하지않으면-> 리턴 ~~~~~~~~~
+
+        // 4.
+
+    }
+
+    @Transactional
+    public CardResponse.CardChargeDTO cardCharge(CardRequest.CardChargeDTO payCardCharge, int userId) {
 
         Card cardPS = cardJPARepository.findById(payCardCharge.getCardId())
                 .orElseThrow(() -> new Exception400("카드가 없습니다"));
 
-        if (payCardCharge.getCardId().equals(cardPS.getId())) {
-            int currentBalance = cardPS.getCardMoney();
-            cardPS.setCardMoney(currentBalance + payCardCharge.getChargeMoney());
+        int currentBalance = cardPS.getCardMoney();
+        cardPS.setCardMoney(currentBalance + payCardCharge.getChargeMoney());
 
-        }
-        throw new Exception400("카드가 일치하지않습니다");
+        CardResponse.CardChargeDTO cardChargeDTO = new CardResponse.CardChargeDTO(cardPS, userId);
+        return cardChargeDTO;
 
     }
 
