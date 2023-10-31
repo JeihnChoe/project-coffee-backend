@@ -71,14 +71,14 @@ public class CardResponse {
 
     @Getter
     @Setter
-    public static class CardChargePageDTO {
+    public static class ChargeCardPageDTO {
         private String cardPicUrl;
         private String cardName;
         private Integer cardMoney;
         private Integer userId;
         private Integer cardId;
 
-        public CardChargePageDTO(Card card,
+        public ChargeCardPageDTO(Card card,
                 Integer userId) {
             this.cardPicUrl = card.getCardPicUrl();
             this.cardName = card.getCardName();

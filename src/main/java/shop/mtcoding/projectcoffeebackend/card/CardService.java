@@ -102,14 +102,14 @@ public class CardService {
     // .collect(Collectors.toList());
 
     @Transactional
-    public CardResponse.CardChargePageDTO viewCardChargePage(CardRequest.ViewCardChargeDTO viewPayCardChargeDTO,
+    public CardResponse.ChargeCardPageDTO viewChargeCardPage(CardRequest.ViewCardChargeDTO viewPayCardChargeDTO,
             int userId) {
         // 1. DB에서 값 긁어오기(레파지토리에 위임) : 프론트가 준 유저 아이디로.
         Card cardPS = cardJPARepository.findById(viewPayCardChargeDTO.getCardId())
                 .orElseThrow(() -> new Exception400("카드가 없습니다"));
         // 2. 값의 핀넘버랑 유저가 준 핀넘버 비교
         if (viewPayCardChargeDTO.getCardId().equals(cardPS.getId())) {
-            CardResponse.CardChargePageDTO cardChargePageDTO = new CardResponse.CardChargePageDTO(cardPS, userId);
+            CardResponse.ChargeCardPageDTO cardChargePageDTO = new CardResponse.ChargeCardPageDTO(cardPS, userId);
             return cardChargePageDTO;
         }
 
