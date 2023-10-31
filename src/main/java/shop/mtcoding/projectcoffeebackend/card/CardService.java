@@ -147,6 +147,7 @@ public class CardService {
             cardJPARepository.deleteById(cardPS.getId());
         } else {
             cardPS.setUser(null);
+            cardPS.setStatus(1);
 
         }
 
