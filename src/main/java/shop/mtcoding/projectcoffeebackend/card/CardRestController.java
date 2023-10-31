@@ -103,7 +103,7 @@ public class CardRestController {
         User sessionUser = (User) session.getAttribute("sessionUser");
         // 1. 유효성검사
         // 2. 서비스한테위임
-        CardResponse.CardChargePageDTO cardChargePageDTO = cardService.viewCardChargePage(payCardChargeDTO,
+        CardResponse.ChargeCardPageDTO cardChargePageDTO = cardService.viewChargeCardPage(payCardChargeDTO,
                 sessionUser.getId());
 
         return ResponseEntity.ok().body(ApiUtils.success(cardChargePageDTO));
