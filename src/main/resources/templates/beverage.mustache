@@ -3,121 +3,231 @@
     <h5>음료 등록</h5>
     <table class="table table-hover">
         <thead class="table-success">
-        <tr> <!-- 음료명 등은 폼필드/ 카테고리 등은 드롭다운으로 만들것  -->
-            <!-- DB 필드명에 맞춰 박스 재구성할것  -->
-            <th>No.</th>
-            <th>음료명</th>
-            <th>카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
-            <th>고객ID</th>
-            <th>고객명</th>
-            <th>품목</th>
-            <th>누적주문횟수</th>
-            <th>금액</th>
-            <th>결제수단</th>
-            <th>수정</th><!-- 아이콘으로 표시할것-->
-            <th>삭제</th><!-- 아이콘으로 표시할것-->
-        </tr>
+            <tr> <!-- 음료명 등은 폼필드/ 카테고리 등은 드롭다운으로 만들것  -->
+                <!-- DB 필드명에 맞춰 박스 재구성할것  -->
+                <th>No.</th>
+                <th>카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
+                <th>품목</th>
+                <th>음료 영문명</th>
+                <th>음료 설명</th>
+                <th>팁</th>
+                <th>핫/아이스</th>
+                <th>금액</th>
+                <th>사이즈</th>
+                <th>사진</th>
+                <th>수정</th><!-- 아이콘으로 표시할것-->
+                <th>삭제</th><!-- 아이콘으로 표시할것-->
+            </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>23.10.31</td>
-            <td>04:54:22</td>
-            <td>john</td>
-            <td>최제인</td>
-            <td>아이스아메리카노</td>
-            <td>15회</td>
-            <td>5400원</td>
-            <td>카드</td>
-            <td>수정</td><!-- 아이콘으로 표시할것-->
-            <td>삭제</td><!-- 아이콘으로 표시할것-->
-        </tr>
+            <tr>
+                <td>1</td>
+                <td>콜드 브루 커피</td>
+                <td>나이트로 바닐라 크림</td>
+                <td>Nitro Vanilla Cream</td>
+                <td>부드러운 목넘김의 나이트로 커피와 바닐라 크림의 매력을 한번에 느껴보세요!</td>
+                <td>디카페인결제시 300원 추가됩니다.</td>
+                <td>Hot</td>
+                <td>6100원</td>
+                <td>Short</td>
+                <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg"
+                        style="height: 80px;"></img></td>
+                <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" style="height: 80px;"
+                        onclick="location.href='/'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+                <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
+                        onclick="location.href='/'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>콜드 브루 커피</td>
+                <td>바닐라 크림 콜드 브루</td>
+                <td>Vanilla Cream Cold Brew</td>
+                <td>콜드 브루에 더해진 바닐라 크림으로 깔끔하면서 달콤한 콜드 브루를 새롭게 즐길 수 있는 음료입니다.</td>
+                <td>디카페인결제시 300원 추가됩니다.</td>
+                <td>Iced</td>
+                <td>5800원</td>
+                <td>Tall</td>
+                <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg"
+                        style="height: 80px;"></img></td>
+                <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" style="height: 80px;"
+                        onclick="location.href='/'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+                <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
+                        onclick="location.href='/'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>콜드 브루 커피</td>
+                <td>바닐라 크림 콜드 브루</td>
+                <td>Vanilla Cream Cold Brew</td>
+                <td>콜드 브루에 더해진 바닐라 크림으로 깔끔하면서 달콤한 콜드 브루를 새롭게 즐길 수 있는 음료입니다.</td>
+                <td>디카페인결제시 300원 추가됩니다.</td>
+                <td>Iced</td>
+                <td>5800원</td>
+                <td>Tall</td>
+                <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg"
+                        style="height: 80px;"></img></td>
+                <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" style="height: 80px;"
+                        onclick="location.href='/'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+                <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
+                        onclick="location.href='/'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>콜드 브루 커피</td>
+                <td>돌체 콜드 브루</td>
+                <td>Dolche Cold Brew</td>
+                <td>무더운 여름철 동남아 휴가지에서 즐기는 커피를 떠오르게 하는 스타벅스 음료의 베스트 x 베스트 조합인 돌체 콜드 브루를 만나보세요!</td>
+                <td>디카페인결제시 300원 추가됩니다.</td>
+                <td>Iced</td>
+                <td>6000원</td>
+                <td>Grande</td>
+                <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg"
+                        style="height: 80px;"></img></td>
+                <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" style="height: 80px;"
+                        onclick="location.href='/'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+                <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
+                        onclick="location.href='/'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>에스프레소</td>
+                <td>에스프레소 콘 파나</td>
+                <td>Espresso Con Panna</td>
+                <td>신선한 에스프레소 샷에 풍부한 휘핑크림을 얹은 커피 음료로서, 뜨거운 커피의 맛과 차갑고 달콤한 생크림의 맛을 같이 즐길 수 있는 커피 음료</td>
+                <td>디카페인결제시 300원 추가됩니다.</td>
+                <td>Iced</td>
+                <td>4200원</td>
+                <td>Solo</td>
+                <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[30]_20210415144252425.jpg"
+                        style="height: 80px;"></img></td>
+                <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" style="height: 80px;"
+                        onclick="location.href='/'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+                <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
+                        onclick="location.href='/'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>에스프레소</td>
+                <td>에스프레소 콘 마끼아또</td>
+                <td>Espresso Macchiato</td>
+                <td>신선한 에스프레소 샷에 우유 거품을 살짝 얹은 커피 음료로써, 강렬한 에스프레소의 맛과 우유의 부드러움을 같이 즐길 수 있는 커피 음료</td>
+                <td>디카페인결제시 300원 추가됩니다.</td>
+                <td>Iced</td>
+                <td>4000원</td>
+                <td>Doppio</td>
+                <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[25]_20210415144211211.jpg"
+                        style="height: 80px;"></img></td>
+                <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png" style="height: 80px;"
+                        onclick="location.href='/'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+                <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
+                        onclick="location.href='/'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+            </tr>
+
+        </tbody>
+
+    </table>
+    <br>
     <h5>음료 내역 및 등록 </h5>
     <table class="table table-hover">
         <thead class="table-success">
-        <tr> <!-- 음료 등록에 필요한 내용들로 th 구성할 것 -->
-            <th>No.</th>
-            <th>음료명</th>
-            <th>카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
-            <th>고객ID</th>
-            <th>고객명</th>
-            <th>품목</th>
-            <th>누적주문횟수</th>
-            <th>금액</th>
-            <th>결제수단</th>
-            <th>수정</th><!-- 아이콘으로 표시할것-->
-            <th>삭제</th><!-- 아이콘으로 표시할것-->
-        </tr>
+            <tr> <!-- 음료 등록에 필요한 내용들로 th 구성할 것 -->
+                <th>No.</th>
+                <th>음료명</th>
+                <th>카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
+                <th>고객ID</th>
+                <th>고객명</th>
+                <th>품목</th>
+                <th>누적주문횟수</th>
+                <th>금액</th>
+                <th>결제수단</th>
+                <th>수정</th><!-- 아이콘으로 표시할것-->
+                <th>삭제</th><!-- 아이콘으로 표시할것-->
+            </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>23.10.31</td>
-            <td>04:54:22</td>
-            <td>john</td>
-            <td>최제인</td>
-            <td>아이스아메리카노</td>
-            <td>15회</td>
-            <td>5400원</td>
-            <td>카드</td>
-            <td>수정</td><!-- 아이콘으로 표시할것-->
-            <td>삭제</td><!-- 아이콘으로 표시할것-->
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>23.10.31</td>
-            <td>04:54:22</td>
-            <td>john</td>
-            <td>최제인</td>
-            <td>아이스아메리카노</td>
-            <td>15회</td>
-            <td>5400원</td>
-            <td>카드</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>23.10.31</td>
-            <td>04:54:22</td>
-            <td>john</td>
-            <td>최제인</td>
-            <td>아이스아메리카노</td>
-            <td>15회</td>
-            <td>5400원</td>
-            <td>카드</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>23.10.31</td>
-            <td>04:54:22</td>
-            <td>john</td>
-            <td>최제인</td>
-            <td>아이스아메리카노</td>
-            <td>15회</td>
-            <td>5400원</td>
-            <td>카드</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>23.10.31</td>
-            <td>04:54:22</td>
-            <td>john</td>
-            <td>최제인</td>
-            <td>아이스아메리카노</td>
-            <td>15회</td>
-            <td>5400원</td>
-            <td>카드</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>23.10.31</td>
-            <td>04:54:22</td>
-            <td>john</td>
-            <td>최제인</td>
-            <td>아이스아메리카노</td>
-            <td>15회</td>
-            <td>5400원</td>
-            <td>카드</td>
-        </tr>
+            <tr>
+                <td>1</td>
+                <td>23.10.31</td>
+                <td>04:54:22</td>
+                <td>john</td>
+                <td>최제인</td>
+                <td>아이스아메리카노</td>
+                <td>15회</td>
+                <td>5400원</td>
+                <td>카드</td>
+                <td>수정</td><!-- 아이콘으로 표시할것-->
+                <td>삭제</td><!-- 아이콘으로 표시할것-->
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>23.10.31</td>
+                <td>04:54:22</td>
+                <td>john</td>
+                <td>최제인</td>
+                <td>아이스아메리카노</td>
+                <td>15회</td>
+                <td>5400원</td>
+                <td>카드</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>23.10.31</td>
+                <td>04:54:22</td>
+                <td>john</td>
+                <td>최제인</td>
+                <td>아이스아메리카노</td>
+                <td>15회</td>
+                <td>5400원</td>
+                <td>카드</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>23.10.31</td>
+                <td>04:54:22</td>
+                <td>john</td>
+                <td>최제인</td>
+                <td>아이스아메리카노</td>
+                <td>15회</td>
+                <td>5400원</td>
+                <td>카드</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>23.10.31</td>
+                <td>04:54:22</td>
+                <td>john</td>
+                <td>최제인</td>
+                <td>아이스아메리카노</td>
+                <td>15회</td>
+                <td>5400원</td>
+                <td>카드</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>23.10.31</td>
+                <td>04:54:22</td>
+                <td>john</td>
+                <td>최제인</td>
+                <td>아이스아메리카노</td>
+                <td>15회</td>
+                <td>5400원</td>
+                <td>카드</td>
+            </tr>
         </tbody>
     </table>
 </div>

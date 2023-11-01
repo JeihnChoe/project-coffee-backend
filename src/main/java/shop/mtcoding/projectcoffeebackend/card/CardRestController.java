@@ -51,14 +51,6 @@ public class CardRestController {
     @GetMapping("/api/cards/viewcardlistpage")
     public ResponseEntity<?> viewCardList() {
         User sessionUser = (User) session.getAttribute("sessionUser");
-        System.out.println("세션있음아이디 : " + sessionUser.getId());
-        System.out.println("세션있음매니저아이디 : " + sessionUser.getManager());
-        System.out.println("세션있음이름 : " + sessionUser.getUserName());
-        System.out.println("세션있음로그인아이디 : " + sessionUser.getLoginId());
-        System.out.println("세션있음이메일 : " + sessionUser.getEmail());
-        System.out.println("세션있음비밀번호 : " + sessionUser.getPassword());
-        System.out.println("세션있음폰번호 : " + sessionUser.getPhoneNumber());
-        System.out.println("세션있음생성일자 : " + sessionUser.getUserCreatedAt());
 
         List<CardResponse.CardListDTO> responseDTO = cardService.viewCardList(sessionUser.getId());
 
