@@ -25,7 +25,7 @@ public class Category {
     @Column(nullable = false, length = 50)
     private String categoryEngName;
     @Column(nullable = false)
-    private int code; // 음료 1, 푸드 2
+    private int code; // 음료 0, 푸드 1
     @Column(nullable = false, length = 500)
     private String categoryPicUrl;
 
@@ -36,5 +36,4 @@ public class Category {
         this.categoryEngName = categoryEngName;
         this.code = code;
     }
-
 }
