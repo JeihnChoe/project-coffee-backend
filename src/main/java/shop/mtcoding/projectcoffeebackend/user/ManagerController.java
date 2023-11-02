@@ -16,20 +16,20 @@ public class ManagerController {
     }
 
     // 상품, 이벤트, 카드, 매출
-    @GetMapping("/beverage")
+    @GetMapping("/manager/product/registerbeveragesform")
     public String viewBeverage() {
 
-        return "beverage";
+        return "/product/registerBeveragesForm";
     }
 
     // 상품, 이벤트, 카드, 매출
-    @GetMapping("/foods")
+    @GetMapping("/manager/product/registerfoodsform")
     public String viewFoods() {
 
-        return "foods";
+        return "/resources/templates/product/registerFoodsForm.mustache";
     }
 
-    @GetMapping("/manager/beverage/registration")
+    @GetMapping("manager/beverage/register")
     public String registrationFoods() {
         managerService.음료추가();
         return "null";
