@@ -20,7 +20,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         // 2. 상대경로 file:./upload/
         registry
                 .addResourceHandler("/images/**")
-                .addResourceLocations("file:" + filePath)
+                .addResourceLocations("file:" + "./images/")
                 .setCachePeriod(60 * 60) // 초 단위 => 한시간
                 .resourceChain(true)
                 .addResolver(new PathResourceResolver());

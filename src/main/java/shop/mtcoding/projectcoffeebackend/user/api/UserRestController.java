@@ -21,16 +21,6 @@ public class UserRestController {
     private final UserService userService;
     private final HttpSession session;
 
-    @GetMapping("/test")
-    public String test(HttpServletResponse response) {
-        session.setAttribute("hello", "hello");
-        Cookie cookie = new Cookie("name", "ssar"); // 변수명 바껴서 안될때 name수정
-        cookie.setHttpOnly(false);
-        response.setStatus(200);
-        response.addCookie(cookie);
-        // email=cos
-        return "ok";
-    }
 
     // 회원가입
     @PostMapping("/join")

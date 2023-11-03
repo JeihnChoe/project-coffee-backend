@@ -5,17 +5,19 @@ import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
 import shop.mtcoding.projectcoffeebackend.user.User;
 
+
+@RequiredArgsConstructor
 @Service
 public class CardService {
 
-    @Autowired
-    CardJPARepository cardJPARepository;
+
+    final private CardJPARepository cardJPARepository;
 
     @Transactional
     public CardResponse.CardDetailDTO viewCardDetail(int userId) {
@@ -47,7 +49,7 @@ public class CardService {
 
     @Transactional
     public CardResponse.RegistrationCardDTO registrationCard(CardRequest.RegistrationCardDTO cardRegistrationDTO,
-            int userId) {
+                                                             int userId) {
 
         Card cardPS = cardJPARepository.findByCardNumber(cardRegistrationDTO.getCardNumber());
         // System.out.println("입력한 핀번호" + cardRegistrationDTO.getPinNumber());
@@ -103,7 +105,7 @@ public class CardService {
 
     @Transactional
     public CardResponse.ChargeCardPageDTO viewChargeCardPage(CardRequest.ViewCardChargeDTO viewPayCardChargeDTO,
-            int userId) {
+                                                             int userId) {
         // 1. DB에서 값 긁어오기(레파지토리에 위임) : 프론트가 준 유저 아이디로.
         Card cardPS = cardJPARepository.findById(viewPayCardChargeDTO.getCardId())
                 .orElseThrow(() -> new Exception400("카드가 없습니다"));
@@ -152,5 +154,6 @@ public class CardService {
         }
 
     }
+
 
 }
