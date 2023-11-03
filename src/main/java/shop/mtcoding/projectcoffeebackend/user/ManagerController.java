@@ -42,6 +42,10 @@ public class ManagerController {
         return "null";
     }
 
+    @GetMapping("/manager/card/register")
+    public String registrationCard() {
+
+        return "/cards/registerCardsForm";
     @GetMapping("manager/product/registerpromotionsform")
     public String registrationPromotions() {
         return "/product/registerPromotionForm";

@@ -41,7 +41,6 @@ public class Card {
     private int pinNumber;
     @Column(nullable = false)
     private Timestamp cardCreatedAt; // 카드 생성 시간(초 단위까지)
-
     @Column(nullable = false)
     private int status; // 1. 비어있음 2. 사용중 3. 분실중
 
