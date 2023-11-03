@@ -48,6 +48,10 @@ public class UserController {
     }
 
     @PostMapping("/food/register")
+    public String registrationFoods(UserRequest.ResgisterFoodDTO requestDTO) {
+        userService.푸드추가(requestDTO);
+        return "/product/registerFoodsForm";
+    }
     public String registrationFoods() {
 
         return "null";
@@ -63,4 +67,5 @@ public class UserController {
     public String registrationPromotions() {
         return "/product/registerPromotionForm";
     }
+
 }
