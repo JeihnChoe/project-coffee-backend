@@ -34,4 +34,10 @@ public class ManagerController {
         managerService.음료추가();
         return "null";
     }
+
+    @GetMapping("/manager/card/register")
+    public String registrationCard() {
+
+        return "/cards/registerCardsForm";
+    }
 }
