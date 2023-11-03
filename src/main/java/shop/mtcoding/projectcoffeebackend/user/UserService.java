@@ -8,7 +8,14 @@ import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception500;
 import shop.mtcoding.projectcoffeebackend._core.utils.JwtTokenUtils;
+import shop.mtcoding.projectcoffeebackend.beverage.Beverage;
 import shop.mtcoding.projectcoffeebackend.beverage.BeverageJPARepository;
+import shop.mtcoding.projectcoffeebackend.beverage.option.Option;
+import shop.mtcoding.projectcoffeebackend.beverage.option.OptionJPARepository;
+import shop.mtcoding.projectcoffeebackend.beverage.option.size.Size;
+import shop.mtcoding.projectcoffeebackend.beverage.option.size.SizeJPARepository;
+import shop.mtcoding.projectcoffeebackend.category.Category;
+import shop.mtcoding.projectcoffeebackend.category.CategoryJPARepository;
 import shop.mtcoding.projectcoffeebackend.food.FoodJPARepository;
 import shop.mtcoding.projectcoffeebackend.promotion.PromotionJPARepository;
 import shop.mtcoding.projectcoffeebackend.user.api.UserRestRequest;
@@ -20,6 +27,9 @@ public class UserService {
     private final UserJPARepository userJPARepository;
     private final BeverageJPARepository beverageJPARepository;
     private final PromotionJPARepository promotionJPARepository;
+    private final CategoryJPARepository categoryJPARepository;
+    private final SizeJPARepository sizeJPARepository;
+    private final OptionJPARepository optionJPARepository;
     private final FoodJPARepository foodJPARepository;
 
     @Transactional
@@ -63,6 +73,221 @@ public class UserService {
 
     @javax.transaction.Transactional
     public void 음료추가(UserRequest.RegistrationBeverageDTO requestDTO) {
+        System.out.println("테스트S : " + requestDTO.getCategoryName());
+        Category categoryPS = categoryJPARepository.findByCategoryEngName(requestDTO.getCategoryName());
+        Category category = Category.builder().id(categoryPS.getId()).build();
+
+        // 핫&아이스 둘다 체크 되었을 때
+        if (requestDTO.getHot() != null && requestDTO.getIced() != null) {
+            System.out.println("테스트S : 핫&아이스 둘다");
+            Beverage beverage = Beverage.builder()
+                    .beverageName(requestDTO.getBeverageName())
+                    .beverageEngName(requestDTO.getBeverageEngName())
+                    .beverageDescription(requestDTO.getBeverageDescription())
+                    .beverageTip(requestDTO.getBeverageTip())
+                    .beveragePicUrl(requestDTO.getBeveragePicUrl())
+                    .category(category)
+                    .build();
+            beverageJPARepository.save(beverage);
+
+            // 핫&아이스 각각 사이즈별로 저장해야됨
+
+            // 첫번째 사이즈/금액 칸 입력됐을 때
+            if (requestDTO.getOptionPrice1() != null) {
+                System.out.println("테스트S : 핫&아이스 둘다 + 첫번째 사이즈");
+                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize1());
+                Size size = Size.builder().id(sizePS.getId()).build();
+                Option optionHot = Option.builder()
+                        .optionPrice(requestDTO.getOptionPrice1())
+                        .hotIced(Integer.parseInt(requestDTO.getHot()))
+                        .beverage(beverage)
+                        .size(size)
+                        .build();
+                optionJPARepository.save(optionHot);
+
+                Option optionIced = Option.builder()
+                        .optionPrice(requestDTO.getOptionPrice1())
+                        .hotIced(Integer.parseInt(requestDTO.getIced()))
+                        .beverage(beverage)
+                        .size(size)
+                        .build();
+                optionJPARepository.save(optionIced);
+            }
+
+            // 두번째 사이즈/금액 칸 입력됐을 때
+            if (requestDTO.getOptionPrice2() != null) {
+                System.out.println("테스트S : 핫&아이스 둘다 + 두번째 사이즈");
+                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize2());
+                Size size = Size.builder().id(sizePS.getId()).build();
+                Option optionHot = Option.builder()
+                        .optionPrice(requestDTO.getOptionPrice2())
+                        .hotIced(Integer.parseInt(requestDTO.getHot()))
+                        .beverage(beverage)
+                        .size(size)
+                        .build();
+                optionJPARepository.save(optionHot);
+
+                Option optionIced = Option.builder()
+                        .optionPrice(requestDTO.getOptionPrice2())
+                        .hotIced(Integer.parseInt(requestDTO.getIced()))
+                        .beverage(beverage)
+                        .size(size)
+                        .build();
+                optionJPARepository.save(optionIced);
+            }
+
+            // 세번째 사이즈/금액 칸 입력됐을 때
+            if (requestDTO.getOptionPrice3() != null) {
+                System.out.println("테스트S : 핫&아이스 둘다 + 세번째 사이즈");
+                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize3());
+                Size size = Size.builder().id(sizePS.getId()).build();
+                Option optionHot = Option.builder()
+                        .optionPrice(requestDTO.getOptionPrice3())
+                        .hotIced(Integer.parseInt(requestDTO.getHot()))
+                        .beverage(beverage)
+                        .size(size)
+                        .build();
+                optionJPARepository.save(optionHot);
+
+                Option optionIced = Option.builder()
+                        .optionPrice(requestDTO.getOptionPrice3())
+                        .hotIced(Integer.parseInt(requestDTO.getIced()))
+                        .beverage(beverage)
+                        .size(size)
+                        .build();
+                optionJPARepository.save(optionIced);
+            }
+            if (requestDTO.getOptionPrice1() == null && requestDTO.getOptionPrice2() == null
+                    && requestDTO.getOptionPrice3() == null) {
+                // 사이즈/금액 아무것도 입력 안됐을 때
+                throw new Exception400("사이즈/금액을 입력해 주세요");
+
+            }
+
+        }
+
+        // 핫 만 체크되었을 때
+        else if (requestDTO.getHot() != null) {
+            System.out.println("테스트S : 핫 만");
+            Beverage beverage = Beverage.builder()
+                    .beverageName(requestDTO.getBeverageName())
+                    .beverageEngName(requestDTO.getBeverageEngName())
+                    .beverageDescription(requestDTO.getBeverageDescription())
+                    .beverageTip(requestDTO.getBeverageTip())
+                    .beveragePicUrl(requestDTO.getBeveragePicUrl())
+                    .category(category)
+                    .build();
+            beverageJPARepository.save(beverage);
+
+            // 첫번째 사이즈/금액 칸 입력됐을 때
+            if (requestDTO.getOptionPrice1() != null) {
+                System.out.println("테스트S : 핫 만 + 첫번째 사이즈");
+                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize1());
+                Size size = Size.builder().id(sizePS.getId()).build();
+                Option option = Option.builder()
+                        .optionPrice(requestDTO.getOptionPrice1())
+                        .hotIced(Integer.parseInt(requestDTO.getHot()))
+                        .beverage(beverage)
+                        .size(size)
+                        .build();
+                optionJPARepository.save(option);
+
+            }
+
+            // 두번째 사이즈/금액 칸 입력됐을 때
+            if (requestDTO.getOptionPrice2() != null) {
+                System.out.println("테스트S : 핫 만 + 두번째 사이즈");
+                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize2());
+                Size size = Size.builder().id(sizePS.getId()).build();
+                Option option = Option.builder()
+                        .optionPrice(requestDTO.getOptionPrice2())
+                        .hotIced(Integer.parseInt(requestDTO.getHot()))
+                        .beverage(beverage)
+                        .size(size)
+                        .build();
+                optionJPARepository.save(option);
+
+            }
+
+            // 세번째 사이즈/금액 칸 입력됐을 때
+            if (requestDTO.getOptionPrice3() != null) {
+                System.out.println("테스트S : 핫 만 + 세번째 사이즈");
+                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize3());
+                Size size = Size.builder().id(sizePS.getId()).build();
+                Option option = Option.builder()
+                        .optionPrice(requestDTO.getOptionPrice3())
+                        .hotIced(Integer.parseInt(requestDTO.getHot()))
+                        .beverage(beverage)
+                        .size(size)
+                        .build();
+                optionJPARepository.save(option);
+
+            }
+        }
+
+        // 아이스 만 체크되었을 때
+        else if (requestDTO.getIced() != null) {
+            System.out.println("테스트S : 아이스 만");
+            Beverage beverage = Beverage.builder()
+                    .beverageName(requestDTO.getBeverageName())
+                    .beverageEngName(requestDTO.getBeverageEngName())
+                    .beverageDescription(requestDTO.getBeverageDescription())
+                    .beverageTip(requestDTO.getBeverageTip())
+                    .beveragePicUrl(requestDTO.getBeveragePicUrl())
+                    .category(category)
+                    .build();
+            beverageJPARepository.save(beverage);
+
+            // 첫번째 사이즈/금액 칸 입력됐을 때
+            if (requestDTO.getOptionPrice1() != null) {
+                System.out.println("테스트S : 아이스 만 + 첫번째 사이즈");
+
+                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize1());
+                Size size = Size.builder().id(sizePS.getId()).build();
+                Option option = Option.builder()
+                        .optionPrice(requestDTO.getOptionPrice1())
+                        .hotIced(Integer.parseInt(requestDTO.getIced()))
+                        .beverage(beverage)
+                        .size(size)
+                        .build();
+                optionJPARepository.save(option);
+
+            }
+
+            // 두번째 사이즈/금액 칸 입력됐을 때
+            if (requestDTO.getOptionPrice2() != null) {
+                System.out.println("테스트S : 아이스 만 + 두번째 사이즈");
+
+                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize2());
+                Size size = Size.builder().id(sizePS.getId()).build();
+                Option option = Option.builder()
+                        .optionPrice(requestDTO.getOptionPrice2())
+                        .hotIced(Integer.parseInt(requestDTO.getIced()))
+                        .beverage(beverage)
+                        .size(size)
+                        .build();
+                optionJPARepository.save(option);
+
+            }
+
+            // 세번째 사이즈/금액 칸 입력됐을 때
+            if (requestDTO.getOptionPrice3() != null) {
+                System.out.println("테스트S : 아이스 만 + 세번째 사이즈");
+
+                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize3());
+                Size size = Size.builder().id(sizePS.getId()).build();
+                Option option = Option.builder()
+                        .optionPrice(requestDTO.getOptionPrice3())
+                        .hotIced(Integer.parseInt(requestDTO.getIced()))
+                        .beverage(beverage)
+                        .size(size)
+                        .build();
+                optionJPARepository.save(option);
+
+            }
+        } else {
+            throw new Exception400("핫/아이스 선택해주세요");
+        }
 
     }
 

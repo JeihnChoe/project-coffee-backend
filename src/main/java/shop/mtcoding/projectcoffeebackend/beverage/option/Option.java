@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import shop.mtcoding.projectcoffeebackend.beverage.Beverage;
 import shop.mtcoding.projectcoffeebackend.beverage.option.size.Size;
 
@@ -21,6 +22,7 @@ import shop.mtcoding.projectcoffeebackend.beverage.option.size.Size;
 @NoArgsConstructor
 @Entity
 @Table(name = "option_tb")
+@ToString
 public class Option {
 
     @Id
@@ -28,6 +30,8 @@ public class Option {
     private int id;
     @Column(nullable = false, length = 20)
     private int optionPrice;
+    @Column(nullable = false, length = 10)
+    private int hotIced; // 0 : hot, 1 : iced
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
@@ -42,9 +46,10 @@ public class Option {
     // private Nutrition nutrition;
 
     @Builder
-    public Option(int id, int optionPrice, Beverage beverage, Size size) {
+    public Option(int id, int optionPrice, int hotIced, Beverage beverage, Size size) {
         this.id = id;
         this.optionPrice = optionPrice;
+        this.hotIced = hotIced;
         this.beverage = beverage;
         this.size = size;
     }
