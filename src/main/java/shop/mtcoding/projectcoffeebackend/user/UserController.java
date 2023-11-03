@@ -51,7 +51,6 @@ public class UserController {
         return "/cards/registerCardsForm";
     }
 
-
     @GetMapping("manager/product/registerpromotionsform")
     public String registrationPromotions() {
         return "/product/registerPromotionForm";
