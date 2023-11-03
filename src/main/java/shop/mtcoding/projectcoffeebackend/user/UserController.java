@@ -12,7 +12,6 @@ public class UserController {
 
     final private UserService userService;
 
-
     @GetMapping("/")
     public String index() {
 
@@ -39,10 +38,10 @@ public class UserController {
         return "/product/registerFoodsForm";
     }
 
-    @PostMapping("manager/food/register")
-    public String registrationFoods() {
-
-        return "null";
+    @PostMapping("/food/register")
+    public String registrationFoods(UserRequest.ResgisterFoodDTO requestDTO) {
+        userService.푸드추가(requestDTO);
+        return "/product/registerFoodsForm";
     }
 
     @GetMapping("/manager/card/register")
@@ -55,4 +54,5 @@ public class UserController {
     public String registrationPromotions() {
         return "/product/registerPromotionForm";
     }
+
 }

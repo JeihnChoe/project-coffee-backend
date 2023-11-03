@@ -9,6 +9,7 @@ import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception500;
 import shop.mtcoding.projectcoffeebackend._core.utils.JwtTokenUtils;
 import shop.mtcoding.projectcoffeebackend.beverage.BeverageJPARepository;
+import shop.mtcoding.projectcoffeebackend.food.FoodJPARepository;
 import shop.mtcoding.projectcoffeebackend.promotion.PromotionJPARepository;
 import shop.mtcoding.projectcoffeebackend.user.api.UserRestRequest;
 
@@ -19,7 +20,7 @@ public class UserService {
     private final UserJPARepository userJPARepository;
     private final BeverageJPARepository beverageJPARepository;
     private final PromotionJPARepository promotionJPARepository;
-
+    private final FoodJPARepository foodJPARepository;
 
     @Transactional
     public void join(UserRestRequest.JoinDTO requestDTO) {
@@ -60,9 +61,15 @@ public class UserService {
 
     }
 
-
     @javax.transaction.Transactional
     public void 음료추가(UserRequest.RegistrationBeverageDTO requestDTO) {
+
+    }
+
+    @Transactional
+    public void 푸드추가(UserRequest.ResgisterFoodDTO requestDTO) {
+
+        foodJPARepository.save(requestDTO.toEntity());
 
     }
 }

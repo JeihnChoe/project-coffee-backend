@@ -37,7 +37,6 @@ public class Food {
     private int foodPrice;
     @Column(nullable = false, length = 500)
     private String foodPicUrl;
-
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
