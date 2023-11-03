@@ -7,6 +7,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface UserJPARepository extends JpaRepository<User, Integer> {
 
-    Optional<User> findByLoginId(@Param("loginId") String loginId);
+    Optional<User> findByLoginId(@Param("login_id") String loginId);
 
 }

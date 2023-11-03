@@ -14,12 +14,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import shop.mtcoding.projectcoffeebackend.category.Category;
 
 @Getter
 @NoArgsConstructor
 @Entity
 @Table(name = "beverage_tb")
+@ToString
 public class Beverage {
 
     @Id
@@ -33,8 +35,7 @@ public class Beverage {
     private String beverageDescription;
     @Column(nullable = true, length = 1000)
     private String beverageTip;
-    @Column(nullable = false, length = 10)
-    private String hotIce;
+
     @Column(nullable = false, length = 500)
     private String beveragePicUrl;
 
@@ -48,13 +49,12 @@ public class Beverage {
 
     @Builder
     public Beverage(int id, String beverageName, String beverageEngName, String beverageDescription, String beverageTip,
-            String hotIce, String beveragePicUrl, Category category) {
+            String beveragePicUrl, Category category) {
         this.id = id;
         this.beverageName = beverageName;
         this.beverageEngName = beverageEngName;
         this.beverageDescription = beverageDescription;
         this.beverageTip = beverageTip;
-        this.hotIce = hotIce;
         this.beveragePicUrl = beveragePicUrl;
         this.category = category;
     }
