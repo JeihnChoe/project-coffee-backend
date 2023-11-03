@@ -3,40 +3,25 @@
     <div style="width: 2400px; text-align: center">
         <div class="container-fluid">
             <br>
-            <h5>푸드 등록</h5>
+            <h5>프로모션 등록</h5>
             <table class="table">
                 <thead class="table-success">
                     <tr> <!-- 음료명 등은 폼필드/ 카테고리 등은 드롭다운으로 만들것  -->
                         <!-- DB 필드명에 맞춰 박스 재구성할것  -->
                         <th>No.</th>
-                        <th>카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
-                        <th>사진</th>
-                        <th>제품명</th>
-                        <th>제품영문명</th>
-                        <th>제품설명</th>
-                        <th>팁</th>
-                        <th>사이즈/금액</th>
-                        <th>등록</th><!-- 아이콘으로 표시할것-->
+                        <th>홈화면 썸네일</th>
+                        <th>썸네일</th>
+                        <th>본사진</th>
+                        <th>제목</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
+                        <th>간단개요</th>
+                        <th>이벤트 시작 날짜</th>
+                        <th>이벤트 종료 날짜</th>
+                        <th>공개 여부</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>
-                            <div>
-                                <select id="beverage-category" class="form-control" style="text-align: center">
-                                    <option value="category">카테고리</option>
-                                    <option value="coldbrew">브레드</option>
-                                    <option value="brewed">케이크&미니디저트</option>
-                                    <option value="espresso">샌드위치&샐러드</option>
-                                    <option value="frappuccino">따뜻한 푸드</option>
-                                    <option value="blended">과일&요거트</option>
-                                    <option value="refresher">스낵</option>
-                                    <option value="fizzio">아이스크림</option>
-                                </select>
-                            </div>
-                        </td>
-                        <td> +</td>
                         <td>
                             <input type="text" class="form-control" id="beverageName" placeholder="제품명을 입력해주세요"
                                 style="text-align: center">
