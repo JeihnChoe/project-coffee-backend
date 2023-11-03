@@ -1,4 +1,4 @@
-package shop.mtcoding.projectcoffeebackend.user;
+package shop.mtcoding.projectcoffeebackend.user.api;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -7,14 +7,13 @@ import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
+import shop.mtcoding.projectcoffeebackend.user.UserService;
 
+@RequestMapping("/api")
 @RequiredArgsConstructor
 @RestController
 public class UserRestController {
@@ -34,30 +33,30 @@ public class UserRestController {
     }
 
     // 회원가입
-    @PostMapping("/api/join")
-    public ResponseEntity<?> join(@RequestBody @Valid UserRequest.JoinDTO requestDTO, Errors errors) {
+    @PostMapping("/join")
+    public ResponseEntity<?> join(@RequestBody @Valid UserRestRequest.JoinDTO requestDTO, Errors errors) {
         userService.join(requestDTO);
         return ResponseEntity.ok().body(ApiUtils.success(null));
     }
 
     // 로그인
-    @PostMapping("/api/login")
-    public ResponseEntity<?> login(@RequestBody @Valid UserRequest.LoginDTO requestDTO, Errors errors) {
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody @Valid UserRestRequest.LoginDTO requestDTO, Errors errors) {
         String jwt = userService.login(requestDTO);
 
         return ResponseEntity.ok().header("Authorization", "Bearer " + jwt).body(ApiUtils.success(null));
     }
 
     // 로그아웃
-    @GetMapping("/api/logout")
+    @GetMapping("/logout")
     public ResponseEntity<?> logout() {
         session.invalidate();
         return ResponseEntity.ok().body(ApiUtils.success(null));
     }
 
     // 비밀번호 변경
-    @PostMapping("/api/pwdupdate")
-    public ResponseEntity<?> pwdupdate(@RequestBody @Valid UserRequest.PwdUpdateDTO pwdUpdateDTO, Errors errors) {
+    @PostMapping("/pwdupdate")
+    public ResponseEntity<?> pwdupdate(@RequestBody @Valid UserRestRequest.PwdUpdateDTO pwdUpdateDTO, Errors errors) {
         System.out.println("패스워드 진입 전 ");
         userService.pwdupdate(pwdUpdateDTO);
         return ResponseEntity.ok().body(ApiUtils.success(null));
