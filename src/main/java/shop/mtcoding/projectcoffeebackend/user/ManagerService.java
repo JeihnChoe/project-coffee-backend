@@ -19,7 +19,7 @@ public class ManagerService {
 
     @Transactional
     public void 음료추가(ManagerRequest.RegistrationBeverageDTO requestDTO) {
-        beverageJPARepository.save(requestDTO);
+
     }
 
 }
