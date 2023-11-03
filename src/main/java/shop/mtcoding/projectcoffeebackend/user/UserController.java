@@ -1,14 +1,17 @@
 package shop.mtcoding.projectcoffeebackend.user;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+@RequiredArgsConstructor
 @Controller
-public class ManagerController {
-    @Autowired
-    ManagerService managerService;
+public class UserController {
+
+    final private UserService userService;
+
 
     @GetMapping("/")
     public String index() {
@@ -24,8 +27,8 @@ public class ManagerController {
     }
 
     @PostMapping("/manager/beverage/register")
-    public String registrationBeverages(ManagerRequest.RegistrationBeverageDTO requestDTO) {
-        managerService.음료추가(requestDTO);
+    public String registrationBeverages(UserRequest.RegistrationBeverageDTO requestDTO) {
+        userService.음료추가(requestDTO);
         return "//manager/product/registerbeveragesform";
     }
 
