@@ -16,6 +16,7 @@ import shop.mtcoding.projectcoffeebackend.beverage.option.size.Size;
 import shop.mtcoding.projectcoffeebackend.beverage.option.size.SizeJPARepository;
 import shop.mtcoding.projectcoffeebackend.category.Category;
 import shop.mtcoding.projectcoffeebackend.category.CategoryJPARepository;
+import shop.mtcoding.projectcoffeebackend.food.FoodJPARepository;
 import shop.mtcoding.projectcoffeebackend.promotion.PromotionJPARepository;
 import shop.mtcoding.projectcoffeebackend.user.api.UserRestRequest;
 
@@ -29,6 +30,7 @@ public class UserService {
     private final CategoryJPARepository categoryJPARepository;
     private final SizeJPARepository sizeJPARepository;
     private final OptionJPARepository optionJPARepository;
+    private final FoodJPARepository foodJPARepository;
 
     @Transactional
     public void join(UserRestRequest.JoinDTO requestDTO) {
@@ -286,6 +288,13 @@ public class UserService {
         } else {
             throw new Exception400("핫/아이스 선택해주세요");
         }
+
+    }
+
+    @Transactional
+    public void 푸드추가(UserRequest.ResgisterFoodDTO requestDTO) {
+
+        foodJPARepository.save(requestDTO.toEntity());
 
     }
 }

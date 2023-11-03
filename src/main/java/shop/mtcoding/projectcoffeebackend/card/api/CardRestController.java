@@ -1,4 +1,4 @@
-package shop.mtcoding.projectcoffeebackend.card;
+package shop.mtcoding.projectcoffeebackend.card.api;
 
 import java.util.List;
 
@@ -7,48 +7,33 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
+import shop.mtcoding.projectcoffeebackend.card.CardRequest;
+import shop.mtcoding.projectcoffeebackend.card.CardResponse;
+import shop.mtcoding.projectcoffeebackend.card.CardService;
 import shop.mtcoding.projectcoffeebackend.user.User;
 import shop.mtcoding.projectcoffeebackend.user.UserService;
 
+@RequestMapping("/api/card")
 @RestController
 @RequiredArgsConstructor
 public class CardRestController {
 
-    // @GetMapping("/card/detailview")
-    // public CardResponse.CardDetailDTO cardDetail(@PathVariable Integer id) {
-    // CardResponse.CardDetailDTO cardDetailDTO = card
-    // }
-    @Autowired
-    CardService cardService;
-    @Autowired
-    private HttpSession session;
-    @Autowired
-    UserService userService;
+    final private CardService cardService;
+    final private HttpSession session;
+    final private UserService userService;
 
-    @GetMapping("/api/cards/viewdetailpage")
+    @GetMapping("/viewdetailpage")
     public ResponseEntity<?> viewCardDetail() {
-        System.out.println("실행됨?");
         User sessionUser = (User) session.getAttribute("sessionUser"); // 로그인한사용자정보
-        // if (sessionUser == null) {
-
-        // }
-
-        // int userId = sessionUser.getId();
-
         CardResponse.CardDetailDTO cardDetailDTO = cardService.viewCardDetail(sessionUser.getId());
-
         return ResponseEntity.ok().body(ApiUtils.success(cardDetailDTO));
-
     }
 
-    @GetMapping("/api/cards/viewcardlistpage")
+    @GetMapping("/viewcardlistpage")
     public ResponseEntity<?> viewCardList() {
         User sessionUser = (User) session.getAttribute("sessionUser");
 
@@ -57,8 +42,8 @@ public class CardRestController {
         return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
-    @PostMapping("/api/cards/cardregistrationpage")
-    public ResponseEntity<?> registerCard(
+    @PostMapping("/cardregistrationpage")
+    public ResponseEntity<?> registerIndividualCard(
             @RequestBody @Valid CardRequest.RegistrationCardDTO registrationCardDTO) {
 
         // 1. 유효성검사(로그인이 되어있는지)
@@ -101,8 +86,8 @@ public class CardRestController {
         return ResponseEntity.ok().body(ApiUtils.success(cardChargePageDTO));
     }
 
-    @PostMapping("/api/cards/chargecard")
-    public ResponseEntity<?> chargeCard(@RequestBody @Valid CardRequest.ChargeCardDTO chargeCardDTO) {
+    @PostMapping("/api/cards/chargeindividualcard")
+    public ResponseEntity<?> chargeIndividualCard(@RequestBody @Valid CardRequest.ChargeCardDTO chargeCardDTO) {
 
         // PayCardChargeDTO.builder().cardId(1).chargeMoney(5000).build();
 
@@ -114,7 +99,7 @@ public class CardRestController {
     }
 
     @PostMapping("/api/cards/deletecard")
-    public ResponseEntity<?> deleteCard(@RequestBody @Valid CardRequest.DeleteCardDTO deleteCardDTO) {
+    public ResponseEntity<?> deleteIndividualCard(@RequestBody @Valid CardRequest.DeleteCardDTO deleteCardDTO) {
 
         User sessionUser = (User) session.getAttribute("sessionUser");
 

@@ -1,11 +1,9 @@
 package shop.mtcoding.projectcoffeebackend.food;
 
-import org.springframework.web.bind.annotation.RestController;
-
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 
-@RestController
 @RequiredArgsConstructor
-public class FoodRestController {
-
+@Controller
+public class FoodController {
 }

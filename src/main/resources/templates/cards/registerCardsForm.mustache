@@ -12,18 +12,18 @@
                     <th>No.</th>
                     <th>사진</th>
                     <th>카드명</th>
-                    <th>카드 잔액</th>
-                    <th>카드 번호</th>
-                    <th>핀 번호</th>
-                    <th>카드 생성일</th>
-                    <th>상태</th>
+                    <th>카드기본잔액</th>
+                    <th>카드번호</th>
+                    <th>핀번호</th>
+                    <th>카드서비스시작일</th>
+                    <th>발급수량</th>
                     <th>등록</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td> <img src="/images/uploadimage.png"></td>
+                    <td> <img src="/images/1.png" width="50" ></td>
                     <td>
                         <input type="text" class="form-control" id="beverageName" placeholder="카드명을 입력해주세요"
                             style="text-align: center">
@@ -33,8 +33,8 @@
                             style="text-align: center">
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="beverageEngName" placeholder="카드번호를 입력해주세요"
-                            style="text-align: center">
+                        <input type="text" class="form-control" id="beverageEngName" placeholder="카드번호는 랜덤하게 생성됩니다."
+                            style="text-align: center" readonly>
                     </td>
                     <td>
                         <input type="text" class="form-control" id="beverageEngName" placeholder="핀번호를 입력해주세요"
@@ -45,12 +45,12 @@
                             style="text-align: center">
                     </td>
                     <td>
-                        <input type="text" class="form-control" id="status" placeholder="카드 상태를 입력해주세요"
+                        <input type="number" class="form-control" id="quantity" placeholder="발급매수입력"
                             style="text-align: center">
                     </td>
-                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                    <td><img src="/images/icon_edit.png"  height="30px"
                             style="height: 80px;"
-                            onclick="location.href='../../..'"></img>
+                            onclick="location.href='/manager/card/register'"></img>
                     </td>
                 </tr>
             </tbody>
@@ -69,8 +69,9 @@
                     <th>카드 번호</th>
                     <th>핀 번호</th>
                     <th>카드 생성일</th>
-                    <th>수정</th><!-- 아이콘으로 표시할것-->
-                    <th>삭제</th><!-- 아이콘으로 표시할것-->
+                    <th>카드상태</th> <!--사용가능/사용중/분실-->
+                    <th>수정</th>
+                    <th>삭제</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -84,25 +85,7 @@
                     <td>12345678</td>
                     <td>1234</td>
                     <td>2023-10-24 14:20:36.077</td>
-
-                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                             style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><img
-                            src="https://image.istarbucks.co.kr/cardImg/20230519/010288_WEB.png"
-                            style="height: 80px;"></img></td>
-                    <td>사이렌 헤리티지 카드</td>
-                    <td>30000</td>
-                    <td>12312678</td>
-                    <td>1444</td>
-                    <td>2023-10-24 14:20:36.077</td>
+                    <th></th>
                     <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
                              style="height: 80px;"
                              onclick="location.href='../../..'"></img></td>
@@ -112,146 +95,6 @@
                     <!-- 아이콘으로 표시할것-->
                 </tr>
 
-                <tr>
-                    <td>3</td>
-                    <td><img
-                            src="https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png"
-                            style="height: 80px;"></img></td>
-                    <td>블랙핑크 스타벅스 카드</td>
-                    <td>40000</td>
-                    <td>12312678</td>
-                    <td>1444</td>
-                    <td>2023-10-24 14:20:36.077</td>
-                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                             style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                </tr>
-
-                <tr>
-                    <td>4</td>
-                    <td><img
-                            src="https://image.istarbucks.co.kr/cardImg/20230320/010146_WEB.png"
-                            style="height: 80px;"></img></td>
-                    <td>서머 샤인 카드</td>
-                    <td>0</td>
-                    <td>12312678</td>
-                    <td>1444</td>
-                    <td>2023-10-24 14:20:36.077</td>
-                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                             style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                </tr>
-
-                <tr>
-                    <td>5</td>
-                    <td><img src="https://image.istarbucks.co.kr/cardImg/20230316/010126_WEB.png"
-                             style="height: 80px;"></img></td>
-                    <td>서머 베케이션 카드</td>
-                    <td>20000</td>
-                    <td>12312678</td>
-                    <td>1444</td>
-                    <td>2023-10-24 14:20:36.077</td>
-                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                             style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td><img src="https://image.istarbucks.co.kr/cardImg/20230315/010107_WEB.png"
-                             style="height: 80px;"></img></td>
-                    <td>고맙습니다 카드</td>
-                    <td>30000</td>
-                    <td>12312678</td>
-                    <td>1444</td>
-                    <td>2023-10-24 14:20:36.077</td>
-                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                             style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td><img src="https://image.istarbucks.co.kr/cardImg/20230315/010106_WEB.png"
-                             style="height: 80px;"></img></td>
-                    <td>서머사파리 카드</td>
-                    <td>30000</td>
-                    <td>12312678</td>
-                    <td>1444</td>
-                    <td>2023-10-24 14:20:36.077</td>
-                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                             style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td><img src="https://image.istarbucks.co.kr/cardImg/20230216/010086_WEB.png"
-                             style="height: 80px;"></img></td>
-                    <td>스프링가든 카드</td>
-                    <td>30000</td>
-                    <td>12312678</td>
-                    <td>1444</td>
-                    <td>2023-10-24 14:20:36.077</td>
-                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                             style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                </tr>
-                                <tr>
-                    <td>9</td>
-                    <td><img src="https://image.istarbucks.co.kr/cardImg/20230216/010066_WEB.png"
-                             style="height: 80px;"></img></td>
-                    <td>스타벅스 LOVE 카드</td>
-                    <td>30000</td>
-                    <td>12312678</td>
-                    <td>1444</td>
-                    <td>2023-10-24 14:20:36.077</td>
-                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                             style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                </tr>
-                                <tr>
-                    <td>10</td>
-                    <td><img src="https://image.istarbucks.co.kr/cardImg/20221114/009646_WEB.png"
-                             style="height: 80px;"></img></td>
-                    <td>스타벅스 Thank You 카드</td>
-                    <td>30000</td>
-                    <td>12312678</td>
-                    <td>1444</td>
-                    <td>2023-10-24 14:20:36.077</td>
-                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                             style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
-                             onclick="location.href='../../..'"></img></td>
-                    <!-- 아이콘으로 표시할것-->
-                </tr>
 
                 </tbody>
 
