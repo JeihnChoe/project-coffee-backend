@@ -3,10 +3,10 @@
 
 <!---->
 <div style="display: flex; justify-content: center">
-    <div style="width: 2400px; text-align: center">
+    <div style="width: 1800px; text-align: center">
         <div class="container-fluid">
             <h5>음료 등록</h5>
-            <form method="post" action="/manager/beverage/register">
+            <form method="post" action="/beverage/register" enctype="multipart/form-data">
                 <table class="table">
                     <thead class="table-success">
                         <tr> <!-- 음료명 등은 폼필드/ 카테고리 등은 드롭다운으로 만들것  -->
@@ -62,13 +62,13 @@
                             </td>
                             <td>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="0" name="hot">
+                                    <input class="form-check-input" type="radio" value="0" name="hot">
                                     <label class="form-check-label" for="flexCheckChecked">
                                         HOT
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" name="iced" checked>
+                                    <input class="form-check-input" type="radio" value="1" name="iced">
                                     <label class="form-check-label" for="flexCheckChecked">
                                         ICED
                                     </label>
@@ -134,6 +134,11 @@
                 </table>
             </form>
             <br>
+
+
+
+
+            <!-- =================================================================== -->
             <h5>등록 음료 리스트</h5>
             <table class="table table-hover">
                 <thead class="table-success">
@@ -155,17 +160,17 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>콜드 브루 커피</td>
+                        <td>{{beverages.id}}</td>
+                        <td>{{categoryName}}</td>
                         <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg"
                                 style="height: 80px;"></img></td>
-                        <td>나이트로 바닐라 크림</td>
-                        <td>Nitro Vanilla Cream</td>
-                        <td>부드러운 목넘김의 나이트로 커피와 바닐라 크림의 매력을 한번에 느껴보세요!</td>
-                        <td>디카페인결제시 300원 추가됩니다.</td>
-                        <td>Hot</td>
-                        <td>6100원</td>
-                        <td>Short</td>
+                        <td>{{beverageName}}</td>
+                        <td>{{beverageEngName}}</td>
+                        <td>{{beverageDescription}}</td>
+                        <td>{{beverageTip}}</td>
+                        <td>{{hotIced}}</td>
+                        <td>{{price}}</td>
+                        <td>{{size}}</td>
 
                         <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
                                 style="height: 80px;" onclick="location.href='../../..'"></img></td>
@@ -272,7 +277,6 @@
                                 onclick="location.href='../../..'"></img></td>
                         <!-- 아이콘으로 표시할것-->
                     </tr>
-
                 </tbody>
 
             </table>
@@ -280,4 +284,26 @@
     </div>
 </div>
 </div>
+
+<script>
+    function changePic(e1) {
+        // console.log(e1);
+
+        let f = e1.srcElement.files[0];
+        // console.log(f);
+        if (!f.type.match("image.*")) {
+            alert("이미지를 등록해주세요");
+            return;
+        }
+
+        let reader = new FileReader(); // 버퍼
+        reader.onload = function (e2) { // 콜백 함수(내가 실행하는 게 아니라 다른 어떤 이벤트가 끝났을 때 실행되는 함수)
+            let previewEl = document.querySelector("#preview");
+            previewEl.setAttribute("src", e2.target.result);
+        }
+
+        reader.readAsDataURL(f); // 파일 읽기. 이벤트 루프에 등록해놓고 main 빠져나옴(비동기). 다 읽으면 onload()를 실행 ↑
+    }
+</script>
+
 {{>/layout/footer}}

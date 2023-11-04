@@ -35,6 +35,8 @@ public class Beverage {
     private String beverageDescription;
     @Column(nullable = true, length = 1000)
     private String beverageTip;
+    @Column(nullable = false, length = 10)
+    private int hotIced; // 0 : hot, 1 : iced
 
     @Column(nullable = false, length = 500)
     private String beveragePicUrl;
@@ -49,12 +51,13 @@ public class Beverage {
 
     @Builder
     public Beverage(int id, String beverageName, String beverageEngName, String beverageDescription, String beverageTip,
-            String beveragePicUrl, Category category) {
+            int hotIced, String beveragePicUrl, Category category) {
         this.id = id;
         this.beverageName = beverageName;
         this.beverageEngName = beverageEngName;
         this.beverageDescription = beverageDescription;
         this.beverageTip = beverageTip;
+        this.hotIced = hotIced;
         this.beveragePicUrl = beveragePicUrl;
         this.category = category;
     }
