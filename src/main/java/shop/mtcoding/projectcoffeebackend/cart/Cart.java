@@ -34,7 +34,7 @@ public class Cart {
     @Column(nullable = false)
     private int cartPrice; // quantity * 상품가격
     @Column(nullable = false)
-    private Boolean isChecked;
+    private Boolean isChecked =true;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)

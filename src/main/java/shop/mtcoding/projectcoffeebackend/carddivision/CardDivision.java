@@ -33,18 +33,18 @@ public class CardDivision {
     @Column(nullable = true)
     private int quantity;
     @Column(nullable = true)
-    private boolean status; // true. 서비스중 / false.발급종료 /
+    private boolean isActive = true; // true. 서비스중 / false.발급종료 /
     @Column(nullable = false)
     private String startAt;
 
     @Builder
-    public CardDivision(int id, String cardDivisionPicUrl, String cardName, int cardMoney, int quantity, boolean status, String startAt) {
+    public CardDivision(int id, String cardDivisionPicUrl, String cardName, int cardMoney, int quantity, boolean isActive, String startAt) {
         this.id = id;
         this.cardDivisionPicUrl = cardDivisionPicUrl;
         this.cardName = cardName;
         this.cardMoney = cardMoney;
         this.quantity = quantity;
-        this.status = status;
+        this.isActive = isActive;
         this.startAt = startAt;
     }
 }

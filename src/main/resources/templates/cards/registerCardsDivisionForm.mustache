@@ -1,12 +1,12 @@
 {{>/layout/header}}
 
 <div style="display: flex; justify-content: center">
-    <div style="width: 2400px; text-align: center">
+    <div style="width: 1800px; text-align: center">
 
         <!--본문내용은 이 주석 이후에 작성할것-->
 
         <h5>카드 등록</h5>
-        <form method="post" action="/carddivision/registercarddivision">
+        <form method="post" action="/carddivision/registercarddivision" enctype="multipart/form-data">
         <table class="table">
             <thead class="table-success">
                 <tr>
@@ -20,18 +20,22 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>
-                        <div>
-                        <img class="box" id="preview" src="/images/1.png"
-                             height="50px" width="50px">
-                        <input type="file" id="File" name="files" multiple="multiple"/>
+                    <td style="justify-content: center">
+                        <div class="mb-3" style="justify-content: center" >
+                        <img id="preview" class="circle_avatar" src="/images/1.png"  style="width: 100px">
+                        <input type="file" class="form-control" placeholder="Enter pic" onchange="changePic(event)" name="picUrl" style="width: 250px">
+                        </div>
 
-                        <button id="Button">전송</button>>
 
-                    </div>
+<!--                        <div style="display: flex; flex-direction: column; justify-content: center">-->
+<!--                            <img class="box" id="preview" src="/images/1.png"-->
+<!--                                 height="150px" width="150px">-->
+<!--                            <input type="file" class="form-control" placeholder="Enter pic" onchange="changePic(event)" name="pic">-->
+<!--                            <input type="file" id="File" name="files" multiple="multiple"/>-->
+<!--                        </div>-->
                     </td>
                     <td>
-                        <input type="multi" class="form-control" name="cardName" placeholder="카드명을 입력해주세요"
+                        <input type="text" class="form-control" name="cardName" placeholder="카드명을 입력해주세요"
                             style="text-align: center">
                     </td>
                     <td>
@@ -151,6 +155,23 @@
     $(function () {
         $('#datepicker').datepicker();
     });
+
+    function changePic(e1){
+        let f = e1.srcElement.files[0];
+        console.log(f.type);
+        if(!f.type.match("image.*")){
+            alert("이미지를 등록해주세요");
+            return;
+        }
+
+        let reader = new FileReader();
+        reader.onload = function(e2){ // 파일이 다 읽어지면 콜백됨
+            let previewEl = document.querySelector("#preview");
+            previewEl.setAttribute("src", e2.target.result);
+        }
+        reader.readAsDataURL(f); // 파일 읽기 onload()
+    }
+
 </script>
 
 
