@@ -10,4 +10,8 @@ import lombok.NoArgsConstructor;
 @Service
 public class CartService {
 
+    public void addCartList() {
+
+    }
+
 }
