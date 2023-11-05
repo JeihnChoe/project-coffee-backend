@@ -46,8 +46,8 @@ INSERT INTO category_tb (`id`, `category_name`, `category_eng_name`, `code`, `ca
 
 
 
-INSERT INTO beverage_tb (`id`,`beverage_name`,`beverage_eng_name`,`beverage_description`,`beverage_tip`, `beverage_pic_url`, `category_id`)
- VALUES (1, '카페 아메리카노', 'Caffe Americano', '진한 에스프레소와 뜨거운 물을 섞어 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽게 잘 느낄 수 있는 커피', '블론드/디카페인 커피 Tab에서 블론드, 디카페인, 1/2디카페인 카페 아메리카노를 주문할 수 있습니다.', 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[94]_20210430103337006.jpg', 1);
+INSERT INTO beverage_tb (`id`,`beverage_name`,`beverage_eng_name`,`beverage_description`,`beverage_tip`,`hot_iced`, `beverage_pic_url`, `category_id`)
+ VALUES (1, '카페 아메리카노', 'Caffe Americano', '진한 에스프레소와 뜨거운 물을 섞어 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽게 잘 느낄 수 있는 커피', '블론드/디카페인 커피 Tab에서 블론드, 디카페인, 1/2디카페인 카페 아메리카노를 주문할 수 있습니다.',0, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[94]_20210430103337006.jpg', 1);
 
 
 
@@ -68,12 +68,12 @@ INSERT INTO size_tb (`id`, `size`, `liquid_amount`, `size_pic_url`)
  VALUES (7, 'short', '237ml', 'Venti사진');
 
 
-INSERT INTO option_tb (`id`, `size_id`, `hot_iced`, `option_price`, `beverage_id`)
- VALUES (1, 1, 0, 4500, 1);
-INSERT INTO option_tb (`id`, `size_id`,  `hot_iced`,`option_price`, `beverage_id`)
- VALUES (2, 2, 1,  5000, 1);
-INSERT INTO option_tb (`id`, `size_id`, `hot_iced`, `option_price`, `beverage_id`)
- VALUES (3, 3, 1, 5500, 1);
+INSERT INTO option_tb (`id`, `size_id`, `option_price`, `beverage_id`)
+ VALUES (1, 1, 4500, 1);
+INSERT INTO option_tb (`id`, `size_id`,`option_price`, `beverage_id`)
+ VALUES (2, 2, 5000, 1);
+INSERT INTO option_tb (`id`, `size_id`, `option_price`, `beverage_id`)
+ VALUES (3, 3, 5500, 1);
 
 
 

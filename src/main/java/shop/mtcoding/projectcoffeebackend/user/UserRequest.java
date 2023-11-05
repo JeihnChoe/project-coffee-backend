@@ -2,6 +2,8 @@ package shop.mtcoding.projectcoffeebackend.user;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Getter;
 import lombok.Setter;
 import shop.mtcoding.projectcoffeebackend.beverage.Beverage;
@@ -16,7 +18,8 @@ public class UserRequest {
     public static class RegistrationBeverageDTO {
 
         private String categoryName; // 카테고리 이름 나와야됨
-        private String beveragePicUrl;
+
+        private MultipartFile beveragePicUrl;
         private String beverageName;
         private String beverageEngName;
         private String beverageDescription;

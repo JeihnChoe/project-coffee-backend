@@ -1,18 +1,22 @@
 package shop.mtcoding.projectcoffeebackend.user;
 
 import lombok.RequiredArgsConstructor;
+import shop.mtcoding.projectcoffeebackend.beverage.Beverage;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @Controller
 public class UserController {
-
 
     final private HttpSession session;
     final private UserService userService;
@@ -23,23 +27,23 @@ public class UserController {
         return "test";
     }
 
-  @GetMapping("/")
+    @GetMapping("/")
     public String index() {
 
         return "index";
     }
 
-    // 상품, 이벤트, 카드, 매출
+    // 음료 등록 페이지
     @GetMapping("/product/registerbeveragesform")
-    public String viewBeverage() {
-
+    public String viewBeverage(HttpServletRequest request) {
+        List<Object[]> beverages = userService.음료조회();
+        request.setAttribute("beverages", beverages);
         return "/product/registerBeveragesForm";
     }
 
-    @PostMapping("/manager/beverage/register")
+    @PostMapping("/beverage/register")
     // @RequestMapping(value = "/manager/beverage/register", method = {
     // RequestMethod.POST })
-
     public String registrationBeverages(UserRequest.RegistrationBeverageDTO requestDTO) {
         System.out.println("테스트 제품명: " + requestDTO.getBeverageName());
         System.out.println("테스트 제품영문명 : " + requestDTO.getBeverageEngName());
@@ -59,7 +63,6 @@ public class UserController {
         return "/product/registerBeveragesForm";
     }
 
-    // 상품, 이벤트, 카드, 매출
     @GetMapping("/product/registerfoodsform")
     public String viewFoods() {
 
@@ -71,6 +74,7 @@ public class UserController {
         userService.푸드추가(requestDTO);
         return "/product/registerFoodsForm";
     }
+
     public String registrationFoods() {
 
         return "null";
@@ -80,11 +84,6 @@ public class UserController {
     public String registrationCard() {
 
         return "registerCardsDivisionForm";
-    }
-
-    @GetMapping("manager/product/registerpromotionsform")
-    public String registrationPromotions() {
-        return "/product/registerPromotionForm";
     }
 
 }
