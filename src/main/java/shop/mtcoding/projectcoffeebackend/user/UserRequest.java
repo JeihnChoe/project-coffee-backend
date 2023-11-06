@@ -12,21 +12,21 @@ public class UserRequest {
     @Setter
     public static class RegistrationBeverageDTO {
 
-        private String categoryName; // 카테고리 이름 나와야됨
+        private int categoryId; // value를 categoryId로 바로 받음
 
-        private MultipartFile beveragePicUrl;
-        private String beverageName;
-        private String beverageEngName;
-        private String beverageDescription;
-        private String beverageTip;
-        private String hot;
-        private String iced;
-        private String size1;
-        private String size2;
-        private String size3;
-        private Integer optionPrice1;
-        private Integer optionPrice2;
-        private Integer optionPrice3;
+        private MultipartFile picUrl;
+        private String name;
+        private String engName;
+        private String description;
+        private String tip;
+        private String hot; // 0
+        private String iced; // 1
+        private Integer size1;
+        private Integer size2;
+        private Integer size3;
+        private Integer price1;
+        private Integer price2;
+        private Integer price3;
 
     }
 

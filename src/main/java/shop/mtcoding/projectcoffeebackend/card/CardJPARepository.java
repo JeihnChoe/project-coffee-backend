@@ -8,6 +8,6 @@ public interface CardJPARepository extends JpaRepository<Card, Integer> {
 
     List<Card> findByUserId(int userId);
 
-    Card findByCardNumber(int cardNumber);
+    Card findByNumber(int number);
 
 }

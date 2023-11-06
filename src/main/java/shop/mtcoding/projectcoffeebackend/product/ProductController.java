@@ -1,35 +1,38 @@
 package shop.mtcoding.projectcoffeebackend.product;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import shop.mtcoding.projectcoffeebackend.user.UserRequest;
+import java.util.List;
 
-@RequiredArgsConstructor
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import lombok.RequiredArgsConstructor;
+import shop.mtcoding.projectcoffeebackend.user.UserRequest;
+import shop.mtcoding.projectcoffeebackend.user.UserService;
+
 @Controller
+@RequiredArgsConstructor
 public class ProductController {
 
-    final ProductService productService;
+    final private ProductService productService;
+
+    // 음료 등록 페이지
+    @GetMapping("/product/registerbeveragesform")
+    public String viewBeverage(HttpServletRequest request) {
+        List<Object[]> beverages = productService.음료조회();
+        request.setAttribute("beverages", beverages);
+        return "/product/registerBeveragesForm";
+    }
 
     @PostMapping("/beverage/register")
     // @RequestMapping(value = "/manager/beverage/register", method = {
     // RequestMethod.POST })
     public String registrationBeverages(UserRequest.RegistrationBeverageDTO requestDTO) {
-        System.out.println("테스트 제품명: " + requestDTO.getBeverageName());
-        System.out.println("테스트 제품영문명 : " + requestDTO.getBeverageEngName());
-        System.out.println("테스트 설명: " + requestDTO.getBeverageDescription());
-        System.out.println("테스트 팁: " + requestDTO.getBeverageTip());
-        System.out.println("테스트 핫/아이스: " + requestDTO.getHot());
-        System.out.println("테스트 핫/아이스: " + requestDTO.getIced());
-        System.out.println("테스트 사진 url: " + requestDTO.getBeveragePicUrl());
-        System.out.println("테스트 카테고리이름: " + requestDTO.getCategoryName());
-        System.out.println("테스트 크기1: " + requestDTO.getSize1());
-        System.out.println("테스트 크기2: " + requestDTO.getSize2());
-        System.out.println("테스트 크기3: " + requestDTO.getSize3());
-        System.out.println("테스트 가격1: " + requestDTO.getOptionPrice1());
-        System.out.println("테스트 가격2: " + requestDTO.getOptionPrice2());
-        System.out.println("테스트 가격3: " + requestDTO.getOptionPrice3());
+
         productService.음료추가(requestDTO);
         return "/product/registerBeveragesForm";
     }
+
 }

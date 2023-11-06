@@ -79,7 +79,7 @@ public class PromotionResponse {
             this.title = promotion.getTitle();
             this.startDate = promotion.getStartDate();
             this.endDate = promotion.getEndDate();
-            this.promotionPicUrl = promotion.getPromotionPicUrl();
+            this.promotionPicUrl = promotion.getPicUrl();
             this.isOpen = promotion.getIsOpen();
         }
 

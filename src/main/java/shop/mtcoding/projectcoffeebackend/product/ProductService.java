@@ -1,10 +1,25 @@
 package shop.mtcoding.projectcoffeebackend.product;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.UUID;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
+import shop.mtcoding.projectcoffeebackend._core.vo.MyPath;
+import shop.mtcoding.projectcoffeebackend.category.Category;
+import shop.mtcoding.projectcoffeebackend.product.option.Option;
+import shop.mtcoding.projectcoffeebackend.product.option.OptionJPARepository;
+import shop.mtcoding.projectcoffeebackend.product.option.size.Size;
+import shop.mtcoding.projectcoffeebackend.user.UserJPARepository;
+import shop.mtcoding.projectcoffeebackend.user.UserRequest;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
 import shop.mtcoding.projectcoffeebackend._core.vo.MyPath;
 import shop.mtcoding.projectcoffeebackend.category.Category;
@@ -24,23 +39,28 @@ import java.util.UUID;
 @Service
 public class ProductService {
 
-    final OptionJPARepository optionJPARepository;
-    final CategoryJPARepository categoryJPARepository;
+    private final ProductJPARepository productJPARepository;
+    private final OptionJPARepository optionJPARepository;
 
+    public List<Object[]> 음료조회() {
+        System.out.println("음료조회 서비스 탐");
+        List<Object[]> beverageList = productJPARepository.findAllWithOptionAndSize();
 
+        return beverageList;
+    }
 
     @Transactional
-    public void 음료추가(UserRequest.RegistrationProductDTO requestDTO) {
-        System.out.println("테스트S : " + requestDTO.getCategoryName());
-        Category categoryPS = categoryJPARepository.findByCategoryEngName(requestDTO.getCategoryName());
-        Category category = Category.builder().id(categoryPS.getId()).build();
+    public void 음료추가(UserRequest.RegistrationBeverageDTO requestDTO) {
+        // Category categoryPS =
+        // categoryJPARepository.findByCategoryEngName(requestDTO.getCategoryName());
+        Category category = Category.builder().id(requestDTO.getCategoryId()).build();
 
         UUID uuid = UUID.randomUUID(); // 랜덤한 해시값을 만들어줌(충돌날 일 없음)
-        String fileName = uuid + "_" + requestDTO.getproductPicUrl().getOriginalFilename();
+        String fileName = uuid + "_" + requestDTO.getPicUrl().getOriginalFilename();
 
         Path filePath = Paths.get(MyPath.IMG_PATH + fileName); // ./images/ 는 프로젝트 경로의 images폴더 안에(상대경로)
         try {
-            Files.write(filePath, requestDTO.getproductPicUrl().getBytes()); // 버퍼에 쓴다.
+            Files.write(filePath, requestDTO.getPicUrl().getBytes()); // 버퍼에 쓴다.
         } catch (Exception e) {
             throw new Exception400("파일이 없습니다.");
 
@@ -49,25 +69,25 @@ public class ProductService {
         // 핫 만 체크되었을 때
         if (requestDTO.getHot() != null) {
             System.out.println("테스트S : 핫 만");
-            Product product = Product.builder()
-                    .name(requestDTO.get())
-                    .productEngName(requestDTO.getproductEngName())
-                    .productDescription(requestDTO.getproductDescription())
-                    .productTip(requestDTO.getproductTip())
-                    .hotIced(Integer.parseInt(requestDTO.getHot()))
-                    .productPicUrl(fileName)
+            Product beverage = Product.builder()
+                    .name(requestDTO.getName())
+                    .engName(requestDTO.getEngName())
+                    .description(requestDTO.getDescription())
+                    .tip(requestDTO.getTip())
+                    .isIced(Boolean.parseBoolean(requestDTO.getHot()))
+                    .picUrl(fileName)
                     .category(category)
                     .build();
-            productJPARepository.save(product);
+            productJPARepository.save(beverage);
 
             // 첫번째 사이즈/금액 칸 입력됐을 때
-            if (requestDTO.getOptionPrice1() != null) {
+            if (requestDTO.getPrice1() != null) {
                 System.out.println("테스트S : 핫 만 + 첫번째 사이즈");
-                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize1());
-                Size size = Size.builder().id(sizePS.getId()).build();
+                // Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize1());
+                Size size = Size.builder().id(requestDTO.getSize1()).build();
                 Option option = Option.builder()
-                        .optionPrice(requestDTO.getOptionPrice1())
-                        .product(product)
+                        .price(requestDTO.getPrice1())
+                        .product(beverage)
                         .size(size)
                         .build();
                 optionJPARepository.save(option);
@@ -75,13 +95,13 @@ public class ProductService {
             }
 
             // 두번째 사이즈/금액 칸 입력됐을 때
-            if (requestDTO.getOptionPrice2() != null) {
+            if (requestDTO.getPrice2() != null) {
                 System.out.println("테스트S : 핫 만 + 두번째 사이즈");
-                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize2());
-                Size size = Size.builder().id(sizePS.getId()).build();
+                // Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize2());
+                Size size = Size.builder().id(requestDTO.getSize2()).build();
                 Option option = Option.builder()
-                        .optionPrice(requestDTO.getOptionPrice2())
-                        .product(product)
+                        .price(requestDTO.getPrice2())
+                        .product(beverage)
                         .size(size)
                         .build();
                 optionJPARepository.save(option);
@@ -89,13 +109,13 @@ public class ProductService {
             }
 
             // 세번째 사이즈/금액 칸 입력됐을 때
-            if (requestDTO.getOptionPrice3() != null) {
+            if (requestDTO.getPrice3() != null) {
                 System.out.println("테스트S : 핫 만 + 세번째 사이즈");
-                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize3());
-                Size size = Size.builder().id(sizePS.getId()).build();
+                // Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize3());
+                Size size = Size.builder().id(requestDTO.getSize3()).build();
                 Option option = Option.builder()
-                        .optionPrice(requestDTO.getOptionPrice3())
-                        .product(product)
+                        .price(requestDTO.getPrice3())
+                        .product(beverage)
                         .size(size)
                         .build();
                 optionJPARepository.save(option);
@@ -106,26 +126,26 @@ public class ProductService {
         // 아이스 만 체크되었을 때
         else if (requestDTO.getIced() != null) {
             System.out.println("테스트S : 아이스 만");
-            Product product = Product.builder()
-                    .productName(requestDTO.getproductName())
-                    .productEngName(requestDTO.getproductEngName())
-                    .productDescription(requestDTO.getproductDescription())
-                    .productTip(requestDTO.getproductTip())
-                    .hotIced(Integer.parseInt(requestDTO.getIced()))
-                    .productPicUrl(fileName)
+            Product beverage = Product.builder()
+                    .name(requestDTO.getName())
+                    .engName(requestDTO.getEngName())
+                    .description(requestDTO.getDescription())
+                    .tip(requestDTO.getTip())
+                    .isIced(Boolean.parseBoolean(requestDTO.getIced()))
+                    .picUrl(fileName)
                     .category(category)
                     .build();
-            productJPARepository.save(product);
+            productJPARepository.save(beverage);
 
             // 첫번째 사이즈/금액 칸 입력됐을 때
-            if (requestDTO.getOptionPrice1() != null) {
+            if (requestDTO.getPrice1() != null) {
                 System.out.println("테스트S : 아이스 만 + 첫번째 사이즈");
 
-                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize1());
-                Size size = Size.builder().id(sizePS.getId()).build();
+                // Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize1());
+                Size size = Size.builder().id(requestDTO.getSize1()).build();
                 Option option = Option.builder()
-                        .optionPrice(requestDTO.getOptionPrice1())
-                        .product(product)
+                        .price(requestDTO.getPrice1())
+                        .product(beverage)
                         .size(size)
                         .build();
                 optionJPARepository.save(option);
@@ -133,14 +153,14 @@ public class ProductService {
             }
 
             // 두번째 사이즈/금액 칸 입력됐을 때
-            if (requestDTO.getOptionPrice2() != null) {
+            if (requestDTO.getPrice2() != null) {
                 System.out.println("테스트S : 아이스 만 + 두번째 사이즈");
 
-                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize2());
-                Size size = Size.builder().id(sizePS.getId()).build();
+                // Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize2());
+                Size size = Size.builder().id(requestDTO.getSize2()).build();
                 Option option = Option.builder()
-                        .optionPrice(requestDTO.getOptionPrice2())
-                        .product(product)
+                        .price(requestDTO.getPrice2())
+                        .product(beverage)
                         .size(size)
                         .build();
                 optionJPARepository.save(option);
@@ -148,14 +168,14 @@ public class ProductService {
             }
 
             // 세번째 사이즈/금액 칸 입력됐을 때
-            if (requestDTO.getOptionPrice3() != null) {
+            if (requestDTO.getPrice3() != null) {
                 System.out.println("테스트S : 아이스 만 + 세번째 사이즈");
 
-                Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize3());
-                Size size = Size.builder().id(sizePS.getId()).build();
+                // Size sizePS = sizeJPARepository.findBySize(requestDTO.getSize3());
+                Size size = Size.builder().id(requestDTO.getSize3()).build();
                 Option option = Option.builder()
-                        .optionPrice(requestDTO.getOptionPrice3())
-                        .product(product)
+                        .price(requestDTO.getPrice3())
+                        .product(beverage)
                         .size(size)
                         .build();
                 optionJPARepository.save(option);
@@ -166,4 +186,5 @@ public class ProductService {
         }
 
     }
+
 }
