@@ -30,17 +30,17 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, length = 500)
-    private String cardPicUrl;
+    private String picUrl;
     @Column(nullable = false, length = 500)
-    private String cardName;
+    private String name;
     @Column(nullable = false)
-    private int cardMoney;
+    private int money;
     @Column(nullable = false, unique = true)
-    private int cardNumber;
+    private int number;
     @Column(nullable = false)
-    private int pinNumber;
+    private int pin;
     @Column(nullable = false)
-    private Timestamp cardCreatedAt; // 카드 생성 시간(초 단위까지)
+    private Timestamp createdAt; // 카드 생성 시간(초 단위까지)
     @Column(nullable = false)
     private int status; // 1. 비어있음 2. 사용중 3. 분실중
 
@@ -49,17 +49,15 @@ public class Card {
     private User user;
 
     @Builder
-    public Card(int id, String cardPicUrl, String cardName, int cardMoney, int cardNumber, int pinNumber,
-            Timestamp cardCreatedAt, int status, User user) {
+    public Card(int id, String picUrl, String name, int money, int number, int pin, Timestamp createdAt, int status, User user) {
         this.id = id;
-        this.cardPicUrl = cardPicUrl;
-        this.cardName = cardName;
-        this.cardMoney = cardMoney;
-        this.cardNumber = cardNumber;
-        this.pinNumber = pinNumber;
-        this.cardCreatedAt = cardCreatedAt;
+        this.picUrl = picUrl;
+        this.name = name;
+        this.money = money;
+        this.number = number;
+        this.pin = pin;
+        this.createdAt = createdAt;
         this.status = status;
         this.user = user;
     }
-
 }

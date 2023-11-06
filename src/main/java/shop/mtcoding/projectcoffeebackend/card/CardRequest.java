@@ -9,11 +9,11 @@ public class CardRequest {
     @Setter
     public static class RegistrationCardDTO {
 
-        private String cardName;
+        private String name;
 
-        private Integer cardNumber;
+        private Integer number;
 
-        private Integer pinNumber;
+        private Integer pin;
 
     }
     // 카드이름 카드번호 핀번호
@@ -22,9 +22,9 @@ public class CardRequest {
     @Getter
     public static class ViewCardChargeDTO {
         private int id;
-        private String cardName;
-        private String cardPicUrl;
-        private int cardMoney; // 현재 잔액
+        private String name;
+        private String picUrl;
+        private int money; // 현재 잔액
         private int chargeMoney; // 충전 금액
         private Integer cardId;
 

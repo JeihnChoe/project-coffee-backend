@@ -38,27 +38,7 @@ public class UserController {
         return "/product/registerBeveragesForm";
     }
 
-    @PostMapping("/beverage/register")
-    // @RequestMapping(value = "/manager/beverage/register", method = {
-    // RequestMethod.POST })
-    public String registrationBeverages(UserRequest.RegistrationBeverageDTO requestDTO) {
-        System.out.println("테스트 제품명: " + requestDTO.getBeverageName());
-        System.out.println("테스트 제품영문명 : " + requestDTO.getBeverageEngName());
-        System.out.println("테스트 설명: " + requestDTO.getBeverageDescription());
-        System.out.println("테스트 팁: " + requestDTO.getBeverageTip());
-        System.out.println("테스트 핫/아이스: " + requestDTO.getHot());
-        System.out.println("테스트 핫/아이스: " + requestDTO.getIced());
-        System.out.println("테스트 사진 url: " + requestDTO.getBeveragePicUrl());
-        System.out.println("테스트 카테고리이름: " + requestDTO.getCategoryName());
-        System.out.println("테스트 크기1: " + requestDTO.getSize1());
-        System.out.println("테스트 크기2: " + requestDTO.getSize2());
-        System.out.println("테스트 크기3: " + requestDTO.getSize3());
-        System.out.println("테스트 가격1: " + requestDTO.getOptionPrice1());
-        System.out.println("테스트 가격2: " + requestDTO.getOptionPrice2());
-        System.out.println("테스트 가격3: " + requestDTO.getOptionPrice3());
-        userService.음료추가(requestDTO);
-        return "/product/registerBeveragesForm";
-    }
+
 
     @GetMapping("/product/registerfoodsform")
     public String viewFoods() {
@@ -66,7 +46,7 @@ public class UserController {
         return "/product/registerFoodsForm";
     }
 
-    @PostMapping("/food/register")
+    @PostMapping("/product/registerfoods")
     public String registrationFoods(UserRequest.ResgisterFoodDTO requestDTO) {
         userService.푸드추가(requestDTO);
         return "/product/registerFoodsForm";

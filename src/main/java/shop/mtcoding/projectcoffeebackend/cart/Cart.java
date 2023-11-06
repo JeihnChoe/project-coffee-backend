@@ -15,9 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import shop.mtcoding.projectcoffeebackend.product.Product;
 import shop.mtcoding.projectcoffeebackend.product.option.Option;
-import shop.mtcoding.projectcoffeebackend.cart.cuptype.CupType;
 import shop.mtcoding.projectcoffeebackend.user.User;
 
 @Getter
@@ -30,20 +28,25 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Product product;
-    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
     private Option option;
     @Column(nullable = false)
     private int quantity;
     @Column(nullable = false)
     private int totalPrice; // Option에서 price 조회 * quantity
-    @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY)
-    private CupType cupType;
+    @Column(nullable = false)
+    private String cupType;
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
+    @Builder
+    public Cart(int id, Option option, int quantity, int totalPrice, String cupType, User user) {
+        this.id = id;
+        this.option = option;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
+        this.cupType = cupType;
+        this.user = user;
+    }
 }

@@ -30,6 +30,7 @@ public class Category {
     private String picUrl;
 
 
+    @Builder
     public Category(int id, String name, String engName, int code, String picUrl) {
         this.id = id;
         this.name = name;
