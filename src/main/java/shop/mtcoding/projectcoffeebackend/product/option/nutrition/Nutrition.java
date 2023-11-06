@@ -27,25 +27,25 @@ public class Nutrition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, length = 50)
-    private String calorie;
+    private String calorie; // 칼로리
     @Column(nullable = false, length = 20)
-    private String carbohydrate;
+    private String carbohydrate; // 탄수화물
     @Column(nullable = true, length = 20)
-    private String saccharides;
+    private String saccharides; // 당류
     @Column(nullable = false, length = 20)
-    private String sodium;
+    private String sodium; // 나트륨
     @Column(nullable = false, length = 20)
-    private String protein;
+    private String protein; // 단백질
     @Column(nullable = false, length = 20)
-    private String fat;
+    private String fat; // 지방
     @Column(nullable = false, length = 20)
-    private String cholesterol;
+    private String cholesterol; // 콜레스테롤
     @Column(nullable = false, length = 20)
-    private String transFat;
+    private String transFat; // 트랜스지방
     @Column(nullable = false, length = 20)
-    private String saturatedFat;
+    private String saturatedFat; // 카페인
     @Column(nullable = true, length = 1000)
-    private String caution;
+    private String caution; // 포화지방
 
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
