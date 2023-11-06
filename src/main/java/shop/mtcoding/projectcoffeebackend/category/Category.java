@@ -21,7 +21,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, length = 50)
-    private String categoryName;
+    private String categoryName;  //1~8 커피 //9.빵 10. 샌드위치
     @Column(nullable = false, length = 50)
     private String categoryEngName;
     @Column(nullable = false)

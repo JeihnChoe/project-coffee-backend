@@ -1,4 +1,4 @@
-package shop.mtcoding.projectcoffeebackend.beverage.option.size;
+package shop.mtcoding.projectcoffeebackend.product.option.size;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,18 +24,15 @@ public class Size {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, length = 20)
-    private String size; // 1 : Tall, 2 : Grande, 3 : Venti, 4 : Trenta, 5 : Solo, 6 : Dopio, 7 : Short
+    private String size; // 1 : Tall, 2 : Grande, 3 : Venti, 4 : Trenta, 5 : Solo, 6 : Dopio, 7 : Short, 8 : Foods
     @Column(nullable = false, length = 20)
-    private String liquid_amount;
-    @Column(nullable = false, length = 500)
-    private String size_pic_url;
+    private String price;
 
     @Builder
-    public Size(int id, String size, String liquid_amount, String size_pic_url) {
+    public Size(int id, String size, String price) {
         this.id = id;
         this.size = size;
-        this.liquid_amount = liquid_amount;
-        this.size_pic_url = size_pic_url;
+        this.price = price;
     }
 
 }

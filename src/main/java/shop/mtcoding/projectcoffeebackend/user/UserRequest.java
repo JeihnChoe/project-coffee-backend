@@ -1,14 +1,9 @@
 package shop.mtcoding.projectcoffeebackend.user;
 
-import java.util.List;
-
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
 import lombok.Setter;
-import shop.mtcoding.projectcoffeebackend.beverage.Beverage;
-import shop.mtcoding.projectcoffeebackend.beverage.option.Option;
-import shop.mtcoding.projectcoffeebackend.beverage.option.size.Size;
 import shop.mtcoding.projectcoffeebackend.category.Category;
 import shop.mtcoding.projectcoffeebackend.food.Food;
 

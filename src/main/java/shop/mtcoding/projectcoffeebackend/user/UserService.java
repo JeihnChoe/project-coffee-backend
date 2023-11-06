@@ -6,23 +6,20 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.fasterxml.jackson.databind.ser.std.ObjectArraySerializer;
 
 import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception500;
 import shop.mtcoding.projectcoffeebackend._core.utils.JwtTokenUtils;
 import shop.mtcoding.projectcoffeebackend._core.vo.MyPath;
-import shop.mtcoding.projectcoffeebackend.beverage.Beverage;
-import shop.mtcoding.projectcoffeebackend.beverage.BeverageJPARepository;
-import shop.mtcoding.projectcoffeebackend.beverage.option.Option;
-import shop.mtcoding.projectcoffeebackend.beverage.option.OptionJPARepository;
-import shop.mtcoding.projectcoffeebackend.beverage.option.size.Size;
-import shop.mtcoding.projectcoffeebackend.beverage.option.size.SizeJPARepository;
+import shop.mtcoding.projectcoffeebackend.product.Product;
+import shop.mtcoding.projectcoffeebackend.product.ProductJPARepository;
+import shop.mtcoding.projectcoffeebackend.product.option.Option;
+import shop.mtcoding.projectcoffeebackend.product.option.OptionJPARepository;
+import shop.mtcoding.projectcoffeebackend.product.option.size.Size;
+import shop.mtcoding.projectcoffeebackend.product.option.size.SizeJPARepository;
 import shop.mtcoding.projectcoffeebackend.category.Category;
 import shop.mtcoding.projectcoffeebackend.category.CategoryJPARepository;
 import shop.mtcoding.projectcoffeebackend.food.FoodJPARepository;
@@ -34,7 +31,7 @@ import shop.mtcoding.projectcoffeebackend.user.api.UserRestRequest;
 @Service
 public class UserService {
     private final UserJPARepository userJPARepository;
-    private final BeverageJPARepository beverageJPARepository;
+    private final ProductJPARepository beverageJPARepository;
     private final PromotionJPARepository promotionJPARepository;
     private final CategoryJPARepository categoryJPARepository;
     private final SizeJPARepository sizeJPARepository;
@@ -100,7 +97,7 @@ public class UserService {
         // 핫 만 체크되었을 때
         if (requestDTO.getHot() != null) {
             System.out.println("테스트S : 핫 만");
-            Beverage beverage = Beverage.builder()
+            Product beverage = Product.builder()
                     .beverageName(requestDTO.getBeverageName())
                     .beverageEngName(requestDTO.getBeverageEngName())
                     .beverageDescription(requestDTO.getBeverageDescription())
@@ -157,7 +154,7 @@ public class UserService {
         // 아이스 만 체크되었을 때
         else if (requestDTO.getIced() != null) {
             System.out.println("테스트S : 아이스 만");
-            Beverage beverage = Beverage.builder()
+            Product beverage = Product.builder()
                     .beverageName(requestDTO.getBeverageName())
                     .beverageEngName(requestDTO.getBeverageEngName())
                     .beverageDescription(requestDTO.getBeverageDescription())

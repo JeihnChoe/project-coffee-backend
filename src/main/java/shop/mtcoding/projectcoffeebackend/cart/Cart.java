@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import shop.mtcoding.projectcoffeebackend.beverage.option.Option;
+import shop.mtcoding.projectcoffeebackend.product.option.Option;
 import shop.mtcoding.projectcoffeebackend.cart.cuptype.CupType;
 import shop.mtcoding.projectcoffeebackend.food.Food;
 import shop.mtcoding.projectcoffeebackend.user.User;

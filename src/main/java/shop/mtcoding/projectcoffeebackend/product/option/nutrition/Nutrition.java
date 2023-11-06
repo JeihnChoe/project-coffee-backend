@@ -1,4 +1,4 @@
-package shop.mtcoding.projectcoffeebackend.beverage.nutrition;
+package shop.mtcoding.projectcoffeebackend.product.option.nutrition;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,7 +6,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -15,8 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import shop.mtcoding.projectcoffeebackend.beverage.option.Option;
-import shop.mtcoding.projectcoffeebackend.category.Category;
+import shop.mtcoding.projectcoffeebackend.product.option.Option;
 
 // TODO: 추가기능 - 영양정보 추가하기(엔티티만 만들어놨음)
 @Getter

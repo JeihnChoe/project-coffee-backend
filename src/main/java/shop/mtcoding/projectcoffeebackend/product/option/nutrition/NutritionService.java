@@ -1,4 +1,4 @@
-package shop.mtcoding.projectcoffeebackend.beverage.nutrition;
+package shop.mtcoding.projectcoffeebackend.product.option.nutrition;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
