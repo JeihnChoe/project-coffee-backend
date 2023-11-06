@@ -26,6 +26,11 @@ public class Nutrition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @JsonIgnore
+    @OneToOne(fetch = FetchType.LAZY)
+    private Option option;
+
     @Column(nullable = false, length = 50)
     private String calorie;
     @Column(nullable = false, length = 20)
@@ -47,9 +52,7 @@ public class Nutrition {
     @Column(nullable = true, length = 1000)
     private String caution;
 
-    @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY)
-    private Option option;
+
 
     @Builder
     public Nutrition(int id, String optionId, String calorie, String carbohydrate, String saccharides, String sodium,

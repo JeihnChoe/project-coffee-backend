@@ -25,14 +25,11 @@ public class Size {
     private int id;
     @Column(nullable = false, length = 20)
     private String size; // 1 : Tall, 2 : Grande, 3 : Venti, 4 : Trenta, 5 : Solo, 6 : Dopio, 7 : Short, 8 : Foods
-    @Column(nullable = false, length = 20)
-    private String price;
 
     @Builder
     public Size(int id, String size, String price) {
         this.id = id;
         this.size = size;
-        this.price = price;
     }
 
 }

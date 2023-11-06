@@ -30,33 +30,30 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = false)
-    private int orderItemQuantity;
-    @Column(nullable = false)
-    private int orderItemPrice;
-    @Column(nullable = false)
-    private Timestamp paymentTime; // 결제 시간(초 단위까지)
-
+    @JsonIgnore
+    @OneToOne(fetch = FetchType.LAZY)
+    private Option option;
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Order order;
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
-    private Option option;
-    @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY)
     private CupType cupType;
+    @Column(nullable = false)
+    private int quantity;
+    @Column(nullable = false)
+    private int totalAmount;
+    @Column(nullable = false)
+    private Timestamp paymentTime; // 결제 시간(초 단위까지)
 
-    @Builder
-    public Item(int id, int orderItemQuantity, int orderItemPrice, Timestamp paymentTime, Order order, Option option,
-            CupType cupType) {
+
+    public Item(int id, Option option, Order order, CupType cupType, int quantity, int totalAmount, Timestamp paymentTime) {
         this.id = id;
-        this.orderItemQuantity = orderItemQuantity;
-        this.orderItemPrice = orderItemPrice;
-        this.paymentTime = paymentTime;
-        this.order = order;
         this.option = option;
+        this.order = order;
         this.cupType = cupType;
+        this.quantity = quantity;
+        this.totalAmount = totalAmount;
+        this.paymentTime = paymentTime;
     }
-
 }

@@ -21,19 +21,20 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, length = 50)
-    private String categoryName;  //1~8 커피 //9.빵 10. 샌드위치
+    private String name;  //1~8 커피 //9.빵 10. 샌드위치
     @Column(nullable = false, length = 50)
-    private String categoryEngName;
+    private String engName;
     @Column(nullable = false)
     private int code; // 음료 0, 푸드 1
     @Column(nullable = false, length = 500)
-    private String categoryPicUrl;
+    private String picUrl;
 
-    @Builder
-    public Category(int id, String categoryName, String categoryEngName, int code) {
+
+    public Category(int id, String name, String engName, int code, String picUrl) {
         this.id = id;
-        this.categoryName = categoryName;
-        this.categoryEngName = categoryEngName;
+        this.name = name;
+        this.engName = engName;
         this.code = code;
+        this.picUrl = picUrl;
     }
 }

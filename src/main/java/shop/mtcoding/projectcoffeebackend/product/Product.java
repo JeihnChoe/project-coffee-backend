@@ -41,11 +41,6 @@ public class Product {
     private String picUrl;
     @Column
     private String caption; // new/ hot/ best
-    @Column
-    private Integer code; // 0.음료 1.푸드
-
-
-
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
