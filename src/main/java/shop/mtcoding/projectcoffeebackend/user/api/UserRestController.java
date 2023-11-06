@@ -21,10 +21,12 @@ public class UserRestController {
     private final UserService userService;
     private final HttpSession session;
 
-
     // 회원가입
     @PostMapping("/join")
     public ResponseEntity<?> join(@RequestBody @Valid UserRestRequest.JoinDTO requestDTO, Errors errors) {
+
+        System.out.println("테스트 : 회원가입 맵핑 확인");
+
         userService.join(requestDTO);
         return ResponseEntity.ok().body(ApiUtils.success(null));
     }
