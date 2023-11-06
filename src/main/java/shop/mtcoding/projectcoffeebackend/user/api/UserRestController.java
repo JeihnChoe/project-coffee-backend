@@ -34,7 +34,12 @@ public class UserRestController {
     // 로그인
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody @Valid UserRestRequest.LoginDTO requestDTO, Errors errors) {
+
+        System.out.println("테스트 : 회원 로그인 맵핑 확인");
+
         String jwt = userService.login(requestDTO);
+
+        System.out.println("테스트 : 회원 로그인 output 확인");
 
         return ResponseEntity.ok().header("Authorization", "Bearer " + jwt).body(ApiUtils.success(null));
     }
