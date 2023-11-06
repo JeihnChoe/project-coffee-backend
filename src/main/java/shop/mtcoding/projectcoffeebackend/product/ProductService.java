@@ -42,10 +42,10 @@ public class ProductService {
     private final ProductJPARepository productJPARepository;
     private final OptionJPARepository optionJPARepository;
 
-    public List<Object[]> 음료조회() {
+    public List<MyProductDTO> 음료조회() {
         System.out.println("음료조회 서비스 탐");
-        List<Object[]> beverageList = productJPARepository.findAllWithOptionAndSize();
-
+        List<MyProductDTO> beverageList = productJPARepository.findAllWithOptionAndSize();
+        System.out.println("서비스 테스트 : " + beverageList.get(0).getPrice());
         return beverageList;
     }
 

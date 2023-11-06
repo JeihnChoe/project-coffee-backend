@@ -160,17 +160,18 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{beverages.id}}</td>
-                        <td>{{category.id}}</td>
+                        {{#beverages}}
+                        <td>{{id}}</td>
+                        <td>{{categoryName}}</td>
                         <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg"
-                                style="height: 80px;"></img></td>
-                        <td>{{beverageName}}</td>
-                        <td>{{beverageEngName}}</td>
-                        <td>{{beverageDescription}}</td>
-                        <td>{{beverageTip}}</td>
-                        <td>{{hotIced}}</td>
-                        <td>{{price}}</td>
-                        <td>{{size}}</td>
+                                style="height: 80px;">{{picUrl}}</img></td>
+                        <td>{{productName}}</td>
+                        <td>{{engName}}</td>
+                        <td>{{description}}</td>
+                        <td>{{tip}}</td>
+                        <td>{{isIced}}</td>
+                        <td>1</td>
+                        <td>1</td>
 
                         <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
                                 style="height: 80px;" onclick="location.href='../../..'"></img></td>
@@ -178,6 +179,7 @@
                         <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
                                 onclick="location.href='../../..'"></img></td>
                         <!-- 아이콘으로 표시할것-->
+                        {{/beverages}}
                     </tr>
                     <tr>
                         <td>2</td>
