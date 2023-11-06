@@ -21,9 +21,7 @@ public class CardService {
     public CardResponse.CardDetailDTO viewCardDetail(int userId) {
 
         Card cardPS = cardJPARepository.findById(userId).orElseThrow(() -> new Exception400("카드id가 없습니다"));
-        System.out.println("레파지토리");
         CardResponse.CardDetailDTO cardDetailDTO = new CardResponse.CardDetailDTO(cardPS);
-        System.out.println("여기됨?");
         return cardDetailDTO;
         // return new CardResponse.CardDetailDTO(cardPS);
 
@@ -36,11 +34,9 @@ public class CardService {
     public List<CardResponse.CardListDTO> viewCardList(int userId) {
 
         List<Card> cardListPS = cardJPARepository.findByUserId(userId);
-        System.out.println("레파지토리안됨?");
         List<CardResponse.CardListDTO> cardListDTO = cardListPS.stream()
                 .map(card -> new CardResponse.CardListDTO(card))
                 .collect(Collectors.toList());
-        System.out.println("여기안됨?");
         return cardListDTO;
 
     }
@@ -49,7 +45,7 @@ public class CardService {
     public CardResponse.RegistrationCardDTO registrationCard(CardRequest.RegistrationCardDTO cardRegistrationDTO,
             int userId) {
 
-        Card cardPS = cardJPARepository.findByNumber(cardRegistrationDTO.getCardNumber());
+        Card cardPS = cardJPARepository.findByNumber(cardRegistrationDTO.getNumber());
         // System.out.println("입력한 핀번호" + cardRegistrationDTO.getPinNumber());
 
         if (cardPS == null) {
@@ -60,7 +56,7 @@ public class CardService {
             return responseDTO;
         }
 
-        if (cardRegistrationDTO.getPinNumber() != cardPS.getPinNumber()) {
+        if (cardRegistrationDTO.getPin() != cardPS.getPin()) {
             String fail = "카드번호 또는 핀번호를 잘못 입력하였습니다";
             CardResponse.RegistrationCardDTO responseDTO = new CardResponse.RegistrationCardDTO(fail);
             return responseDTO;

@@ -22,19 +22,18 @@ public class CartRestController {
     private final CartService cartService;
     private final HttpSession session;
 
-    User sessionUser = (User) session.getAttribute("sessionUser");
+
 
     @PostMapping("/carts/add")
         public ResponseEntity<?> addCartList(@RequestBody List<CartRestRequest.AddCartDTO> addCartDTOS, Errors errors) {
+
+        User sessionUser = (User) session.getAttribute("sessionUser");
 
         if(sessionUser == null){
             throw new Exception401("로그인이 필요한 서비스입니다.");
         }
 
         cartService.장바구니담기(addCartDTOS,sessionUser);
-
-
-
 
             return ResponseEntity.ok().body(ApiUtils.success(null));
         }

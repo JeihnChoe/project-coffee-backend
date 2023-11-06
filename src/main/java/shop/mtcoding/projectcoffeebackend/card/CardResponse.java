@@ -50,20 +50,20 @@ public class CardResponse {
     public static class RegistrationCardDTO {
         private String name;
         private Integer number;
-        private Integer pinNumber;
+        private Integer pin;
         private String fail;
 
         public RegistrationCardDTO(Card card, String fail) {
             this.name = card.getName();
             this.number = card.getNumber();
-            this.pinNumber = card.getPinNumber();
+            this.pin = card.getPin();
             this.fail = null;
         }
 
         public RegistrationCardDTO(String fail) {
             this.name = null;
             this.number = null;
-            this.pinNumber = null;
+            this.pin = null;
             this.fail = fail;
         }
 

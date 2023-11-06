@@ -58,19 +58,6 @@ public class Product {
         this.category = category;
     }
 
-    @Builder
-    public Product(int id, String name, String engName, String description, String tip, boolean isIced, String picUrl,
-            String caption, Category category) {
-        this.id = id;
-        this.name = name;
-        this.engName = engName;
-        this.description = description;
-        this.tip = tip;
-        this.isIced = isIced;
-        this.picUrl = picUrl;
-        this.caption = caption;
-        this.category = category;
-    }
 
     // TODO: 추가기능 - 상품정보제공고시
     // private FoodInfo foodInfo;

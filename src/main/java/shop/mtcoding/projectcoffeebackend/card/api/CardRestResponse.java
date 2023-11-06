@@ -5,7 +5,6 @@ import lombok.Setter;
 import shop.mtcoding.projectcoffeebackend.card.Card;
 
 public class CardRestResponse {
-
     @Setter
     @Getter
     public static class CardDetailDTO {
@@ -15,7 +14,6 @@ public class CardRestResponse {
         private Integer money;
         private Integer number;
         private int userId;
-
         public CardDetailDTO(Card card) {
             this.id = card.getId();
             this.picUrl = card.getPicUrl();
@@ -24,7 +22,6 @@ public class CardRestResponse {
             this.number = card.getNumber();
             this.userId = card.getUser().getId();
         }
-
     }
 
     @Getter
@@ -51,20 +48,20 @@ public class CardRestResponse {
     public static class RegistrationCardDTO {
         private String name;
         private Integer number;
-        private Integer pinNumber;
+        private Integer pin;
         private String fail;
 
         public RegistrationCardDTO(Card card, String fail) {
             this.name = card.getName();
             this.number = card.getNumber();
-            this.pinNumber = card.getPinNumber();
+            this.pin = card.getPin();
             this.fail = null;
         }
 
         public RegistrationCardDTO(String fail) {
             this.name = null;
             this.number = null;
-            this.pinNumber = null;
+            this.pin = null;
             this.fail = fail;
         }
 

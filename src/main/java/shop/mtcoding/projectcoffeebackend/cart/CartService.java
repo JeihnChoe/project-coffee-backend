@@ -1,20 +1,15 @@
 package shop.mtcoding.projectcoffeebackend.cart;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import lombok.NoArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception401;
 import shop.mtcoding.projectcoffeebackend.cart.api.CartRestRequest;
-import shop.mtcoding.projectcoffeebackend.cart.cuptype.CupType;
-import shop.mtcoding.projectcoffeebackend.product.Product;
 import shop.mtcoding.projectcoffeebackend.product.option.Option;
 import shop.mtcoding.projectcoffeebackend.product.option.OptionJPARepository;
 import shop.mtcoding.projectcoffeebackend.user.User;
 
-import javax.persistence.*;
 import java.util.List;
 
 @Transactional(readOnly = true)
