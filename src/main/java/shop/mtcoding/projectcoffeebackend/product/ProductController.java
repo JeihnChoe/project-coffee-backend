@@ -1,0 +1,38 @@
+package shop.mtcoding.projectcoffeebackend.product;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import lombok.RequiredArgsConstructor;
+import shop.mtcoding.projectcoffeebackend.user.UserRequest;
+import shop.mtcoding.projectcoffeebackend.user.UserService;
+
+@Controller
+@RequiredArgsConstructor
+public class ProductController {
+
+    final private ProductService productService;
+
+    // 음료 등록 페이지
+    @GetMapping("/product/registerbeveragesform")
+    public String viewBeverage(HttpServletRequest request) {
+        List<Object[]> beverages = productService.음료조회();
+        request.setAttribute("beverages", beverages);
+        return "/product/registerBeveragesForm";
+    }
+
+    @PostMapping("/beverage/register")
+    // @RequestMapping(value = "/manager/beverage/register", method = {
+    // RequestMethod.POST })
+    public String registrationBeverages(UserRequest.RegistrationBeverageDTO requestDTO) {
+
+        productService.음료추가(requestDTO);
+        return "/product/registerBeveragesForm";
+    }
+
+}

@@ -7,7 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface ProductJPARepository extends JpaRepository<Product, Integer> {
 
-    @Query(value = "select b.id, c.category_name, b.beverage_pic_url, b.beverage_name, b.beverage_eng_name, b.beverage_description, b.beverage_tip, b.hot_iced, o.option_price, s.size from beverage_tb b left join category_tb c on b.category_id = c.id left join option_tb o on b.id = o.beverage_id left join size_tb s on o.size_id = s.id", nativeQuery = true)
+    @Query(value = "SELECT p.id AS product_id,\r\n" + //
+            "c.id AS category_id,\r\n" + //
+            "o.id AS option_id,\r\n" + //
+            "s.id AS size_id\r\n" + //
+            " FROM PRODUCT_TB p left join category_tb c on p.category_id = c.id left join option_tb o on p.id = o.product_id left join size_tb s on o.size_id = s.id", nativeQuery = true)
     List<Object[]> findAllWithOptionAndSize();
 
 }

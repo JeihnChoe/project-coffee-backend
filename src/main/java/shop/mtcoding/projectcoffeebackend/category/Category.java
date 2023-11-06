@@ -21,7 +21,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, length = 50)
-    private String name;  //1~8 커피 //9.빵 10. 샌드위치
+    private String name; // 1~8 커피 //9.빵 10. 샌드위치
     @Column(nullable = false, length = 50)
     private String engName;
     @Column(nullable = false)
@@ -29,7 +29,7 @@ public class Category {
     @Column(nullable = false, length = 500)
     private String picUrl;
 
-
+    @Builder
     public Category(int id, String name, String engName, int code, String picUrl) {
         this.id = id;
         this.name = name;
