@@ -9,18 +9,18 @@ public class CardResponse {
     @Getter
     public static class CardDetailDTO {
         private int id;
-        private String cardPicUrl;
-        private String cardName;
-        private Integer cardMoney;
-        private Integer cardNumber;
+        private String picUrl;
+        private String name;
+        private Integer money;
+        private Integer number;
         private int userId;
 
         public CardDetailDTO(Card card) {
             this.id = card.getId();
-            this.cardPicUrl = card.getCardPicUrl();
-            this.cardName = card.getCardName();
-            this.cardMoney = card.getCardMoney();
-            this.cardNumber = card.getCardNumber();
+            this.picUrl = card.getPicUrl();
+            this.name = card.getName();
+            this.money = card.getMoney();
+            this.number = card.getNumber();
             this.userId = card.getUser().getId();
         }
 
@@ -30,16 +30,16 @@ public class CardResponse {
     @Setter
     public static class CardListDTO {
         private int id;
-        private String cardPicUrl;
-        private String cardName;
-        private Integer cardMoney;
+        private String picUrl;
+        private String name;
+        private Integer money;
         private int userId;
 
         public CardListDTO(Card card) {
             this.id = card.getId();
-            this.cardPicUrl = card.getCardPicUrl();
-            this.cardName = card.getCardName();
-            this.cardMoney = card.getCardMoney();
+            this.picUrl = card.getPicUrl();
+            this.name = card.getName();
+            this.money = card.getMoney();
             this.userId = card.getUser().getId();
         }
 
@@ -48,21 +48,21 @@ public class CardResponse {
     @Getter
     @Setter
     public static class RegistrationCardDTO {
-        private String cardName;
-        private Integer cardNumber;
+        private String name;
+        private Integer number;
         private Integer pinNumber;
         private String fail;
 
         public RegistrationCardDTO(Card card, String fail) {
-            this.cardName = card.getCardName();
-            this.cardNumber = card.getCardNumber();
+            this.name = card.getName();
+            this.number = card.getNumber();
             this.pinNumber = card.getPinNumber();
             this.fail = null;
         }
 
         public RegistrationCardDTO(String fail) {
-            this.cardName = null;
-            this.cardNumber = null;
+            this.name = null;
+            this.number = null;
             this.pinNumber = null;
             this.fail = fail;
         }
@@ -72,17 +72,17 @@ public class CardResponse {
     @Getter
     @Setter
     public static class ChargeCardPageDTO {
-        private String cardPicUrl;
-        private String cardName;
-        private Integer cardMoney;
+        private String picUrl;
+        private String name;
+        private Integer money;
         private Integer userId;
         private Integer cardId;
 
         public ChargeCardPageDTO(Card card,
                 Integer userId) {
-            this.cardPicUrl = card.getCardPicUrl();
-            this.cardName = card.getCardName();
-            this.cardMoney = card.getCardMoney();
+            this.picUrl = card.getPicUrl();
+            this.name = card.getName();
+            this.money = card.getMoney();
             this.userId = userId;
             this.cardId = card.getId();
         }
@@ -94,7 +94,7 @@ public class CardResponse {
     public static class CardChargeDTO {
         // private String cardPicUrl;
         // private String cardName;
-        private Integer cardMoney;
+        private Integer money;
         // private Integer chargeMoney;
         private Integer userId;
         private Integer cardId;
@@ -103,7 +103,7 @@ public class CardResponse {
                 Integer userId) {
             // this.cardPicUrl = card.getCardPicUrl();
             // this.cardName = card.getCardName();
-            this.cardMoney = card.getCardMoney();
+            this.money = card.getMoney();
             // this.chargeMoney = chargeMoney;
             this.userId = userId;
             this.cardId = card.getId();

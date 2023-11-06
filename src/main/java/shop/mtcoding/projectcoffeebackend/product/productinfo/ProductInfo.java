@@ -2,10 +2,14 @@ package shop.mtcoding.projectcoffeebackend.product.productinfo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,6 +49,8 @@ public class ProductInfo {
     @Column(nullable = false, length = 200)
     private String importDeclaration; // 수입식품안전관리특별법에 따른 수입신고 필함 여부
 
+    @JsonIgnore
+    @OneToOne(fetch = FetchType.LAZY)
     private Product product;
 
 }

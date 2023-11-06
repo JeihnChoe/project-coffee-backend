@@ -29,18 +29,18 @@
                             <td>1</td>
                             <td>
                                 <div>
-                                    <select name="categoryName" class="form-control" style="text-align: center">
-                                        <option value="category">카테고리</option>
-                                        <option value="coldbrew">콜드브루</option>
-                                        <option value="brewed">브루드커피</option>
-                                        <option value="espresso">에스프레소</option>
-                                        <option value="frappuccino">프라푸치노</option>
-                                        <option value="blended">블렌디드</option>
-                                        <option value="refresher">리프레셔</option>
-                                        <option value="fizzio">피지오</option>
-                                        <option value="decaffeine">디카페인</option>
-                                        <option value="tea">티(티바나)</option>
-                                        <option value="others">병음료</option>
+                                    <select name="categoryId" class="form-control" style="text-align: center">
+                                        <option value="" disabled selected hidden>카테고리</option>
+                                        <option type="number" value="1">콜드브루</option>
+                                        <option type="number" value="2">브루드커피</option>
+                                        <option type="number" value="3">에스프레소</option>
+                                        <option type="number" value="4">프라푸치노</option>
+                                        <option type="number" value="5">블렌디드</option>
+                                        <option type="number" value="6">리프레셔</option>
+                                        <option type="number" value="7">피지오</option>
+                                        <option type="number" value="8">디카페인</option>
+                                        <option type="number" value="9">티(티바나)</option>
+                                        <option type="number" value="10">병음료</option>
                                     </select>
                                 </div>
                             </td>
@@ -62,13 +62,13 @@
                             </td>
                             <td>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" value="0" name="hot">
+                                    <input class="form-check-input" type="radio" value="false" name="hot">
                                     <label class="form-check-label" for="flexCheckChecked">
                                         HOT
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" value="1" name="iced">
+                                    <input class="form-check-input" type="radio" value="true" name="iced">
                                     <label class="form-check-label" for="flexCheckChecked">
                                         ICED
                                     </label>
@@ -77,13 +77,13 @@
                             <td>
                                 <div class="input-group input-group-sm mb-3">
                                     <select name="size1" class="form-control">
-                                        <option value="tall">Tall</option>
-                                        <option value="grande">Grande</option>
-                                        <option value="venti">Venti</option>
-                                        <option value="trenta">Trenta</option>
-                                        <option value="solo">Solo</option>
-                                        <option value="dopio">Dopio</option>
-                                        <option value="short">Short</option>
+                                        <option type="number" value="1">Tall</option>
+                                        <option type="number" value="2">Grande</option>
+                                        <option type="number" value="3">Venti</option>
+                                        <option type="number" value="4">Trenta</option>
+                                        <option type="number" value="5">Solo</option>
+                                        <option type="number" value="6">Dopio</option>
+                                        <option type="number" value="7">Short</option>
                                     </select>
                                     <input type="number" class="form-control" name="optionPrice1" aria-label="price"
                                         aria-describedby="inputGroup-sizing-sm"
@@ -92,26 +92,26 @@
                                 <div class="input-group input-group-sm mb-3">
                                     <div class="input-group input-group-sm mb-3">
                                         <select name="size2" class="form-control">
-                                            <option value="grande">Grande</option>
-                                            <option value="venti">Venti</option>
-                                            <option value="trenta">Trenta</option>
-                                            <option value="solo">Solo</option>
-                                            <option value="dopio">Dopio</option>
-                                            <option value="short">Short</option>
-                                            <option value="tall">Tall</option>
+                                            <option type="number" value="1">Grande</option>
+                                            <option type="number" value="2">Venti</option>
+                                            <option type="number" value="3">Trenta</option>
+                                            <option type="number" value="4">Solo</option>
+                                            <option type="number" value="5">Dopio</option>
+                                            <option type="number" value="6">Short</option>
+                                            <option type="number" value="7">Tall</option>
                                         </select>
                                         <input type="number" class="form-control" name="optionPrice2" aria-label="price"
                                             aria-describedby="inputGroup-sizing-sm"
                                             style="width: 20px; justify-content: center">
                                     </div>
                                     <select name="size3" class="form-control">
-                                        <option value="venti">Venti</option>
-                                        <option value="trenta">Trenta</option>
-                                        <option value="solo">Solo</option>
-                                        <option value="dopio">Dopio</option>
-                                        <option value="short">Short</option>
-                                        <option value="tall">Tall</option>
-                                        <option value="grande">Grande</option>
+                                        <option type="number" value="1">Venti</option>
+                                        <option type="number" value="2">Trenta</option>
+                                        <option type="number" value="3">Solo</option>
+                                        <option type="number" value="4">Dopio</option>
+                                        <option type="number" value="5">Short</option>
+                                        <option type="number" value="6">Tall</option>
+                                        <option type="number" value="7">Grande</option>
                                     </select>
                                     <input type="number" class="form-control" name="optionPrice3" aria-label="price"
                                         aria-describedby="inputGroup-sizing-sm"
@@ -161,7 +161,7 @@
                 <tbody>
                     <tr>
                         <td>{{beverages.id}}</td>
-                        <td>{{categoryName}}</td>
+                        <td>{{category.id}}</td>
                         <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg"
                                 style="height: 80px;"></img></td>
                         <td>{{beverageName}}</td>

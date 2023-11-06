@@ -6,6 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 
 public interface CategoryJPARepository extends JpaRepository<Category, Integer> {
-    Category findByCategoryEngName(@Param("category_eng_name") String categoryName);
 
 }
