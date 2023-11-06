@@ -1,12 +1,16 @@
 package shop.mtcoding.projectcoffeebackend.product;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,6 +20,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import shop.mtcoding.projectcoffeebackend.category.Category;
+import shop.mtcoding.projectcoffeebackend.product.option.Option;
 
 @Getter
 @NoArgsConstructor
@@ -39,14 +44,19 @@ public class Product {
     private Boolean isIced; // 0 : hot, 1 : iced
     @Column(nullable = false, length = 500)
     private String picUrl;
-    @Column
-    private String caption; // new/ hot/ best
+    // @Column
+    // private String caption; // new/ hot/ best
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
-@Builder
-    public Product(int id, String name, String engName, String description, String tip, boolean isIced, String picUrl, String caption, Category category) {
+
+    @OneToMany(fetch = FetchType.LAZY)
+    List<Option> options;
+
+    @Builder
+    public Product(int id, String name, String engName, String description, String tip, boolean isIced, String picUrl,
+            Category category) {
         this.id = id;
         this.name = name;
         this.engName = engName;
@@ -54,10 +64,9 @@ public class Product {
         this.tip = tip;
         this.isIced = isIced;
         this.picUrl = picUrl;
-        this.caption = caption;
+        // this.caption = caption;
         this.category = category;
     }
-
 
     // TODO: 추가기능 - 상품정보제공고시
     // private FoodInfo foodInfo;

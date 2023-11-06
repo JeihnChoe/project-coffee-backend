@@ -35,9 +35,7 @@ public class Option {
     @ManyToOne(fetch = FetchType.LAZY)
     private Size size;
     @Column(nullable = false, length = 20)
-    private int price;
-
-
+    private Integer price;
 
     // TODO: 추가기능 - 영양정보 표시
     // @JsonIgnore
