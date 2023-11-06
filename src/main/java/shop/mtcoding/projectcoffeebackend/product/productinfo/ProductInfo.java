@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import shop.mtcoding.projectcoffeebackend.product.Product;
 
 @Getter
 @NoArgsConstructor
@@ -43,5 +44,7 @@ public class ProductInfo {
     private String tel; // 소비자 상담 관련 전화번호
     @Column(nullable = false, length = 200)
     private String importDeclaration; // 수입식품안전관리특별법에 따른 수입신고 필함 여부
+
+    private Product product;
 
 }

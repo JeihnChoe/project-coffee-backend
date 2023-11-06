@@ -44,13 +44,9 @@ public class Product {
     @Column
     private Integer code; // 0.음료 1.푸드
 
-
-
-
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
-
 
     // TODO: 추가기능 - 상품정보제공고시
     // private FoodInfo foodInfo;
@@ -62,8 +58,6 @@ public class Product {
     // TODO: 추가기능 - NEW/HOT/BEST
 
     // TODO: 추가기능 - 알러지(알러지tb 생성)
-
-
 
     // TODO: 비슷한 다른 메뉴 추천
 
