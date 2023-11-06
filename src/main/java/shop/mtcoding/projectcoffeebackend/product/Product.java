@@ -1,4 +1,4 @@
-package shop.mtcoding.projectcoffeebackend.food;
+package shop.mtcoding.projectcoffeebackend.product;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,58 +14,57 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import shop.mtcoding.projectcoffeebackend.category.Category;
 
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "food_tb")
-public class Food {
+@Table(name = "product_tb")
+@ToString
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, length = 50)
-    private String foodName;
+    private String name;
     @Column(nullable = false, length = 50)
-    private String foodEngName;
+    private String engName;
     @Column(nullable = false, length = 1000)
-    private String foodDescription;
+    private String description;
     @Column(nullable = true, length = 1000)
-    private String foodTip;
-    @Column(nullable = false)
-    private int foodPrice;
+    private String tip;
+    @Column(nullable = false, length = 10)
+    private boolean isIced; // 0 : hot, 1 : iced
     @Column(nullable = false, length = 500)
-    private String foodPicUrl;
+    private String picUrl;
+    @Column
+    private String caption; // new/ hot/ best
+    @Column
+    private Integer code; // 0.음료 1.푸드
+
+
+
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 
+
     // TODO: 추가기능 - 상품정보제공고시
     // private FoodInfo foodInfo;
-
-    // TODO: 추가기능 - NEW/HOT/BEST
 
     // TODO: 추가기능 - 워밍옵션(빵류)
 
     // TODO: 추가기능 - 메뉴 추가(루어팍버터, 크림치즈28g)
 
-    @Builder
-    public Food(int id, String foodName, String foodEngName, String foodDescription, String foodTip, int foodPrice,
-            String foodPicUrl, Category category) {
-        this.id = id;
-        this.foodName = foodName;
-        this.foodEngName = foodEngName;
-        this.foodDescription = foodDescription;
-        this.foodTip = foodTip;
-        this.foodPrice = foodPrice;
-        this.foodPicUrl = foodPicUrl;
-        this.category = category;
-    }
+    // TODO: 추가기능 - NEW/HOT/BEST
 
-    // TODO: 추가기능 - 비슷한 다른 메뉴 추천
+    // TODO: 추가기능 - 알러지(알러지tb 생성)
+
+
+
+    // TODO: 비슷한 다른 메뉴 추천
 
 }
-
-// TODO: 추가기능 - 상품관련(상품tb 생성)
-// TODO: 추가기능 - 상품-원두(커피프로필)

@@ -1,4 +1,4 @@
-package shop.mtcoding.projectcoffeebackend.beverage.option;
+package shop.mtcoding.projectcoffeebackend.product.option;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

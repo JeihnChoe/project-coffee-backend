@@ -1,4 +1,4 @@
-package shop.mtcoding.projectcoffeebackend.beverage.option;
+package shop.mtcoding.projectcoffeebackend.product.option;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,8 +15,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import shop.mtcoding.projectcoffeebackend.beverage.Beverage;
-import shop.mtcoding.projectcoffeebackend.beverage.option.size.Size;
+import shop.mtcoding.projectcoffeebackend.product.Product;
+import shop.mtcoding.projectcoffeebackend.product.option.size.Size;
 
 @Getter
 @NoArgsConstructor
@@ -28,15 +28,16 @@ public class Option {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = false, length = 20)
-    private int optionPrice;
-
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    private Beverage beverage;
+    private Product product;
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Size size;
+    @Column(nullable = false, length = 20)
+    private int price;
+
+
 
     // TODO: 추가기능 - 영양정보 표시
     // @JsonIgnore
@@ -44,10 +45,10 @@ public class Option {
     // private Nutrition nutrition;
 
     @Builder
-    public Option(int id, int optionPrice, Beverage beverage, Size size) {
+    public Option(int id, int price, Product product, Size size) {
         this.id = id;
-        this.optionPrice = optionPrice;
-        this.beverage = beverage;
+        this.price = price;
+        this.product = product;
         this.size = size;
     }
 
