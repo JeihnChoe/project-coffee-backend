@@ -175,18 +175,47 @@
                         {{^isIced}}
                         <td>Iced</td>
                         {{/isIced}}
-                        {{#options}}
                         <td>
                             <div class="input-group input-group-sm mb-3">
-                                <select name="size1" class="form-control">
+                                <select name="size1" class="form-control" style="width: 60px;">
+                                    {{#options}}
                                     <div>{{size}}</div>
+                                    {{/options}}
+                                    {{^options}}
+                                    <div>{{size}}</div>
+                                    {{/options}}
                                 </select>
+                                {{#options}}
                                 <input type="number" class="form-control" name="optionPrice1" aria-label="price"
-                                    aria-describedby="inputGroup-sizing-sm" style="width: 20px; justify-content: center"
+                                    aria-describedby="inputGroup-sizing-sm" style="width: 60px; justify-content: center"
                                     value="{{price}}">
+                                {{/options}}
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <select name="size1" class="form-control" style="width: 60px;">
+                                    {{#options}}
+                                    <div>{{size}}</div>
+                                    {{/options}}
+                                </select>
+                                {{#options}}
+                                <input type="number" class="form-control" name="optionPrice1" aria-label="price"
+                                    aria-describedby="inputGroup-sizing-sm" style="width: 60px; justify-content: center"
+                                    value="{{price}}">
+                                {{/options}}
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <select name="size1" class="form-control" style="width: 60px;">
+                                    {{#options}}
+                                    <div>{{size}}</div>
+                                    {{/options}}
+                                </select>
+                                {{#options}}
+                                <input type="number" class="form-control" name="optionPrice1" aria-label="price"
+                                    aria-describedby="inputGroup-sizing-sm" style="width: 60px; justify-content: center"
+                                    value="{{price}}">
+                                {{/options}}
                             </div>
                         </td>
-                        {{/options}}
 
                         <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
                                 style="height: 80px;" onclick="location.href='../../..'"></img></td>
