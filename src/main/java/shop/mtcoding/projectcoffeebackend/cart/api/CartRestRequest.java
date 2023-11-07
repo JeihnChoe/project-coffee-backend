@@ -6,12 +6,12 @@ import lombok.ToString;
 
 public class CartRestRequest {
 
-    @Getter @Setter @ToString
-    public static class AddCartDTO{
+    @Getter
+    @Setter
+    @ToString
+    public static class AddCartDTO {
         private int optionId;
         private int quantity;
         private String cupType;
-
-
     }
 }
