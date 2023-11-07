@@ -11,7 +11,8 @@ public class ProductResponse {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class MyProductDTO {
-        private Integer id;
+        private Integer optionId;
+        private Integer productId;
         private String categoryName;
         private String picUrl;
         private String productName;
@@ -22,5 +23,31 @@ public class ProductResponse {
         private Integer price;
         private String size;
 
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MyOptionsDTO {
+        private Integer optionId;
+        private String categoryName;
+        private String picUrl;
+        private String productName;
+        private String engName;
+        private String description;
+        private String tip;
+        private Boolean isIced;
+        private Integer price;
+        private String size;
+
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MyProductByOptionDTO {
+        private Integer productId;
     }
 }

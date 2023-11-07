@@ -89,21 +89,22 @@
                                         aria-describedby="inputGroup-sizing-sm"
                                         style="width: 20px; justify-content: center">
                                 </div>
+
                                 <div class="input-group input-group-sm mb-3">
-                                    <div class="input-group input-group-sm mb-3">
-                                        <select name="size2" class="form-control">
-                                            <option type="number" value="1">Grande</option>
-                                            <option type="number" value="2">Venti</option>
-                                            <option type="number" value="3">Trenta</option>
-                                            <option type="number" value="4">Solo</option>
-                                            <option type="number" value="5">Dopio</option>
-                                            <option type="number" value="6">Short</option>
-                                            <option type="number" value="7">Tall</option>
-                                        </select>
-                                        <input type="number" class="form-control" name="optionPrice2" aria-label="price"
-                                            aria-describedby="inputGroup-sizing-sm"
-                                            style="width: 20px; justify-content: center">
-                                    </div>
+                                    <select name="size2" class="form-control">
+                                        <option type="number" value="1">Grande</option>
+                                        <option type="number" value="2">Venti</option>
+                                        <option type="number" value="3">Trenta</option>
+                                        <option type="number" value="4">Solo</option>
+                                        <option type="number" value="5">Dopio</option>
+                                        <option type="number" value="6">Short</option>
+                                        <option type="number" value="7">Tall</option>
+                                    </select>
+                                    <input type="number" class="form-control" name="optionPrice2" aria-label="price"
+                                        aria-describedby="inputGroup-sizing-sm"
+                                        style="width: 20px; justify-content: center">
+                                </div>
+                                <div class="input-group input-group-sm mb-3">
                                     <select name="size3" class="form-control">
                                         <option type="number" value="1">Venti</option>
                                         <option type="number" value="2">Trenta</option>
@@ -152,16 +153,15 @@
                         <th>음료 설명</th>
                         <th>팁</th>
                         <th>핫/아이스</th>
-                        <th>금액</th>
-                        <th>사이즈</th>
+                        <th>금액/사이즈</th>
                         <th>수정</th><!-- 아이콘으로 표시할것-->
                         <th>삭제</th><!-- 아이콘으로 표시할것-->
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        {{#beverages}}
-                        <td>{{id}}</td>
+                    {{#optionQuantity}}
+                    <tr>{{#beverages}}
+                        <td>{{optionId}}</td>
                         <td>{{categoryName}}</td>
                         <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg"
                                 style="height: 80px;">{{picUrl}}</img></td>
@@ -169,51 +169,23 @@
                         <td>{{engName}}</td>
                         <td>{{description}}</td>
                         <td>{{tip}}</td>
-                        <td>{{isIced}}</td>
+                        {{#isIced}}
+                        <td>Iced</td>
+                        {{/isIced}}
+                        {{^isIced}}
+                        <td>Iced</td>
+                        {{/isIced}}
                         <td>
+                            {{#beverages.size}}
                             <div class="input-group input-group-sm mb-3">
                                 <select name="size1" class="form-control">
-                                    <option value="" disabled selected hidden>1</option>
-                                    <option type="number" value="1">Tall</option>
-                                    <option type="number" value="2">Grande</option>
-                                    <option type="number" value="3">Venti</option>
-                                    <option type="number" value="4">Trenta</option>
-                                    <option type="number" value="5">Solo</option>
-                                    <option type="number" value="6">Dopio</option>
-                                    <option type="number" value="7">Short</option>
+                                    <div>size1</div>
                                 </select>
                                 <input type="number" class="form-control" name="optionPrice1" aria-label="price"
-                                    aria-describedby="inputGroup-sizing-sm"
-                                    style="width: 20px; justify-content: center">
+                                    aria-describedby="inputGroup-sizing-sm" style="width: 20px; justify-content: center"
+                                    value="{{price}}">
                             </div>
-                            <div class="input-group input-group-sm mb-3">
-                                <div class="input-group input-group-sm mb-3">
-                                    <select name="size2" class="form-control">
-                                        <option type="number" value="1">Grande</option>
-                                        <option type="number" value="2">Venti</option>
-                                        <option type="number" value="3">Trenta</option>
-                                        <option type="number" value="4">Solo</option>
-                                        <option type="number" value="5">Dopio</option>
-                                        <option type="number" value="6">Short</option>
-                                        <option type="number" value="7">Tall</option>
-                                    </select>
-                                    <input type="number" class="form-control" name="optionPrice2" aria-label="price"
-                                        aria-describedby="inputGroup-sizing-sm"
-                                        style="width: 20px; justify-content: center">
-                                </div>
-                                <select name="size3" class="form-control">
-                                    <option type="number" value="1">Venti</option>
-                                    <option type="number" value="2">Trenta</option>
-                                    <option type="number" value="3">Solo</option>
-                                    <option type="number" value="4">Dopio</option>
-                                    <option type="number" value="5">Short</option>
-                                    <option type="number" value="6">Tall</option>
-                                    <option type="number" value="7">Grande</option>
-                                </select>
-                                <input type="number" class="form-control" name="optionPrice3" aria-label="price"
-                                    aria-describedby="inputGroup-sizing-sm"
-                                    style="width: 20px; justify-content: center">
-                            </div>
+                            {{/beverages.size}}
 
                         </td>
 
@@ -225,6 +197,7 @@
                         <!-- 아이콘으로 표시할것-->
                         {{/beverages}}
                     </tr>
+                    {{/optionQuantity}}
                     <tr>
                         <td>2</td>
                         <td>콜드 브루 커피</td>
@@ -236,85 +209,6 @@
                         <td>5800원</td>
                         <td>Tall</td>
                         <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg"
-                                style="height: 80px;"></img></td>
-                        <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                                style="height: 80px;" onclick="location.href='../../..'"></img></td>
-                        <!-- 아이콘으로 표시할것-->
-                        <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
-                                onclick="location.href='../../..'"></img></td>
-                        <!-- 아이콘으로 표시할것-->
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>콜드 브루 커피</td>
-                        <td>바닐라 크림 콜드 브루</td>
-                        <td>Vanilla Cream Cold Brew</td>
-                        <td>콜드 브루에 더해진 바닐라 크림으로 깔끔하면서 달콤한 콜드 브루를 새롭게 즐길 수 있는 음료입니다.</td>
-                        <td>디카페인결제시 300원 추가됩니다.</td>
-                        <td>Iced</td>
-                        <td>5800원</td>
-                        <td>Tall</td>
-                        <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg"
-                                style="height: 80px;"></img></td>
-                        <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                                style="height: 80px;" onclick="location.href='../../..'"></img></td>
-                        <!-- 아이콘으로 표시할것-->
-                        <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
-                                onclick="location.href='../../..'"></img></td>
-                        <!-- 아이콘으로 표시할것-->
-                    </tr>
-
-                    <tr>
-                        <td>4</td>
-                        <td>콜드 브루 커피</td>
-                        <td>돌체 콜드 브루</td>
-                        <td>Dolche Cold Brew</td>
-                        <td>무더운 여름철 동남아 휴가지에서 즐기는 커피를 떠오르게 하는 스타벅스 음료의 베스트 x 베스트 조합인 돌체 콜드 브루를 만나보세요!</td>
-                        <td>디카페인결제시 300원 추가됩니다.</td>
-                        <td>Iced</td>
-                        <td>6000원</td>
-                        <td>Grande</td>
-                        <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg"
-                                style="height: 80px;"></img></td>
-                        <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                                style="height: 80px;" onclick="location.href='../../..'"></img></td>
-                        <!-- 아이콘으로 표시할것-->
-                        <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
-                                onclick="location.href='../../..'"></img></td>
-                        <!-- 아이콘으로 표시할것-->
-                    </tr>
-
-                    <tr>
-                        <td>5</td>
-                        <td>에스프레소</td>
-                        <td>에스프레소 콘 파나</td>
-                        <td>Espresso Con Panna</td>
-                        <td>신선한 에스프레소 샷에 풍부한 휘핑크림을 얹은 커피 음료로서, 뜨거운 커피의 맛과 차갑고 달콤한 생크림의 맛을 같이 즐길 수 있는 커피 음료</td>
-                        <td>디카페인결제시 300원 추가됩니다.</td>
-                        <td>Iced</td>
-                        <td>4200원</td>
-                        <td>Solo</td>
-                        <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[30]_20210415144252425.jpg"
-                                style="height: 80px;"></img></td>
-                        <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                                style="height: 80px;" onclick="location.href='../../..'"></img></td>
-                        <!-- 아이콘으로 표시할것-->
-                        <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
-                                onclick="location.href='../../..'"></img></td>
-                        <!-- 아이콘으로 표시할것-->
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>에스프레소</td>
-                        <td>에스프레소 콘 마끼아또</td>
-                        <td>Espresso Macchiato</td>
-                        <td>신선한 에스프레소 샷에 우유 거품을 살짝 얹은 커피 음료로써, 강렬한 에스프레소의 맛과 우유의 부드러움을 같이 즐길 수 있는 커피 음료</td>
-                        <td>디카페인결제시 300원 추가됩니다.</td>
-                        <td>Iced</td>
-                        <td>4000원</td>
-                        <td>Doppio</td>
-                        <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[25]_20210415144211211.jpg"
                                 style="height: 80px;"></img></td>
                         <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
                                 style="height: 80px;" onclick="location.href='../../..'"></img></td>

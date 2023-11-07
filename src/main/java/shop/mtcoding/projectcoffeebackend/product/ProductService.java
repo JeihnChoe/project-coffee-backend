@@ -3,8 +3,10 @@ package shop.mtcoding.projectcoffeebackend.product;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +15,8 @@ import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
 import shop.mtcoding.projectcoffeebackend._core.vo.MyPath;
 import shop.mtcoding.projectcoffeebackend.category.Category;
+import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyOptionsDTO;
+import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyProductByOptionDTO;
 import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyProductDTO;
 import shop.mtcoding.projectcoffeebackend.product.option.Option;
 import shop.mtcoding.projectcoffeebackend.product.option.OptionJPARepository;
@@ -29,20 +33,20 @@ public class ProductService {
 
     public List<MyProductDTO> 음료조회() {
         System.out.println("음료조회 서비스 탐");
-        // System.out.println("Product에서 options를 들고올 수 있을까" +
-        // productJPARepository.findByAllOptions().get(0));
-        List<MyProductDTO> beverageList = productJPARepository.findAllWithOptionAndSize();
-        System.out.println("서비스 테스트1" + beverageList.get(0).getId());
-        System.out.println("서비스 테스트2" + beverageList.get(0).getCategoryName());
-        System.out.println("서비스 테스트3" + beverageList.get(0).getPrice());
-        System.out.println("서비스 테스트4" + beverageList.get(0).getSize());
-        List<Integer> optionQuantity = null;
-        for (int i = 0; i < beverageList.size(); i++) {
-            int quantity = optionJPARepository.findByProductId(i);
-            optionQuantity.add(quantity);
-        }
+        List<MyProductDTO> beverageList = optionJPARepository.findAllWithOptionAndSize();
 
         return beverageList;
+    }
+
+    public List<Integer> 옵션갯수조회() {
+        List<Integer> optionQuantity = optionJPARepository.countProductId();
+        return optionQuantity;
+    }
+
+    public List<MyOptionsDTO> 옵션조회() {
+        List<MyOptionsDTO> optionList = optionJPARepository.findByOptions();
+        // System.out.println("서비스 옵션 상품id : " + optionList.get(2).getProductId());
+        return optionList;
     }
 
     @Transactional

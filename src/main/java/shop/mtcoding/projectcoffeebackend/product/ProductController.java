@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
+import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyOptionsDTO;
+import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyProductByOptionDTO;
 import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyProductDTO;
+import shop.mtcoding.projectcoffeebackend.product.option.Option;
 import shop.mtcoding.projectcoffeebackend.user.UserRequest;
 
 @Controller
@@ -22,7 +25,11 @@ public class ProductController {
     @GetMapping("/product/registerbeveragesform")
     public String viewBeverage(HttpServletRequest request) {
         List<MyProductDTO> beverages = productService.음료조회();
+        List<Integer> optionQuantity = productService.옵션갯수조회();
+        List<MyOptionsDTO> options = productService.옵션조회();
         request.setAttribute("beverages", beverages);
+        request.setAttribute("optionQuantity", optionQuantity);
+        request.setAttribute("options", options);
         return "/product/registerBeveragesForm";
     }
 
