@@ -15,9 +15,8 @@ import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
 import shop.mtcoding.projectcoffeebackend._core.vo.MyPath;
 import shop.mtcoding.projectcoffeebackend.category.Category;
-import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyOptionsDTO;
-import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyProductByOptionDTO;
 import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyProductDTO;
+import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MySizeAndOptionDTO;
 import shop.mtcoding.projectcoffeebackend.product.option.Option;
 import shop.mtcoding.projectcoffeebackend.product.option.OptionJPARepository;
 import shop.mtcoding.projectcoffeebackend.product.option.size.Size;
@@ -33,19 +32,21 @@ public class ProductService {
 
     public List<MyProductDTO> 음료조회() {
         System.out.println("음료조회 서비스 탐");
-        List<MyProductDTO> beverageList = optionJPARepository.findAllWithOptionAndSize();
+        List<MyProductDTO> beverageList = productJPARepository.findAllWithProduct();
+        System.out.println("음료조회Serv - id: " + beverageList.get(1).getProductId());
+        System.out.println("음료조회Serv - 카테고리이름: " + beverageList.get(1).getCategoryName());
+        System.out.println("음료조회 크기 : " + beverageList.size());
 
         return beverageList;
     }
 
-    public List<Integer> 옵션갯수조회() {
-        List<Integer> optionQuantity = optionJPARepository.countProductId();
-        return optionQuantity;
-    }
-
-    public List<MyOptionsDTO> 옵션조회() {
-        List<MyOptionsDTO> optionList = optionJPARepository.findByOptions();
-        // System.out.println("서비스 옵션 상품id : " + optionList.get(2).getProductId());
+    public List<MySizeAndOptionDTO> 옵션조회() {
+        List<MySizeAndOptionDTO> optionList = optionJPARepository.findAllWithSizeAndOption();
+        System.out.println("옵션조회Serv - 옵션id : " + optionList.get(1).getOptionId());
+        System.out.println("옵션조회Serv - 상품id : " + optionList.get(1).getProductId());
+        System.out.println("옵션조회Serv - 가격 : " + optionList.get(1).getPrice());
+        System.out.println("옵션조회Serv - 사이즈 : " + optionList.get(1).getSize());
+        System.out.println("옵션조회 크기 : " + optionList.size());
         return optionList;
     }
 

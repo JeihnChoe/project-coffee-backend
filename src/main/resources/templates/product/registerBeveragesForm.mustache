@@ -146,7 +146,7 @@
                     <tr> <!-- 음료명 등은 폼필드/ 카테고리 등은 드롭다운으로 만들것  -->
                         <!-- DB 필드명에 맞춰 박스 재구성할것  -->
                         <th>No.</th>
-                        <th>카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
+                        <th style="width: 300px;">카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
                         <th>사진</th>
                         <th>음료명</th>
                         <th>음료 영문명</th>
@@ -159,9 +159,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{#optionQuantity}}
-                    <tr>{{#beverages}}
-                        <td>{{optionId}}</td>
+                    {{#beverages}}
+                    <tr>
+                        <td>{{productId}}</td>
                         <td>{{categoryName}}</td>
                         <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg"
                                 style="height: 80px;">{{picUrl}}</img></td>
@@ -175,19 +175,18 @@
                         {{^isIced}}
                         <td>Iced</td>
                         {{/isIced}}
+                        {{#options}}
                         <td>
-                            {{#beverages.size}}
                             <div class="input-group input-group-sm mb-3">
                                 <select name="size1" class="form-control">
-                                    <div>size1</div>
+                                    <div>{{size}}</div>
                                 </select>
                                 <input type="number" class="form-control" name="optionPrice1" aria-label="price"
                                     aria-describedby="inputGroup-sizing-sm" style="width: 20px; justify-content: center"
                                     value="{{price}}">
                             </div>
-                            {{/beverages.size}}
-
                         </td>
+                        {{/options}}
 
                         <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
                                 style="height: 80px;" onclick="location.href='../../..'"></img></td>
@@ -195,9 +194,9 @@
                         <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
                                 onclick="location.href='../../..'"></img></td>
                         <!-- 아이콘으로 표시할것-->
-                        {{/beverages}}
+
                     </tr>
-                    {{/optionQuantity}}
+                    {{/beverages}}
                     <tr>
                         <td>2</td>
                         <td>콜드 브루 커피</td>
