@@ -174,8 +174,10 @@ public class ProductService {
     @Transactional
     public void 푸드추가(ProductRequest.RegisterFoodDTO resgisterFoodDTO) {
 
+        Category category = Category.builder().id(resgisterFoodDTO.getCategoryId()).build();
+
         UUID uuid = UUID.randomUUID(); // 랜덤한 해시값을 만들어줌(충돌날 일 없음)
-        String fileName = uuid + "_" + resgisterFoodDTO.getPicUrl().getOriginalFilename();
+        String fileName = uuid + "_" + resgisterFoodDTO.getPicUrl();
 
         Path filePath = Paths.get(MyPath.IMG_PATH + fileName); // ./images/ 는 프로젝트 경로의 images폴더 안에(상대경로)
         try {
@@ -184,8 +186,16 @@ public class ProductService {
             throw new Exception400("파일이 없습니다.");
 
         }
+        Product production = Product.builder()
+                .category(resgisterFoodDTO.getCategoryId())
+                .description(resgisterFoodDTO.getDescription())
+                .engName(resgisterFoodDTO.getEngName())
+                .name(resgisterFoodDTO.getName())
+                .picUrl(fileName)
+                .tip(resgisterFoodDTO.getTip())
+                .build();
 
-        productJPARepository.save(resgisterFoodDTO.toEntity());
+        productJPARepository.save(production);
 
     }
 

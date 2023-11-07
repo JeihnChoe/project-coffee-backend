@@ -1,4 +1,4 @@
-package shop.mtcoding.projectcoffeebackend.product.api;
+package shop.mtcoding.projectcoffeebackend.product;
 
 import org.springframework.web.bind.annotation.RestController;
 
