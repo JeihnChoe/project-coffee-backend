@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
+import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyProductDTO;
 import shop.mtcoding.projectcoffeebackend.user.UserRequest;
 
 @Controller
@@ -21,8 +22,6 @@ public class ProductController {
     @GetMapping("/product/registerbeveragesform")
     public String viewBeverage(HttpServletRequest request) {
         List<MyProductDTO> beverages = productService.음료조회();
-        System.out.println("컨트롤러 테스트 : " + beverages.get(0).getPrice());
-        System.out.println("컨트롤러 테스트 : " + beverages.get(0).getDescription());
         request.setAttribute("beverages", beverages);
         return "/product/registerBeveragesForm";
     }

@@ -170,8 +170,52 @@
                         <td>{{description}}</td>
                         <td>{{tip}}</td>
                         <td>{{isIced}}</td>
-                        <td>1</td>
-                        <td>1</td>
+                        <td>
+                            <div class="input-group input-group-sm mb-3">
+                                <select name="size1" class="form-control">
+                                    <option value="" disabled selected hidden>1</option>
+                                    <option type="number" value="1">Tall</option>
+                                    <option type="number" value="2">Grande</option>
+                                    <option type="number" value="3">Venti</option>
+                                    <option type="number" value="4">Trenta</option>
+                                    <option type="number" value="5">Solo</option>
+                                    <option type="number" value="6">Dopio</option>
+                                    <option type="number" value="7">Short</option>
+                                </select>
+                                <input type="number" class="form-control" name="optionPrice1" aria-label="price"
+                                    aria-describedby="inputGroup-sizing-sm"
+                                    style="width: 20px; justify-content: center">
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group input-group-sm mb-3">
+                                    <select name="size2" class="form-control">
+                                        <option type="number" value="1">Grande</option>
+                                        <option type="number" value="2">Venti</option>
+                                        <option type="number" value="3">Trenta</option>
+                                        <option type="number" value="4">Solo</option>
+                                        <option type="number" value="5">Dopio</option>
+                                        <option type="number" value="6">Short</option>
+                                        <option type="number" value="7">Tall</option>
+                                    </select>
+                                    <input type="number" class="form-control" name="optionPrice2" aria-label="price"
+                                        aria-describedby="inputGroup-sizing-sm"
+                                        style="width: 20px; justify-content: center">
+                                </div>
+                                <select name="size3" class="form-control">
+                                    <option type="number" value="1">Venti</option>
+                                    <option type="number" value="2">Trenta</option>
+                                    <option type="number" value="3">Solo</option>
+                                    <option type="number" value="4">Dopio</option>
+                                    <option type="number" value="5">Short</option>
+                                    <option type="number" value="6">Tall</option>
+                                    <option type="number" value="7">Grande</option>
+                                </select>
+                                <input type="number" class="form-control" name="optionPrice3" aria-label="price"
+                                    aria-describedby="inputGroup-sizing-sm"
+                                    style="width: 20px; justify-content: center">
+                            </div>
+
+                        </td>
 
                         <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
                                 style="height: 80px;" onclick="location.href='../../..'"></img></td>
