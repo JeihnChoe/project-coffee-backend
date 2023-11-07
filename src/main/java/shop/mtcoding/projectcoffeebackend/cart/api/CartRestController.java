@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception401;
 import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
+import shop.mtcoding.projectcoffeebackend.cart.Cart;
 import shop.mtcoding.projectcoffeebackend.cart.CartService;
+import shop.mtcoding.projectcoffeebackend.cart.api.CartRestResponse.ViewCartListDTO;
 import shop.mtcoding.projectcoffeebackend.user.User;
 
 import javax.servlet.http.HttpSession;
@@ -37,13 +39,16 @@ public class CartRestController {
     }
 
     @GetMapping("/carts/viewcartlist")
-    public ResponseEntity<?> viewCartList(Errors errors) {
+    public ResponseEntity<?> viewCartList() {
         System.out.println("테스트 : view 카트 진입");
+
         User sessionUser = (User) session.getAttribute("sessionUser");
+
         if (sessionUser == null) {
             throw new Exception401("로그인이 필요한 서비스입니다.");
         }
-        cartService.viewCartList(sessionUser);
-        return ResponseEntity.ok().body(ApiUtils.success(null));
+
+        List<ViewCartListDTO> response = cartService.viewCartList(sessionUser);
+        return ResponseEntity.ok().body(ApiUtils.success(response));
     }
 }

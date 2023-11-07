@@ -1,17 +1,19 @@
 package shop.mtcoding.projectcoffeebackend.cart;
 
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception401;
 import shop.mtcoding.projectcoffeebackend.cart.api.CartRestRequest;
 import shop.mtcoding.projectcoffeebackend.cart.api.CartRestResponse.ViewCartListDTO;
 import shop.mtcoding.projectcoffeebackend.product.option.Option;
 import shop.mtcoding.projectcoffeebackend.product.option.OptionJPARepository;
+import shop.mtcoding.projectcoffeebackend.product.option.size.Size;
 import shop.mtcoding.projectcoffeebackend.user.User;
-
-import java.util.List;
 
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -21,7 +23,6 @@ public class CartService {
     final OptionJPARepository optionJPARepository;
     final CartJPARepository cartJPARepository;
 
-    @Transactional
     public void addCartList(List<CartRestRequest.AddCartListDTO> addCartDTOS, User sessionUser) {
 
         for (CartRestRequest.AddCartListDTO addCartDTO : addCartDTOS) {
@@ -43,13 +44,22 @@ public class CartService {
         }
     }
 
-    public void viewCartList(User sessionUser) {
-        int userId = sessionUser.getId();
-        System.out.println("테스트 : 카트리스트뽑기");
+    public List<ViewCartListDTO> viewCartList(User sessionUser) {
 
-        List<ViewCartListDTO> viewCartListDTOs = cartJPARepository.findByUserIdAndOptionId(userId);
+        System.out.println("테스트 : view 카트 카트서비스 진입");
 
-        System.out.println("테스트 : DTO나옴?" + viewCartListDTOs.get(0).getProductName());
+        List<ViewCartListDTO> cartPS = cartJPARepository.findByUserId(sessionUser.getId());
+
+        System.out.println("테스트 : 카트리스트뽑기" + cartPS.get(0).getPrice());
+
+        // List<ViewCartListDTO> responseDTO = cartPS.stream().map(e -> new
+        // ViewCartListDTO(e))
+        // .collect(Collectors.toList());
+
+        System.out.println("테스트 : 카트리스트뽑기" + cartPS.get(0).getPrice());
+
+        return cartPS;
+        // System.out.println("테스트 : DTO나옴?" + viewCartListDTOs.get(0).getName());
 
     }
 }

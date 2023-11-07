@@ -4,20 +4,27 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import shop.mtcoding.projectcoffeebackend.cart.api.CartRestResponse.ViewCartListDTO;
 
 public interface CartJPARepository extends JpaRepository<Cart, Integer> {
 
-    @Query("select new shop.mtcoding.projectcoffeebackend.cart.api.CartRestResponse$ViewCartListDTO(c.id, p.name, p.engName, p.picUrl, o.price, o.isIced, s.size, c.cupType, c.totalPrice) FROM Cart c LEFT JOIN c.option o LEFT JOIN o.product p)")
-    List<ViewCartListDTO> findByUserIdAndOptionId(int userId);
+    @Query(value = "select c from Cart c left join fetch c.option co left join fetch co.size cos where c.user.id = :userId")
+    List<ViewCartListDTO> findByUserId(@Param("userId") Integer userId);
 
-    // String productName;
-    // String productEngName;
-    // String productPicUrl;
+    // @Query("select r from Notice r left join fetch r.techNotice rt left join
+    // fetch r.user ru where r.id = :id")
+
+    // void findByUserIdAndOptionId();
+
+    // String name;
+    // String engName;
+    // String picUrl;
     // int price;
-    // int isIced; // 아이스,핫
+    // int quantity;
+    // boolean isIced; // 아이스,핫
     // int size; // 컵사이즈(Short, Tall, Grande, Venti)
-    // int cup; // (매장컵, 개인컵, 일회용컵)
-
+    // String cupType; // (매장컵, 개인컵, 일회용컵)
+    // int totalPrice;
 }

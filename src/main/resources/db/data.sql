@@ -2,6 +2,8 @@ INSERT INTO  user_tb (`id`, `login_id`, `email`, `password`, `user_name`, `phone
  VALUES (1, 'ssar', 'ssar@nate.com', 'a12345678!', '김쌀', '010-1212-1212', 1, '2020-02-02', '2020-02-02');
 INSERT INTO user_tb (`id`, `login_id`, `email`, `password`, `user_name`, `phone_number`, `manager`, `user_created_at`, `user_updated_at`)
  VALUES (2, 'cos', 'cos@nate.com', 'a12345678!!', '코스', '010-1234-1234', 1, '2020-02-04', '2020-02-04');
+INSERT INTO user_tb (`id`, `login_id`, `email`, `password`, `user_name`, `phone_number`, `manager`, `user_created_at`, `user_updated_at`)
+ VALUES (3, 'love', 'love@nate.com', 'a12345678!!', '러브', '010-1234-1234', 1, '2020-02-04', '2020-02-04');
 
 
 
@@ -45,6 +47,12 @@ INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
 
 INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced`, `pic_url`, `category_id`)
  VALUES (1, '아이스 카페 아메리카노', 'Iced Caffe Americano', '진한 에스프레소에 시원한 정수물과 얼음을 더하여 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피','블론드/디카페인 커피 Tab에서 블론드, 디카페인, 1/2 디카페인 아메리카노를 주문할 수 있습니다.', true, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg', 1);
+INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced`, `pic_url`, `category_id`)
+ VALUES (2, '뜨 아메리카노', 'Caffe Americano', '진한 에스프레소에 개뜨거운 정수물을 넣어서 강렬한 맛을 선사합니다.', '블론드/디카페인 커피 Tab에서 블론드, 디카페인, 1/2 디카페인 아메리카노를 주문할 수 있습니다.',false, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg', 1);
+INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced`, `pic_url`, `category_id`)
+ VALUES (3, '아이스 카페라떼', 'Iced Caffe Latte', '진한 에스프레소에 차가운 우유와  얼음을 더하여 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피','블론드/디카페인 커피 Tab에서 블론드, 디카페인, 1/2 디카페인 아메리카노를 주문할 수 있습니다.', true, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg', 1);
+INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced`, `pic_url`, `category_id`)
+ VALUES (4, '뜨 카페라떼', 'Caffe Latte', '진한 에스프레소에 뜨거운 우유를 넣어 부드러운 커피를 느낄 수 있습니다.','블론드/디카페인 커피 Tab에서 블론드, 디카페인, 1/2 디카페인 아메리카노를 주문할 수 있습니다.', true, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg', 1);
 
 
 
@@ -70,7 +78,19 @@ INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
  VALUES (2, 2, 5000, 1);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
  VALUES (3, 3, 5500, 1);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (4, 1, 6700, 2);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (5, 2, 7200, 2);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (6, 3, 7500, 2);
 
-
-
+INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
+ VALUES (1,1,3,10500,'single',1);
+INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
+ VALUES (2,2,10,50000,'single',1);
+INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
+ VALUES (3,3,1,9000,'personal',2);
+INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
+ VALUES (4,3,1,6700,'shop',3);
 
