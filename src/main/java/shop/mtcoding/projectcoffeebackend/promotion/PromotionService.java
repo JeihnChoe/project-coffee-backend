@@ -3,50 +3,34 @@ package shop.mtcoding.projectcoffeebackend.promotion;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
+import shop.mtcoding.projectcoffeebackend.promotion.api.PromotionRestResponse;
 
 @Transactional(readOnly = true)
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class PromotionService {
 
-    @Autowired
-    PromotionJPARepository promotionJPARepository;
+    final PromotionJPARepository promotionJPARepository;
 
-    public List<PromotionResponse.FindAllWhatsNewDTO> findAllWhatsNewPromotion() {
+    // 프로모션 리스트보기
+    public List<PromotionRestResponse.FindAllListDTO> findAllListPromotion() { // 프로모션 리스트
         List<Promotion> promotionPS = promotionJPARepository.findAll();
-        List<PromotionResponse.FindAllWhatsNewDTO> responseDTOs = promotionPS.stream()
-                .map(promotion -> new PromotionResponse.FindAllWhatsNewDTO(promotion))
+        List<PromotionRestResponse.FindAllListDTO> responseDTOs = promotionPS.stream()
+                .map(promotion -> new PromotionRestResponse.FindAllListDTO(promotion))
                 .collect(Collectors.toList());
         return responseDTOs;
     }
 
-    public List<PromotionResponse.FindByAllHomeThumbnailDTO> findAllHomePromotion() { //
-        List<Promotion> promotionPS = promotionJPARepository.findAll();
-        List<PromotionResponse.FindByAllHomeThumbnailDTO> responseDTOs = promotionPS.stream()
-                .map(promotion -> new PromotionResponse.FindByAllHomeThumbnailDTO(promotion))
-                .filter(promotion -> promotion.getHomeThumbnail() != null)
-                .collect(Collectors.toList());
-        return responseDTOs;
-    }
-
-    public List<PromotionResponse.FindAllListDTO> findAllListPromotion() { // 프로모션 리스트
-        List<Promotion> promotionPS = promotionJPARepository.findAll();
-        List<PromotionResponse.FindAllListDTO> responseDTOs = promotionPS.stream()
-                .map(promotion -> new PromotionResponse.FindAllListDTO(promotion))
-                .collect(Collectors.toList());
-        return responseDTOs;
-    }
-
-    public PromotionResponse.FindByPromotionIdDTO findById(Integer id) {
+    public PromotionRestResponse.FindByPromotionIdDTO findById(Integer id) {
         Promotion promotionPS = promotionJPARepository.findById(id)
                 .orElseThrow(() -> new Exception400("프로모션id가 없습니다 : "));
-        PromotionResponse.FindByPromotionIdDTO responseDTO = new PromotionResponse.FindByPromotionIdDTO(promotionPS);
+        PromotionRestResponse.FindByPromotionIdDTO responseDTO = new PromotionRestResponse.FindByPromotionIdDTO(
+                promotionPS);
 
         return responseDTO;
     }

@@ -1,45 +1,12 @@
-package shop.mtcoding.projectcoffeebackend.promotion;
+package shop.mtcoding.projectcoffeebackend.promotion.api;
 
 import java.time.LocalDate;
 
 import lombok.Getter;
 import lombok.Setter;
+import shop.mtcoding.projectcoffeebackend.promotion.Promotion;
 
-public class PromotionResponse {
-
-    @Getter
-    @Setter
-    public static class FindAllWhatsNewDTO { // 홈화면 What's New 프로모션DTO
-        private int id;
-        private String title;
-        private String subContent;
-        private String thumbnail;
-        private Boolean isOpen;
-
-        public FindAllWhatsNewDTO(Promotion promotion) {
-            this.id = promotion.getId();
-            this.title = promotion.getTitle();
-            this.subContent = promotion.getSubContent();
-            this.thumbnail = promotion.getThumbnail();
-            this.isOpen = promotion.getIsOpen();
-        }
-
-    }
-
-    @Getter
-    @Setter
-    public static class FindByAllHomeThumbnailDTO { // 홈화면에 대문짝만한 프로모션DTO
-        private int id;
-        private String homeThumbnail;
-        private Boolean isOpen;
-
-        public FindByAllHomeThumbnailDTO(Promotion promotion) {
-            this.id = promotion.getId();
-            this.homeThumbnail = promotion.getHomeThumbnail();
-            this.isOpen = promotion.getIsOpen();
-        }
-
-    }
+public class PromotionRestResponse {
 
     @Getter
     @Setter
@@ -49,8 +16,8 @@ public class PromotionResponse {
         private String subContent;
         private LocalDate startDate;
         private LocalDate endDate;
-        private String thumbnail;
-        private Boolean isOpen;
+        private String bigThumbnail;
+        private String smallThumbnail;
 
         public FindAllListDTO(Promotion promotion) {
             this.id = promotion.getId();
@@ -58,8 +25,8 @@ public class PromotionResponse {
             this.subContent = promotion.getSubContent();
             this.startDate = promotion.getStartDate();
             this.endDate = promotion.getEndDate();
-            this.thumbnail = promotion.getThumbnail();
-            this.isOpen = promotion.getIsOpen();
+            this.bigThumbnail = promotion.getBigThumbnail();
+            this.smallThumbnail = promotion.getSmallThumbnail();
         }
 
     }
