@@ -36,11 +36,6 @@ public class ProductService {
         System.out.println("서비스 테스트2" + beverageList.get(0).getCategoryName());
         System.out.println("서비스 테스트3" + beverageList.get(0).getPrice());
         System.out.println("서비스 테스트4" + beverageList.get(0).getSize());
-        List<Integer> optionQuantity = null;
-        for (int i = 0; i < beverageList.size(); i++) {
-            int quantity = optionJPARepository.findByProductId(i);
-            optionQuantity.add(quantity);
-        }
 
         return beverageList;
     }
