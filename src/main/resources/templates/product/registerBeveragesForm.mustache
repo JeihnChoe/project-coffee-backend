@@ -46,32 +46,32 @@
                                     </select>
                                 </div>
                             </td>
-                            <td> <input type="file" name="beveragePicUrl" onchange="changePic(event)"
+                            <td> <input type="file" name="picUrl" onchange="changePic(event)"
                                     style="width:220px; text-align: center; justify-content: center"></td>
                             <td>
-                                <input type="text" class="form-control" name="beverageName" placeholder="제품명을 입력해주세요"
+                                <input type="text" class="form-control" name="name" placeholder="제품명을 입력해주세요"
                                     style="text-align: center; width: 180px;">
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="beverageEngName"
+                                <input type="text" class="form-control" name="engName"
                                     placeholder="제품 영문명을 입력해주세요" style="text-align: center; width: 200px;">
                             </td>
                             <td>
-                                <textarea class="form-control" name="beverageDescription" placeholder="제품설명을 입력해주세요"
+                                <textarea class="form-control" name="description" placeholder="제품설명을 입력해주세요"
                                     rows="3" style="text-align: center; width: 200px;"></textarea>
                             </td>
-                            <td><textarea class=" form-control" name="beverageTip" placeholder="제품설명을 입력해주세요" rows="3"
+                            <td><textarea class=" form-control" name="tip" placeholder="제품설명을 입력해주세요" rows="3"
                                     style="text-align: center; width: 200px;"></textarea>
                             </td>
                             <td>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" value="false" name="hot">
+                                    <input class="form-check-input" type="radio" value="false" name="isIced">
                                     <label class="form-check-label" for="flexCheckChecked">
                                         HOT
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" value="true" name="iced">
+                                    <input class="form-check-input" type="radio" value="true" name="isIced">
                                     <label class="form-check-label" for="flexCheckChecked">
                                         ICED
                                     </label>
@@ -88,35 +88,35 @@
                                         <option type="number" value="6">Dopio</option>
                                         <option type="number" value="7">Short</option>
                                     </select>
-                                    <input type="number" class="form-control" name="optionPrice1" aria-label="price"
+                                    <input type="number" class="form-control" name="price1" aria-label="price"
                                         aria-describedby="inputGroup-sizing-sm"
                                         style="width: 20px; justify-content: center">
                                 </div>
                                 <div class="input-group input-group-sm mb-3">
                                     <select name="size2" class="form-control">
-                                        <option type="number" value="1">Grande</option>
-                                        <option type="number" value="2">Venti</option>
-                                        <option type="number" value="3">Trenta</option>
-                                        <option type="number" value="4">Solo</option>
-                                        <option type="number" value="5">Dopio</option>
-                                        <option type="number" value="6">Short</option>
-                                        <option type="number" value="7">Tall</option>
+                                        <option type="number" value="2">Grande</option>
+                                        <option type="number" value="3">Venti</option>
+                                        <option type="number" value="4">Trenta</option>
+                                        <option type="number" value="5">Solo</option>
+                                        <option type="number" value="6">Dopio</option>
+                                        <option type="number" value="7">Short</option>
+                                        <option type="number" value="1">Tall</option>
                                     </select>
-                                    <input type="number" class="form-control" name="optionPrice2" aria-label="price"
+                                    <input type="number" class="form-control" name="price2" aria-label="price"
                                         aria-describedby="inputGroup-sizing-sm"
                                         style="width: 20px; justify-content: center">
                                 </div>
                                 <div class="input-group input-group-sm mb-3">
                                     <select name="size3" class="form-control">
-                                        <option type="number" value="1">Venti</option>
-                                        <option type="number" value="2">Trenta</option>
-                                        <option type="number" value="3">Solo</option>
-                                        <option type="number" value="4">Dopio</option>
-                                        <option type="number" value="5">Short</option>
-                                        <option type="number" value="6">Tall</option>
-                                        <option type="number" value="7">Grande</option>
+                                        <option type="number" value="3">Venti</option>
+                                        <option type="number" value="4">Trenta</option>
+                                        <option type="number" value="5">Solo</option>
+                                        <option type="number" value="6">Dopio</option>
+                                        <option type="number" value="7">Short</option>
+                                        <option type="number" value="1">Tall</option>
+                                        <option type="number" value="2">Grande</option>
                                     </select>
-                                    <input type="number" class="form-control" name="optionPrice3" aria-label="price"
+                                    <input type="number" class="form-control" name="price3" aria-label="price"
                                         aria-describedby="inputGroup-sizing-sm" style="justify-content: center">
                                 </div>
 
@@ -165,18 +165,23 @@
                         <td>{{id}}</td>
                         <td style="width: 180px;">{{categoryName}}</td>
                         <td style="width: 200px;"><img
-                                src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002487]_20210426091745609.jpg"
+                                src="{{picUrl}}"
                                 style="height: 80px;"><!--{{picUrl}}--></img></td>
                         <td style="width: 180px;">{{productName}}</td>
                         <td style="width: 200px;">{{engName}}</td>
                         <td style="width: 200px;">{{description}}</td>
                         <td style="width: 200px;">{{tip}}</td>
-                        <td>{{isIced}}</td>
+                        {{#isIced}}
+                        <td>Iced</td>
+                        {{/isIced}}
+                        {{^isIced}}
+                        <td>Hot</td>
+                        {{/isIced}}
                         <td>
                             <div class="input-group input-group-sm mb-3">
-                                <select name="size1" class="form-control" style="width: 80px;">
+                                <select name="size" class="form-control" style="width: 80px;">
                                     <option value="" disabled selected hidden>{{size}}</option>
-                                    <option type=" number" value="1">Tall</option>
+                                    <option type="number" value="1">Tall</option>
                                     <option type="number" value="2">Grande</option>
                                     <option type="number" value="3">Venti</option>
                                     <option type="number" value="4">Trenta</option>

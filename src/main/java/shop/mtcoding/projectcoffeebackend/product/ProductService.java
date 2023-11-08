@@ -17,7 +17,6 @@ import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyProductDTO;
 import shop.mtcoding.projectcoffeebackend.product.option.Option;
 import shop.mtcoding.projectcoffeebackend.product.option.OptionJPARepository;
 import shop.mtcoding.projectcoffeebackend.product.option.size.Size;
-import shop.mtcoding.projectcoffeebackend.user.UserRequest;
 
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -41,10 +40,24 @@ public class ProductService {
     }
 
     @Transactional
-    public void 음료추가(UserRequest.RegistrationBeverageDTO requestDTO) {
+    public void 음료추가(ProductRequest.RegistrationBeverageDTO requestDTO) {
         // Category categoryPS =
         // categoryJPARepository.findByCategoryEngName(requestDTO.getCategoryName());
         Category category = Category.builder().id(requestDTO.getCategoryId()).build();
+
+        System.out.println("음료추가 카테고리id : " + requestDTO.getCategoryId());
+        System.out.println("음료추가 제품이름 : " + requestDTO.getName());
+        System.out.println("음료추가 영문이름 : " + requestDTO.getEngName());
+        System.out.println("음료추가 설명: " + requestDTO.getDescription());
+        System.out.println("음료추가 팁: " + requestDTO.getTip());
+        System.out.println("음료추가 핫./아이스 : " + requestDTO.getIsIced());
+        System.out.println("음료추가 사진: " + requestDTO.getPicUrl());
+        System.out.println("음료추가 크기1: " + requestDTO.getSize1());
+        System.out.println("음료추가 크기2: " + requestDTO.getSize2());
+        System.out.println("음료추가 크기3: " + requestDTO.getSize3());
+        System.out.println("음료추가 가격1: " + requestDTO.getPrice1());
+        System.out.println("음료추가 가격2: " + requestDTO.getPrice2());
+        System.out.println("음료추가 가격3: " + requestDTO.getPrice3());
 
         UUID uuid = UUID.randomUUID(); // 랜덤한 해시값을 만들어줌(충돌날 일 없음)
         String fileName = uuid + "_" + requestDTO.getPicUrl().getOriginalFilename();
@@ -58,14 +71,14 @@ public class ProductService {
         }
 
         // 핫 만 체크되었을 때
-        if (requestDTO.getHot() != null) {
+        if (requestDTO.getIsIced() != null && !Boolean.parseBoolean(requestDTO.getIsIced())) {
             System.out.println("테스트S : 핫 만");
             Product beverage = Product.builder()
                     .name(requestDTO.getName())
                     .engName(requestDTO.getEngName())
                     .description(requestDTO.getDescription())
                     .tip(requestDTO.getTip())
-                    .isIced(Boolean.parseBoolean(requestDTO.getHot()))
+                    .isIced(Boolean.parseBoolean(requestDTO.getIsIced()))
                     .picUrl(fileName)
                     .category(category)
                     .build();
@@ -115,14 +128,14 @@ public class ProductService {
         }
 
         // 아이스 만 체크되었을 때
-        else if (requestDTO.getIced() != null) {
+        else if (requestDTO.getIsIced() != null && Boolean.parseBoolean(requestDTO.getIsIced())) {
             System.out.println("테스트S : 아이스 만");
             Product beverage = Product.builder()
                     .name(requestDTO.getName())
                     .engName(requestDTO.getEngName())
                     .description(requestDTO.getDescription())
                     .tip(requestDTO.getTip())
-                    .isIced(Boolean.parseBoolean(requestDTO.getIced()))
+                    .isIced(Boolean.parseBoolean(requestDTO.getIsIced()))
                     .picUrl(fileName)
                     .category(category)
                     .build();
