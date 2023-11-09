@@ -37,22 +37,22 @@ public class Promotion {
     @Column(nullable = false, length = 500)
     private String picUrl;
     @Column(nullable = false, length = 500)
-    private String thumbnail; // 홈 화면의 What's New / See All 썸네일
+    private String smallThumbnail; // 홈 화면의 What's New / See All 썸네일
     @Column(nullable = true, length = 500)
-    private String homeThumbnail; // 홈 화면에서 큼지막한 썸네일
+    private String bigThumbnail; // 홈 화면에서 큼지막한 썸네일
 
     @Builder
     public Promotion(int id, String title, String subContent, LocalDate startDate, LocalDate endDate,
             String picUrl,
-            String thumbnail, String homeThumbnail, Boolean isOpen) {
+            String smallThumbnail, String bigThumbnail, Boolean isOpen) {
         this.id = id;
         this.title = title;
         this.subContent = subContent;
         this.startDate = startDate;
         this.endDate = endDate;
         this.picUrl = picUrl;
-        this.thumbnail = thumbnail;
-        this.homeThumbnail = homeThumbnail;
+        this.smallThumbnail = smallThumbnail;
+        this.bigThumbnail = bigThumbnail;
         this.isOpen = isOpen;
     }
 

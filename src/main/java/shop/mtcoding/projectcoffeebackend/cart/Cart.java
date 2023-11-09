@@ -12,14 +12,16 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend.product.option.Option;
 import shop.mtcoding.projectcoffeebackend.user.User;
 
 @Getter
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "cart_tb")
 public class Cart {
