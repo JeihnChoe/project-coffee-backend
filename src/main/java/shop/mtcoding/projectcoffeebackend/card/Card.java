@@ -24,8 +24,6 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, length = 500)
-    private String picUrl;
-    @Column(nullable = false, length = 500)
     private String name;
     @Column(nullable = false)
     private int money;
@@ -47,9 +45,9 @@ public class Card {
     private CardDivision cardDivision;
 
     @Builder
-    public Card(int id, String picUrl, String name, int money, int number, int pin, Timestamp createdAt, int status, User user, CardDivision cardDivision) {
+    public Card(int id, String name, int money, int number, int pin, Timestamp createdAt, int status,
+            User user, CardDivision cardDivision) {
         this.id = id;
-        this.picUrl = picUrl;
         this.name = name;
         this.money = money;
         this.number = number;
@@ -57,7 +55,7 @@ public class Card {
         this.createdAt = createdAt;
         this.status = status;
         this.user = user;
-        this.cardDivision =cardDivision;
+        this.cardDivision = cardDivision;
     }
 }
 
