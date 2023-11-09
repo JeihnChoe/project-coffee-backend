@@ -38,4 +38,18 @@ public class ProductController {
         return "redirect:/product/registerbeveragesform";
     }
 
+    @GetMapping("/product/registerfoodsform")
+    public String viewFoods() {
+
+        return "/product/registerFoodsForm";
+    }
+
+    @PostMapping("/product/registerfoods")
+    public String registrationFoods(ProductRequest.RegisterFoodDTO resgisterFoodDTO) {
+
+        productService.푸드추가(resgisterFoodDTO);
+
+        return "/product/registerFoodsForm";
+    }
+
 }
