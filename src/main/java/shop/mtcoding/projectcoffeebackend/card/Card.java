@@ -60,3 +60,5 @@ public class Card {
         this.cardDivision =cardDivision;
     }
 }
+
+

@@ -1,6 +1,7 @@
 package shop.mtcoding.projectcoffeebackend.order.item;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import shop.mtcoding.projectcoffeebackend.order.Order;
@@ -34,6 +35,7 @@ public class Item {
     private Timestamp paymentTime; // 결제 시간(초 단위까지)
 
 
+    @Builder
     public Item(int id, Option option, Order order, String cupType, int quantity, int totalAmount, Timestamp paymentTime) {
         this.id = id;
         this.option = option;

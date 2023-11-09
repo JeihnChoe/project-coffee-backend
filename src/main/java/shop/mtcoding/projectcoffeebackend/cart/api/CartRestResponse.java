@@ -76,8 +76,8 @@ public class CartRestResponse {
     @ToString
     public static class AddCartDTO{
         private int optionId;
-
-
+        private int quantity;
+        private String cupType;
     }
 
 }
