@@ -96,14 +96,30 @@ INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
  VALUES (3, 3, 5500, 1);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
  VALUES (4, 1, 4500, 2);
+
+ VALUES (5, 6, 3300, 2);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (5, 2, 5000, 2);
-INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (6, 3, 5500, 2);
-INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (7, 1, 3000, 2);
+ VALUES (6, 1, 4500, 1);
 INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
- VALUES (8, 2, 3300, 2);
+ VALUES (7, 2, 5000, 1);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (8, 3, 5500, 1);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (9, 5, 3000, 2);
+INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
+ VALUES (10, 6, 3300, 2);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (11, 1, 4500, 1);
+INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
+ VALUES (12, 2, 5000, 1);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (13, 3, 5500, 1);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (14, 5, 3000, 2);
+INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
+ VALUES (15, 6, 3300, 2);
+
+
 
 
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
@@ -116,3 +132,4 @@ INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `u
  VALUES (4,3,1,9000,'personal',2);
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
  VALUES (5,3,1,6700,'shop',3);
+
