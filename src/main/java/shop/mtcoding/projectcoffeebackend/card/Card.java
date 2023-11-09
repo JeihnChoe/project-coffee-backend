@@ -2,14 +2,7 @@ package shop.mtcoding.projectcoffeebackend.card;
 
 import java.sql.Timestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -17,6 +10,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import shop.mtcoding.projectcoffeebackend.carddivision.CardDivision;
 import shop.mtcoding.projectcoffeebackend.user.User;
 
 @Getter
@@ -48,8 +42,12 @@ public class Card {
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     private User user;
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    private CardDivision cardDivision;
+
     @Builder
-    public Card(int id, String picUrl, String name, int money, int number, int pin, Timestamp createdAt, int status, User user) {
+    public Card(int id, String picUrl, String name, int money, int number, int pin, Timestamp createdAt, int status, User user, CardDivision cardDivision) {
         this.id = id;
         this.picUrl = picUrl;
         this.name = name;
@@ -59,5 +57,6 @@ public class Card {
         this.createdAt = createdAt;
         this.status = status;
         this.user = user;
+        this.cardDivision =cardDivision;
     }
 }

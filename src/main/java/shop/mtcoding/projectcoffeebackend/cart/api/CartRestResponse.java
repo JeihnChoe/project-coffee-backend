@@ -16,7 +16,6 @@ public class CartRestResponse {
     @Getter
     @Setter
     @ToString
-    //카트리스트를 찾아왔다
     public static class ViewCartListDTO {
         private int totalPrice;
         private List<ProductDTO> productList;
@@ -71,17 +70,16 @@ public class CartRestResponse {
             }
         }
     }
+
+    @Getter
+    @Setter
+    @ToString
+    public static class AddCartDTO{
+        private int optionId;
+
+
+    }
+
 }
 
-            //        private int quantity; Cart
-            //        private String cupType; Cart // (매장컵, 개인컵, 일회용컵)
-            //        private int totalPrice; Cart
-
-
-            //        private String name; Product
-            //        private String engName; Product
-            //        private String picUrl; Product
-            //        private boolean isIced; Product
-//        private int price; Option
-//        private String size ; Size
 

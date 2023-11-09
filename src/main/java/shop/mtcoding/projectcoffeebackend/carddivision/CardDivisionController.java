@@ -24,9 +24,6 @@ public class CardDivisionController {
     @PostMapping("/carddivision/registercarddivision")
     public String registerCardDivision(CardDivisionRequest.RegisterCardDivisionDTO registerCardDivisionDTO) {
 
-        System.out.println(registerCardDivisionDTO.getId());
-        System.out.println(registerCardDivisionDTO.getCardName());
-        System.out.println(registerCardDivisionDTO.getCardMoney());
 
         // 1. 유효성검사
         // - 필터에서거를예정

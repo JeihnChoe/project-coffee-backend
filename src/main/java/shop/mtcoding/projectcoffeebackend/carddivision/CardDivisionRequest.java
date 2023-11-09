@@ -12,18 +12,18 @@ public class CardDivisionRequest {
     public static class RegisterCardDivisionDTO {
 
         private int id;
-        private String cardDivisionPicUrl;
-        private String cardName;
-        private int cardMoney;
+        private String picUrl;
+        private String name;
+        private int money;
         private String startAt;
 
 
         public CardDivision toEntity() {
             return CardDivision.builder()
                     .id(id)
-                    .cardDivisionPicUrl(cardDivisionPicUrl)
-                    .cardName(cardName)
-                    .cardMoney(cardMoney)
+                    .picUrl(picUrl)
+                    .name(name)
+                    .money(money)
                     .startAt(startAt).build();
         }
     }
