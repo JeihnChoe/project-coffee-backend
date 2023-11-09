@@ -9,9 +9,16 @@ INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`,`quantity`,`status`,
 INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`,`quantity`,`status`, `start_at`) VALUES(2,'https://image.istarbucks.co.kr/cardImg/20230822/010468_WEB.png','스노우맨 카아-드',30000,30,true,null);
 
 
-INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(1,'사진','스타벅스e카드',12000,123456780,123123,'2020-12-12',1,null);
-INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(2,'사진','스타벅스e카드',12300,123456789,456789,'2020-12-12',2,1);
-INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(3,'사진','스타벅스e카드',12300,123456788,456123,'2020-12-12',3,2);
+INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(1,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','블랙핑크카드',50000,123456780,123123,'2020-12-12',1,null);
+INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(2,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','블랙핑크카드',12300,223456789,456789,'2020-12-12',2,1);
+INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(3,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','블랙핑크카드',50000,323456788,456123,'2020-12-12',2,2);
+INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(4,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','블랙핑크카드',50000,423456188,456123,'2020-12-12',2,3);
+INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(5,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','블랙핑크카드',50000,523456788,456123,'2020-12-12',1,null);
+INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(6,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','스노우맨 카아-드',30000,623456788,456123,'2020-12-12',2,1);
+INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(7,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','스노우맨 카아-드',30000,723456788,456123,'2020-12-12',1,null);
+INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(8,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','스노우맨 카아-드',30000,823456788,456123,'2020-12-12',1,null);
+INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(9,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','스노우맨 카아-드',30000,923456788,456123,'2020-12-12',2,2);
+INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(10,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','스노우맨 카아-드',30000,023456788,456123,'2020-12-12',2,2);
 
 
 INSERT INTO promotion_tb (`id`, `title`, `sub_content`, `start_date`, `end_date`, `is_open`, `pic_url`, `small_thumbnail`, `big_thumbnail`)
