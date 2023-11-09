@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyProductDTO;
-import shop.mtcoding.projectcoffeebackend.user.UserRequest;
 
 @Controller
 @RequiredArgsConstructor
@@ -29,7 +28,7 @@ public class ProductController {
     @PostMapping("/beverage/register")
     // @RequestMapping(value = "/manager/beverage/register", method = {
     // RequestMethod.POST })
-    public String registrationBeverages(UserRequest.RegistrationBeverageDTO requestDTO) {
+    public String registrationBeverages(ProductRequest.RegistrationBeverageDTO requestDTO) {
 
         productService.음료추가(requestDTO);
         return "/product/registerBeveragesForm";

@@ -46,6 +46,9 @@ INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
 INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced`, `pic_url`, `category_id`)
  VALUES (1, '아이스 카페 아메리카노', 'Iced Caffe Americano', '진한 에스프레소에 시원한 정수물과 얼음을 더하여 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피','블론드/디카페인 커피 Tab에서 블론드, 디카페인, 1/2 디카페인 아메리카노를 주문할 수 있습니다.', true, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg', 1);
 
+INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced`, `pic_url`, `category_id`)
+ VALUES (2, '디카페인 카라멜 마키아또', 'DECAF Caramel Macchiato', '바닐라 시럽과 우유, 그리고 진한 에스프레소 샷과 달콤한 카라멜 드리즐이 어우러진 디카페인 카라멜 마키아또를 즐겨보세요!', '', false, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[126197]_20210415154609863.jpg', 8);
+
 
 
 INSERT INTO size_tb (`id`, `size`)
@@ -70,6 +73,10 @@ INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
  VALUES (2, 2, 5000, 1);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
  VALUES (3, 3, 5500, 1);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (4, 5, 3000, 2);
+INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
+ VALUES (5, 6, 3300, 2);
 
 
 
