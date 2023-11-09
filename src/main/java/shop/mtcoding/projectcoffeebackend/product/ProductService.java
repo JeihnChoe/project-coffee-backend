@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,20 +43,8 @@ public class ProductService {
         // Category categoryPS =
         // categoryJPARepository.findByCategoryEngName(requestDTO.getCategoryName());
         Category category = Category.builder().id(requestDTO.getCategoryId()).build();
-
-        System.out.println("음료추가 카테고리id : " + requestDTO.getCategoryId());
-        System.out.println("음료추가 제품이름 : " + requestDTO.getName());
-        System.out.println("음료추가 영문이름 : " + requestDTO.getEngName());
-        System.out.println("음료추가 설명: " + requestDTO.getDescription());
-        System.out.println("음료추가 팁: " + requestDTO.getTip());
-        System.out.println("음료추가 핫./아이스 : " + requestDTO.getIsIced());
-        System.out.println("음료추가 사진: " + requestDTO.getPicUrl());
-        System.out.println("음료추가 크기1: " + requestDTO.getSize1());
-        System.out.println("음료추가 크기2: " + requestDTO.getSize2());
-        System.out.println("음료추가 크기3: " + requestDTO.getSize3());
-        System.out.println("음료추가 가격1: " + requestDTO.getPrice1());
-        System.out.println("음료추가 가격2: " + requestDTO.getPrice2());
-        System.out.println("음료추가 가격3: " + requestDTO.getPrice3());
+        List<Product> productPS = productJPARepository.findAll();
+        List<Option> optionPS = optionJPARepository.findAll();
 
         UUID uuid = UUID.randomUUID(); // 랜덤한 해시값을 만들어줌(충돌날 일 없음)
         String fileName = uuid + "_" + requestDTO.getPicUrl().getOriginalFilename();
@@ -70,6 +59,18 @@ public class ProductService {
 
         // 핫 만 체크되었을 때
         if (requestDTO.getIsIced() != null && !Boolean.parseBoolean(requestDTO.getIsIced())) {
+            for (int i = 0; i < optionPS.size(); i++) {
+                if (requestDTO.getName().equals(optionPS.get(i).getProduct().getName())
+                        && requestDTO.getEngName().equals(optionPS.get(i).getProduct().getEngName())
+                        && (requestDTO.getSize1() == optionPS.get(i).getSize().getId()
+                                || requestDTO.getSize2() == optionPS.get(i).getSize().getId()
+                                || requestDTO.getSize3() == optionPS.get(i).getSize().getId()
+                                || requestDTO.getPrice1() == optionPS.get(i).getPrice()
+                                || requestDTO.getPrice2() == optionPS.get(i).getPrice()
+                                || requestDTO.getPrice3() == optionPS.get(i).getPrice())) {
+                    throw new Exception400("동일한 유형의 음료가 존재합니다.");
+                }
+            }
             System.out.println("테스트S : 핫 만");
             Product beverage = Product.builder()
                     .name(requestDTO.getName())
