@@ -9,7 +9,6 @@ public class CardResponse {
     @Getter
     public static class CardDetailDTO {
         private int id;
-        private String picUrl;
         private String name;
         private Integer money;
         private Integer number;
@@ -17,7 +16,6 @@ public class CardResponse {
 
         public CardDetailDTO(Card card) {
             this.id = card.getId();
-            this.picUrl = card.getPicUrl();
             this.name = card.getName();
             this.money = card.getMoney();
             this.number = card.getNumber();
@@ -30,14 +28,12 @@ public class CardResponse {
     @Setter
     public static class CardListDTO {
         private int id;
-        private String picUrl;
         private String name;
         private Integer money;
         private int userId;
 
         public CardListDTO(Card card) {
             this.id = card.getId();
-            this.picUrl = card.getPicUrl();
             this.name = card.getName();
             this.money = card.getMoney();
             this.userId = card.getUser().getId();
@@ -72,7 +68,6 @@ public class CardResponse {
     @Getter
     @Setter
     public static class ChargeCardPageDTO {
-        private String picUrl;
         private String name;
         private Integer money;
         private Integer userId;
@@ -80,7 +75,6 @@ public class CardResponse {
 
         public ChargeCardPageDTO(Card card,
                 Integer userId) {
-            this.picUrl = card.getPicUrl();
             this.name = card.getName();
             this.money = card.getMoney();
             this.userId = userId;
