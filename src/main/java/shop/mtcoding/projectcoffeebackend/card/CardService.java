@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
+import shop.mtcoding.projectcoffeebackend.card.api.CardRestRequest;
+import shop.mtcoding.projectcoffeebackend.card.api.CardRestResponse;
 import shop.mtcoding.projectcoffeebackend.user.User;
 
 @RequiredArgsConstructor
@@ -18,10 +20,10 @@ public class CardService {
     final private CardJPARepository cardJPARepository;
 
     @Transactional
-    public CardResponse.CardDetailDTO viewCardDetail(int userId) {
+    public CardRestResponse.CardDetailDTO viewCardDetail(int userId) {
 
         Card cardPS = cardJPARepository.findById(userId).orElseThrow(() -> new Exception400("카드id가 없습니다"));
-        CardResponse.CardDetailDTO cardDetailDTO = new CardResponse.CardDetailDTO(cardPS);
+        CardRestResponse.CardDetailDTO cardDetailDTO = new CardRestResponse.CardDetailDTO(cardPS);
         return cardDetailDTO;
         // return new CardResponse.CardDetailDTO(cardPS);
 
@@ -31,44 +33,45 @@ public class CardService {
     }
 
     @Transactional
-    public List<CardResponse.CardListDTO> viewCardList(int userId) {
+    public List<CardRestResponse.CardListDTO> viewCardList(int userId) {
 
         List<Card> cardListPS = cardJPARepository.findByUserId(userId);
-        List<CardResponse.CardListDTO> cardListDTO = cardListPS.stream()
-                .map(card -> new CardResponse.CardListDTO(card))
+        List<CardRestResponse.CardListDTO> cardListDTO = cardListPS.stream()
+                .map(card -> new CardRestResponse.CardListDTO(card))
                 .collect(Collectors.toList());
         return cardListDTO;
 
     }
 
     @Transactional
-    public CardResponse.RegistrationCardDTO registrationCard(CardRequest.RegistrationCardDTO cardRegistrationDTO,
+    public CardRestResponse.RegistrationCardDTO registrationCard(
+            CardRestRequest.RegistrationCardDTO cardRegistrationDTO,
             int userId) {
 
-        Card cardPS = cardJPARepository.findByNumber(cardRegistrationDTO.getNumber());
+        Card cardPS = cardJPARepository.findByNumber(cardRegistrationDTO.getCardNumber());
         // System.out.println("입력한 핀번호" + cardRegistrationDTO.getPinNumber());
 
         if (cardPS == null) {
             System.out.println("db에 cardPS없음");
             String fail = "카드번호 또는 핀번호를 잘못 입력하였습니다";
-            CardResponse.RegistrationCardDTO responseDTO = new CardResponse.RegistrationCardDTO(fail);
+            CardRestResponse.RegistrationCardDTO responseDTO = new CardRestResponse.RegistrationCardDTO(fail);
 
             return responseDTO;
         }
 
-        if (cardRegistrationDTO.getPin() != cardPS.getPin()) {
+        if (cardRegistrationDTO.getPinNumber() != cardPS.getPin()) {
             String fail = "카드번호 또는 핀번호를 잘못 입력하였습니다";
-            CardResponse.RegistrationCardDTO responseDTO = new CardResponse.RegistrationCardDTO(fail);
+            CardRestResponse.RegistrationCardDTO responseDTO = new CardRestResponse.RegistrationCardDTO(fail);
             return responseDTO;
         }
         if (cardPS.getStatus() == 2) {
             String fail = "사용중인 카드입니다";
-            CardResponse.RegistrationCardDTO responseDTO = new CardResponse.RegistrationCardDTO(fail);
+            CardRestResponse.RegistrationCardDTO responseDTO = new CardRestResponse.RegistrationCardDTO(fail);
             return responseDTO;
         }
         if (cardPS.getStatus() == 3) {
             String fail = "분실중인 카드입니다";
-            CardResponse.RegistrationCardDTO responseDTO = new CardResponse.RegistrationCardDTO(fail);
+            CardRestResponse.RegistrationCardDTO responseDTO = new CardRestResponse.RegistrationCardDTO(fail);
             return responseDTO;
         }
 
@@ -79,7 +82,7 @@ public class CardService {
         cardPS.setUser(user);
         cardPS.setStatus(2);
         System.out.println("성공");
-        CardResponse.RegistrationCardDTO responseDTO = new CardResponse.RegistrationCardDTO(cardPS, fail);
+        CardRestResponse.RegistrationCardDTO responseDTO = new CardRestResponse.RegistrationCardDTO(cardPS, fail);
         return responseDTO;
 
     }
@@ -98,14 +101,15 @@ public class CardService {
     // .collect(Collectors.toList());
 
     @Transactional
-    public CardResponse.ChargeCardPageDTO viewChargeCardPage(CardRequest.ViewCardChargeDTO viewPayCardChargeDTO,
+    public CardRestResponse.ChargeCardPageDTO viewChargeCardPage(CardRestRequest.ViewCardChargeDTO viewPayCardChargeDTO,
             int userId) {
         // 1. DB에서 값 긁어오기(레파지토리에 위임) : 프론트가 준 유저 아이디로.
         Card cardPS = cardJPARepository.findById(viewPayCardChargeDTO.getCardId())
                 .orElseThrow(() -> new Exception400("카드가 없습니다"));
         // 2. 값의 핀넘버랑 유저가 준 핀넘버 비교
         if (viewPayCardChargeDTO.getCardId().equals(cardPS.getId())) {
-            CardResponse.ChargeCardPageDTO cardChargePageDTO = new CardResponse.ChargeCardPageDTO(cardPS, userId);
+            CardRestResponse.ChargeCardPageDTO cardChargePageDTO = new CardRestResponse.ChargeCardPageDTO(cardPS,
+                    userId);
             return cardChargePageDTO;
         }
 
@@ -120,7 +124,7 @@ public class CardService {
     }
 
     @Transactional
-    public CardResponse.CardChargeDTO chargeCard(CardRequest.ChargeCardDTO chargeCardDTO, int userId) {
+    public CardRestResponse.CardChargeDTO chargeCard(CardRestRequest.ChargeCardDTO chargeCardDTO, int userId) {
 
         Card cardPS = cardJPARepository.findById(chargeCardDTO.getCardId())
                 .orElseThrow(() -> new Exception400("카드가 없습니다"));
@@ -128,13 +132,13 @@ public class CardService {
         int currentBalance = cardPS.getMoney();
         cardPS.setMoney(currentBalance + chargeCardDTO.getChargeMoney());
 
-        CardResponse.CardChargeDTO cardChargeDTO = new CardResponse.CardChargeDTO(cardPS, userId);
+        CardRestResponse.CardChargeDTO cardChargeDTO = new CardRestResponse.CardChargeDTO(cardPS, userId);
         return cardChargeDTO;
 
     }
 
     @Transactional
-    public void deleteCard(CardRequest.DeleteCardDTO deleteCardDTO, int userId) {
+    public void deleteCard(CardRestRequest.DeleteCardDTO deleteCardDTO, int userId) {
 
         Card cardPS = cardJPARepository.findById(deleteCardDTO.getCardId())
                 .orElseThrow(() -> new Exception400("카드가 없습니다"));
