@@ -221,4 +221,10 @@ public class ProductService {
 
     }
 
+    @Transactional
+    public void 푸드삭제(Integer id) {
+
+        productJPARepository.deleteById(id);
+    }
+
 }

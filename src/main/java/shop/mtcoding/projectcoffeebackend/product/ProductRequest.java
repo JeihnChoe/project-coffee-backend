@@ -13,8 +13,19 @@ public class ProductRequest {
         private String description;
         private String tip;
     }
+
+
     @Getter
     @Setter
+    public static class DeleteFoodDTO {
+        private Integer id;
+    }
+
+
+    @Getter
+    @Setter
+
+  
     public static class RegistrationBeverageDTO {
         private int categoryId; // value를 categoryId로 바로 받음
         private MultipartFile picUrl;

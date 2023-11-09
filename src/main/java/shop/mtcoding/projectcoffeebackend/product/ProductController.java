@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -48,6 +49,14 @@ public class ProductController {
     public String registrationFoods(ProductRequest.RegisterFoodDTO resgisterFoodDTO) {
 
         productService.푸드추가(resgisterFoodDTO);
+
+        return "/product/registerFoodsForm";
+    }
+
+    @PostMapping("/product/deletefoods")
+    public String deleteFoods(String id, HttpServletRequest request) {
+        int foodId = Integer.parseInt(id);
+        productService.푸드삭제(foodId);
 
         return "/product/registerFoodsForm";
     }
