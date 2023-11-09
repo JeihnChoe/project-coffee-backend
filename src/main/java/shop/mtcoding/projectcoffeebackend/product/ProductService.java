@@ -191,4 +191,35 @@ public class ProductService {
 
     }
 
+    @Transactional
+    public void 푸드추가(ProductRequest.RegisterFoodDTO resgisterFoodDTO) {
+
+        Category.builder().id(resgisterFoodDTO.getCategoryId()).build();
+
+        Category category = new Category();
+        category.setId(resgisterFoodDTO.getCategoryId());
+
+        UUID uuid = UUID.randomUUID(); // 랜덤한 해시값을 만들어줌(충돌날 일 없음)
+        String fileName = uuid + "_" + resgisterFoodDTO.getPicUrl();
+
+        Path filePath = Paths.get(MyPath.IMG_PATH + fileName); // ./images/ 는 프로젝트 경로의 images폴더 안에(상대경로)
+        try {
+            Files.write(filePath, resgisterFoodDTO.getPicUrl().getBytes()); // 버퍼에 쓴다.
+        } catch (Exception e) {
+            throw new Exception400("파일이 없습니다.");
+
+        }
+        Product production = Product.builder()
+                .category(category)
+                .description(resgisterFoodDTO.getDescription())
+                .engName(resgisterFoodDTO.getEngName())
+                .name(resgisterFoodDTO.getName())
+                .picUrl(fileName)
+                .tip(resgisterFoodDTO.getTip())
+                .build();
+
+        productJPARepository.save(production);
+
+    }
+
 }
