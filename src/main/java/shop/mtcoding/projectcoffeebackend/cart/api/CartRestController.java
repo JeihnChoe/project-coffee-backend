@@ -48,7 +48,9 @@ public class CartRestController {
             throw new Exception401("로그인이 필요한 서비스입니다.");
         }
 
-        List<ViewCartListDTO> response = cartService.viewCartList(sessionUser);
+        ViewCartListDTO response = cartService.viewCartList(sessionUser);
+
+        System.out.println("테스트 : "+ response.getProductList());
         return ResponseEntity.ok().body(ApiUtils.success(response));
     }
 }

@@ -3,6 +3,7 @@ package shop.mtcoding.projectcoffeebackend.cart;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import lombok.ToString;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,21 +45,17 @@ public class CartService {
         }
     }
 
-    public List<ViewCartListDTO> viewCartList(User sessionUser) {
+    public ViewCartListDTO viewCartList(User sessionUser) {
 
         System.out.println("테스트 : view 카트 카트서비스 진입");
 
-        List<ViewCartListDTO> cartPS = cartJPARepository.findByUserId(sessionUser.getId());
 
-        System.out.println("테스트 : 카트리스트뽑기" + cartPS.get(0).getPrice());
+        List<Cart> cartList = cartJPARepository.findByUserId(sessionUser.getId());
 
-        // List<ViewCartListDTO> responseDTO = cartPS.stream().map(e -> new
-        // ViewCartListDTO(e))
-        // .collect(Collectors.toList());
 
-        System.out.println("테스트 : 카트리스트뽑기" + cartPS.get(0).getPrice());
+       return new ViewCartListDTO(cartList);
 
-        return cartPS;
+
         // System.out.println("테스트 : DTO나옴?" + viewCartListDTOs.get(0).getName());
 
     }

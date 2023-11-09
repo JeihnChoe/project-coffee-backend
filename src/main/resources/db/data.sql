@@ -90,7 +90,9 @@ INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `u
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
  VALUES (2,2,10,50000,'single',1);
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
- VALUES (3,3,1,9000,'personal',2);
+VALUES (3,4,3,12700,'personal',1);
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
- VALUES (4,3,1,6700,'shop',3);
+ VALUES (4,3,1,9000,'personal',2);
+INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
+ VALUES (5,3,1,6700,'shop',3);
 

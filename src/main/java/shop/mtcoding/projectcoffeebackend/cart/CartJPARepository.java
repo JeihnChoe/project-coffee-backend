@@ -7,11 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import shop.mtcoding.projectcoffeebackend.cart.api.CartRestResponse.ViewCartListDTO;
+import shop.mtcoding.projectcoffeebackend.product.Product;
 
 public interface CartJPARepository extends JpaRepository<Cart, Integer> {
 
     @Query(value = "select c from Cart c left join fetch c.option co left join fetch co.size cos where c.user.id = :userId")
-    List<ViewCartListDTO> findByUserId(@Param("userId") Integer userId);
+    List<Cart> findByUserId(@Param("userId") Integer userId);
 
     // @Query("select r from Notice r left join fetch r.techNotice rt left join
     // fetch r.user ru where r.id = :id")
