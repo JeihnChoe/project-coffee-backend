@@ -10,8 +10,10 @@ import javax.persistence.Table;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "category_tb")
@@ -28,7 +30,6 @@ public class Category {
     private int code; // 음료 0, 푸드 1
     @Column(nullable = false, length = 500)
     private String picUrl;
-
 
     @Builder
     public Category(int id, String name, String engName, int code, String picUrl) {

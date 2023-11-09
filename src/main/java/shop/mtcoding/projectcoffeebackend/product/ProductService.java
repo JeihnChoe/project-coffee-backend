@@ -174,7 +174,10 @@ public class ProductService {
     @Transactional
     public void 푸드추가(ProductRequest.RegisterFoodDTO resgisterFoodDTO) {
 
-        Category category = Category.builder().id(resgisterFoodDTO.getCategoryId()).build();
+        Category.builder().id(resgisterFoodDTO.getCategoryId()).build();
+
+        Category category = new Category();
+        category.setId(resgisterFoodDTO.getCategoryId());
 
         UUID uuid = UUID.randomUUID(); // 랜덤한 해시값을 만들어줌(충돌날 일 없음)
         String fileName = uuid + "_" + resgisterFoodDTO.getPicUrl();
@@ -187,7 +190,7 @@ public class ProductService {
 
         }
         Product production = Product.builder()
-                .category(resgisterFoodDTO.getCategoryId())
+                .category(category)
                 .description(resgisterFoodDTO.getDescription())
                 .engName(resgisterFoodDTO.getEngName())
                 .name(resgisterFoodDTO.getName())
