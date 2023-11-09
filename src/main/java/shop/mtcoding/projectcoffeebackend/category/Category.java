@@ -23,7 +23,8 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, length = 50)
-    private String name; // 1~8 커피 //9.빵 10. 샌드위치
+    private String name; // 1. 콜드브루, 2. 브루드커피, 3. 에스프레소, 4. 프라푸치노, 5. 블렌디드, 6. 리프레시, 7.피지오, 8. 디카페인, 9.티,
+                         // 10.병음료, 11.브레드
     @Column(nullable = false, length = 50)
     private String engName;
     @Column(nullable = false)

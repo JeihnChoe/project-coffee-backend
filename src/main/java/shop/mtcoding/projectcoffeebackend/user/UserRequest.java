@@ -8,26 +8,5 @@ import shop.mtcoding.projectcoffeebackend.category.Category;
 import shop.mtcoding.projectcoffeebackend.product.Product;
 
 public class UserRequest {
-    @Getter
-    @Setter
-    public static class RegistrationBeverageDTO {
-
-        private int categoryId; // value를 categoryId로 바로 받음
-
-        private MultipartFile picUrl;
-        private String name;
-        private String engName;
-        private String description;
-        private String tip;
-        private String hot; // 0
-        private String iced; // 1
-        private Integer size1;
-        private Integer size2;
-        private Integer size3;
-        private Integer price1;
-        private Integer price2;
-        private Integer price3;
-
-    }
 
 }
