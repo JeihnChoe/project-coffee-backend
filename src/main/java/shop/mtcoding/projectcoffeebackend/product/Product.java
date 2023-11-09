@@ -25,13 +25,13 @@ public class Product {
     private int id;
     @Column(nullable = false, length = 50)
     private String name;
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 100)
     private String engName;
     @Column(nullable = false, length = 1000)
     private String description;
     @Column(nullable = true, length = 1000)
     private String tip;
-    @Column(nullable = false, length = 10)
+    @Column(nullable = true, length = 10)
     private Boolean isIced; // 0 : hot, 1 : iced
     @Column(nullable = false, length = 500)
     private String picUrl;
