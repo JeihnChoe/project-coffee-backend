@@ -54,5 +54,4 @@ public class Option {
         this.product = product;
         this.size = size;
     }
-
 }

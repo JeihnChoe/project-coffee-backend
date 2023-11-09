@@ -19,7 +19,4 @@ public class UserResponse {
         }
     }
 
-    public static class loginDTO {
-
-    }
 }

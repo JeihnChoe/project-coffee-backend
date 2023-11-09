@@ -2,20 +2,22 @@ INSERT INTO  user_tb (`id`, `login_id`, `email`, `password`, `user_name`, `phone
  VALUES (1, 'ssar', 'ssar@nate.com', 'a12345678!', '김쌀', '010-1212-1212', 1, '2020-02-02', '2020-02-02');
 INSERT INTO user_tb (`id`, `login_id`, `email`, `password`, `user_name`, `phone_number`, `manager`, `user_created_at`, `user_updated_at`)
  VALUES (2, 'cos', 'cos@nate.com', 'a12345678!!', '코스', '010-1234-1234', 1, '2020-02-04', '2020-02-04');
+INSERT INTO user_tb (`id`, `login_id`, `email`, `password`, `user_name`, `phone_number`, `manager`, `user_created_at`, `user_updated_at`)
+ VALUES (3, 'love', 'love@nate.com', 'a12345678!!', '러브', '010-1234-1234', 1, '2020-02-04', '2020-02-04');
 
 INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`,`quantity`,`status`, `created_at`) VALUES(1,'사진','애니벌서리 사이렌카드',50000,30,true,null);
 
 
 INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(1,'사진','스타벅스e카드',12000,123456780,123123,'2020-12-12',1,null);
-INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(2,'사진','스타벅스e카드',12300,123456789,456789,'2020-12-12',2,2);
+INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(2,'사진','스타벅스e카드',12300,123456789,456789,'2020-12-12',2,1);
 INSERT INTO card_tb (`id`,`pic_url`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(3,'사진','스타벅스e카드',12300,123456788,456123,'2020-12-12',3,2);
 
 
-INSERT INTO promotion_tb (`id`, `title`, `sub_content`, `start_date`, `end_date`, `is_open`, `pic_url`, `thumbnail`, `home_thumbnail`)
+INSERT INTO promotion_tb (`id`, `title`, `sub_content`, `start_date`, `end_date`, `is_open`, `pic_url`, `small_thumbnail`, `big_thumbnail`)
  VALUES (1, '10월 24일, AUTUMN PICNIC PICK!', '피크닉 픽 세트를 포장주문으로 구매하시고, 할인 혜택을 받아보세요.', '2023-10-24','2023-11-01', true, 'https://image.istarbucks.co.kr/img/event/2023/wn_autumnpicnic_231020.jpg', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20231020154947805.jpg', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20231020154947805.jpg');
-INSERT INTO promotion_tb (`id`,`title`,`sub_content`,`start_date`,`end_date`, `is_open`, `pic_url`,`thumbnail`, `home_thumbnail`)
+INSERT INTO promotion_tb (`id`,`title`,`sub_content`,`start_date`,`end_date`, `is_open`, `pic_url`,`small_thumbnail`, `big_thumbnail`)
  VALUES (2, 'AUTUMN VIBE', '온라인 스토어에서 특별한 혜택을 만나보세요.', '2023-10-19', '2023-11-01', true, 'https://image.istarbucks.co.kr/img/event/2023/wn_autumnvibe_web_231018.jpg', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20231018135754113.jpg', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20231018135754113.jpg');
-INSERT INTO promotion_tb (`id`,`title`, `sub_content`, `start_date`, `end_date`, `is_open`, `pic_url`, `thumbnail`, `home_thumbnail`)
+INSERT INTO promotion_tb (`id`,`title`, `sub_content`, `start_date`, `end_date`, `is_open`, `pic_url`, `small_thumbnail`, `big_thumbnail`)
  VALUES (3, '탄소중립포인트제 본인인증 고객대상 인센티브 지급일정 안내', '23년 7월 9일까지 본인인증 완료 고객 대상 인센티브 지급 일정 안내드립니다.', '2023-10-17', null, false, 'https://image.istarbucks.co.kr/img/event/2023/wn_cpoint_231010.jpg', 'https://image.istarbucks.co.kr/upload/news/aoZdnA_WEB_THUM_20231017082101133.jpg', 'https://image.istarbucks.co.kr/upload/news/aoZdnA_WEB_THUM_20231017082101133.jpg');
 
 
@@ -60,7 +62,6 @@ INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
 
 INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced`, `pic_url`, `category_id`)
  VALUES (1, '아이스 카페 아메리카노', 'Iced Caffe Americano', '진한 에스프레소에 시원한 정수물과 얼음을 더하여 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피','블론드/디카페인 커피 Tab에서 블론드, 디카페인, 1/2 디카페인 아메리카노를 주문할 수 있습니다.', true, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg', 1);
-
 INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced`, `pic_url`, `category_id`)
  VALUES (2, '디카페인 카라멜 마키아또', 'DECAF Caramel Macchiato', '바닐라 시럽과 우유, 그리고 진한 에스프레소 샷과 달콤한 카라멜 드리즐이 어우러진 디카페인 카라멜 마키아또를 즐겨보세요!', '', false, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[126197]_20210415154609863.jpg', 8);
  
@@ -98,7 +99,6 @@ INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced
 
 INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced`, `pic_url`, `category_id`)
  VALUES (11, '에스프레소 마키아또', 'Espresso Macchiato', '신선한 에스프레소 샷에 우유 거품을 살짝 얹은 커피 음료로써, 강렬한 에스프레소의 맛과 우유의 부드러움을 같이 즐길 수 있는 커피 음료', '신선한 에스프레소 샷에 우유 거품을 살짝 얹은 커피 음료로써, 강렬한 에스프레소의 맛과 우유의 부드러움을 같이 느끼실 수 있습니다.', false, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[25]_20210415144211354.jpg', 3);
-
 
 INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced`, `pic_url`, `category_id`)
  VALUES (12, '에스프레소 콘 파나', 'Espresso Con Panna', '신선한 에스프레소 샷에 풍부한 휘핑크림을 얹은 커피 음료로서, 뜨거운 커피의 맛과 차갑고 달콤한 생크림의 맛을 같이 즐길 수 있는 커피 음료', '신선한 에스프레소 샷에 풍부한 휘핑크림을 얹은 커피 음료로서, 뜨거운 커피의 맛과 차갑고 달콤한 생크림의 맛을 동시에 즐기실 수 있습니다.', false, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[30]_20210415144252425.jpg', 3);
@@ -138,10 +138,41 @@ INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
  VALUES (3, 3, 5500, 1);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (4, 5, 3000, 2);
-INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
+ VALUES (4, 1, 4500, 2);
+
  VALUES (5, 6, 3300, 2);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (6, 1, 4500, 1);
+INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
+ VALUES (7, 2, 5000, 1);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (8, 3, 5500, 1);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (9, 5, 3000, 2);
+INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
+ VALUES (10, 6, 3300, 2);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (11, 1, 4500, 1);
+INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
+ VALUES (12, 2, 5000, 1);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (13, 3, 5500, 1);
+INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
+ VALUES (14, 5, 3000, 2);
+INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
+ VALUES (15, 6, 3300, 2);
 
 
 
+
+INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
+ VALUES (1,1,3,10500,'single',1);
+INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
+ VALUES (2,2,10,50000,'single',1);
+INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
+VALUES (3,4,3,12700,'personal',1);
+INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
+ VALUES (4,3,1,9000,'personal',2);
+INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
+ VALUES (5,3,1,6700,'shop',3);
 

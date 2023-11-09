@@ -9,9 +9,10 @@ public class CartRestRequest {
     @Getter
     @Setter
     @ToString
-    public static class AddCartDTO {
+    public static class AddCartListDTO {
         private int optionId;
         private int quantity;
         private String cupType;
     }
+
 }
