@@ -8,6 +8,17 @@ import lombok.Setter;
 public class ProductRequest {
     @Getter
     @Setter
+    public static class RegisterFoodDTO {
+        private Integer categoryId;
+        private MultipartFile picUrl;
+        private String name;
+        private String engName;
+        private String description;
+        private String tip;
+    }
+
+    @Getter
+    @Setter
     public static class RegistrationBeverageDTO {
 
         private int categoryId; // value를 categoryId로 바로 받음

@@ -53,12 +53,12 @@
                                     style="text-align: center; width: 180px;">
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="engName"
-                                    placeholder="제품 영문명을 입력해주세요" style="text-align: center; width: 200px;">
+                                <input type="text" class="form-control" name="engName" placeholder="제품 영문명을 입력해주세요"
+                                    style="text-align: center; width: 200px;">
                             </td>
                             <td>
-                                <textarea class="form-control" name="description" placeholder="제품설명을 입력해주세요"
-                                    rows="3" style="text-align: center; width: 200px;"></textarea>
+                                <textarea class="form-control" name="description" placeholder="제품설명을 입력해주세요" rows="3"
+                                    style="text-align: center; width: 200px;"></textarea>
                             </td>
                             <td><textarea class=" form-control" name="tip" placeholder="제품설명을 입력해주세요" rows="3"
                                     style="text-align: center; width: 200px;"></textarea>
@@ -159,14 +159,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{#beverages}}
+                    {{#beveragePG}}
                     <tr>
 
                         <td>{{id}}</td>
                         <td style="width: 180px;">{{categoryName}}</td>
-                        <td style="width: 200px;"><img
-                                src="{{picUrl}}"
-                                style="height: 80px;"><!--{{picUrl}}--></img></td>
+                        <td style="width: 200px;"><img src="{{picUrl}}" style="height: 80px;"><!--{{picUrl}}--></img>
+                        </td>
                         <td style="width: 180px;">{{productName}}</td>
                         <td style="width: 200px;">{{engName}}</td>
                         <td style="width: 200px;">{{description}}</td>
@@ -206,7 +205,7 @@
                         <!-- 아이콘으로 표시할것-->
 
                     </tr>
-                    {{/beverages}}
+                    {{/beveragePG}}
                     <tr>
                         <td>2</td>
                         <td>콜드 브루 커피</td>
@@ -226,14 +225,25 @@
                                 onclick="location.href='../../..'"></img></td>
                         <!-- 아이콘으로 표시할것-->
                     </tr>
-
-
                 </tbody>
-
             </table>
+            <br>
+            <br>
+            <ul class="pagination d-flex justify-content-center">
+                <li class="page-item {{#beveragePG.first}}disabled{{/beveragePG.first}}">
+                    <a class="page-link" href="?page={{ prevPage }}">이전</a>
+                </li>
+                <li class="page-item" style="display: flex; align-items: center;">
+                    <div
+                        style="text-align: center; width: 58px; height: 38px; display: flex; align-items: center; justify-content: center;">
+                        {{page}}</div>
+                </li>
+                <li class="page-item {{#beveragePG.last}}disabled{{/beveragePG.last}}">
+                    <a class="page-link" href="?page={{ nextPage }}">다음</a>
+                </li>
+            </ul>
         </div>
     </div>
-</div>
 </div>
 
 <script>

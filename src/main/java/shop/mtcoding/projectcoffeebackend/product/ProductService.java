@@ -3,9 +3,12 @@ package shop.mtcoding.projectcoffeebackend.product;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,15 +29,10 @@ public class ProductService {
     private final ProductJPARepository productJPARepository;
     private final OptionJPARepository optionJPARepository;
 
-    public List<MyProductDTO> 음료조회() {
-        System.out.println("음료조회 서비스 탐");
-        // System.out.println("Product에서 options를 들고올 수 있을까" +
-        // productJPARepository.findByAllOptions().get(0));
-        List<MyProductDTO> beverageList = productJPARepository.findAllWithOptionAndSize();
-        System.out.println("서비스 테스트1" + beverageList.get(0).getId());
-        System.out.println("서비스 테스트2" + beverageList.get(0).getCategoryName());
-        System.out.println("서비스 테스트3" + beverageList.get(0).getPrice());
-        System.out.println("서비스 테스트4" + beverageList.get(0).getSize());
+    public Page<MyProductDTO> 음료조회(Integer page) {
+        Pageable pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "id");
+
+        Page<MyProductDTO> beverageList = productJPARepository.findAllWithOptionAndSize(pageable);
 
         return beverageList;
     }
