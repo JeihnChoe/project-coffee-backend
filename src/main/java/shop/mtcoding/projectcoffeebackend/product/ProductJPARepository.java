@@ -13,4 +13,5 @@ public interface ProductJPARepository extends JpaRepository<Product, Integer> {
             + "FROM Option o LEFT JOIN o.size s LEFT JOIN o.product p LEFT JOIN p.category c ")
     Page<MyProductDTO> findAllWithOptionAndSize(Pageable Page);
 
+    void findProdcutListAndPriceDTO();
 }
