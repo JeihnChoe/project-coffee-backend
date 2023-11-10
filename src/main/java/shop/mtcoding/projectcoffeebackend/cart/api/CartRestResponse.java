@@ -36,7 +36,7 @@ public class CartRestResponse {
                     private String name;
                     private String engName;
                     private String picUrl;
-                    private boolean isIced;
+                    private int isIced;
                     private List<CartDTO> carts;
 
             public ProductDTO(Product product, List<Cart> cartList) {
