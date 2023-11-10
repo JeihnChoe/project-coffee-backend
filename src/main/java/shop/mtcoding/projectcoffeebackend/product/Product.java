@@ -32,7 +32,7 @@ public class Product {
     @Column(nullable = true, length = 1000)
     private String tip;
     @Column(nullable = true, length = 10)
-    private int isIced; // 0 : hot, 1 : iced, 2 : both
+    private Integer isIced; // 0 : hot, 1 : iced, 2 : both
     @Column(nullable = false, length = 500)
     private String picUrl;
     // @Column
