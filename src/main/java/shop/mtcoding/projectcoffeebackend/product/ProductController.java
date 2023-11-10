@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
-import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyProductDTO;
 
 @Controller
 @RequiredArgsConstructor
@@ -19,13 +18,18 @@ public class ProductController {
     final private ProductService productService;
 
     // 음료 등록 페이지
-    @GetMapping("/product/registerbeveragesform")
-    public String viewBeverage(@RequestParam(defaultValue = "0") Integer page, HttpServletRequest request) {
-        Page<MyProductDTO> beveragePG = productService.음료조회(page);
-        request.setAttribute("page", page);
-        request.setAttribute("beveragePG", beveragePG);
-        request.setAttribute("prevPage", beveragePG.getNumber() - 1);
-        request.setAttribute("nextPage", beveragePG.getNumber() + 1);
+    @GetMapping("/product/{id}/registerbeveragesform")
+    public String viewBeverage(@RequestParam(defaultValue = "0") Integer page, HttpServletRequest request, @PathVariable Integer id) {
+        System.out.println("id값 :" + id);
+//        Page<MyProductDTO> beveragePG = productService.음료조회(page, id);
+
+//        request.setAttribute("page", page);
+//        request.setAttribute("beveragePG", beveragePG);
+//        request.setAttribute("prevPage", beveragePG.getNumber() - 1);
+//        request.setAttribute("nextPage", beveragePG.getNumber() + 1);
+
+
+
 
         return "/product/registerBeveragesForm";
     }

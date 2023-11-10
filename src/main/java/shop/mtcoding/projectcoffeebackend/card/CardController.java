@@ -18,11 +18,6 @@ public class CardController {
     // 카드 등록 페이지
     @GetMapping("/resgisterform")
     public String viewCards(@RequestParam(defaultValue = "0") Integer page, HttpServletRequest request) {
-//        Page<CardResponse.RegistrationCardDTO> beveragePG = cardService.카드등록(page);
-//        request.setAttribute("page", page);
-//        request.setAttribute("cardPG", beveragePG);
-//        request.setAttribute("prevPage", beveragePG.getNumber() - 1);
-//        request.setAttribute("nextPage", beveragePG.getNumber() + 1);
 
         return "/cards/registerCardsForm";
     }

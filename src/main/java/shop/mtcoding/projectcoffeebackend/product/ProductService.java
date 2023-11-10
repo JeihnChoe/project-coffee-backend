@@ -19,7 +19,6 @@ import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
 import shop.mtcoding.projectcoffeebackend._core.vo.MyPath;
 import shop.mtcoding.projectcoffeebackend.category.Category;
-import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyProductDTO;
 import shop.mtcoding.projectcoffeebackend.product.option.Option;
 import shop.mtcoding.projectcoffeebackend.product.option.OptionJPARepository;
 import shop.mtcoding.projectcoffeebackend.product.option.size.Size;
@@ -32,12 +31,15 @@ public class ProductService {
     private final ProductJPARepository productJPARepository;
     private final OptionJPARepository optionJPARepository;
 
-    public Page<MyProductDTO> 음료조회(Integer page) {
-        Pageable pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "id");
+//    public Page<MyProductDTO>
+     public void 음료조회(Integer page, Integer id) {
+//        Pageable pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "id");
+//        Page<MyProductDTO> beverageList = productJPARepository.findAllWithOptionAndSize(pageable);
 
-        Page<MyProductDTO> beverageList = productJPARepository.findAllWithOptionAndSize(pageable);
+        List<Product> productList = productJPARepository.findAllByCategoryId(id);
 
-        return beverageList;
+
+//        return beverageList;
     }
 
     @Transactional
