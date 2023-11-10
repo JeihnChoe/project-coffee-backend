@@ -244,20 +244,21 @@ INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced
  VALUES (87, '피스타치오 젤라또', 'Pistachio Gelato', '고소한 피스타치오 맛이 느껴지는 젤라또입니다.', '스푼은 뚜껑 안쪽에 있습니다. 구매 후 가급적 빨리 드시기 바라며 별도의 보냉팩은 준비되어 있지 않은 점 양해바랍니다. 젤라또는 준비 완료 이후 상온에서 보관되니 신속하게 수령하여 주시기 바랍니다. 원재료에 기인하여 검은색 점이 있을 수 있으나 이물이 아닙니다. 안심하고 드셔도 됩니다.', null, 'https://image.istarbucks.co.kr/upload/store/skuimg/2023/08/[9300000004514]_20230817100727753.jpg', 17);
 
 
-INSERT INTO size_tb (`id`, `size`)
- VALUES (1, 'tall');
-INSERT INTO size_tb (`id`, `size`)
- VALUES (2, 'grande');
-INSERT INTO size_tb (`id`, `size`)
- VALUES (3, 'venti');
-INSERT INTO size_tb (`id`, `size`)
- VALUES (4, 'trenta');
-INSERT INTO size_tb (`id`, `size`)
- VALUES (5, 'solo');
-INSERT INTO size_tb (`id`, `size`)
- VALUES (6, 'dopio');
-INSERT INTO size_tb (`id`, `size`)
- VALUES (7, 'short');
+INSERT INTO size_tb (`id`, `size`, `size_type`)
+ VALUES (0, 'short', 0);
+INSERT INTO size_tb (`id`, `size`, `size_type`)
+ VALUES (1, 'tall', 0);
+INSERT INTO size_tb (`id`, `size`, `size_type`)
+ VALUES (2, 'grande', 0);
+INSERT INTO size_tb (`id`, `size`, `size_type`)
+ VALUES (3, 'venti', 0);
+INSERT INTO size_tb (`id`, `size`, `size_type`)
+ VALUES (4, 'trenta', 1);
+INSERT INTO size_tb (`id`, `size`, `size_type`)
+ VALUES (5, 'solo', 2);
+INSERT INTO size_tb (`id`, `size`, `size_type`)
+ VALUES (6, 'dopio', 2);
+
 
 
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)

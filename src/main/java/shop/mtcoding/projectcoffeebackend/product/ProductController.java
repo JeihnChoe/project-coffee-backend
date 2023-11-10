@@ -34,7 +34,7 @@ public class ProductController {
     // @RequestMapping(value = "/manager/beverage/register", method = {
     // RequestMethod.POST })
     public String registrationBeverages(ProductRequest.RegistrationBeverageDTO requestDTO) {
-
+        System.out.println("컨트롤러 isIced : " + requestDTO.getIsIced());
         productService.음료추가(requestDTO);
         return "redirect:/product/registerbeveragesform";
     }

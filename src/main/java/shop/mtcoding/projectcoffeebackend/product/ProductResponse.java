@@ -18,7 +18,7 @@ public class ProductResponse {
         private String engName;
         private String description;
         private String tip;
-        private Boolean product;
+        private int isIced;
         private Integer price;
         private String size;
 
