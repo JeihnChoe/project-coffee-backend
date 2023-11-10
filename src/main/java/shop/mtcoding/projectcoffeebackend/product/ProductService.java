@@ -10,6 +10,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,8 +42,6 @@ public class ProductService {
 
     @Transactional
     public void 음료추가(ProductRequest.RegistrationBeverageDTO requestDTO) {
-        // Category categoryPS =
-        // categoryJPARepository.findByCategoryEngName(requestDTO.getCategoryName());
         Category category = Category.builder().id(requestDTO.getCategoryId()).build();
         List<Product> productPS = productJPARepository.findAll();
         List<Option> optionPS = optionJPARepository.findAll();
@@ -56,28 +56,16 @@ public class ProductService {
             throw new Exception400("파일이 없습니다.");
 
         }
-
+        System.out.println("서비스 isIced : " + requestDTO.getIsIced());
         // 핫 만 체크되었을 때
-        if (requestDTO.getIsIced() != null && !Boolean.parseBoolean(requestDTO.getIsIced())) {
-            for (int i = 0; i < optionPS.size(); i++) {
-                if (requestDTO.getName().equals(optionPS.get(i).getProduct().getName())
-                        && requestDTO.getEngName().equals(optionPS.get(i).getProduct().getEngName())
-                        && (requestDTO.getSize1() == optionPS.get(i).getSize().getId()
-                                || requestDTO.getSize2() == optionPS.get(i).getSize().getId()
-                                || requestDTO.getSize3() == optionPS.get(i).getSize().getId()
-                                || requestDTO.getPrice1() == optionPS.get(i).getPrice()
-                                || requestDTO.getPrice2() == optionPS.get(i).getPrice()
-                                || requestDTO.getPrice3() == optionPS.get(i).getPrice())) {
-                    throw new Exception400("동일한 유형의 음료가 존재합니다.");
-                }
-            }
+        if (requestDTO.getIsIced() != null && requestDTO.getIsIced().equals("0")) {
             System.out.println("테스트S : 핫 만");
             Product beverage = Product.builder()
                     .name(requestDTO.getName())
                     .engName(requestDTO.getEngName())
                     .description(requestDTO.getDescription())
                     .tip(requestDTO.getTip())
-                    .isIced(Boolean.parseBoolean(requestDTO.getIsIced()))
+                    .isIced(Integer.parseInt(requestDTO.getIsIced()))
                     .picUrl(fileName)
                     .category(category)
                     .build();
@@ -127,14 +115,14 @@ public class ProductService {
         }
 
         // 아이스 만 체크되었을 때
-        else if (requestDTO.getIsIced() != null && Boolean.parseBoolean(requestDTO.getIsIced())) {
+        else if (requestDTO.getIsIced() != null && requestDTO.getIsIced().equals("1")) {
             System.out.println("테스트S : 아이스 만");
             Product beverage = Product.builder()
                     .name(requestDTO.getName())
                     .engName(requestDTO.getEngName())
                     .description(requestDTO.getDescription())
                     .tip(requestDTO.getTip())
-                    .isIced(Boolean.parseBoolean(requestDTO.getIsIced()))
+                    .isIced(Integer.parseInt(requestDTO.getIsIced()))
                     .picUrl(fileName)
                     .category(category)
                     .build();

@@ -39,7 +39,7 @@ public class User {
     @Column(length = 256, nullable = false)
     private String phoneNumber;
     @Column(nullable = false)
-    private int manager; // 1 : 유저 / 2 : 관리자
+    private int manager = 1; // 1 : 유저 / 2 : 관리자
     @Column(length = 256, nullable = false)
     @CreationTimestamp
     private Timestamp userCreatedAt; // 가입일시
