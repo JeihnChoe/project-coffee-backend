@@ -9,14 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 @Getter
 @Setter
@@ -38,12 +36,13 @@ public class User {
     private String userName;
     @Column(length = 256, nullable = false)
     private String phoneNumber;
-    @Column(nullable = false)
-    private int manager = 1; // 1 : 유저 / 2 : 관리자
-    @Column(length = 256, nullable = false)
+    @Column
+    @ColumnDefault("1")
+    private int manager; // 1 : 유저 / 2 : 관리자
+    @Column(length = 256)
     @CreationTimestamp
     private Timestamp userCreatedAt; // 가입일시
-    @Column(length = 256, nullable = false)
+    @Column(length = 256)
     @UpdateTimestamp
     private Timestamp userUpdatedAt; // 수정일시
 
