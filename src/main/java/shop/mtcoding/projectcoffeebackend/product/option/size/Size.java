@@ -24,12 +24,15 @@ public class Size {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, length = 20)
-    private String size; // 1 : Tall, 2 : Grande, 3 : Venti, 4 : Trenta, 5 : Solo, 6 : Dopio, 7 : Short
+    private String size; // 0 : Short, 1 : Tall, 2 : Grande, 3 : Venti, 4 : Trenta, 5 : Solo, 6 : Dopio
+    @Column(nullable = false, length = 20)
+    private int sizeType; // 0 : Short,Tall,Grande,Venti , 1 : Trenta, 2 : Solo,Dopio
 
     @Builder
-    public Size(int id, String size, String price) {
+    public Size(int id, String size, int sizeType) {
         this.id = id;
         this.size = size;
+        this.sizeType = sizeType;
     }
 
 }
