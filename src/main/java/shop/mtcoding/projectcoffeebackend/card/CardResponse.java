@@ -105,4 +105,16 @@ public class CardResponse {
 
     }
 
+    @Getter
+    @Setter
+    public static class InsertDTO {
+        private String divisionName;
+        private int money;
+        private int pin;
+        private String createdAt;
+        private int quantity; // 발급 수량
+    }
+
+
+
 }
