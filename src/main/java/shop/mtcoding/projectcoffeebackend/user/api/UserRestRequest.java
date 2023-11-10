@@ -7,11 +7,13 @@ import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import shop.mtcoding.projectcoffeebackend.user.User;
 
 public class UserRestRequest {
     @Getter
     @Setter
+    @ToString
     public static class JoinDTO {
 
         @NotEmpty

@@ -1,9 +1,9 @@
-INSERT INTO  user_tb (`id`, `login_id`, `email`, `password`, `user_name`, `phone_number`, `manager`, `user_created_at`, `user_updated_at`)
- VALUES (1, 'ssar', 'ssar@nate.com', 'a12345678!', '김쌀', '010-1212-1212', 1, '2020-02-02', '2020-02-02');
-INSERT INTO user_tb (`id`, `login_id`, `email`, `password`, `user_name`, `phone_number`, `manager`, `user_created_at`, `user_updated_at`)
- VALUES (2, 'cos', 'cos@nate.com', 'a12345678!!', '코스', '010-1234-1234', 1, '2020-02-04', '2020-02-04');
-INSERT INTO user_tb (`id`, `login_id`, `email`, `password`, `user_name`, `phone_number`, `manager`, `user_created_at`, `user_updated_at`)
- VALUES (3, 'love', 'love@nate.com', 'a12345678!!', '러브', '010-1234-1234', 1, '2020-02-04', '2020-02-04');
+INSERT INTO  user_tb ( `login_id`, `email`, `password`, `user_name`, `phone_number`)
+ VALUES ( 'ssar', 'ssar@nate.com', 'a12345678!', '김쌀', '010-1212-1212');
+INSERT INTO user_tb (`login_id`, `email`, `password`, `user_name`, `phone_number`)
+ VALUES ('cos', 'cos@nate.com', 'a12345678!!', '코스', '010-1234-1234');
+INSERT INTO user_tb (`login_id`, `email`, `password`, `user_name`, `phone_number`, `manager`)
+ VALUES ('love', 'love@nate.com', 'a12345678!!', '러브', '010-1234-1234', 2);
 
 INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`,`quantity`,`status`, `start_at`) VALUES(1,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','블랙핑크 카드',50000,30,true,null);
 INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`,`quantity`,`status`, `start_at`) VALUES(2,'https://image.istarbucks.co.kr/cardImg/20230822/010468_WEB.png','스노우맨 카아-드',30000,30,true,null);
