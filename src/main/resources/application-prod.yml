@@ -1,0 +1,45 @@
+server:
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mariadb://127.0.0.1:3305/coffeedb
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: coffee1234
+  mustache:
+    servlet:
+      expose-session-attributes: true
+      expose-request-attributes: true
+  sql:
+    init:
+      encoding: utf-8
+      data-locations:
+        - classpath:db/data.sql
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+      default_batch_fetch_size: 100
+    open-in-view: true
+  output:
+    ansi:
+      enabled: always
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+logging:
+  level:
+    "[shop.mtcoding.projectcoffeebackend]": DEBUG
+    "[org.hibernate.type]": TRACE
+
+file:
+  path: ./images/

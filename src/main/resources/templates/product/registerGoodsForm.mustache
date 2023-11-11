@@ -1,0 +1,295 @@
+{{>/layout/header}}
+<div style="display: flex; justify-content: center">
+    <div style="width: 2400px; text-align: center">
+        <div class="container-fluid">
+            <br>
+            <h5>푸드 등록</h5>
+            <table class="table">
+                <thead class="table-success">
+                <tr> <!-- 음료명 등은 폼필드/ 카테고리 등은 드롭다운으로 만들것  -->
+                    <!-- DB 필드명에 맞춰 박스 재구성할것  -->
+                    <th>No.</th>
+                    <th>카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
+                    <th>사진</th>
+                    <th>제품명</th>
+                    <th>제품영문명</th>
+                    <th>제품설명</th>
+                    <th>팁</th>
+                    <th>사이즈/금액</th>
+                    <th>등록</th><!-- 아이콘으로 표시할것-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <div>
+                            <select id="beverage-category" class="form-control" style="text-align: center">
+                                <option value="category">카테고리</option>
+                                <option value="coldbrew">브레드</option>
+                                <option value="brewed">케이크&미니디저트</option>
+                                <option value="espresso">샌드위치&샐러드</option>
+                                <option value="frappuccino">따뜻한 푸드</option>
+                                <option value="blended">과일&요거트</option>
+                                <option value="refresher">스낵</option>
+                                <option value="fizzio">아이스크림</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td> +</td>
+                    <td>
+                        <input type="text" class="form-control" id="beverageName" placeholder="제품명을 입력해주세요"
+                               style="text-align: center">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" id="beverageEngName" placeholder="제품 영문명을 입력해주세요"
+                               style="text-align: center">
+                    </td>
+                    <td>
+                            <textarea class="form-control" id="beverageDescription" placeholder="제품설명을 입력해주세요" rows="3"
+                                      style="text-align: center"></textarea>
+                    </td>
+                    <td><textarea class=" form-control" id="beverageTip" placeholder="제품설명을 입력해주세요" rows="3"
+                                  style="text-align: center"></textarea>
+                    </td>
+                    <td>
+                        <div class="input-group input-group-sm mb-3">
+
+                            <input type="number" class="form-control" id="price" aria-label="price"
+                                   aria-describedby="inputGroup-sizing-sm"
+                                   style="width: 20px; justify-content: center">
+                        </div>
+
+
+                    </td>
+
+
+                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                             style="height: 80px;" onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <h5>푸드 등록 리스트</h5>
+            <table class="table table-hover">
+                <thead class="table-success">
+                <tr> <!-- 음료명 등은 폼필드/ 카테고리 등은 드롭다운으로 만들것  -->
+                    <!-- DB 필드명에 맞춰 박스 재구성할것  -->
+                    <th>No.</th>
+                    <th>카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
+                    <th>사진</th>
+                    <th>푸드명</th>
+                    <th>푸드 영문명</th>
+                    <th>푸드 설명</th>
+                    <th>팁</th>
+                    <th>금액</th>
+                    <th>수정</th><!-- 아이콘으로 표시할것-->
+                    <th>삭제</th><!-- 아이콘으로 표시할것-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>브레드</td>
+                    <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2023/10/[9300000004824]_20231004111431682.jpg"
+                             style="height: 80px;"></img></td>
+                    <td>갈릭&올리브 브레드</td>
+                    <td>Garlic&Olive Bread</td>
+                    <td>그린&블랙 올리브와 롤 치즈, 국내산 마늘이 고르게 분포된 식사 대용 브레드입니다.</td>
+                    <td>갈변된 마늘이 나올 수 있으나 구운마늘로 품질 이상이 아닙니다. 간혹 올리브씨앗이 나올 수 있으니, 섭취시 주의 부탁드립니다.</td>
+                    <td>5000원</td>
+
+                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                             style="height: 80px;" onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
+                             onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>케이크&미니디저트</td>
+                    <td>몽블랑 보늬밤 케이크</td>
+                    <td>Mont Blanc Cake</td>
+                    <td>부드러운 생크림 롤 케이크 위에 달콤한 밤 크림과 국내산 보늬밤을 올려 가을의 맛을 즐길 수 있는 케이크입니다.</td>
+                    <td>null</td>
+                    <td>6900원</td>
+                    <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2023/10/[9300000004830]_20231004095640701.jpg"
+                             style="height: 80px;"></img></td>
+                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                             style="height: 80px;" onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
+                             onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>샌드위치&샐러드</td>
+                    <td>치킨 클래식 샌드위치</td>
+                    <td>Chicken Classic Sandwich</td>
+                    <td>닭가슴살, 베이컨, 계란, 토마토를 넣어 든든하게 즐길 수 있는 클래식한 샌드위치입니다.</td>
+                    <td>구입 후 가급적 빠르게 취식하시기 바랍니다. 워밍 시 품질의 저하가 발생할 수 있습니다.</td>
+                    <td>6900원</td>
+                    <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2023/03/[9300000004460]_20230322091331299.jpg"
+                             style="height: 80px;"></img></td>
+                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                             style="height: 80px;" onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
+                             onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>샌드위치&샐러드</td>
+                    <td>베이컨 치즈 토스트</td>
+                    <td>Bacon Cheese Toast</td>
+                    <td>계란과 우유를 적신 빵에 베이컨과 치즈, 에그 스프레드를 넣어 구운 프렌치 토스트 타입 샌드위치입니다.</td>
+                    <td>Tip. 우리 베리잼과 함께 드셔도 맛있습니다.</td>
+                    <td>4900원</td>
+                    <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/06/[9300000002178]_20210602104935718.jpg"
+                             style="height: 80px;"></img></td>
+                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                             style="height: 80px;" onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
+                             onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>과일&요거트</td>
+                    <td>오가닉 그릭 요거트 플레인</td>
+                    <td>Organic Greek Yogurt Plain</td>
+                    <td>유기농 우유와 유산균으로 만든 정통 그릭 방식의 플레인 요거트 입니다.</td>
+                    <td>null</td>
+                    <td>4200원</td>
+                    <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/08/[9300000003231]_20210826102030647.jpg"
+                             style="height: 80px;"></img></td>
+                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                             style="height: 80px;" onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
+                             onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>과일&요거트</td>
+                    <td>사과 가득 핸디 젤리</td>
+                    <td>Apple Handy Jelly</td>
+                    <td>경북 특산물인 사과를 가득 담은 달콤한 맛의 스타벅스 핸디 젤리</td>
+                    <td>null</td>
+                    <td>2800원</td>
+                    <td><img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9300000001911]_20210421164827717.jpg"
+                             style="height: 80px;"></img></td>
+                    <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                             style="height: 80px;" onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                    <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 80px;"
+                             onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                </tr>
+
+                </tbody>
+
+            </table>
+            <br>
+            <h5>음료 내역 및 등록 </h5>
+            <table class="table table-hover">
+                <thead class="table-success">
+                <tr> <!-- 음료 등록에 필요한 내용들로 th 구성할 것 -->
+                    <th>No.</th>
+                    <th>음료명</th>
+                    <th>카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
+                    <th>고객ID</th>
+                    <th>고객명</th>
+                    <th>품목</th>
+                    <th>누적주문횟수</th>
+                    <th>금액</th>
+                    <th>결제수단</th>
+                    <th>수정</th><!-- 아이콘으로 표시할것-->
+                    <th>삭제</th><!-- 아이콘으로 표시할것-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>23.10.31</td>
+                    <td>04:54:22</td>
+                    <td>john</td>
+                    <td>최제인</td>
+                    <td>아이스아메리카노</td>
+                    <td>15회</td>
+                    <td>5400원</td>
+                    <td>카드</td>
+                    <td>수정</td><!-- 아이콘으로 표시할것-->
+                    <td>삭제</td><!-- 아이콘으로 표시할것-->
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>23.10.31</td>
+                    <td>04:54:22</td>
+                    <td>john</td>
+                    <td>최제인</td>
+                    <td>아이스아메리카노</td>
+                    <td>15회</td>
+                    <td>5400원</td>
+                    <td>카드</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>23.10.31</td>
+                    <td>04:54:22</td>
+                    <td>john</td>
+                    <td>최제인</td>
+                    <td>아이스아메리카노</td>
+                    <td>15회</td>
+                    <td>5400원</td>
+                    <td>카드</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>23.10.31</td>
+                    <td>04:54:22</td>
+                    <td>john</td>
+                    <td>최제인</td>
+                    <td>아이스아메리카노</td>
+                    <td>15회</td>
+                    <td>5400원</td>
+                    <td>카드</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>23.10.31</td>
+                    <td>04:54:22</td>
+                    <td>john</td>
+                    <td>최제인</td>
+                    <td>아이스아메리카노</td>
+                    <td>15회</td>
+                    <td>5400원</td>
+                    <td>카드</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>23.10.31</td>
+                    <td>04:54:22</td>
+                    <td>john</td>
+                    <td>최제인</td>
+                    <td>아이스아메리카노</td>
+                    <td>15회</td>
+                    <td>5400원</td>
+                    <td>카드</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{{>/layout/footer}}

@@ -1,0 +1,109 @@
+{{>/layout/header}}
+
+<div style="display: flex; justify-content: center">
+    <div style="width:1800px; text-align: center">
+
+        <!--본문내용은 이 주석 이후에 작성할것-->
+
+        <br>
+        <h5>카드 등록</h5>
+        <table class="table">
+            <thead class="table-success">
+            <tr>
+                <th>카드명</th>
+                <th>카드기본잔액</th>
+                <th>카드번호</th>
+                <th>핀번호</th>
+                <th>카드서비스시작일</th>
+                <th>발급수량</th>
+                <th>등록</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <select name="categoryId" class="form-control"
+                            style="text-align: center; font-size: 12px;">
+                        <option value="" disabled selected hidden>권종 선택</option>
+                        <option type="number" value="1">블랙핑크 카드</option>
+                        <option type="number" value="2">스노우맨 카아-드</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="카드잔액을 입력해주세요"
+                           style="text-align: center; font-size: 12px;">
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="카드번호는 랜덤하게 생성됩니다."
+                           style="text-align: center; font-size: 12px;" readonly>
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="핀번호를 입력해주세요"
+                           style="text-align: center; font-size: 12px;">
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="cardCreatedAt" placeholder="카드 생성일을 입력해주세요"
+                           style="text-align: center; font-size: 12px;">
+                </td>
+                <td>
+                    <input type="number" class="form-control" id="quantity" placeholder="발급매수입력"
+                           style="text-align: center; font-size: 12px;">
+                </td>
+                <td><img src="/images/icon_edit.png" height="30px"
+                         style="height: 35px;"
+                         onclick="location.href='/manager/card/register'"></img>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+
+        <h5>등록 카드 리스트</h5>
+        <table class="table table-hover">
+            <thead class="table-success">
+            <tr> <!-- 음료명 등은 폼필드/ 카테고리 등은 드롭다운으로 만들것  -->
+                <!-- DB 필드명에 맞춰 박스 재구성할것  -->
+                <th>No.</th>
+                <th>사진</th>
+                <th>카드명</th>
+                <th>카드 잔액</th>
+                <th>카드 번호</th>
+                <th>핀 번호</th>
+                <th>카드 생성일</th>
+                <th>카드상태</th> <!--사용가능/사용중/분실-->
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td><img
+                        src="https://image.istarbucks.co.kr/cardImg/20230519/010289_WEB.png"
+                        style="height: 80px;"></img></td>
+                <td>애니버서리 사이렌카드</td>
+                <td>50000</td>
+                <td>12345678</td>
+                <td>1234</td>
+                <td>2023-10-24 14:20:36.077</td>
+                <th></th>
+                <td><img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                         style="height: 35px;"
+                         onclick="location.href='../../..'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+                <td><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png" style="height: 50px;"
+                         onclick="location.href='../../..'"></img></td>
+                <!-- 아이콘으로 표시할것-->
+            </tr>
+
+
+            </tbody>
+
+        </table>
+
+        <!--본문내용은 이 주석 이전에 작성이 완료되어야함-->
+
+    </div>
+</div>
+
+{{>/layout/footer}}
