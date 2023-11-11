@@ -7,6 +7,9 @@ import javax.transaction.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
@@ -156,6 +159,10 @@ public class CardService {
 
     // 관리자 카드 등록
     public Page<CardResponse.RegistrationCardDTO> 카드등록(Integer page) {
+        Pageable pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "id");
+
+//        Page<CardResponse.AddDTO>
+
     return null;
     }
 }

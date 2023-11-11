@@ -15,13 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 public class CardController {
     private final CardService cardService;
 
+    // 카드 등록 페이지
     @GetMapping("/resgisterform")
-    public String viewBeverage(@RequestParam(defaultValue = "0") Integer page, HttpServletRequest request) {
-//        Page<CardResponse.RegistrationCardDTO> beveragePG = cardService.카드등록(page);
-//        request.setAttribute("page", page);
-//        request.setAttribute("beveragePG", beveragePG);
-//        request.setAttribute("prevPage", beveragePG.getNumber() - 1);
-//        request.setAttribute("nextPage", beveragePG.getNumber() + 1);
+    public String viewCards(@RequestParam(defaultValue = "0") Integer page, HttpServletRequest request) {
+
 
         return "/cards/registerCardsForm";
     }

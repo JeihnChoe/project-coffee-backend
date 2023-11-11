@@ -1,12 +1,12 @@
 package shop.mtcoding.projectcoffeebackend.product.api;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
+import shop.mtcoding.projectcoffeebackend.product.Product;
 import shop.mtcoding.projectcoffeebackend.product.ProductService;
 
 import java.util.List;
@@ -17,14 +17,10 @@ import java.util.List;
 public class ProductRestController {
 
     private final ProductService productService;
-
-    @GetMapping("/product/{id}")
-    public ResponseEntity<?> findAllByCategoryId(@PathVariable Integer id){
-
-        List<ProductResponse.prodcutListAndPriceDTO> responseDTO = productService.prodcutListAndPriceDTO(id);
-
-        return ResponseEntity.ok().header(null).body(null);
+    @GetMapping("/category/{id}/productList")
+    public ProductRestResponse.FindAllProductDTO ProductList(@PathVariable Integer id){
+        ProductRestResponse.FindAllProductDTO product = productService.findAllAndCategoryId(id);
+        return product;
     }
-
 
 }

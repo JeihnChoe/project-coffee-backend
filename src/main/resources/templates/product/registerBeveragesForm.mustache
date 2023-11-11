@@ -10,176 +10,75 @@
             <form method="post" action="/beverage/register" enctype="multipart/form-data">
                 <table class="table">
                     <thead class="table-success">
-                        <tr> <!-- 음료명 등은 폼필드/ 카테고리 등은 드롭다운으로 만들것  -->
-                            <!-- DB 필드명에 맞춰 박스 재구성할것  -->
-                            <th>카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
-                            <th>사진</th>
-                            <th>제품명</th>
-                            <th>제품영문명</th>
-                            <th>제품설명</th>
-                            <th>팁</th>
-                            <th>핫/아이스</th>
-                            <th>사이즈/금액</th>
-                            <th>등록</th><!-- 아이콘으로 표시할것-->
-                        </tr>
+                    <tr> <!-- 음료명 등은 폼필드/ 카테고리 등은 드롭다운으로 만들것  -->
+                        <!-- DB 필드명에 맞춰 박스 재구성할것  -->
+                        <th>카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
+                        <th>사진</th>
+                        <th>제품명</th>
+                        <th>제품영문명</th>
+                        <th>제품설명</th>
+                        <th>팁</th>
+                        <th>핫/아이스</th>
+                        <th>사이즈/금액</th>
+                        <th>등록</th><!-- 아이콘으로 표시할것-->
+                    </tr>
                     </thead>
                     <tbody>
 
-                        <tr>
-                            <td>
-                                <div>
-                                    <select name="categoryId" class="form-control"
-                                        style="text-align: center; width: 90px; font-size: 12px;">
-                                        <option value="" disabled selected hidden>카테고리</option>
-                                        <option type="number" value="1">콜드브루
-                                        </option>
-                                        <option type="number" value="2">브루드커피</option>
-                                        <option type="number" value="3">에스프레소</option>
-                                        <option type="number" value="4">프라푸치노</option>
-                                        <option type="number" value="5">블렌디드</option>
-                                        <option type="number" value="6">리프레셔</option>
-                                        <option type="number" value="7">피지오</option>
-                                        <option type="number" value="8">디카페인</option>
-                                        <option type="number" value="9">티(티바나)</option>
-                                        <option type="number" value="10">병음료</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td> <input type="file" name="picUrl" onchange="changePic(event)"
-                                    style="width:220px; text-align: center; justify-content: center"></td>
-                            <td>
-                                <input type="text" class="form-control" name="name" placeholder="제품명을 입력해주세요"
-                                    style="text-align: center; width: 150px; height: 37px; font-size: 12px;">
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" name="engName" placeholder="제품 영문명을 입력해주세요"
-                                    style="text-align: center; width: 180px; height: 37px; font-size: 12px;">
-                            </td>
-                            <td>
-                                <textarea class="form-control" name="description" placeholder="제품설명을 입력해주세요" rows="5"
-                                    style="text-align: center; width: 240px; font-size: 12px;"></textarea>
-                            </td>
-                            <td><textarea class=" form-control" name="tip" placeholder="제품 팁을 입력해주세요" rows="5"
-                                    style="text-align: center; width: 240px; font-size: 12px;"></textarea>
-                            </td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" value="0" name="isIced">
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                        HOT
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" value="1" name="isIced">
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                        ICED
-                                    </label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="input-group input-group-sm mb-3">
-                                    <select name="size1" class="form-control" style="width: 60px; height: 30px;">
-                                        <option type="number" value="1">Tall</option>
-                                        <option type="number" value="2">Grande</option>
-                                        <option type="number" value="3">Venti</option>
-                                        <option type="number" value="4">Trenta</option>
-                                        <option type="number" value="5">Solo</option>
-                                        <option type="number" value="6">Dopio</option>
-                                        <option type="number" value="7">Short</option>
-                                    </select>
-                                    <input type="number" class="form-control" name="price1" aria-label="price"
-                                        aria-describedby="inputGroup-sizing-sm"
-                                        style="width: 70px; justify-content: center; height: 30px;">
-                                </div>
-                                <div class="input-group input-group-sm mb-3">
-                                    <select name="size2" class="form-control" style="width: 60px; height: 30px;">
-                                        <option type="number" value="2">Grande</option>
-                                        <option type="number" value="3">Venti</option>
-                                        <option type="number" value="4">Trenta</option>
-                                        <option type="number" value="5">Solo</option>
-                                        <option type="number" value="6">Dopio</option>
-                                        <option type="number" value="7">Short</option>
-                                        <option type="number" value="1">Tall</option>
-                                    </select>
-                                    <input type="number" class="form-control" name="price2" aria-label="price"
-                                        aria-describedby="inputGroup-sizing-sm"
-                                        style="width: 70px; justify-content: center; height: 30px;">
-                                </div>
-                                <div class="input-group input-group-sm">
-                                    <select name="size3" class="form-control" style="width: 60px; height: 30px;">
-                                        <option type="number" value="3">Venti</option>
-                                        <option type="number" value="4">Trenta</option>
-                                        <option type="number" value="5">Solo</option>
-                                        <option type="number" value="6">Dopio</option>
-                                        <option type="number" value="7">Short</option>
-                                        <option type="number" value="1">Tall</option>
-                                        <option type="number" value="2">Grande</option>
-                                    </select>
-                                    <input type="number" class="form-control" name="price3" aria-label="price"
-                                        aria-describedby="inputGroup-sizing-sm"
-                                        style="justify-content: center; width: 70px; height: 30px;">
-                                </div>
-
-                            </td>
-                            <td>
-                                <button type="submit" style="border: 0; background-color: white;">
-                                    <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
-                                        style="height: 35px;"></img>
-                                </button>
-                            </td>
-                            <!-- 아이콘으로 표시할것-->
-                        </tr>
-
-                    </tbody>
-                </table>
-            </form>
-            <br>
-
-
-
-
-            <!-- =================================================================== -->
-            <h5>등록 음료 리스트</h5>
-            <table class="table table-hover">
-                <thead class="table-success">
-                    <tr> <!-- 음료명 등은 폼필드/ 카테고리 등은 드롭다운으로 만들것  -->
-                        <!-- DB 필드명에 맞춰 박스 재구성할것  -->
-                        <th>No.</th>
-                        <th>카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
-                        <th>사진</th>
-                        <th>음료명</th>
-                        <th>음료 영문명</th>
-                        <th>음료 설명</th>
-                        <th>팁</th>
-                        <th>핫/아이스</th>
-                        <th>사이즈</th>
-                        <th>금액</th>
-                        <th>수정</th><!-- 아이콘으로 표시할것-->
-                        <th>삭제</th><!-- 아이콘으로 표시할것-->
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#beveragePG}}
                     <tr>
-                        <td style="width: 40px;">{{id}}</td>
-                        <td style="width: 130px;">{{categoryName}}</td>
-                        <td style="width: 120px;"><img src="/images/{{picUrl}}"
-                                style="height: 120px;"><!--{{picUrl}}--></img>
+                        <td>
+                            <div>
+                                <select name="categoryId" class="form-control"
+                                        style="text-align: center; width: 90px; font-size: 12px;">
+                                    <option value="" disabled selected hidden>카테고리</option>
+                                    <option type="number" value="1">콜드브루
+                                    </option>
+                                    <option type="number" value="2">브루드커피</option>
+                                    <option type="number" value="3">에스프레소</option>
+                                    <option type="number" value="4">프라푸치노</option>
+                                    <option type="number" value="5">블렌디드</option>
+                                    <option type="number" value="6">리프레셔</option>
+                                    <option type="number" value="7">피지오</option>
+                                    <option type="number" value="8">디카페인</option>
+                                    <option type="number" value="9">티(티바나)</option>
+                                    <option type="number" value="10">병음료</option>
+                                </select>
+                            </div>
                         </td>
-                        <td style="width: 160px;">{{productName}}</td>
-                        <td style="width: 160px;">{{engName}}</td>
-                        <td style="width: 260px;">{{description}}</td>
-                        <td style="width: 260px;">{{tip}}</td>
-                        {{#isIced}}
-                        <td style="width: 60px;">Iced</td>
-                        {{/isIced}}
-                        {{^isIced}}
-                        <td style="width: 60px;">Hot</td>
-                        {{/isIced}}
-                        <td style="width: 80px;">
+                        <td><input type="file" name="picUrl" onchange="changePic(event)"
+                                   style="width:220px; text-align: center; justify-content: center"></td>
+                        <td>
+                            <input type="text" class="form-control" name="name" placeholder="제품명을 입력해주세요"
+                                   style="text-align: center; width: 150px; height: 37px; font-size: 12px;">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="engName" placeholder="제품 영문명을 입력해주세요"
+                                   style="text-align: center; width: 180px; height: 37px; font-size: 12px;">
+                        </td>
+                        <td>
+                                <textarea class="form-control" name="description" placeholder="제품설명을 입력해주세요" rows="5"
+                                          style="text-align: center; width: 240px; font-size: 12px;"></textarea>
+                        </td>
+                        <td><textarea class=" form-control" name="tip" placeholder="제품 팁을 입력해주세요" rows="5"
+                                      style="text-align: center; width: 240px; font-size: 12px;"></textarea>
+                        </td>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="0" name="isIced">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    HOT
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="1" name="isIced">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    ICED
+                                </label>
+                            </div>
+                        </td>
+                        <td>
                             <div class="input-group input-group-sm mb-3">
-                                <select name="size" class="form-control" style="width: 65px; height: 30px;">
-                                    <option value="" disabled selected hidden>{{size}}</option>
+                                <select name="size1" class="form-control" style="width: 60px; height: 30px;">
                                     <option type="number" value="1">Tall</option>
                                     <option type="number" value="2">Grande</option>
                                     <option type="number" value="3">Venti</option>
@@ -188,14 +87,119 @@
                                     <option type="number" value="6">Dopio</option>
                                     <option type="number" value="7">Short</option>
                                 </select>
+                                <input type="number" class="form-control" name="price1" aria-label="price"
+                                       aria-describedby="inputGroup-sizing-sm"
+                                       style="width: 70px; justify-content: center; height: 30px;">
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <select name="size2" class="form-control" style="width: 60px; height: 30px;">
+                                    <option type="number" value="2">Grande</option>
+                                    <option type="number" value="3">Venti</option>
+                                    <option type="number" value="4">Trenta</option>
+                                    <option type="number" value="5">Solo</option>
+                                    <option type="number" value="6">Dopio</option>
+                                    <option type="number" value="7">Short</option>
+                                    <option type="number" value="1">Tall</option>
+                                </select>
+                                <input type="number" class="form-control" name="price2" aria-label="price"
+                                       aria-describedby="inputGroup-sizing-sm"
+                                       style="width: 70px; justify-content: center; height: 30px;">
+                            </div>
+                            <div class="input-group input-group-sm">
+                                <select name="size3" class="form-control" style="width: 60px; height: 30px;">
+                                    <option type="number" value="3">Venti</option>
+                                    <option type="number" value="4">Trenta</option>
+                                    <option type="number" value="5">Solo</option>
+                                    <option type="number" value="6">Dopio</option>
+                                    <option type="number" value="7">Short</option>
+                                    <option type="number" value="1">Tall</option>
+                                    <option type="number" value="2">Grande</option>
+                                </select>
+                                <input type="number" class="form-control" name="price3" aria-label="price"
+                                       aria-describedby="inputGroup-sizing-sm"
+                                       style="justify-content: center; width: 70px; height: 30px;">
+                            </div>
 
+                        </td>
+                        <td>
+                            <button type="submit" style="border: 0; background-color: white;">
+                                <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                                     style="height: 35px;"></img>
+                            </button>
+                        </td>
+                        <!-- 아이콘으로 표시할것-->
+                    </tr>
+
+                    </tbody>
+                </table>
+            </form>
+            <br>
+
+
+            <!-- =================================================================== -->
+            <h5>등록 음료 리스트</h5>
+            <table class="table table-hover">
+                <thead class="table-success">
+                <tr> <!-- 음료명 등은 폼필드/ 카테고리 등은 드롭다운으로 만들것  -->
+                    <!-- DB 필드명에 맞춰 박스 재구성할것  -->
+                    <th>No.</th>
+                    <th>카테고리</th><!-- 1.플러터 MOCK 데이터 카테고리 참고 -->
+                    <th>사진</th>
+                    <th>음료명</th>
+                    <th>음료 영문명</th>
+                    <th>음료 설명</th>
+                    <th>팁</th>
+                    <th>핫/아이스</th>
+                    <th>사이즈</th>
+                    <th>금액</th>
+                    <th>수정</th><!-- 아이콘으로 표시할것-->
+                    <th>삭제</th><!-- 아이콘으로 표시할것-->
+                </tr>
+                </thead>
+                <tbody>
+                {{#response.products}}
+                    <tr>
+                        <td style="width: 40px;">{{id}}</td>
+                        <td style="width: 130px;">{{categoryName}}</td>
+                        <td style="width: 120px;"><img src="/images/{{picUrl}}"
+                                                       style="height: 120px;"><!--{{picUrl}}--></img>
+                        </td>
+                        <td style="width: 160px;">{{productName}}</td>
+                        <td style="width: 160px;">{{engName}}</td>
+                        <td style="width: 260px;">{{description}}</td>
+                        <td style="width: 260px;">{{tip}}</td>
+                        {{#isIced}}
+                            <td style="width: 60px;">Iced</td>
+                        {{/isIced}}
+                        {{^isIced}}
+                            <td style="width: 60px;">Hot</td>
+                        {{/isIced}}
+                        <td style="width: 80px;">
+                            <div class="input-group input-group-sm mb-3">
+                                {{#options}}
+
+                                    <select name="size" class="form-control" style="width: 65px; height: 30px;">
+                                        <option value="" disabled selected hidden>{{size}}</option>
+                                        <option type="number" value="1">Tall</option>
+                                        <option type="number" value="2">Grande</option>
+                                        <option type="number" value="3">Venti</option>
+                                        <option type="number" value="4">Trenta</option>
+                                        <option type="number" value="5">Solo</option>
+                                        <option type="number" value="6">Dopio</option>
+                                        <option type="number" value="7">Short</option>
+                                    </select>
+                                {{/options}}
                             </div>
                         </td>
+
                         <td style="width: 70px;">
                             <div class="input-group input-group-sm">
-                                <input type="number" class="form-control" name="optionPrice1" aria-label="price"
-                                    aria-describedby="inputGroup-sizing-sm"
-                                    style="width: 70px; justify-content: center; height: 30px;" value="{{price}}">
+                                {{#options}}
+                                    <input type="number" class="form-control" name="optionPrice1" aria-label="price"
+                                           aria-describedby="inputGroup-sizing-sm"
+                                           style="width: 70px; justify-content: center; height: 30px;"
+                                           value="{{price}}">
+                                {{/options}}
                             </div>
                         </td>
 
@@ -204,29 +208,17 @@
                                 style="height: 35px; margin-top: 8px;" onclick="location.href='../../..'"></img></td>
                         <!-- 아이콘으로 표시할것-->
                         <td style="width: 30px;"><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png"
-                                style="height: 50px;" onclick="location.href='../../..'"></img></td>
+                                                      style="height: 50px;" onclick="location.href='../../..'"></img>
+                        </td>
                         <!-- 아이콘으로 표시할것-->
 
                     </tr>
-                    {{/beveragePG}}
+                {{/response.products}}
 
                 </tbody>
             </table>
             <br>
             <br>
-            <ul class="pagination d-flex justify-content-center">
-                <li class="page-item {{#beveragePG.first}}disabled{{/beveragePG.first}}">
-                    <a class="page-link" href="?page={{ prevPage }}">이전</a>
-                </li>
-                <li class="page-item" style="display: flex; align-items: center;">
-                    <div
-                        style="text-align: center; width: 58px; height: 38px; display: flex; align-items: center; justify-content: center;">
-                        {{page}}</div>
-                </li>
-                <li class="page-item {{#beveragePG.last}}disabled{{/beveragePG.last}}">
-                    <a class="page-link" href="?page={{ nextPage }}">다음</a>
-                </li>
-            </ul>
         </div>
     </div>
 </div>
