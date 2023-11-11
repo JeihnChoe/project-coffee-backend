@@ -54,20 +54,20 @@ INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
  VALUES (11, '브레드', 'id', 2, 'https://image.istarbucks.co.kr/upload/store/skuimg/2023/10/[9300000004824]_20231004111431349.jpg');
 INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
  VALUES (12, '케이크&미니디저트', 'id', 2, 'https://sitem.ssgcdn.com/52/90/67/item/1000344679052_i1_750.jpg');
- INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
+INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
  VALUES (13, '샌드위치&샐러드', 'id', 2, 'https://cdn.foodnews.co.kr/news/photo/201310/47546_5119_5453.jpg');
- INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
+INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
  VALUES (14, '따뜻한푸드', 'id', 2, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9300000002435]_20210421164422886.jpg');
- INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
+INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
  VALUES (15, '과일&요거트', 'id', 2, 'https://img.seoul.co.kr//img/upload/2015/03/27/SSI_20150327145713.jpg');
-  INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
+INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
  VALUES (16, '스낵', 'id', 2, 'https://mblogthumb-phinf.pstatic.net/MjAxNzEwMDhfNjIg/MDAxNTA3NDcyNTgxMTM1.uCv80sfMMTNdqGDZjLn8i9jKrfOL6quV8RTNWYV7nCUg.K0f8Ad6V_2wnAJJED134wjtLZsL9rXwsm4Grcu1ZYnkg.PNG.etienne03/667.PNG?type=w800');
-  INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
+INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
  VALUES (17, '아이스크림', 'id', 2, 'https://mblogthumb-phinf.pstatic.net/MjAxODAxMzBfMTE4/MDAxNTE3MzE3MjczNDA2.UBgWhfp1nY6iP00eHR6gXp0fJJ7d_sjSr-w264Vxmisg.AqE_V85EfIf6xDXckQZHDNBE8akIW9mNaCq_61Scxawg.JPEG.amera9128/IMG_2132.JPG?type=w800');
 
 
 
-
+INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced`, `pic_url`, `category_id`)
  VALUES (1, '아이스 카페 아메리카노', 'Iced Caffe Americano', '진한 에스프레소에 시원한 정수물과 얼음을 더하여 스타벅스의 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피','블론드/디카페인 커피 Tab에서 블론드, 디카페인, 1/2 디카페인 아메리카노를 주문할 수 있습니다.', 1, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg', 1);
 INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced`, `pic_url`, `category_id`)
  VALUES (2, '디카페인 카라멜 마키아또', 'DECAF Caramel Macchiato', '바닐라 시럽과 우유, 그리고 진한 에스프레소 샷과 달콤한 카라멜 드리즐이 어우러진 디카페인 카라멜 마키아또를 즐겨보세요!', '', 0, 'https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[126197]_20210415154609863.jpg', 8);
@@ -271,7 +271,6 @@ INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
  VALUES (5, 6, 3300, 2);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
-
  VALUES (6, 1, 4500, 1);
 INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
  VALUES (7, 2, 5000, 1);
@@ -291,6 +290,8 @@ INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
  VALUES (14, 5, 3000, 2);
 INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
  VALUES (15, 6, 3300, 2);
+INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
+ VALUES (16, 1, 3300, 3);
 
 
 

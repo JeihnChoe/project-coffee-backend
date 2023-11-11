@@ -17,6 +17,7 @@ import java.util.List;
 public class ProductRestController {
 
     private final ProductService productService;
+
     @GetMapping("/category/{id}/productList")
     public ProductRestResponse.FindAllProductDTO ProductList(@PathVariable Integer id){
         ProductRestResponse.FindAllProductDTO product = productService.findAllAndCategoryId(id);

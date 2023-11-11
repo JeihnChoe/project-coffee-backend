@@ -94,7 +94,7 @@ public class CardResponse {
         private Integer cardId;
 
         public CardChargeDTO(Card card,
-                Integer userId) {
+                             Integer userId) {
             // this.cardPicUrl = card.getCardPicUrl();
             // this.cardName = card.getCardName();
             this.money = card.getMoney();
@@ -102,6 +102,5 @@ public class CardResponse {
             this.userId = userId;
             this.cardId = card.getId();
         }
-
-    }
+    }}
 

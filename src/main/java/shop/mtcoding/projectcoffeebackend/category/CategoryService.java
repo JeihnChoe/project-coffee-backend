@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.NoArgsConstructor;
+import shop.mtcoding.projectcoffeebackend.category.api.CategoryResponse;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Transactional(readOnly = true)
