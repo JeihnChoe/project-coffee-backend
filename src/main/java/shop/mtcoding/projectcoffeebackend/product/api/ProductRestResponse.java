@@ -24,6 +24,7 @@ public class ProductRestResponse {
 
                     .collect(Collectors.toList());
 
+
         }
 
         @Getter

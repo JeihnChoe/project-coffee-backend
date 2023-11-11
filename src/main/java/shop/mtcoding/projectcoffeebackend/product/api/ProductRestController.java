@@ -16,6 +16,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductRestController {
 
+    public void hello(){}
+
+
     private final ProductService productService;
     @GetMapping("/category/{id}/productList")
     public ProductRestResponse.FindAllProductDTO ProductList(@PathVariable Integer id){
