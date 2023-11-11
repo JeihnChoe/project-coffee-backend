@@ -6,6 +6,6 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-public class CategoryRestController {
+public class CategoryController {
 
 }

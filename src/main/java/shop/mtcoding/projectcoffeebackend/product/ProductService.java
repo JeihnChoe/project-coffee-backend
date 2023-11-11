@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
 import shop.mtcoding.projectcoffeebackend._core.vo.MyPath;
 import shop.mtcoding.projectcoffeebackend.category.Category;
-import shop.mtcoding.projectcoffeebackend.product.ProductResponse.MyProductDTO;
+import shop.mtcoding.projectcoffeebackend.product.api.ProductRestResponse;
 import shop.mtcoding.projectcoffeebackend.product.option.Option;
 import shop.mtcoding.projectcoffeebackend.product.option.OptionJPARepository;
 import shop.mtcoding.projectcoffeebackend.product.option.size.Size;
@@ -31,12 +32,15 @@ public class ProductService {
     private final ProductJPARepository productJPARepository;
     private final OptionJPARepository optionJPARepository;
 
-    public Page<MyProductDTO> 음료조회(Integer page) {
-        Pageable pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "id");
+    // public Page<MyProductDTO>
+    public List<Product> 음료조회(Integer page, Integer id) {
+        // Pageable pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "id");
+        // Page<MyProductDTO> beverageList =
+        // productJPARepository.findAllWithOptionAndSize(pageable);
 
-        Page<MyProductDTO> beverageList = productJPARepository.findAllWithOptionAndSize(pageable);
+        List<Product> productList = productJPARepository.findAllByCategoryIdAndOptions(id);
 
-        return beverageList;
+        return productList;
     }
 
     @Transactional
@@ -214,10 +218,11 @@ public class ProductService {
         productJPARepository.deleteById(id);
     }
 
-    public void prodcutListAndPriceDTO(int id){
-
-        productJPARepository.findProdcutListAndPriceDTO();
+    public ProductRestResponse.FindAllProductDTO findAllAndCategoryId(int id) {
+        List<Product> productListPS = productJPARepository.findAllByCategoryIdWithOptionId(id);
+//        System.out.println("옵션" + productListPS.get(0).getOptions().get(0).getSize());
+        ProductRestResponse.FindAllProductDTO productList = new ProductRestResponse.FindAllProductDTO(productListPS);
+        return productList;
     }
-
 
 }
