@@ -28,7 +28,7 @@ public class Category {
     @Column(nullable = false, length = 50)
     private String engName;
     @Column(nullable = false)
-    private int code; // 음료 0, 푸드 1
+    private int code; // 음료 1, 푸드 2
     @Column(nullable = false, length = 500)
     private String picUrl;
 

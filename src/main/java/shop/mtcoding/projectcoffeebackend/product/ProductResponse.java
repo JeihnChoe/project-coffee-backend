@@ -14,7 +14,8 @@ public class ProductResponse {
         private List<ProductDTO> products;
 
         public MyProductDTO(List<Product> products) {
-            this.products = products.stream().map(product -> new ProductDTO(product)).collect(Collectors.toList());
+            this.products = products.stream()
+                    .distinct().map(product -> new ProductDTO(product)).collect(Collectors.toList());
         }
 
         @Getter
@@ -27,7 +28,7 @@ public class ProductResponse {
             private String engName;
             private String description;
             private String tip;
-            private int isIced;
+            private Boolean isIced;
             private List<OptionDTO> optionList;
 
             public ProductDTO(Product product) {
@@ -38,7 +39,7 @@ public class ProductResponse {
                 this.engName = product.getEngName();
                 this.description = product.getDescription();
                 this.tip = product.getTip();
-                this.isIced = product.getIsIced();
+                this.isIced = product.getIsIced() == 1 ? true : false; // isIced가 1(iced)이면 true, 아니면(hot) false
                 this.optionList = product.getOptions().stream().map(option -> new OptionDTO(option))
                         .collect(Collectors.toList());
             }

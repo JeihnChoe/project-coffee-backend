@@ -150,8 +150,8 @@
                     <th>음료 설명</th>
                     <th>팁</th>
                     <th>핫/아이스</th>
-                    <th>사이즈</th>
-                    <th>금액</th>
+                    <th style="padding-right: 0px;">사이즈</th>
+                    <th style="padding-left: 0px;">금액</th>
                     <th>수정</th><!-- 아이콘으로 표시할것-->
                     <th>삭제</th><!-- 아이콘으로 표시할것-->
                 </tr>
@@ -174,10 +174,9 @@
                         {{^isIced}}
                             <td style="width: 60px;">Hot</td>
                         {{/isIced}}
-                        <td style="width: 80px;">
+                        <td style="width: 80px; padding-right: 0px;">
                             <div class="input-group input-group-sm mb-3">
-                                {{#options}}
-
+                                {{#optionList}}
                                     <select name="size" class="form-control" style="width: 65px; height: 30px;">
                                         <option value="" disabled selected hidden>{{size}}</option>
                                         <option type="number" value="1">Tall</option>
@@ -188,18 +187,18 @@
                                         <option type="number" value="6">Dopio</option>
                                         <option type="number" value="7">Short</option>
                                     </select>
-                                {{/options}}
+                                {{/optionList}}
                             </div>
                         </td>
 
-                        <td style="width: 70px;">
+                        <td style="width: 70px; padding-left: 0px;">
                             <div class="input-group input-group-sm">
-                                {{#options}}
+                                {{#optionList}}
                                     <input type="number" class="form-control" name="optionPrice1" aria-label="price"
                                            aria-describedby="inputGroup-sizing-sm"
                                            style="width: 70px; justify-content: center; height: 30px;"
                                            value="{{price}}">
-                                {{/options}}
+                                {{/optionList}}
                             </div>
                         </td>
 
