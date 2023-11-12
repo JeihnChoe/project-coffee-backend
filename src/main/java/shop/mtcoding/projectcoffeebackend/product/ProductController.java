@@ -19,12 +19,12 @@ public class ProductController {
 
     final private ProductService productService;
 
-        // 음료 등록 페이지
-        @GetMapping("/product/{id}/registerbeveragesform")
-        public String viewBeverage(@RequestParam(defaultValue = "0") Integer page, HttpServletRequest request,
-                @PathVariable Integer id) {
-            System.out.println("id값 :" + id);
-            // Page<MyProductDTO> beveragePG = productService.음료조회(page, id);
+    // 음료 등록 페이지
+    @GetMapping("/product/{id}/registerbeveragesform")
+    public String viewBeverage(@RequestParam(defaultValue = "0") Integer page, HttpServletRequest request,
+            @PathVariable Integer id) {
+        System.out.println("id값 :" + id);
+        // Page<MyProductDTO> beveragePG = productService.음료조회(page, id);
 
         ProductResponse.MyProductDTO response = productService.음료조회(page, id);
         // request.setAttribute("page", page);
@@ -41,7 +41,7 @@ public class ProductController {
     public String registrationBeverages(ProductRequest.RegistrationBeverageDTO requestDTO) {
         System.out.println("컨트롤러 isIced : " + requestDTO.getIsIced());
         productService.음료추가(requestDTO);
-        return "redirect:/product/registerbeveragesform";
+        return "redirect:/product/1/registerbeveragesform";
     }
 
     // food 추가 view
