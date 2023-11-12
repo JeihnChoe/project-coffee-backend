@@ -1,5 +1,6 @@
 package shop.mtcoding.projectcoffeebackend.product.api;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import shop.mtcoding.projectcoffeebackend.category.Category;
@@ -59,4 +60,17 @@ public class ProductRestResponse {
 
     }
 
+
+
+    @Data
+    class ProductDetailDTO{
+        int productId;
+        String productName;
+        String productEngName;
+        int optionId;
+        int optionPrice;
+        int isIced;
+        String tip;
+        String discription;
+    }
 }

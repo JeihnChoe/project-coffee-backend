@@ -22,17 +22,15 @@ public class OrderRestController {
     private final HttpSession session;
     private OrderService orderService;
 
-    @PostMapping("/orders/save")
+    @PostMapping("/order/save")
         public ResponseEntity<?> save() {
-User sessionUser =(User)session.getAttribute("sessionUser");
+        User sessionUser =(User)session.getAttribute("sessionUser");
 
         if (sessionUser == null) {
             throw new Exception401("로그인을 해 주세요");
         }
 
         orderService.saveOrder(sessionUser);
-
-
 
         return ResponseEntity.ok().body(ApiUtils.success(null));
     }

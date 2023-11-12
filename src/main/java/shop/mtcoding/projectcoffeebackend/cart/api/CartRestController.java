@@ -27,7 +27,7 @@ public class CartRestController {
     private final CartService cartService;
     private final HttpSession session;
 
-    @PostMapping("/carts/addcartlist")
+    @PostMapping("/cart/addcartlist")
     public ResponseEntity<?> addCartList(@RequestBody List<CartRestRequest.AddCartListDTO> addCartDTOS, Errors errors) {
         System.out.println("테스트 : add 카트 진입");
         User sessionUser = (User) session.getAttribute("sessionUser");
@@ -38,7 +38,7 @@ public class CartRestController {
         return ResponseEntity.ok().body(ApiUtils.success(null));
     }
 
-    @GetMapping("/carts/viewcartlist")
+    @GetMapping("/cart/viewcartlist")
     public ResponseEntity<?> viewCartList() {
         System.out.println("테스트 : view 카트 진입");
 

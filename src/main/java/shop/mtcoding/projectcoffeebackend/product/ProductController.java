@@ -44,12 +44,14 @@ public class ProductController {
         return "redirect:/product/registerbeveragesform";
     }
 
+    // food 추가 view
     @GetMapping("/product/registerfoodsform")
     public String viewFoods() {
 
         return "/product/registerFoodsForm";
     }
 
+    // food 추가 메소드
     @PostMapping("/product/registerfoods")
     public String registrationFoods(ProductRequest.RegisterFoodDTO resgisterFoodDTO) {
 

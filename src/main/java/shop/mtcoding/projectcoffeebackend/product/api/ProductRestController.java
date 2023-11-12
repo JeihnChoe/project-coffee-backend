@@ -24,4 +24,15 @@ public class ProductRestController {
         return product;
     }
 
+
+    @GetMapping("/{id}/productlist")
+    public ProductRestResponse.FindAllProductDTO viewProductDetail(@PathVariable Integer id){
+        ProductRestResponse.FindAllProductDTO responseDTO = productService.findProductDetailByOptionId(id);
+        return responseDTO;
+    }
+
+
+
+
+
 }

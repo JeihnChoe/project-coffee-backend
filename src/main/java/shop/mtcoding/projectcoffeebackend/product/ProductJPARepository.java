@@ -24,6 +24,7 @@ public interface ProductJPARepository extends JpaRepository<Product, Integer> {
     // @Query(value = "SELECT new
     // shop.mtcoding.projectcoffeebackend.product.ProductResponse$MyProductDTO$ProductDTO(p.id,
     // c.name, p.picUrl, p.name, p.engName, p.description, p.tip, p.isIced, o.price,
+
     // s.size) " +
     // "FROM Product p LEFT JOIN p.options o LEFT JOIN o.size s LEFT JOIN p.category
     // c WHERE c.id = :id")
