@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
 import shop.mtcoding.projectcoffeebackend.product.ProductService;
 
 import java.util.List;
@@ -19,11 +20,10 @@ public class ProductRestController {
 
 
     @GetMapping("/{id}/productlist") //카테고리아이디를 받아서 product 뿌림.
-    public List<ProductRestResponse.ProductListDTO> viewProductListByCategoryId(@PathVariable Integer id) {
+    public ResponseEntity<?> viewProductListByCategoryId(@PathVariable Integer id) {
+        List<ProductRestResponse.ProductListDTO> response = productService.findAllAndCategoryId(id);
 
-
-        List<ProductRestResponse.ProductListDTO> product = productService.findAllAndCategoryId(id);
-        return product;
+        return ResponseEntity.ok().body(ApiUtils.success(response));
     }
 
     @GetMapping("/{id}/viewdetail")
@@ -31,7 +31,7 @@ public class ProductRestController {
 
         List<ProductRestResponse.ProductDetailDTO> response = productService.findByProductId(id);
 
-        return ResponseEntity.ok().body(response);
+        return ResponseEntity.ok().body(ApiUtils.success(response));
     }
 
 

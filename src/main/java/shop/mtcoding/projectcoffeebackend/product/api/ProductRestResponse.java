@@ -11,6 +11,8 @@ public class ProductRestResponse {
     @Getter
     @Setter
     public static class ProductListDTO {
+
+        private int categoryId;
         private int productId;
         private String name;
         private String engName;
@@ -19,6 +21,7 @@ public class ProductRestResponse {
         private int price;
 
         public ProductListDTO(Product product) {
+            this.categoryId = product.getCategory().getId();
             this.productId = product.getId();
             this.name = product.getName();
             this.engName = product.getEngName();
