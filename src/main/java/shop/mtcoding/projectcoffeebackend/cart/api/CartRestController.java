@@ -1,17 +1,11 @@
 package shop.mtcoding.projectcoffeebackend.cart.api;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception401;
 import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
-import shop.mtcoding.projectcoffeebackend.cart.Cart;
 import shop.mtcoding.projectcoffeebackend.cart.CartService;
 import shop.mtcoding.projectcoffeebackend.cart.api.CartRestResponse.ViewCartListDTO;
 import shop.mtcoding.projectcoffeebackend.user.User;
@@ -27,7 +21,7 @@ public class CartRestController {
     private final CartService cartService;
     private final HttpSession session;
 
-    @PostMapping("/carts/addcartlist")
+    @PostMapping("/cart/addcartlist")
     public ResponseEntity<?> addCartList(@RequestBody List<CartRestRequest.AddCartListDTO> addCartDTOS, Errors errors) {
         System.out.println("테스트 : add 카트 진입");
         User sessionUser = (User) session.getAttribute("sessionUser");
@@ -38,7 +32,7 @@ public class CartRestController {
         return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
-    @GetMapping("/carts/viewcartlist")
+    @GetMapping("/cart/viewcartlist")
     public ResponseEntity<?> viewCartList() {
         System.out.println("테스트 : view 카트 진입");
 

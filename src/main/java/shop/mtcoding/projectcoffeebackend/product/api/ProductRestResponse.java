@@ -36,6 +36,7 @@ public class ProductRestResponse {
     @Data
     public static class ProductDetailDTO {
         int productId;
+        String picUrl;
         String productName;
         String productEngName;
         int optionId;
@@ -47,6 +48,7 @@ public class ProductRestResponse {
 
         public ProductDetailDTO(Product product) {
             this.productId = product.getId();
+            this.picUrl = product.getPicUrl();
             this.productName = product.getName();
             this.productEngName = product.getEngName();
             this.optionId = product.getOptions().get(0).getId();
