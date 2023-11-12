@@ -44,7 +44,7 @@ public class ProductRestResponse {
         int isIced;
         String tip;
         String discription;
-        String size;
+        int sizeType;
 
         public ProductDetailDTO(Product product) {
             this.productId = product.getId();
@@ -56,7 +56,7 @@ public class ProductRestResponse {
             this.isIced = product.getIsIced();
             this.tip = product.getTip();
             this.discription = product.getDescription();
-            this.size = product.getOptions().get(0).getSize().getSize();
+            this.sizeType = product.getOptions().get(0).getSize().getSizeType();
         }
     }
 }

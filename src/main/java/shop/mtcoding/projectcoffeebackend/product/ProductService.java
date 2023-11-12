@@ -234,6 +234,7 @@ public class ProductService {
         List<Product> productListPS = productJPARepository.findProductAndOptionById(id);
 
         List<ProductRestResponse.ProductDetailDTO> response = productListPS.stream()
+                .distinct()
                 .map(p -> new ProductRestResponse.ProductDetailDTO(p))
                 .collect(Collectors.toList());
 
