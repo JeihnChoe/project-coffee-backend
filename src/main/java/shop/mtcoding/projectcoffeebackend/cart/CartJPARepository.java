@@ -1,20 +1,21 @@
 package shop.mtcoding.projectcoffeebackend.cart;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import shop.mtcoding.projectcoffeebackend.cart.api.CartRestResponse.ViewCartListDTO;
-import shop.mtcoding.projectcoffeebackend.product.Product;
+import javax.transaction.Transactional;
+import java.util.List;
 
 public interface CartJPARepository extends JpaRepository<Cart, Integer> {
 
     @Query(value = "select c from Cart c left join fetch c.option co left join fetch co.size cos where c.user.id = :userId")
     List<Cart> findByUserId(@Param("userId") Integer userId);
 
-    @Query(value = "select c from Cart c where c.user.id = :userId")
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE Cart c where c.user.id = :userId")
     void deleteAllByUserId(@Param("userId") int userId);
 
     // @Query("select r from Notice r left join fetch r.techNotice rt left join
