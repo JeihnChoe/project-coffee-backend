@@ -20,7 +20,6 @@ public class CartRestResponse {
         private int totalPrice;
         private List<ProductDTO> productList;
 
-
         public ViewCartListDTO(List<Cart> cartList) {
             this.totalPrice = cartList.stream().mapToInt(cart -> cart.getTotalPrice()).sum();
             this.productList = cartList.stream()
@@ -32,12 +31,12 @@ public class CartRestResponse {
         @Getter
         @Setter
         @ToString
-        class ProductDTO{
-                    private String name;
-                    private String engName;
-                    private String picUrl;
-                    private int isIced;
-                    private List<CartDTO> carts;
+        class ProductDTO {
+            private String name;
+            private String engName;
+            private String picUrl;
+            private int isIced;
+            private List<CartDTO> carts;
 
             public ProductDTO(Product product, List<Cart> cartList) {
                 this.name = product.getName();
@@ -45,11 +44,12 @@ public class CartRestResponse {
                 this.picUrl = product.getPicUrl();
                 this.isIced = product.getIsIced();
                 this.carts = cartList.stream()
-                        .filter(cart -> cart.getOption().getProduct().getId()==product.getId())
+                        .filter(cart -> cart.getOption().getProduct().getId() == product.getId())
                         .map(cart -> new CartDTO(cart))
                         .collect(Collectors.toList());
 
             }
+
             @Getter
             @Setter
             @ToString
@@ -65,7 +65,7 @@ public class CartRestResponse {
                     this.quantity = cart.getQuantity();
                     this.price = cart.getOption().getPrice();
                     this.size = cart.getOption().getSize().getSize();
-                    this.sumPrice = this.price*this.quantity;
+                    this.sumPrice = this.price * this.quantity;
                 }
             }
         }
@@ -74,12 +74,15 @@ public class CartRestResponse {
     @Getter
     @Setter
     @ToString
-    public static class AddCartDTO{
+    public static class AddCartDTO {
+        private int cartId;
         private int optionId;
-        private int quantity;
-        private String cupType;
+
+        public AddCartDTO(Cart cart) {
+            this.cartId = cart.getId();
+            this.optionId = cart.getOption().getId();
+        }
+
     }
 
 }
-
-
