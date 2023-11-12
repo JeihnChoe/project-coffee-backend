@@ -18,17 +18,12 @@ public class ProductRestController {
 
     private final ProductService productService;
 
+
+
     @GetMapping("/{id}/productlist")
     public List<ProductRestResponse.ProductListDTO> viewProductListByCategoryId(@PathVariable Integer id) {
         List<ProductRestResponse.ProductListDTO> product = productService.findAllAndCategoryId(id);
         return product;
-    }
-
-
-    @GetMapping("/{id}/productlist")
-    public ProductRestResponse.FindAllProductDTO viewProductDetail(@PathVariable Integer id){
-        ProductRestResponse.FindAllProductDTO responseDTO = productService.findProductDetailByOptionId(id);
-        return responseDTO;
     }
 
 

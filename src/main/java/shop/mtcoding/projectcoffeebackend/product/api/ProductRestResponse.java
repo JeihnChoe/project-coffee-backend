@@ -9,6 +9,10 @@ import lombok.Setter;
 import shop.mtcoding.projectcoffeebackend.product.Product;
 
 public class ProductRestResponse {
+
+
+
+
     @Getter
     @Setter
     public static class ProductListDTO {
