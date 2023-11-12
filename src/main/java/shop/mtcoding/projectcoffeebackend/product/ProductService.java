@@ -223,11 +223,14 @@ public class ProductService {
         productJPARepository.deleteById(id);
     }
 
-    public ProductRestResponse.FindAllProductDTO findAllAndCategoryId(int id) {
+    public List<ProductRestResponse.ProductListDTO> findAllAndCategoryId(int id) {
         List<Product> productListPS = productJPARepository.findAllByCategoryIdWithOptionId(id);
         // System.out.println("옵션" +
         // productListPS.get(0).getOptions().get(0).getSize());
-        ProductRestResponse.FindAllProductDTO productList = new ProductRestResponse.FindAllProductDTO(productListPS);
+        List<ProductRestResponse.ProductListDTO> productList = productListPS.stream()
+                .distinct()
+                .map(p -> new ProductRestResponse.ProductListDTO(p))
+                .collect(Collectors.toList());
         return productList;
     }
 
