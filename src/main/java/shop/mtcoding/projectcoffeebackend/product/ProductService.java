@@ -33,14 +33,19 @@ public class ProductService {
     private final OptionJPARepository optionJPARepository;
 
     // public Page<MyProductDTO>
-    public List<Product> 음료조회(Integer page, Integer id) {
+    public ProductResponse.MyProductDTO 음료조회(Integer page, Integer id) {
         // Pageable pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "id");
         // Page<MyProductDTO> beverageList =
         // productJPARepository.findAllWithOptionAndSize(pageable);
 
-        List<Product> productList = productJPARepository.findAllByCategoryIdAndOptions(id);
+        List<Product> productList = productJPARepository.findAllByCategoryCode(id);
+        System.out.println("서비스음료1 : " + productList.get(0).getCategory().getName());
+        System.out.println("서비스음료2 : " + productList.get(0).getName());
+        System.out.println("서비스음료3 : " + productList.get(0).getOptions().get(0).getPrice());
+        System.out.println("서비스음료4 : " + productList.get(0).getOptions().get(0).getSize().getSize());
 
-        return productList;
+        ProductResponse.MyProductDTO response = new ProductResponse.MyProductDTO(productList);
+        return response;
     }
 
     @Transactional
@@ -220,7 +225,8 @@ public class ProductService {
 
     public ProductRestResponse.FindAllProductDTO findAllAndCategoryId(int id) {
         List<Product> productListPS = productJPARepository.findAllByCategoryIdWithOptionId(id);
-//        System.out.println("옵션" + productListPS.get(0).getOptions().get(0).getSize());
+        // System.out.println("옵션" +
+        // productListPS.get(0).getOptions().get(0).getSize());
         ProductRestResponse.FindAllProductDTO productList = new ProductRestResponse.FindAllProductDTO(productListPS);
         return productList;
     }
