@@ -26,15 +26,11 @@ public class ProductController {
         System.out.println("id값 :" + id);
         // Page<MyProductDTO> beveragePG = productService.음료조회(page, id);
 
-        List<Product> response = productService.음료조회(page, id);
+        ProductResponse.MyProductDTO response = productService.음료조회(page, id);
         // request.setAttribute("page", page);
         request.setAttribute("response", response);
         // request.setAttribute("prevPage", beveragePG.getNumber() - 1);
         // request.setAttribute("nextPage", beveragePG.getNumber() + 1);
-
-        System.out.println("뿡1" +response.get(0).getName());
-        System.out.println("뿡2" +response.get(0).getCategory().getName());
-        System.out.println("뿡3" +response.get(0).getOptions().get(0).getPrice());
 
         return "/product/registerBeveragesForm";
     }
@@ -45,7 +41,7 @@ public class ProductController {
     public String registrationBeverages(ProductRequest.RegistrationBeverageDTO requestDTO) {
         System.out.println("컨트롤러 isIced : " + requestDTO.getIsIced());
         productService.음료추가(requestDTO);
-        return "redirect:/product/registerbeveragesform";
+        return "redirect:/product/1/registerbeveragesform";
     }
 
     @GetMapping("/product/registerfoodsform")

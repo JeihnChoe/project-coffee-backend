@@ -44,19 +44,19 @@ public class ProductRestResponse {
                 this.optionId = product.getOptions().get(0).getId();
                 this.price = product.getOptions().get(0).getPrice();
             }
-//            @Getter
-//            @Setter
-//            class OptionDTO {
-//                private int id;
-//                private int price;
-//
-//                public OptionDTO(Option option) {
-//                    this.id = option.getId();
-//                    this.price = option.getPrice();
-//                }
-//            }
+            // @Getter
+            // @Setter
+            // class OptionDTO {
+            // private int id;
+            // private int price;
+            //
+            // public OptionDTO(Option option) {
+            // this.id = option.getId();
+            // this.price = option.getPrice();
+            // }
+            // }
         }
 
-
     }
+
 }
