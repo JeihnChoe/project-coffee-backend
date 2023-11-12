@@ -14,14 +14,14 @@ import shop.mtcoding.projectcoffeebackend.category.CategoryService;
 
 import java.util.List;
 
-@RequestMapping("/api")
+@RequestMapping("/api/category")
 @RestController
 @RequiredArgsConstructor
 public class CategoryRestController {
     private final CategoryService categoryService;
-    @GetMapping("/category")
+    @GetMapping("/viewlist")
     public List<CategoryResponse.FindAllListDTO> category(){
-        List<CategoryResponse.FindAllListDTO> categoryList = categoryService.findAllListCategory();
-        return categoryList;
+        List<CategoryResponse.FindAllListDTO> findCategoryList = categoryService.findAllListCategory();
+        return findCategoryList;
     }
 }

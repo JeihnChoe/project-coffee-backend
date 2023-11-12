@@ -11,15 +11,15 @@ import shop.mtcoding.projectcoffeebackend.product.ProductService;
 
 import java.util.List;
 
-@RequestMapping("/api")
+@RequestMapping("/api/product")
 @RestController
 @RequiredArgsConstructor
 public class ProductRestController {
 
     private final ProductService productService;
 
-    @GetMapping("/category/{id}/productList")
-    public ProductRestResponse.FindAllProductDTO ProductList(@PathVariable Integer id){
+    @GetMapping("/{id}/productlist")
+    public ProductRestResponse.FindAllProductDTO viewProductListByCategoryId(@PathVariable Integer id){
         ProductRestResponse.FindAllProductDTO product = productService.findAllAndCategoryId(id);
         return product;
     }
