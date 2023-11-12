@@ -1,21 +1,8 @@
 package shop.mtcoding.projectcoffeebackend.product;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.UUID;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import java.util.List;
-import java.util.stream.Collectors;
-
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import lombok.RequiredArgsConstructor;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
 import shop.mtcoding.projectcoffeebackend._core.vo.MyPath;
 import shop.mtcoding.projectcoffeebackend.category.Category;
@@ -23,6 +10,13 @@ import shop.mtcoding.projectcoffeebackend.product.api.ProductRestResponse;
 import shop.mtcoding.projectcoffeebackend.product.option.Option;
 import shop.mtcoding.projectcoffeebackend.product.option.OptionJPARepository;
 import shop.mtcoding.projectcoffeebackend.product.option.size.Size;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -235,4 +229,16 @@ public class ProductService {
     }
 
 
+    public List<ProductRestResponse.ProductDetailDTO> findByProductId(Integer id) {
+
+        List<Product> productListPS = productJPARepository.findProductAndOptionById(id);
+
+        List<ProductRestResponse.ProductDetailDTO> response = productListPS.stream()
+                .distinct()
+                .map(p -> new ProductRestResponse.ProductDetailDTO(p))
+                .collect(Collectors.toList());
+
+        return response;
+
+    }
 }

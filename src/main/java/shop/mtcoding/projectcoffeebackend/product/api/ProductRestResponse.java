@@ -1,16 +1,11 @@
 package shop.mtcoding.projectcoffeebackend.product.api;
 
 import lombok.Data;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import lombok.Getter;
 import lombok.Setter;
 import shop.mtcoding.projectcoffeebackend.product.Product;
 
 public class ProductRestResponse {
-
-
 
 
     @Getter
@@ -35,9 +30,8 @@ public class ProductRestResponse {
     }
 
 
-
     @Data
-    class ProductDetailDTO{
+    public static class ProductDetailDTO {
         int productId;
         String productName;
         String productEngName;
@@ -46,5 +40,18 @@ public class ProductRestResponse {
         int isIced;
         String tip;
         String discription;
+        String size;
+
+        public ProductDetailDTO(Product product) {
+            this.productId = product.getId();
+            this.productName = product.getName();
+            this.productEngName = product.getEngName();
+            this.optionId = product.getOptions().get(0).getId();
+            this.optionPrice = product.getOptions().get(0).getPrice();
+            this.isIced = product.getIsIced();
+            this.tip = product.getTip();
+            this.discription = product.getDescription();
+            this.size = product.getOptions().get(0).getSize().getSize();
+        }
     }
 }
