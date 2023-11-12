@@ -19,8 +19,8 @@ public class ProductRestController {
     private final ProductService productService;
 
     @GetMapping("/{id}/productlist")
-    public ProductRestResponse.FindAllProductDTO viewProductListByCategoryId(@PathVariable Integer id){
-        ProductRestResponse.FindAllProductDTO product = productService.findAllAndCategoryId(id);
+    public List<ProductRestResponse.ProductListDTO> viewProductListByCategoryId(@PathVariable Integer id) {
+        List<ProductRestResponse.ProductListDTO> product = productService.findAllAndCategoryId(id);
         return product;
     }
 
