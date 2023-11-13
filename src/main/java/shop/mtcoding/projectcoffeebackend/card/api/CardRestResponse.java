@@ -46,12 +46,16 @@ public class CardRestResponse {
         private String name;
         private Integer number;
         private Integer pin;
+        private Integer cardMoney;
+        private String picUrl;
         private String fail;
 
         public RegistrationCardDTO(Card card, String fail) {
             this.name = card.getName();
             this.number = card.getNumber();
             this.pin = card.getPin();
+            this.cardMoney =card.getMoney();
+            this.picUrl = card.getCardDivision().getPicUrl();
             this.fail = null;
         }
 
@@ -59,6 +63,8 @@ public class CardRestResponse {
             this.name = null;
             this.number = null;
             this.pin = null;
+            this.cardMoney =null;
+            this.picUrl = null;
             this.fail = fail;
         }
 
