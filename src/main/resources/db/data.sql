@@ -630,9 +630,14 @@ VALUES (4,3,1,9000,2,2);
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
 VALUES (5,3,1,6700,3,3);
 
-INSERT INTO order_tb(`id`, `user_id`)
-VALUES (1,1);
-INSERT INTO order_tb(`id`, `user_id`)
-VALUES (2,1);
-INSERT INTO order_tb(`id`, `user_id`)
-VALUES (3,2);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (1,1);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (2,1);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (3,1);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (4,1);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (5,2);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (6,2);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (7,2);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (8,3);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (9,3);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (10,3);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (11,3);

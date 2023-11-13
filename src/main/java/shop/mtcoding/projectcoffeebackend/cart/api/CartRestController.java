@@ -12,9 +12,10 @@ import shop.mtcoding.projectcoffeebackend.cart.api.CartRestResponse.ViewCartList
 import shop.mtcoding.projectcoffeebackend.user.User;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.PastOrPresent;
 import java.util.List;
 
-@RequestMapping("/api")
+@RequestMapping("/api/cart")
 @RestController
 @RequiredArgsConstructor
 public class CartRestController {
@@ -22,7 +23,7 @@ public class CartRestController {
     private final CartService cartService;
     private final HttpSession session;
 
-    @PostMapping("/cart/addcartlist")
+    @PostMapping("/addcartlist")
     public ResponseEntity<?> addCartList(@RequestBody List<CartRestRequest.AddCartListDTO> addCartDTOS, Errors errors) {
 
         System.out.println("테스트 : add 카트 진입");
@@ -38,7 +39,7 @@ public class CartRestController {
         return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
-    @GetMapping("/cart/viewcartlist")
+    @GetMapping("/viewcartlist")
     public ResponseEntity<?> viewCartList() {
         System.out.println("테스트 : view 카트 진입");
 
@@ -53,4 +54,17 @@ public class CartRestController {
         System.out.println("테스트 : " + response.getProductList());
         return ResponseEntity.ok().body(ApiUtils.success(response));
     }
+
+    @PostMapping("/{id}/delete")
+        public ResponseEntity<?> cartDelete(Integer id){
+
+        User sessionUser = (User) session.getAttribute("sessionUser");
+
+        if (sessionUser == null) {
+            throw new Exception401("로그인이 필요한 서비스입니다.");
+        }
+        cartService.cartDelete(id);
+
+            return ResponseEntity.ok().body(ApiUtils.success(null));
+        }
 }

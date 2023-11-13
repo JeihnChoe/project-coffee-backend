@@ -70,4 +70,8 @@ public class CartService {
         // System.out.println("테스트 : DTO나옴?" + viewCartListDTOs.get(0).getName());
 
     }
+
+    public void cartDelete(Integer id) {
+        cartJPARepository.deleteById(id);
+    }
 }
