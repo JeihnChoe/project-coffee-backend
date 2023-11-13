@@ -27,7 +27,6 @@ public class ProductService {
     private final ProductJPARepository productJPARepository;
     private final OptionJPARepository optionJPARepository;
 
-    // public Page<MyProductDTO>
     public Page<ProductResponse.MyProductDTO> 음료조회(Integer page, Integer id) {
         Pageable pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "id");
         Page<Product> productPage = productJPARepository.findAllByCategoryCode(id, pageable);
