@@ -10,11 +10,15 @@
         <table class="table">
             <thead class="table-success">
                 <tr>
-
                     <th>사진</th>
                     <th>카드명</th>
                     <th>카드기본잔액</th>
+                    <th>발권 갯수</th>
+                    <th>판매 갯수</th>
+                    <th>발권 총액</th>
+                    <th>판매 총액</th>
                     <th>카드등록일</th>
+                    <th>카드만료일</th>
                     <th>등록</th>
                 </tr>
             </thead>
@@ -22,17 +26,15 @@
                 <tr>
                     <td>
                         <div>
-                        <img class="box" id="preview" src="/images/1.png"
-                             height="50px" width="50px">
-                        <input type="file" id="File" name="files" multiple="multiple"/>
+                        <input type="file" id="File" name="picUrl" multiple="multiple"/>
                     </div>
                     </td>
                     <td>
-                        <input type="multi" class="form-control" name="cardName" placeholder="카드명을 입력해주세요"
+                        <input type="multi" class="form-control" name="name" placeholder="카드명을 입력해주세요"
                             style="text-align: center">
                     </td>
                     <td>
-                        <input type="number" class="form-control" name="cardMoney" placeholder="카드기본잔액을 입력해주세요"
+                        <input type="number" class="form-control" name="money" placeholder="카드기본잔액을 입력해주세요"
                             style="text-align: center">
                     </td>
                     <td>
