@@ -5,13 +5,16 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
+import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception401;
 import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
-import shop.mtcoding.projectcoffeebackend.card.CardResponse;
 import shop.mtcoding.projectcoffeebackend.card.CardService;
 import shop.mtcoding.projectcoffeebackend.user.User;
 import shop.mtcoding.projectcoffeebackend.user.UserService;
@@ -46,18 +49,17 @@ public class CardRestController {
             @RequestBody @Valid CardRestRequest.RegistrationCardDTO registrationCardDTO) {
 
         // 1. 유효성검사(로그인이 되어있는지)
+
+        if (session == null) {
+            throw new Exception401("로그인이 필요한 서비스입니다.");
+        }
+
         User sessionUser = (User) session.getAttribute("sessionUser");
-        // if (sessionUser == null) {
 
-        // }
+        int userId = sessionUser.getId();
 
-        // int userId = sessionUser.getId();
-
-        // 2. 서비스한테 비지니스메서드 소환
-        // (서비스한테 줘야하는 매개변수 : RequestDTO, userId)
         CardRestResponse.RegistrationCardDTO responseDTO = cardService.registrationCard(registrationCardDTO,
                 sessionUser.getId());
-        // 4. 서비스한테 전달받은 DTO 리턴하기
 
         return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
