@@ -14,7 +14,9 @@ public class CardDivisionRequest {
         private String picUrl;
         private String name;
         private int money;
+        private int issuanceQuantity; // 발권 갯수
         private String startAt;
+        private String endAt;
 
 
         public CardDivision toEntity() {
@@ -22,7 +24,10 @@ public class CardDivisionRequest {
                     .picUrl(picUrl)
                     .name(name)
                     .money(money)
-                    .startAt(startAt).build();
+                    .issuanceQuantity(issuanceQuantity)
+                    .startAt(startAt)
+                    .endAt(endAt)
+                    .build();
         }
     }
 }

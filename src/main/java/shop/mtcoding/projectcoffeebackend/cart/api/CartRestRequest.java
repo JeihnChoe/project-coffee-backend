@@ -11,8 +11,11 @@ public class CartRestRequest {
     @ToString
     public static class AddCartListDTO {
         private int optionId;
+        private int isIced;
         private int quantity;
-        private String cupType;
+        private int sizeId;
+        private int cupType;
+        private int totalPrice;
     }
 
 }

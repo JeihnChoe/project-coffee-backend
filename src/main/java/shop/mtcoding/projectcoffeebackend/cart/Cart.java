@@ -37,13 +37,13 @@ public class Cart {
     @Column(nullable = false)
     private int totalPrice; // Option에서 price 조회 * quantity
     @Column(nullable = false)
-    private String cupType;
+    private int cupType; // 1. 매장컵, 2. 개인컵, 3. 일회용컵
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     @Builder
-    public Cart(int id, Option option, int quantity, int totalPrice, String cupType, User user) {
+    public Cart(int id, Option option, int quantity, int totalPrice, int cupType, User user) {
         this.id = id;
         this.option = option;
         this.quantity = quantity;

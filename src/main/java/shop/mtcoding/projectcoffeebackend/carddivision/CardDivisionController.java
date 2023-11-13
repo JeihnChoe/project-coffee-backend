@@ -17,10 +17,12 @@ public class CardDivisionController {
 
 
     @GetMapping("/carddivision/registercarddivisionform")
-    public String registerCardDivisionForm(CardDivisionRequest cardDivisionRequest, HttpServletRequest request) {
+    public String registerCardDivisionForm(HttpServletRequest request) {
         // 1. 유효성검사
         // 2. 조회 ->
         //System.out.println("Con사진" + cardDivisionRequest.);
+        CardDivisionResponse.CardDivisionListDTO response = cardDivisionService.카드조회();
+        request.setAttribute("response", response);
         return "cards/registerCardsDivisionForm";
     }
 

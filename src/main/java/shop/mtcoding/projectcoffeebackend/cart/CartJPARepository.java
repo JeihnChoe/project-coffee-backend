@@ -30,6 +30,6 @@ public interface CartJPARepository extends JpaRepository<Cart, Integer> {
     // int quantity;
     // int isIced; // 아이스,핫
     // int size; // 컵사이즈(Short, Tall, Grande, Venti)
-    // String cupType; // (매장컵, 개인컵, 일회용컵)
+    // int cupType; // (매장컵, 개인컵, 일회용컵)
     // int totalPrice;
 }

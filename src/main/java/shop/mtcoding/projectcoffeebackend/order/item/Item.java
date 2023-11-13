@@ -26,7 +26,7 @@ public class Item {
     @ManyToOne(fetch = FetchType.LAZY)
     private Order order;
     @Column
-    private String cupType;
+    private int cupType;
     @Column(nullable = false)
     private int quantity;
     @Column(nullable = false)
@@ -36,7 +36,7 @@ public class Item {
 
 
     @Builder
-    public Item(int id, Option option, Order order, String cupType, int quantity, int totalAmount, Timestamp paymentTime) {
+    public Item(int id, Option option, Order order, int cupType, int quantity, int totalAmount, Timestamp paymentTime) {
         this.id = id;
         this.option = option;
         this.order = order;

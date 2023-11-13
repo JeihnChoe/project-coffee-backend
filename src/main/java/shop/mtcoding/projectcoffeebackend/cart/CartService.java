@@ -33,11 +33,14 @@ public class CartService {
         List<CartRestResponse.AddCartDTO> cartDTOs = new ArrayList<>();
         for (CartRestRequest.AddCartListDTO addCartDTO : addCartDTOS) {
             int optionId = addCartDTO.getOptionId();
+            int isIced = addCartDTO.getIsIced();
             int quantity = addCartDTO.getQuantity();
-            String cupType = addCartDTO.getCupType();
+            int sizeId = addCartDTO.getSizeId();
+            int cupType = addCartDTO.getCupType();
 
-            Option optionPS = optionJPARepository.findById(optionId).orElseThrow(() -> new Exception401("옵션이 없습니다."));
+            Option optionPS = optionJPARepository.findByOptionId(optionId, isIced, sizeId).orElseThrow(() -> new Exception401("옵션이 없습니다."));
             int totalPrice = optionPS.getPrice() * quantity;
+            System.out.println("isIced, sizeId들고오냐? " + optionPS.getProduct().getIsIced() + ", " + optionPS.getSize().getId());
 
             Cart cart = Cart.builder()
                     .option(optionPS)
