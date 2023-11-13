@@ -35,16 +35,16 @@ public class ProductRestResponse {
 
     @Data
     public static class ProductDetailDTO {
-        int productId;
+        Integer productId;
         String picUrl;
         String productName;
         String productEngName;
-        int optionId;
-        int optionPrice;
-        int isIced;
+        Integer optionId;
+        Integer optionPrice;
+        Integer isIced;
         String tip;
         String description;
-        int sizeType;
+        Integer sizeType;
 
         public ProductDetailDTO(Product product) {
             this.productId = product.getId();
@@ -56,7 +56,7 @@ public class ProductRestResponse {
             this.isIced = product.getIsIced();
             this.tip = product.getTip();
             this.description = product.getDescription();
-            this.sizeType = product.getOptions().get(0).getSize().getSizeType();
+            this.sizeType = product.getOptions().get(0).getSize() != null ? product.getOptions().get(0).getSize().getSizeType() : 4;
         }
     }
 }
