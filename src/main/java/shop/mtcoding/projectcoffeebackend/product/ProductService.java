@@ -231,13 +231,17 @@ public class ProductService {
 
     public List<ProductRestResponse.ProductDetailDTO> findByProductId(Integer id) {
 
+        System.out.println("테스트 : 서비스진입");
+        
         List<Product> productListPS = productJPARepository.findProductAndOptionById(id);
-
         List<ProductRestResponse.ProductDetailDTO> response = productListPS.stream()
                 .distinct()
                 .map(p -> new ProductRestResponse.ProductDetailDTO(p))
                 .collect(Collectors.toList());
 
+        System.out.println("테스트 : 서비스 빠져나오기전");
+        
+        
         return response;
 
     }

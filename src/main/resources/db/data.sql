@@ -615,9 +615,6 @@ INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
  VALUES (176, null, 5300, 87); 
 
- 
-
- 
 
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
  VALUES (1,1,3,10500,1,1);
