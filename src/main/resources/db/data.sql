@@ -2,8 +2,8 @@ INSERT INTO  user_tb ( `login_id`, `email`, `password`, `user_name`, `phone_numb
  VALUES ( 'ssar', 'ssar@nate.com', 'a12345678!', '김쌀', '010-1212-1212', '2023-11-12', '2023-11-12');
 INSERT INTO user_tb (`login_id`, `email`, `password`, `user_name`, `phone_number`, `user_created_at`, `user_updated_at`)
  VALUES ('cos', 'cos@nate.com', 'a12345678!!', '코스', '010-1234-1234', '2023-11-12', '2023-11-12');
-INSERT INTO user_tb (`login_id`, `email`, `password`, `user_name`, `phone_number`, `manager`)
- VALUES ('love', 'love@nate.com', 'a12345678!!', '러브', '010-1234-1234', 2);
+INSERT INTO user_tb (`login_id`, `email`, `password`, `user_name`, `phone_number`, `manager`,`user_created_at`, `user_updated_at`)
+ VALUES ('love', 'love@nate.com', 'a12345678!!', '러브', '010-1234-1234', 2,  '2023-11-12', '2023-11-12');
 
 INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`, `issuance_quantity`, `sale_quantity`,`status`, `start_at`, `end_at`)
 VALUES(1,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','블랙핑크 카드',50000,30, 0,true, '2023-11-11', '2023-12-12');
@@ -632,3 +632,7 @@ VALUES (5,3,1,6700,3,3);
 
 INSERT INTO order_tb(`id`, `user_id`)
 VALUES (1,1);
+INSERT INTO order_tb(`id`, `user_id`)
+VALUES (2,1);
+INSERT INTO order_tb(`id`, `user_id`)
+VALUES (3,2);
