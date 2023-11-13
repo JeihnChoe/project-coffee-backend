@@ -11,7 +11,6 @@ public class CardDivisionRequest {
     @Setter
     public static class RegisterCardDivisionDTO {
 
-        private int id;
         private String picUrl;
         private String name;
         private int money;
@@ -20,7 +19,6 @@ public class CardDivisionRequest {
 
         public CardDivision toEntity() {
             return CardDivision.builder()
-                    .id(id)
                     .picUrl(picUrl)
                     .name(name)
                     .money(money)

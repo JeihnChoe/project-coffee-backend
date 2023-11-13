@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RequiredArgsConstructor
 
 @Controller
@@ -13,11 +15,12 @@ public class CardDivisionController {
 
     final private CardDivisionService cardDivisionService;
 
+
     @GetMapping("/carddivision/registercarddivisionform")
-    public String registerCardDivisionForm() {
+    public String registerCardDivisionForm(CardDivisionRequest cardDivisionRequest, HttpServletRequest request) {
         // 1. 유효성검사
         // 2. 조회 ->
-
+        //System.out.println("Con사진" + cardDivisionRequest.);
         return "cards/registerCardsDivisionForm";
     }
 
