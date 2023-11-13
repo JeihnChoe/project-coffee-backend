@@ -44,6 +44,7 @@ public class CardService {
         System.out.println("테스트 ====================================" +cardListPS.get(0).getCardDivision().getPicUrl());
 
         List<CardRestResponse.CardListDTO> cardListDTO = cardListPS.stream()
+                .distinct()
                 .map(card -> new CardRestResponse.CardListDTO(card))
                 .collect(Collectors.toList());
 
