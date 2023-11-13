@@ -13,6 +13,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 @Getter
 @Setter
@@ -33,28 +34,24 @@ public class CardDivision {
     @Column(nullable = true)
     private int issuanceQuantity; // 발권 갯수
     @Column(nullable = true)
+    @ColumnDefault("0")
     private int saleQuantity; // 판매 갯수
     @Column(nullable = true)
-    private int issuancePrice; // 발권 총액
-    @Column(nullable = true)
-    private int saleQuantityPrice; // 판매 총액
-    @Column(nullable = true)
-    private boolean status; // true. 서비스중 / false.발급종료 /
+    @ColumnDefault("true")
+    private Boolean status; // true. 서비스중 / false.발급종료 /
     @Column(nullable = true)
     private String startAt;
     @Column(nullable = true)
     private String endAt;
 
     @Builder
-    public CardDivision(int id, String picUrl, String name, int money, int issuanceQuantity, int saleQuantity, int issuancePrice, int saleQuantityPrice, boolean status, String startAt, String endAt) {
+    public CardDivision(int id, String picUrl, String name, int money, int issuanceQuantity, int saleQuantity, boolean status, String startAt, String endAt) {
         this.id = id;
         this.picUrl = picUrl;
         this.name = name;
         this.money = money;
         this.issuanceQuantity = issuanceQuantity;
         this.saleQuantity = saleQuantity;
-        this.issuancePrice = issuancePrice;
-        this.saleQuantityPrice = saleQuantityPrice;
         this.status = status;
         this.startAt = startAt;
         this.endAt = endAt;

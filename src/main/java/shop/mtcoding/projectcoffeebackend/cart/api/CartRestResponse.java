@@ -54,7 +54,7 @@ public class CartRestResponse {
             @Setter
             @ToString
             private class CartDTO {
-                private String cupType;
+                private int cupType;
                 private int quantity;
                 private int price;
                 private String size;

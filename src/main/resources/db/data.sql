@@ -5,8 +5,10 @@ INSERT INTO user_tb (`login_id`, `email`, `password`, `user_name`, `phone_number
 INSERT INTO user_tb (`login_id`, `email`, `password`, `user_name`, `phone_number`, `manager`)
  VALUES ('love', 'love@nate.com', 'a12345678!!', '러브', '010-1234-1234', 2);
 
--- INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`,`quantity`,`status`, `start_at`) VALUES(1,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','블랙핑크 카드',50000,30,true,null);
--- INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`,`quantity`,`status`, `start_at`) VALUES(2,'https://image.istarbucks.co.kr/cardImg/20230822/010468_WEB.png','스노우맨 카아-드',30000,30,true,null);
+INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`, `issuance_quantity`, `sale_quantity`,`status`, `start_at`, `end_at`)
+VALUES(1,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','블랙핑크 카드',50000,30, 0,true, '2023-11-11', '2023-12-12');
+INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`, `issuance_quantity`, `sale_quantity`, `status`, `start_at`, `end_at`)
+VALUES(2,'https://image.istarbucks.co.kr/cardImg/20230822/010468_WEB.png','스노우맨 카아-드',30000, 30, 1, true, '2023-11-12', '2023-12-30');
 
 
 INSERT INTO card_tb (`id`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(1, '블랙핑크카드',50000,123456780,123123,'2020-12-12',1,null);
@@ -618,12 +620,12 @@ INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
  
 
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
- VALUES (1,1,3,10500,'single',1);
+ VALUES (1,1,3,10500,1,1);
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
- VALUES (2,2,10,50000,'single',1);
+ VALUES (2,2,10,50000,1,1);
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
-VALUES (3,4,3,12700,'personal',1);
+VALUES (3,4,3,12700,2,1);
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
- VALUES (4,3,1,9000,'personal',2);
+ VALUES (4,3,1,9000,2,2);
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
- VALUES (5,3,1,6700,'shop',3);
+ VALUES (5,3,1,6700,3,3);

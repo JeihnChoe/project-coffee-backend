@@ -31,7 +31,7 @@ public class CardDivisionResponse {
             private int saleQuantity; // 판매 갯수
             private int issuancePrice; // 발권 총액
             private int saleQuantityPrice; // 판매 총액
-            private int status;
+            private Boolean status;
             private String startAt;
             private String endAt;
 
@@ -40,7 +40,13 @@ public class CardDivisionResponse {
                 this.picUrl = cardDivision.getPicUrl();
                 this.name = cardDivision.getName();
                 this.money = cardDivision.getMoney();
-//                this.issuanceQuantity = cardDivision.get
+                this.issuanceQuantity = cardDivision.getIssuanceQuantity();
+                this.saleQuantity = cardDivision.getSaleQuantity();
+                this.issuancePrice = issuanceQuantity * money;
+                this.saleQuantityPrice = saleQuantity * money;
+                this.status = cardDivision.getStatus();
+                this.startAt = cardDivision.getStartAt();
+                this.endAt = cardDivision.getEndAt();
             }
 
 
