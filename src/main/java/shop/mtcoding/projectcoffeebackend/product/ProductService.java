@@ -1,6 +1,7 @@
 package shop.mtcoding.projectcoffeebackend.product;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception400;
@@ -27,20 +28,18 @@ public class ProductService {
     private final OptionJPARepository optionJPARepository;
 
     // public Page<MyProductDTO>
-    public ProductResponse.MyProductDTO 음료조회(Integer page, Integer id) {
-        // Pageable pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "id");
-        // Page<MyProductDTO> beverageList =
-        // productJPARepository.findAllWithOptionAndSize(pageable);
-
-        List<Product> productList = productJPARepository.findAllByCategoryCode(id);
-        System.out.println("서비스음료1 : " + productList.get(0).getCategory().getName());
-        System.out.println("서비스음료2 : " + productList.get(0).getName());
-        System.out.println("서비스음료3 : " + productList.get(0).getOptions().get(0).getPrice());
-        System.out.println("서비스음료4 : " + productList.get(0).getOptions().get(0).getSize().getSize());
-
-        ProductResponse.MyProductDTO response = new ProductResponse.MyProductDTO(productList);
-        return response;
-    }
+//    public Page<ProductResponse.MyProductDTO> 음료조회(Integer page, Integer id) {
+//         Pageable pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "id");
+//        // Page<MyProductDTO> beverageList =
+//        // productJPARepository.findAllWithOptionAndSize(pageable);
+//
+//        Page<Product> productList = productJPARepository.findAllByCategoryCode(id, pageable);
+//
+//        List<ProductResponse.MyProductDTO> response = productList.getContent().stream()
+//                .map(product -> new ProductResponse.MyProductDTO(product))
+//                .collect(Collectors.toList());
+//        return new PageImpl<>(response, pageable, response.size());
+//    }
 
     @Transactional
     public void 음료추가(ProductRequest.RegistrationBeverageDTO requestDTO) {
