@@ -263,295 +263,295 @@ INSERT INTO size_tb (`id`, `size`, `size_type`)
 
 
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (1, 1, 4500, 1);
+ VALUES (1, 2, 4500, 1);
 INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
- VALUES (2, 2, 5000, 1);
+ VALUES (2, 3, 5000, 1);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (3, 3, 5500, 1);
+ VALUES (3, 4, 5500, 1);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (4, 0, 5700, 2);
+ VALUES (4, 1, 5700, 2);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (5, 1, 6200, 2);
+ VALUES (5, 2, 6200, 2);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (6, 2, 6700, 2);
+ VALUES (6, 3, 6700, 2);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (7, 3, 7200, 2);
+ VALUES (7, 4, 7200, 2);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (8, 1, 4900, 3);
+ VALUES (8, 2, 4900, 3);
 INSERT INTO option_tb (`id`, `size_id`,`price`, `product_id`)
- VALUES (9, 2, 5400, 3);
+ VALUES (9, 3, 5400, 3);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (10, 3, 5900, 3);
+ VALUES (10, 4, 5900, 3);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (11, 1, 5800, 4);
+ VALUES (11, 2, 5800, 4);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (12, 2, 6300, 4);
+ VALUES (12, 3, 6300, 4);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (13, 3, 6800, 4);
+ VALUES (13, 4, 6800, 4);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (14, 1, 6000, 5);
+ VALUES (14, 2, 6000, 5);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (15, 2, 6500, 5);
+ VALUES (15, 3, 6500, 5);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (16, 3, 7000, 5);
+ VALUES (16, 4, 7000, 5);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (17, 1, 5800, 6);
+ VALUES (17, 2, 5800, 6);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (18, 2, 6300, 6);
+ VALUES (18, 3, 6300, 6);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (19, 3, 6800, 6);
+ VALUES (19, 4, 6800, 6);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (20, 0, 5500, 7);
+ VALUES (20, 1, 5500, 7);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (21, 1, 6000, 7);
+ VALUES (21, 2, 6000, 7);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (22, 2, 6500, 7);
+ VALUES (22, 3, 6500, 7);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (23, 1, 4500, 8);
+ VALUES (23, 2, 4500, 8);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (24, 2, 5000, 8);
+ VALUES (24, 3, 5000, 8);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (25, 3, 5500, 8);
+ VALUES (25, 4, 5500, 8);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (26, 0, 3700, 9);
+ VALUES (26, 1, 3700, 9);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (27, 1, 4200, 9);
+ VALUES (27, 2, 4200, 9);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (28, 2, 4700, 9);
+ VALUES (28, 3, 4700, 9);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (29, 3, 5200, 9);
+ VALUES (29, 4, 5200, 9);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (30, 5, 4000, 10);
+ VALUES (30, 6, 4000, 10);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (31, 6, 4500, 10);
+ VALUES (31, 7, 4500, 10);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (32, 5, 4000, 11);
+ VALUES (32, 6, 4000, 11);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (33, 6, 4500, 11);
+ VALUES (33, 7, 4500, 11);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (34, 5, 4200, 12);
+ VALUES (34, 6, 4200, 12);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (35, 6, 4700, 12);
+ VALUES (35, 7, 4700, 12);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (36, 0, 5100, 13);
+ VALUES (36, 1, 5100, 13);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (37, 0, 5100, 14);
+ VALUES (37, 1, 5100, 14);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (38, 1, 6300, 15);
+ VALUES (38, 2, 6300, 15);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (39, 2, 6800, 15);
+ VALUES (39, 3, 6800, 15);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (40, 3, 7300, 15);
+ VALUES (40, 4, 7300, 15);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (41, 1, 6300, 16);
+ VALUES (41, 2, 6300, 16);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (42, 2, 6800, 16);
+ VALUES (42, 3, 6800, 16);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (43, 3, 7300, 16);
+ VALUES (43, 4, 7300, 16);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (44, 1, 6000, 17);
+ VALUES (44, 2, 6000, 17);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (45, 2, 6500, 17);
+ VALUES (45, 3, 6500, 17);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (46, 3, 7000, 17);
+ VALUES (46, 4, 7000, 17);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (47, 1, 6000, 18);
+ VALUES (47, 2, 6000, 18);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (48, 2, 6500, 18);
+ VALUES (48, 3, 6500, 18);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (49, 3, 7000, 18);
+ VALUES (49, 4, 7000, 18);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (50, 1, 5900, 19);
+ VALUES (50, 2, 5900, 19);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (51, 2, 6400, 19);
+ VALUES (51, 3, 6400, 19);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (52, 3, 6900, 19);
+ VALUES (52, 4, 6900, 19);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (53, 2, 6300, 20);
+ VALUES (53, 3, 6300, 20);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (54, 1, 6100, 21);
+ VALUES (54, 2, 6100, 21);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (55, 2, 6600, 21);
+ VALUES (55, 3, 6600, 21);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (56, 3, 7100, 21);
+ VALUES (56, 4, 7100, 21);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (57, 1, 5400, 22);
+ VALUES (57, 2, 5400, 22);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (58, 2, 5900, 22);
+ VALUES (58, 3, 5900, 22);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (59, 3, 6400, 22);
+ VALUES (59, 4, 6400, 22);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (60, 2, 7200, 23);
+ VALUES (60, 3, 7200, 23);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (61, 2, 9500, 24);
+ VALUES (61, 3, 9500, 24);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (62, 1, 5900, 25);
+ VALUES (62, 2, 5900, 25);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (63, 2, 6400, 25);
+ VALUES (63, 3, 6400, 25);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (64, 3, 6900, 25);
+ VALUES (64, 4, 6900, 25);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (65, 1, 5900, 26);
+ VALUES (65, 2, 5900, 26);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (66, 2, 6400, 26);
+ VALUES (66, 3, 6400, 26);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (67, 3, 6900, 26);
+ VALUES (67, 4, 6900, 26);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (68, 1, 5900, 27);
+ VALUES (68, 2, 5900, 27);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (69, 2, 6400, 27);
+ VALUES (69, 3, 6400, 27);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (70, 3, 6900, 27);
+ VALUES (70, 4, 6900, 27);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (71, 1, 5900, 28);
+ VALUES (71, 2, 5900, 28);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (72, 2, 6400, 28);
+ VALUES (72, 3, 6400, 28);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (73, 3, 6900, 28);
+ VALUES (73, 4, 6900, 28);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (74, 1, 5900, 29);
+ VALUES (74, 2, 5900, 29);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (75, 2, 6400, 29);
+ VALUES (75, 3, 6400, 29);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (76, 3, 6900, 29);
+ VALUES (76, 4, 6900, 29);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (77, 1, 5900, 30);
+ VALUES (77, 2, 5900, 30);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (78, 2, 6400, 30);
+ VALUES (78, 3, 6400, 30);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (79, 3, 6900, 30);
+ VALUES (79, 4, 6900, 30);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (80, 1, 5700, 31);
+ VALUES (80, 2, 5700, 31);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (81, 2, 6200, 31);
+ VALUES (81, 3, 6200, 31);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (82, 3, 6700, 31);
+ VALUES (82, 4, 6700, 31);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (83, 2, 9500, 32);
+ VALUES (83, 3, 9500, 32);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (84, 1, 9800, 33);
+ VALUES (84, 2, 9800, 33);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (85, 0, 5700, 34);
+ VALUES (85, 1, 5700, 34);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (86, 1, 6200, 34);
+ VALUES (86, 2, 6200, 34);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (87, 2, 6700, 34);
+ VALUES (87, 3, 6700, 34);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (88, 3, 7200, 34);
+ VALUES (88, 4, 7200, 34);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (89, 1, 6200, 35);
+ VALUES (89, 2, 6200, 35);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (90, 2, 6700, 35);
+ VALUES (90, 3, 6700, 35);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (91, 3, 7200, 35);
+ VALUES (91, 4, 7200, 35);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (92, 0, 5700, 36);
+ VALUES (92, 1, 5700, 36);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (93, 1, 6200, 36);
+ VALUES (93, 2, 6200, 36);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (94, 2, 6700, 36);
+ VALUES (94, 3, 6700, 36);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (95, 3, 7200, 36);
+ VALUES (95, 4, 7200, 36);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (96, 1, 6200, 37);
+ VALUES (96, 2, 6200, 37);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (97, 2, 6700, 37);
+ VALUES (97, 3, 6700, 37);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (98, 3, 7200, 37);
+ VALUES (98, 4, 7200, 37);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (99, 0, 4800, 38);
+ VALUES (99, 1, 4800, 38);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (100, 1, 5300, 38);
+ VALUES (100, 2, 5300, 38);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (101, 2, 5800, 38);
+ VALUES (101, 3, 5800, 38);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (102, 3, 6300, 38);
+ VALUES (102, 4, 6300, 38);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (103, 1, 5300, 39);
+ VALUES (103, 2, 5300, 39);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (104, 2, 5800, 39);
+ VALUES (104, 3, 5800, 39);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (105, 3, 6300, 39);
+ VALUES (105, 4, 6300, 39);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (106, 0, 4300, 40);
+ VALUES (106, 1, 4300, 40);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (107, 1, 4800, 40);
+ VALUES (107, 2, 4800, 40);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (108, 2, 5300, 40);
+ VALUES (108, 3, 5300, 40);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (109, 3, 5800, 40);
+ VALUES (109, 4, 5800, 40);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (110, 1, 4800, 41);
+ VALUES (110, 2, 4800, 41);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (111, 2, 5300, 41);
+ VALUES (111, 3, 5300, 41);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (112, 3, 5800, 41);
+ VALUES (112, 4, 5800, 41);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (113, 1, 6500, 42);
+ VALUES (113, 2, 6500, 42);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (114, 2, 7000, 42);
+ VALUES (114, 3, 7000, 42);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (115, 3, 7500, 42);
+ VALUES (115, 4, 7500, 42);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (116, 1, 6500, 43);
+ VALUES (116, 2, 6500, 43);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (117, 2, 7000, 43);
+ VALUES (117, 3, 7000, 43);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (118, 3, 7500, 43);
+ VALUES (118, 4, 7500, 43);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (119, 1, 6300, 44);
+ VALUES (119, 2, 6300, 44);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (120, 2, 6800, 44);
+ VALUES (120, 3, 6800, 44);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (121, 3, 7300, 44);
+ VALUES (121, 4, 7300, 44);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (122, 1, 6300, 45);
+ VALUES (122, 2, 6300, 45);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (123, 2, 6800, 45);
+ VALUES (123, 3, 6800, 45);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (124, 3, 7300, 45);
+ VALUES (124, 4, 7300, 45);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (125, 1, 5900, 46);
+ VALUES (125, 2, 5900, 46);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (126, 2, 6400, 46);
+ VALUES (126, 3, 6400, 46);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (127, 3, 6900, 46);
+ VALUES (127, 4, 6900, 46);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (128, 1, 5900, 47);
+ VALUES (128, 2, 5900, 47);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (129, 2, 6400, 47);
+ VALUES (129, 3, 6400, 47);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (130, 3, 6900, 47);
+ VALUES (130, 4, 6900, 47);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (131, 1, 5900, 48);
+ VALUES (131, 2, 5900, 48);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (132, 2, 6400, 48);
+ VALUES (132, 3, 6400, 48);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (133, 3, 6900, 48);
+ VALUES (133, 4, 6900, 48);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (134, 1, 5900, 49);
+ VALUES (134, 2, 5900, 49);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (135, 2, 6400, 49);
+ VALUES (135, 3, 6400, 49);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (136, 3, 6900, 49);
+ VALUES (136, 4, 6900, 49);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (137, 1, 4500, 50);
+ VALUES (137, 2, 4500, 50);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (138, 3, 5500, 50);
+ VALUES (138, 4, 5500, 50);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (139, 1, 4500, 51);
+ VALUES (139, 2, 4500, 51);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (140, 3, 5500, 51);
+ VALUES (140, 4, 5500, 51);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (141, 1, 4500, 52);
+ VALUES (141, 2, 4500, 52);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (142, 1, 4500, 53);
+ VALUES (142, 2, 4500, 53);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (143, 1, 4500, 54);
+ VALUES (143, 2, 4500, 54);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (144, 1, 3800, 55);
+ VALUES (144, 2, 3800, 55);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
- VALUES (145, 1, 4500, 56);
+ VALUES (145, 2, 4500, 56);
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)
  VALUES (146, null, 6800, 57); 
 INSERT INTO option_tb (`id`, `size_id`, `price`, `product_id`)

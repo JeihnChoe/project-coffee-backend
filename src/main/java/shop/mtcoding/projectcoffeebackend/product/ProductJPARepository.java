@@ -1,5 +1,7 @@
 package shop.mtcoding.projectcoffeebackend.product;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -28,8 +30,8 @@ public interface ProductJPARepository extends JpaRepository<Product, Integer> {
     // c WHERE c.id = :id")
     // ProductResponse.MyProductDTO findAllByCategoryIdAndOptions(Integer id);
 
-    @Query(value = "select p from Product p left join p.options o left join o.size s left join fetch p.category c where c.code = :categoryCode order by p.id desc")
-    List<Product> findAllByCategoryCode(Integer categoryCode);
+//    @Query(value = "select p from Product p left join p.options o left join o.size s left join fetch p.category c where c.code = :categoryCode order by p.id desc")
+//    Page<Product> findAllByCategoryCode(Integer categoryCode, Pageable pageable);
 
     @Query("select pt from Product pt left join pt.options ot on pt.id = ot.product.id where pt.category.id = :categoryId")
     List<Product> findAllByCategoryIdWithOptionId(@Param("categoryId") Integer categoryId);
