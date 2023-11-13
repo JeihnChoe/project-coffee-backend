@@ -41,7 +41,6 @@ public class Card {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "card_division_id")
     @JsonIgnore
     private CardDivision cardDivision;
 
