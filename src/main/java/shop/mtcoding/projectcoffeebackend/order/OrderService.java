@@ -7,12 +7,14 @@ import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception404;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception500;
 import shop.mtcoding.projectcoffeebackend.cart.Cart;
 import shop.mtcoding.projectcoffeebackend.cart.CartJPARepository;
+import shop.mtcoding.projectcoffeebackend.order.api.OrderRestResponse;
 import shop.mtcoding.projectcoffeebackend.order.item.Item;
 import shop.mtcoding.projectcoffeebackend.order.item.ItemJPARepository;
 import shop.mtcoding.projectcoffeebackend.user.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -61,5 +63,16 @@ public class OrderService {
             throw new Exception500("장바구니 비우기 실패하였습니다.");
         }
 
+    }
+
+    //주문내역전체조회
+    public List<OrderRestResponse.FindAllOrderDTO> viewAllOrder(Integer userId) {
+        List<Item> ItemPS = itemJPARepository.findAllOrderById(userId);
+
+        List<OrderRestResponse.FindAllOrderDTO> response = ItemPS.stream()
+                .map(item -> new OrderRestResponse.FindAllOrderDTO(item))
+                .collect(Collectors.toList());
+
+        return response;
     }
 }
