@@ -30,12 +30,14 @@ public class CardRestResponse {
         private String name;
         private Integer money;
         private int userId;
+        private String picUrl;
 
         public CardListDTO(Card card) {
             this.id = card.getId();
             this.name = card.getName();
             this.money = card.getMoney();
             this.userId = card.getUser().getId();
+            this.picUrl = card.getCardDivision().getPicUrl();
         }
 
     }

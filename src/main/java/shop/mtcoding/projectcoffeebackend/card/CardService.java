@@ -40,11 +40,17 @@ public class CardService {
     public List<CardRestResponse.CardListDTO> viewCardList(int userId) {
 
         List<Card> cardListPS = cardJPARepository.findByUserId(userId);
+
+        System.out.println("테스트 ====================================" +cardListPS.get(0).getCardDivision().getPicUrl());
+
         List<CardRestResponse.CardListDTO> cardListDTO = cardListPS.stream()
                 .map(card -> new CardRestResponse.CardListDTO(card))
                 .collect(Collectors.toList());
-        return cardListDTO;
 
+        System.out.println("테스트 ====================================" +cardListDTO.get(0).getPicUrl());
+
+
+        return cardListDTO;
     }
 
     @Transactional
