@@ -40,8 +40,9 @@ public class Card {
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "card_division_id")
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
     private CardDivision cardDivision;
 
     @Builder
