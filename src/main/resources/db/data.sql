@@ -246,19 +246,19 @@ INSERT INTO product_tb (`id`, `name`, `eng_name`, `description`, `tip`, `is_iced
 
 
 INSERT INTO size_tb (`id`, `size`, `size_type`)
- VALUES (0, 'short', 0);
+ VALUES (1, 'short', 0);
 INSERT INTO size_tb (`id`, `size`, `size_type`)
- VALUES (1, 'tall', 0);
+ VALUES (2, 'tall', 0);
 INSERT INTO size_tb (`id`, `size`, `size_type`)
- VALUES (2, 'grande', 0);
+ VALUES (3, 'grande', 0);
 INSERT INTO size_tb (`id`, `size`, `size_type`)
- VALUES (3, 'venti', 0);
+ VALUES (4, 'venti', 0);
 INSERT INTO size_tb (`id`, `size`, `size_type`)
- VALUES (4, 'trenta', 1);
+ VALUES (5, 'trenta', 1);
 INSERT INTO size_tb (`id`, `size`, `size_type`)
- VALUES (5, 'solo', 2);
+ VALUES (6, 'solo', 2);
 INSERT INTO size_tb (`id`, `size`, `size_type`)
- VALUES (6, 'dopio', 2);
+ VALUES (7, 'dopio', 2);
 
 
 

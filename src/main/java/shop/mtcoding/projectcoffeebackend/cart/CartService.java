@@ -32,6 +32,7 @@ public class CartService {
     @Transactional
     public List<CartRestResponse.AddCartDTO> addCartList(List<CartRestRequest.AddCartListDTO> addCartDTOS,
                                                          User sessionUser) {
+        System.out.println("서비스 진입");
         List<CartRestResponse.AddCartDTO> cartDTOs = new ArrayList<>();
         for (CartRestRequest.AddCartListDTO addCartDTO : addCartDTOS) {
             int optionId = addCartDTO.getOptionId();

@@ -1,6 +1,7 @@
 package shop.mtcoding.projectcoffeebackend.cart.api;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -24,14 +25,16 @@ public class CartRestController {
     @PostMapping("/cart/addcartlist")
     public ResponseEntity<?> addCartList(@RequestBody List<CartRestRequest.AddCartListDTO> addCartDTOS, Errors errors) {
 
-
-
         System.out.println("테스트 : add 카트 진입");
+
         User sessionUser = (User) session.getAttribute("sessionUser");
+
         if (sessionUser == null) {
             throw new Exception401("로그인이 필요한 서비스입니다.");
         }
+
         List<CartRestResponse.AddCartDTO> responseDTO = cartService.addCartList(addCartDTOS, sessionUser);
+        System.out.println("테스트 : add 카트 진입4");
         return ResponseEntity.ok().body(ApiUtils.success(responseDTO));
     }
 
