@@ -626,6 +626,9 @@ INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `u
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
 VALUES (3,4,3,12700,2,1);
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
- VALUES (4,3,1,9000,2,2);
+VALUES (4,3,1,9000,2,2);
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
- VALUES (5,3,1,6700,3,3);
+VALUES (5,3,1,6700,3,3);
+
+INSERT INTO order_tb(`id`, `user_id`)
+VALUES (1,1);
