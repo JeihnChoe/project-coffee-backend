@@ -17,7 +17,7 @@ public interface ProductJPARepository extends JpaRepository<Product, Integer> {
 
 
 
-    @Query(value = "select p from Product p left join p.options o left join o.size s left join p.category c where c.code = :categoryCode order by p.id desc")
+    @Query(value = "select distinct p from Product p left join p.options o left join o.size s left join p.category c where c.code = :categoryCode")
     Page<Product> findAllByCategoryCode(Integer categoryCode, Pageable pageable);
 
     @Query("select pt from Product pt left join Option ot on pt.id = ot.product.id where pt.category.id = :categoryId")

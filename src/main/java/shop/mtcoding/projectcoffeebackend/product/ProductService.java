@@ -35,11 +35,11 @@ public class ProductService {
         // List<Product> productList = productJPARepository.findAllByCategoryCode(id); 정상 코드
         // ProductResponse.MyProductDTO response = new ProductResponse.MyProductDTO(productList); // 정상 코드
 
-        List<ProductResponse.MyProductDTO> response = productList.stream()
+        List<ProductResponse.MyProductDTO> response = productPage.stream()
                 .map(product -> new ProductResponse.MyProductDTO(product))
                 .collect(Collectors.toList());
 
-        return new PageImpl<>(response, pageable, response.size());
+        return new PageImpl<>(response, pageable, productPage.getTotalElements());
     }
 
     @Transactional

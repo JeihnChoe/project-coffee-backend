@@ -29,8 +29,8 @@ public class ProductController {
         Page<ProductResponse.MyProductDTO> beveragePG = productService.음료조회(page, id);
         request.setAttribute("page", page);
         request.setAttribute("beveragePG", beveragePG);
-        request.setAttribute("prevPage", beveragePG.getNumber() - 1);
-        request.setAttribute("nextPage", beveragePG.getNumber() + 1);
+        request.setAttribute("prevPage", beveragePG.getNumber()-1);
+        request.setAttribute("nextPage", beveragePG.getNumber()+1);
 
         return "/product/registerBeveragesForm";
     }
