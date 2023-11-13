@@ -23,6 +23,9 @@ public class CartRestController {
 
     @PostMapping("/cart/addcartlist")
     public ResponseEntity<?> addCartList(@RequestBody List<CartRestRequest.AddCartListDTO> addCartDTOS, Errors errors) {
+
+
+
         System.out.println("테스트 : add 카트 진입");
         User sessionUser = (User) session.getAttribute("sessionUser");
         if (sessionUser == null) {

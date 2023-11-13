@@ -26,8 +26,8 @@ public class ProductRestResponse {
             this.name = product.getName();
             this.engName = product.getEngName();
             this.picUrl = product.getPicUrl();
-            this.optionId = product.getOptions().get(0).getId();
-            this.price = product.getOptions().get(0).getPrice();
+            this.optionId = product.getOptions().size() == 4 ? product.getOptions().get(1).getId() : product.getOptions().get(0).getId();
+            this.price = product.getOptions().size() == 4 ? product.getOptions().get(1).getPrice() : product.getOptions().get(0).getPrice();
         }
 
     }
@@ -35,16 +35,16 @@ public class ProductRestResponse {
 
     @Data
     public static class ProductDetailDTO {
-        int productId;
+        Integer productId;
         String picUrl;
         String productName;
         String productEngName;
-        int optionId;
-        int optionPrice;
-        int isIced;
+        Integer optionId;
+        Integer optionPrice;
+        Integer isIced;
         String tip;
-        String discription;
-        int sizeType;
+        String description;
+        Integer sizeType;
 
         public ProductDetailDTO(Product product) {
             this.productId = product.getId();
@@ -55,8 +55,8 @@ public class ProductRestResponse {
             this.optionPrice = product.getOptions().get(0).getPrice();
             this.isIced = product.getIsIced();
             this.tip = product.getTip();
-            this.discription = product.getDescription();
-            this.sizeType = product.getOptions().get(0).getSize().getSizeType();
+            this.description = product.getDescription();
+            this.sizeType = product.getOptions().get(0).getSize() != null ? product.getOptions().get(0).getSize().getSizeType() : 4;
         }
     }
 }

@@ -5,11 +5,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import lombok.ToString;
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestHeader;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception401;
+import shop.mtcoding.projectcoffeebackend._core.utils.JwtTokenUtils;
 import shop.mtcoding.projectcoffeebackend.cart.api.CartRestRequest;
 import shop.mtcoding.projectcoffeebackend.cart.api.CartRestResponse;
 import shop.mtcoding.projectcoffeebackend.cart.api.CartRestResponse.ViewCartListDTO;
@@ -28,16 +31,18 @@ public class CartService {
 
     @Transactional
     public List<CartRestResponse.AddCartDTO> addCartList(List<CartRestRequest.AddCartListDTO> addCartDTOS,
-            User sessionUser) {
-
+                                                         User sessionUser) {
         List<CartRestResponse.AddCartDTO> cartDTOs = new ArrayList<>();
         for (CartRestRequest.AddCartListDTO addCartDTO : addCartDTOS) {
             int optionId = addCartDTO.getOptionId();
+            int isIced = addCartDTO.getIsIced();
             int quantity = addCartDTO.getQuantity();
-            String cupType = addCartDTO.getCupType();
+            int sizeId = addCartDTO.getSizeId();
+            int cupType = addCartDTO.getCupType();
 
-            Option optionPS = optionJPARepository.findById(optionId).orElseThrow(() -> new Exception401("옵션이 없습니다."));
+            Option optionPS = optionJPARepository.findByOptionId(optionId, isIced, sizeId).orElseThrow(() -> new Exception401("옵션이 없습니다."));
             int totalPrice = optionPS.getPrice() * quantity;
+            System.out.println("isIced, sizeId들고오냐? " + optionPS.getProduct().getIsIced() + ", " + optionPS.getSize().getId());
 
             Cart cart = Cart.builder()
                     .option(optionPS)
