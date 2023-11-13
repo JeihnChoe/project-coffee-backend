@@ -627,3 +627,6 @@ INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `u
  VALUES (4,3,1,9000,'personal',2);
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
  VALUES (5,3,1,6700,'shop',3);
+
+INSERT INTO order_tb(`id`, `user_id`)
+VALUES (1,1);
