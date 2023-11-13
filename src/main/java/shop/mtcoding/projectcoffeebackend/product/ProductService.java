@@ -28,18 +28,19 @@ public class ProductService {
     private final OptionJPARepository optionJPARepository;
 
     // public Page<MyProductDTO>
-//    public Page<ProductResponse.MyProductDTO> 음료조회(Integer page, Integer id) {
-//         Pageable pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "id");
-//        // Page<MyProductDTO> beverageList =
-//        // productJPARepository.findAllWithOptionAndSize(pageable);
-//
-//        Page<Product> productList = productJPARepository.findAllByCategoryCode(id, pageable);
-//
-//        List<ProductResponse.MyProductDTO> response = productList.getContent().stream()
-//                .map(product -> new ProductResponse.MyProductDTO(product))
-//                .collect(Collectors.toList());
-//        return new PageImpl<>(response, pageable, response.size());
-//    }
+    public Page<ProductResponse.MyProductDTO> 음료조회(Integer page, Integer id) {
+        Pageable pageable = PageRequest.of(page, 10, Sort.Direction.DESC, "id");
+        Page<Product> productPage = productJPARepository.findAllByCategoryCode(id, pageable);
+        List<Product> productList = productPage.getContent();
+        // List<Product> productList = productJPARepository.findAllByCategoryCode(id); 정상 코드
+        // ProductResponse.MyProductDTO response = new ProductResponse.MyProductDTO(productList); // 정상 코드
+
+        List<ProductResponse.MyProductDTO> response = productList.stream()
+                .map(product -> new ProductResponse.MyProductDTO(product))
+                .collect(Collectors.toList());
+
+        return new PageImpl<>(response, pageable, response.size());
+    }
 
     @Transactional
     public void 음료추가(ProductRequest.RegistrationBeverageDTO requestDTO) {
@@ -219,6 +220,7 @@ public class ProductService {
     public List<ProductRestResponse.ProductListDTO> findAllAndCategoryId(int id) {
         List<Product> productListPS = productJPARepository.findAllByCategoryIdWithOptionId(id);
         // System.out.println("옵션" +
+        // productListPS.get(0).getOptions().get(0).getSize());
         List<ProductRestResponse.ProductListDTO> productList = productListPS.stream()
                 .distinct()
                 .map(p -> new ProductRestResponse.ProductListDTO(p))
@@ -233,9 +235,7 @@ public class ProductService {
 
         List<ProductRestResponse.ProductDetailDTO> response = productListPS.stream()
                 .distinct()
-                .map(p ->
-                        new ProductRestResponse.ProductDetailDTO(p)
-                )
+                .map(p -> new ProductRestResponse.ProductDetailDTO(p))
                 .collect(Collectors.toList());
 
         return response;

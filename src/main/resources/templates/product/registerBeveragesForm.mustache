@@ -157,7 +157,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{#response.products}}
+                {{#beveragePG}}
                     <tr>
                         <td style="width: 40px;">{{id}}</td>
                         <td style="width: 130px;">{{categoryName}}</td>
@@ -212,12 +212,25 @@
                         <!-- 아이콘으로 표시할것-->
 
                     </tr>
-                {{/response.products}}
+                {{/beveragePG}}
 
                 </tbody>
             </table>
             <br>
             <br>
+            <ul class="pagination d-flex justify-content-center">
+                <li class="page-item {{#beveragePG.first}}disabled{{/beveragePG.first}}">
+                    <a class="page-link" href="?page={{ prevPage }}">이전</a>
+                </li>
+                <li class="page-item" style="display: flex; align-items: center;">
+                    <div
+                            style="text-align: center; width: 58px; height: 38px; display: flex; align-items: center; justify-content: center;">
+                        {{page}}</div>
+                </li>
+                <li class="page-item {{#beveragePG.last}}disabled{{/beveragePG.last}}">
+                    <a class="page-link" href="?page={{ nextPage }}">다음</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
