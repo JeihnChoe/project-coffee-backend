@@ -31,7 +31,7 @@ public interface ProductJPARepository extends JpaRepository<Product, Integer> {
     @Query(value = "select p from Product p left join p.options o left join o.size s left join fetch p.category c where c.code = :categoryCode order by p.id desc")
     List<Product> findAllByCategoryCode(Integer categoryCode);
 
-    @Query("select pt from Product pt left join Option ot on pt.id = ot.product.id where pt.category.id = :categoryId")
+    @Query("select pt from Product pt left join pt.options ot on pt.id = ot.product.id where pt.category.id = :categoryId")
     List<Product> findAllByCategoryIdWithOptionId(@Param("categoryId") Integer categoryId);
 
     @Query("select p from Product p left join Option o on p.id = o.product.id where o.product.id = :productId")

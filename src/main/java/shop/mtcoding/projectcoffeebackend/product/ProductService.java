@@ -220,7 +220,6 @@ public class ProductService {
     public List<ProductRestResponse.ProductListDTO> findAllAndCategoryId(int id) {
         List<Product> productListPS = productJPARepository.findAllByCategoryIdWithOptionId(id);
         // System.out.println("옵션" +
-        System.out.println("빵 리스트 사이즈? : " + productListPS.get(4).getOptions().get(0).getSize());
         List<ProductRestResponse.ProductListDTO> productList = productListPS.stream()
                 .distinct()
                 .map(p -> new ProductRestResponse.ProductListDTO(p))
