@@ -29,7 +29,7 @@ public class Product {
     private String name;
     @Column(nullable = false, length = 100)
     private String engName;
-    @Column(nullable = false, length = 1000)
+    @Column(nullable = true, length = 1000)
     private String description;
     @Column(nullable = true, length = 1000)
     private String tip;

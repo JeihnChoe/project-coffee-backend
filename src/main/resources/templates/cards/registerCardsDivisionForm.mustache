@@ -6,7 +6,7 @@
         <!--본문내용은 이 주석 이후에 작성할것-->
         <br>
         <h5>카드 등록</h5>
-        <form method="post" action="/carddivision/registercarddivision">
+        <form method="post" action="/carddivision/registercarddivision" enctype="multipart/form-data">
         <table class="table">
             <thead class="table-success">
                 <tr>
@@ -60,6 +60,7 @@
                     </td>
 
                     <td>
+                        <input type="hidden" name="status" value="true">
                         <button type="submit" style="border: 0; background-color: white;">
                             <img src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
                                  style="height: 35px;"></img>
@@ -85,8 +86,9 @@
                     <th>판매총액</th>
                     <th>발권총액</th>
                     <th>카드상태</th> <!--서비스중 / 서비스종료-->
-                    <th>등록일</th>
+                    <th>발권시작일</th>
                     <th>수정</th>
+                    <th>삭제</th>
 
                 </tr>
                 </thead>
@@ -104,15 +106,22 @@
                     <td>500000</td>
                     <td>서비스중</td>
                     <td>23.11.03</td>
-                    <td>수정버튼</td>
+                    <td style="width: 30px;"><img
+                            src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                            style="height: 35px; margin-top: 8px;" onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                    <td style="width: 30px;"><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png"
+                                                  style="height: 50px;" onclick="location.href='../../..'"></img>
+                    </td>
+                    <!-- 아이콘으로 표시할것-->
 
                 </tr>
                 {{#response.cardDivisionDTOLists}}
-                {{#response.cardDivisionDTOLists.status}}
+                {{#status}}
                 <tr>
                     <td>{{id}}</td>
                     <td><img
-                            src="https://image.istarbucks.co.kr/cardImg/20230519/010289_WEB.png"
+                            src="/images/{{picUrl}}"
                             style="height: 80px;"></img></td>
                     <td>{{name}}</td>
                     <td>{{money}}</td>
@@ -120,13 +129,19 @@
                     <td>{{saleQuantity}}</td>
                     <td>{{issuancePrice}}</td>
                     <td>{{saleQuantityPrice}}</td>
-
-                    <td>{{status}}</td>
+                    <td>서비스중</td>
                     <td>{{startAt}}</td>
-                    <td>{{endAt}}</td>
+                    <td style="width: 30px;"><img
+                            src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                            style="height: 35px; margin-top: 8px;" onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                    <td style="width: 30px;"><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png"
+                                                  style="height: 50px;" onclick="location.href='../../..'"></img>
+                    </td>
+                    <!-- 아이콘으로 표시할것-->
 
                 </tr>
-                {{/response.cardDivisionDTOLists.status}}
+                {{/status}}
                 {{/response.cardDivisionDTOLists}}
 
 
@@ -151,6 +166,8 @@
                     <th>카드상태</th> <!--서비스중 / 서비스종료-->
                     <th>발권시작일</th>
                     <th>발권종료일</th>
+                    <th>수정</th>
+                    <th>삭제</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -168,13 +185,22 @@
                     <td>종료</td>
                     <td>23.11.03</td>
                     <td>23.11.30</td>
+                    <td style="width: 30px;"><img
+                            src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                            style="height: 35px; margin-top: 8px;" onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                    <td style="width: 30px;"><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png"
+                                                  style="height: 50px;" onclick="location.href='../../..'"></img>
+                    </td>
+                    <!-- 아이콘으로 표시할것-->
 
                 </tr>
                 {{#response.cardDivisionDTOLists}}
+                {{^status}}
                 <tr>
                     <td>{{id}}</td>
                     <td><img
-                            src="https://image.istarbucks.co.kr/cardImg/20230519/010289_WEB.png"
+                            src="/images/{{picUrl}}"
                             style="height: 80px;"></img></td>
                     <td>{{name}}</td>
                     <td>{{money}}</td>
@@ -182,11 +208,20 @@
                     <td>{{saleQuantity}}</td>
                     <td>{{issuancePrice}}</td>
                     <td>{{saleQuantityPrice}}</td>
-                    <td>{{status}}</td>
+                    <td>종료</td>
                     <td>{{startAt}}</td>
                     <td>{{endAt}}</td>
+                    <td style="width: 30px;"><img
+                            src="https://cdn.icon-icons.com/icons2/2098/PNG/512/edit_icon_128873.png"
+                            style="height: 35px; margin-top: 8px;" onclick="location.href='../../..'"></img></td>
+                    <!-- 아이콘으로 표시할것-->
+                    <td style="width: 30px;"><img src="https://cdn-icons-png.flaticon.com/512/6398/6398171.png"
+                                                  style="height: 50px;" onclick="location.href='../../..'"></img>
+                    </td>
+                    <!-- 아이콘으로 표시할것-->
 
                 </tr>
+                {{/status}}
                 {{/response.cardDivisionDTOLists}}
                 </tbody>
 

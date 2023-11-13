@@ -8,7 +8,7 @@ INSERT INTO user_tb (`login_id`, `email`, `password`, `user_name`, `phone_number
 INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`, `issuance_quantity`, `sale_quantity`,`status`, `start_at`, `end_at`)
 VALUES(1,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','블랙핑크 카드',50000,30, 0,true, '2023-11-11', '2023-12-12');
 INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`, `issuance_quantity`, `sale_quantity`, `status`, `start_at`, `end_at`)
-VALUES(2,'https://image.istarbucks.co.kr/cardImg/20230822/010468_WEB.png','스노우맨 카아-드',30000, 30, 1, true, '2023-11-12', '2023-12-30');
+VALUES(2,'https://image.istarbucks.co.kr/cardImg/20230822/010468_WEB.png','스노우맨 카아-드',30000, 30, 1, false, '2023-11-12', '2023-12-30');
 
 
 INSERT INTO card_tb (`id`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`) VALUES(1, '블랙핑크카드',50000,123456780,123123,'2020-12-12',1,null);

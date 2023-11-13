@@ -22,7 +22,10 @@ public class CartRestController {
     private final HttpSession session;
 
     @PostMapping("/cart/addcartlist")
-    public ResponseEntity<?> addCartList(@RequestBody List<CartRestRequest.AddCartListDTO> addCartDTOS, Errors errors) {
+    public ResponseEntity<?> addCartList(@RequestBody List<CartRestRequest.AddCartListDTO> addCartDTOS, Errors errors, @RequestHeader("Authorization") String authorization) {
+        String jwt = authorization; // Bearer 까지들어옴...
+        System.out.println("토큰은?" + jwt);
+
         System.out.println("테스트 : add 카트 진입");
         User sessionUser = (User) session.getAttribute("sessionUser");
         if (sessionUser == null) {
