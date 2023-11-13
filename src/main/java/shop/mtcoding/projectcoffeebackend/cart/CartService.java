@@ -5,11 +5,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import lombok.ToString;
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestHeader;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception401;
+import shop.mtcoding.projectcoffeebackend._core.utils.JwtTokenUtils;
 import shop.mtcoding.projectcoffeebackend.cart.api.CartRestRequest;
 import shop.mtcoding.projectcoffeebackend.cart.api.CartRestResponse;
 import shop.mtcoding.projectcoffeebackend.cart.api.CartRestResponse.ViewCartListDTO;
@@ -28,8 +31,7 @@ public class CartService {
 
     @Transactional
     public List<CartRestResponse.AddCartDTO> addCartList(List<CartRestRequest.AddCartListDTO> addCartDTOS,
-            User sessionUser) {
-
+                                                         User sessionUser) {
         List<CartRestResponse.AddCartDTO> cartDTOs = new ArrayList<>();
         for (CartRestRequest.AddCartListDTO addCartDTO : addCartDTOS) {
             int optionId = addCartDTO.getOptionId();
