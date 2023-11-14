@@ -1,30 +1,131 @@
-# Read Me First
-The following was discovered as part of building this project:
+# 스타벅스 클론코딩
 
-* The original package name 'shop.mtcoding.project-coffee-backend' is invalid and this project uses 'shop.mtcoding.projectcoffeebackend' instead.
+---
+## 프로젝트 1조
 
-# Getting Started
+---
+* 최제인(팀장)
+* 송재익
+* 박서영
+* 장원용
+* 조소현
 
-### Reference Documentation
-For further reference, please consider the following sections:
+## 시연영상
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.17/gradle-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.17/gradle-plugin/reference/html/#build-image)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/2.7.17/reference/htmlsingle/index.html#using.devtools)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.7.17/reference/htmlsingle/index.html#web)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.7.17/reference/htmlsingle/index.html#data.sql.jpa-and-spring-data)
+---
+~시연영상~
 
-### Guides
-The following guides illustrate how to use some features concretely:
+## 기술스택
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
+---
+### Backend
+| <img src="https://camo.githubusercontent.com/3999a4410efb4ef593d90394cc928b46dd00de7b65b2ad25eb2de65d920ac2ca/68747470733a2f2f626c6f672e6b616b616f63646e2e6e65742f646e2f634b744175512f62747241494f35667a43552f4e56576e5538556c684c39336b71383156653837754b2f696d672e706e67" width="100px" height="100px"></img><br/> |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|                                                                          스프링부트                                                                                                                                                                                                                               |
 
-### Additional Links
-These additional references should also help you:
+### Frontend
+| <img src="https://blog.kakaocdn.net/dn/XsNHt/btrb3m0cuQb/62QmvGg1bUVrI5uZfcWEi1/img.png" width="100px" height="100px"></img><br/> | <img src="https://camo.githubusercontent.com/9f334b690436559ff047a3a47f0f009eefe7e107b381856fe546b653199a5eb3/68747470733a2f2f626c6f672e6b616b616f63646e2e6e65742f646e2f636a356d4c4c2f627472414a534d517434332f796670546e693031685a6772764b486d5564566a6b312f696d672e706e67" width="100px" height="100px"></img><br/> | <img src="https://camo.githubusercontent.com/5b1ef0377c093eec1bd597ed30d4708dd953be9d2e7ee23698f72ad70653ff9a/68747470733a2f2f626c6f672e6b616b616f63646e2e6e65742f646e2f62694a746d382f627472414766575543456d2f774c7638503947754a5035355049304157784f7953312f696d672e706e67" width="100px" height="100px"></img><br/> | <img src="https://camo.githubusercontent.com/1edb9b7dabad9fbc66d37ecfaca102ee87ad6f874fbbcdbcf1df3fba12271e6e/68747470733a2f2f626c6f672e6b616b616f63646e2e6e65742f646e2f6d335068632f62747241476742734b626d2f464e59706b684972567765555545483468357473574b2f696d672e706e67" width="100px" height="100px"></img><br/> |
+|:---------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|                                                              Flutter                                                              |                                                                                                                                                        HTML5                                                                                                                                                         |                                                                                                                                                      Bootstrap                                                                                                                                                       |                                                                                                                                                      JavaScript                                                                                                                                                      |
 
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
+### 협업도구
+| <img src="https://camo.githubusercontent.com/9f4962a9df26f0d4ebc56d2ddd17e9f2acb2325313cf2a13402f07f37fc204ac/68747470733a2f2f626c6f672e6b616b616f63646e2e6e65742f646e2f65796a66724e2f627472414b7658563052412f7a6b797974646b5a793745536438356b6e59524471312f696d672e706e67" width="100px" height="100px"></img><br/> |<img src="https://camo.githubusercontent.com/0d8a5ad50a91a0e8e5e4dde9d0a8ddfae5156a2f876612132c2bbc00702fc623/68747470733a2f2f626c6f672e6b616b616f63646e2e6e65742f646e2f6d454b39742f62747241486a78575a58332f694547494c6d32725753724f4b7366696c6d505541312f696d672e706e67" width="100px" height="100px"></img><br/> | <img src="https://w7.pngwing.com/pngs/345/302/png-transparent-chat-slack-slack-logo-social-media-icon-thumbnail.png" width="100px" height="100px"></img><br/> |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|                                                                                                                                                         Git                                                                                                                                                          |                                                                                                                                                       Github                                                                                                                                                       |                                                                             Slack                                                                             |
 
+### 데이터베이스
+| <img src="https://camo.githubusercontent.com/5de802c1956f1b75f79e391cc4965d004d29c28ee83771d0fd889f985bb1d165/68747470733a2f2f626c6f672e6b616b616f63646e2e6e65742f646e2f6363596d6d662f6274724147664a6f73776e2f6756714c4a6b45557136576759314d774f456f7044312f696d672e706e67" width="100px" height="100px"></img><br/> |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|                                                                                                                                                        MySQL                                                                                                                                                         |
+
+## 의존성
+```agsl
+    implementation group: 'com.auth0', name: 'java-jwt', version: '4.4.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'com.h2database:h2'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-mustache'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:3.1.4'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+```
+
+## 기능 설명
+
+---
+스타벅스 애플리케이션은 스타벅스 카드, e-Gift 카드,
+사이렌 오더 메뉴 주문, 온라인 스토어, Coupon 등의 서비스를 편리하고 스마트하게 사용할 수 있는 앱으로, 스타벅스 카드를 이용하여 음료 및 푸드를 주문할 수 있는 점에 초점을 두어 개발하였습니다.
+
+
+### 유저 관련 기능
+* 회원가입/로그인
+* 비밀번호 변경
+* 로그아웃
+
+### 프로모션 관련 기능
+* 프로모션 목록 보기
+* 프로모션 상세보기
+
+### 카드 관련 기능
+* 카드 사용 등록
+* 카드 충전
+* 카드 해지
+* 소유 카드 목록 보기
+* 카드 상세보기
+
+### 상품 관련 기능
+* 카테고리 목록 보기
+* 카테고리별 상품 목록
+* 상품 상세보기
+
+### 장바구니 관련 기능
+* 장바구니 담기
+* 장바구니 목록 보기
+* 장바구니 삭제, 주문 생성
+
+### 주문하기 관련 기능
+* 주문하기
+
+### 관리자 관련 기능
+* 음료 목록 보기
+* 음료 등록
+* 카드권종 목록 보기
+* 카드권종 등록
+
+## 모델링 연관관계
+
+---
+![img.png](img.png)~사진~
+
+## Github 주소
+
+---
+* 프론트엔드 : https://github.com/JeihnChoe/project-coffee-flutter
+* 백엔드 : https://github.com/JeihnChoe/project-coffee-backend 
+
+## 보완할 점
+
+---
+* 회원가입 시 이메일 인증
+* postman 공격 막기
+* 푸드 - 워밍옵션 추가
+* 푸드 - 메뉴 추가(루어팍버터, 크림치즈 28g)
+* new/hot/best 태그 설정
+* 알러지 관련 정보 추가
+* 비슷한 다른 메뉴 추천
+* 등급, 포인트 기능
+* 매장 설정 기능
+* 결제 API 추가해서 결제 하기
+
+## 느낀점
+
+---
+* 설계하는 과정이 정말 중요하다는 것을 깨달았다. 구현하는 단계에서 문제가 생기면 해결할 수 있지만, 
+설계에서 문제가 생기면 구조를 크게 바꿔야 하는 상황도 있을 수 있기 때문에 기초설계가 정말 중요한 것을 다시한번 깨달았다.
+* 프론트-백 사이의 중간 매개체인 api문서와 서로간의 커뮤니케이션 등 협업이 정말 중요하다는 것을 알게 되었다. 이전에는 
+프론트/백을 나누어 개발을 하지 않아서 잘 몰랐었는데, 이번 프로젝트를 통해서 협업을 해볼 수 있어서 좋은 경험이 되었다.
