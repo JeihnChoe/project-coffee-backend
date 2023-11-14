@@ -22,14 +22,18 @@ INSERT INTO card_tb (`id`,`name`,`money`,`number`, `pin`, `created_at`,`status`,
 INSERT INTO card_tb (`id`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`,`card_division_id`) VALUES(9, '스노우맨 카아-드',30000,923456788,456123,'2020-12-12',2,2,2);
 INSERT INTO card_tb (`id`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`,`card_division_id`) VALUES(10,'스노우맨 카아-드',30000,023456788,456123,'2020-12-12',2,2,2);
 
-
-INSERT INTO promotion_tb (`id`, `title`, `sub_content`, `start_date`, `end_date`, `is_open`, `pic_url`, `small_thumbnail`, `big_thumbnail`)
- VALUES (1, '10월 24일, AUTUMN PICNIC PICK!', '피크닉 픽 세트를 포장주문으로 구매하시고, 할인 혜택을 받아보세요.', '2023-10-24','2023-11-01', true, 'https://image.istarbucks.co.kr/img/event/2023/wn_autumnpicnic_231020.jpg', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20231020154947805.jpg', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20231020154947805.jpg');
-INSERT INTO promotion_tb (`id`,`title`,`sub_content`,`start_date`,`end_date`, `is_open`, `pic_url`,`small_thumbnail`, `big_thumbnail`)
- VALUES (2, 'AUTUMN VIBE', '온라인 스토어에서 특별한 혜택을 만나보세요.', '2023-10-19', '2023-11-01', true, 'https://image.istarbucks.co.kr/img/event/2023/wn_autumnvibe_web_231018.jpg', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20231018135754113.jpg', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20231018135754113.jpg');
 INSERT INTO promotion_tb (`id`,`title`, `sub_content`, `start_date`, `end_date`, `is_open`, `pic_url`, `small_thumbnail`, `big_thumbnail`)
- VALUES (3, '탄소중립포인트제 본인인증 고객대상 인센티브 지급일정 안내', '23년 7월 9일까지 본인인증 완료 고객 대상 인센티브 지급 일정 안내드립니다.', '2023-10-17', null, false, 'https://image.istarbucks.co.kr/img/event/2023/wn_cpoint_231010.jpg', 'https://image.istarbucks.co.kr/upload/news/aoZdnA_WEB_THUM_20231017082101133.jpg', 'https://image.istarbucks.co.kr/upload/news/aoZdnA_WEB_THUM_20231017082101133.jpg');
-
+VALUES (1, '8월 15일, 사이렌 트렌타 콜드컵 출시 이벤트', '사이렌 트렌타 콜드컵과 함께 구매 시 트렌타 사이즈 음료 2천원 할인 혜택', '2023-08-15', null, false, 'https://image.istarbucks.co.kr/img/event/2023/wn_ecozensirencoldcup_230810.jpg', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20230811081159507.jpg', 'https://image.istarbucks.co.kr/img/event/2023/wn_ecozensirencoldcup_230810.jpg');
+INSERT INTO promotion_tb (`id`,`title`, `sub_content`, `start_date`, `end_date`, `is_open`, `pic_url`, `small_thumbnail`, `big_thumbnail`)
+VALUES (2, '스타벅스와 함께 그리는 Christmas', 'Christmas Ph1 프로모션', '2023-11-02',  '2023-11-28', true, 'https://image.istarbucks.co.kr/img/event/2023/wn_Christmas1_231031_01.jpg', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20231031161659396.jpg', 'https://image.istarbucks.co.kr/img/event/2023/wn_Christmas1_231031_01.jpg');
+INSERT INTO promotion_tb (`id`,`title`, `sub_content`, `start_date`, `end_date`, `is_open`, `pic_url`, `small_thumbnail`, `big_thumbnail`)
+VALUES (3, '2023 윈터 e-프리퀀시 이벤트 안내', '2023 윈터 e-프리퀀시 이벤트 안내', '2023-11-02', '2023-12-31', false, 'https://image.istarbucks.co.kr/upload/common/img/util/efreq/2023_winter_e_frequency_03whatsnew_02event_info_detail_mo_1000px_02.jpg','https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20231026093049404.jpg','https://image.istarbucks.co.kr/upload/common/img/util/efreq/2023_winter_e_frequency_03whatsnew_02event_info_detail_mo_1000px_02.jpg');
+INSERT INTO promotion_tb (`id`,`title`, `sub_content`, `start_date`, `end_date`, `is_open`, `pic_url`, `small_thumbnail`, `big_thumbnail`)
+VALUES (4, '탄소중립포인트제 본인인증 고객대상 인센티브 지급일정 안내', '23년 7월 9일까지 본인인증 완료 고객 대상 인센티브 지급 일정 안내드립니다.', '2023-10-17', null, false, 'https://image.istarbucks.co.kr/img/event/2023/wn_ecostore_231103.jpg', 'https://image.istarbucks.co.kr/upload/news/rVCm2r_WEB_THUM_20231108133420663.jpg', 'https://image.istarbucks.co.kr/img/event/2023/wn_ecostore_231103.jpg');
+INSERT INTO promotion_tb (`id`,`title`,`sub_content`,`start_date`,`end_date`, `is_open`, `pic_url`,`small_thumbnail`, `big_thumbnail`)
+VALUES (5, 'AUTUMN VIBE', '온라인 스토어에서 특별한 혜택을 만나보세요.', '2023-10-19', '2023-11-01', true, 'https://image.istarbucks.co.kr/img/event/2023/wn_autumnvibe_web_231018.jpg', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20231018135754113.jpg', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20231018135754113.jpg');
+INSERT INTO promotion_tb (`id`, `title`, `sub_content`, `start_date`, `end_date`, `is_open`, `pic_url`, `small_thumbnail`, `big_thumbnail`)
+VALUES (6, '스타벅스 현대카드 11월 혜택', '스타벅스 현대카드의 첫번째 럭키드로우 이벤트','2023-11-08','2023-11-30', true, 'https://image.istarbucks.co.kr/img/event/2023/23_PLCC11_231030_01.jpg', 'https://image.istarbucks.co.kr/upload/promotion/WEB_THUM_20231108094401568.jpg','https://image.istarbucks.co.kr/img/event/2023/23_PLCC11_231030_01.jpg');
 
 
 INSERT INTO category_tb (`id`, `name`, `eng_name`, `code`, `pic_url`)
@@ -640,4 +644,18 @@ INSERT INTO order_tb(`id`, `user_id`) VALUES (7,2);
 
 
 INSERT INTO item_tb(`id`, `option_id`, `order_id`, `cup_type`, `quantity`, `total_amount`, `payment_time`)
-VALUES (1,1,1,1,5,22500,'2023-11-12')
+VALUES (1,1,1,1,1,4500,'2023-11-12');
+INSERT INTO item_tb(`id`, `option_id`, `order_id`, `cup_type`, `quantity`, `total_amount`, `payment_time`)
+VALUES (2,2,1,2,2,9000,'2023-11-12');
+INSERT INTO item_tb(`id`, `option_id`, `order_id`, `cup_type`, `quantity`, `total_amount`, `payment_time`)
+VALUES (3,3,2,3,3,12000,'2023-11-12');
+INSERT INTO item_tb(`id`, `option_id`, `order_id`, `cup_type`, `quantity`, `total_amount`, `payment_time`)
+VALUES (4,4,2,1,4,18000,'2023-11-12');
+INSERT INTO item_tb(`id`, `option_id`, `order_id`, `cup_type`, `quantity`, `total_amount`, `payment_time`)
+VALUES (5,5,3,2,5,22500,'2023-11-12');
+INSERT INTO item_tb(`id`, `option_id`, `order_id`, `cup_type`, `quantity`, `total_amount`, `payment_time`)
+VALUES (6,6,4,3,1,7700,'2023-11-12');
+INSERT INTO item_tb(`id`, `option_id`, `order_id`, `cup_type`, `quantity`, `total_amount`, `payment_time`)
+VALUES (7,7,1,1,2,11000,'2023-11-12');
+INSERT INTO item_tb(`id`, `option_id`, `order_id`, `cup_type`, `quantity`, `total_amount`, `payment_time`)
+VALUES (8,8,1,1,3,18700,'2023-11-12');

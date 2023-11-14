@@ -8,9 +8,9 @@ public class OrderRestResponse {
 
     public static class FindAllOrderDTO{
 
-        int orderId; // 주문번호
-        String productName; //제품명
-        String size; // 사이즈
+        private int orderId; // 주문번호
+        private String productName; //제품명
+        private String size; // 사이즈
         private int quantity;// 수량
         private int totalAmount; //금액
         private int cupType; //개인컵여부
