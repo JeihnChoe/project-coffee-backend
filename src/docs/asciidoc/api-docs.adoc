@@ -4,6 +4,7 @@ endif::[]
 
 :user: user-rest-controller-test
 :promotion: promotion-rest-controller-test
+:product: product-rest-controller-test
 = REST API
 :toc: left
 :toclevels: 2
@@ -72,3 +73,25 @@ include::{snippets}/{promotion}/detail-promotion_test/http-request.adoc[]
 ===== Response
 
 include::{snippets}/{promotion}/detail-promotion_test/http-response.adoc[]
+
+== Product
+
+=== 1. 프로덕트 카테고리별 리스트보기
+
+===== Request
+
+include::{snippets}/{product}/view-product-list-by-category-id/http-request.adoc[]
+
+===== Response
+
+include::{snippets}/{product}/view-product-list-by-category-id/http-response.adoc[]
+
+=== 2. 개별 프로모션 보기
+
+===== Request
+
+include::{snippets}/{product}/view-product-detail/http-request.adoc[]
+
+===== Response
+
+include::{snippets}/{product}/view-product-detail/http-response.adoc[]
