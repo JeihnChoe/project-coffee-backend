@@ -6,9 +6,9 @@ INSERT INTO user_tb (`login_id`, `email`, `password`, `user_name`, `phone_number
  VALUES ('love', 'love@nate.com', 'a12345678!!', '러브', '010-1234-1234', 2,  '2023-11-12', '2023-11-12');
 
 INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`, `issuance_quantity`, `sale_quantity`,`status`, `start_at`, `end_at`)
-VALUES(1,'https://image.istarbucks.co.kr/cardImg/20230519/010286_WEB.png','블랙핑크 카드',50000,30, 0,true, '2023-11-11', '2023-12-12');
+VALUES(1,'blackpinkcard.png','블랙핑크 카드',50000,30, 0,true, '11/11/2023', '12/12/2023');
 INSERT INTO card_division_tb (`id`,`pic_url`,`name`,`money`, `issuance_quantity`, `sale_quantity`, `status`, `start_at`, `end_at`)
-VALUES(2,'https://image.istarbucks.co.kr/cardImg/20230822/010468_WEB.png','스노우맨 카아-드',30000, 30, 1, false, '2023-11-12', '2023-12-30');
+VALUES(2,'snowmancard.png','스노우맨 카아-드',30000, 30, 1, false, '11/12/2023', '12/30/2023');
 
 
 INSERT INTO card_tb (`id`,`name`,`money`,`number`, `pin`, `created_at`,`status`,`user_id`,`card_division_id`) VALUES(1, '블랙핑크카드',50000,123456780,123123,'2020-12-12',1,null,1);
@@ -630,20 +630,13 @@ VALUES (4,3,1,9000,2,2);
 INSERT INTO cart_tb(`id`, `option_id`, `quantity`, `total_price`, `cup_type`, `user_id`)
 VALUES (5,3,1,6700,3,3);
 
-INSERT INTO order_tb(`id`, `user_id`)
-VALUES (1,1);
-INSERT INTO order_tb(`id`, `user_id`)
-VALUES (2,1);
-INSERT INTO order_tb(`id`, `user_id`)
-VALUES (3,1);
-INSERT INTO order_tb(`id`, `user_id`)
-VALUES (4,2);
-INSERT INTO order_tb(`id`, `user_id`)
-VALUES (5,2);
-INSERT INTO order_tb(`id`, `user_id`)
-VALUES (6,2);
-INSERT INTO order_tb(`id`, `user_id`)
-VALUES (7,2);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (1,1);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (2,1);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (3,1);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (4,2);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (5,2);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (6,2);
+INSERT INTO order_tb(`id`, `user_id`) VALUES (7,2);
 
 
 INSERT INTO item_tb(`id`, `option_id`, `order_id`, `cup_type`, `quantity`, `total_amount`, `payment_time`)
