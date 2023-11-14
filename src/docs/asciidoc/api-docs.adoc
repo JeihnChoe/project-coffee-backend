@@ -9,10 +9,44 @@ endif::[]
 :toclevels: 2
 :source-highlighter: highlightjs
 
-== 회원
+== User
+
 === 1. 회원가입
+
 ===== Request
+
 include::{snippets}/{user}/join_test/http-request.adoc[]
 
 ===== Response
+
 include::{snippets}/{user}/join_test/http-response.adoc[]
+
+=== 2. 로그인
+
+===== Request
+
+include::{snippets}/{user}/login_test/http-request.adoc[]
+
+===== Response
+
+include::{snippets}/{user}/login_test/http-response.adoc[]
+
+=== 3. 로그아웃
+
+===== Request
+
+include::{snippets}/{user}/logout_test/http-request.adoc[]
+
+===== Response
+
+include::{snippets}/{user}/logout_test/http-response.adoc[]
+
+=== 4. 비밀번호변경
+
+===== Request
+
+include::{snippets}/{user}/pwdupdate_test/http-request.adoc[]
+
+===== Response
+
+include::{snippets}/{user}/pwdupdate_test/http-response.adoc[]

@@ -1,18 +1,17 @@
 package shop.mtcoding.projectcoffeebackend.user.api;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
-
-import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import shop.mtcoding.projectcoffeebackend._core.utils.ApiUtils;
-import shop.mtcoding.projectcoffeebackend.user.UserResponse;
 import shop.mtcoding.projectcoffeebackend.user.UserService;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -43,7 +42,7 @@ public class UserRestController {
     }
 
     // 로그아웃
-    @GetMapping("/logout")
+    @PostMapping("/logout")
     public ResponseEntity<?> logout() {
         session.invalidate();
         return ResponseEntity.ok().body(ApiUtils.success(null));

@@ -26,13 +26,11 @@ public class CartRestController {
     @PostMapping("/addcartlist")
     public ResponseEntity<?> addCartList(@RequestBody List<CartRestRequest.AddCartListDTO> addCartDTOS, Errors errors) {
 
-        System.out.println("테스트 : add 카트 진입");
-
-        User sessionUser = (User) session.getAttribute("sessionUser");
-
-        if (sessionUser == null) {
+        if (session == null) {
             throw new Exception401("로그인이 필요한 서비스입니다.");
         }
+
+        User sessionUser = (User) session.getAttribute("sessionUser");
 
         List<CartRestResponse.AddCartDTO> responseDTO = cartService.addCartList(addCartDTOS, sessionUser);
         System.out.println("테스트 : add 카트 진입4");

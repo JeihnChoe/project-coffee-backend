@@ -74,7 +74,7 @@ public class CardRestController {
     // jwt).body(ApiUtils.success(null));
     // }
 
-    @GetMapping("/api/cards/viewchargecardpage")
+    @GetMapping("/viewchargecardpage")
     public ResponseEntity<?> viewCardChargePage(
             @RequestBody @Valid CardRestRequest.ViewCardChargeDTO payCardChargeDTO) {
         // 0. 주소 제대로 줬는지, 프론트가 주는게 있는지
@@ -87,7 +87,7 @@ public class CardRestController {
         return ResponseEntity.ok().body(ApiUtils.success(cardChargePageDTO));
     }
 
-    @PostMapping("/api/cards/chargeindividualcard")
+    @PostMapping("/chargeindividualcard")
     public ResponseEntity<?> chargeIndividualCard(@RequestBody @Valid CardRestRequest.ChargeCardDTO chargeCardDTO) {
 
         // PayCardChargeDTO.builder().cardId(1).chargeMoney(5000).build();
@@ -99,7 +99,7 @@ public class CardRestController {
         return ResponseEntity.ok().body(ApiUtils.success(cardChargeDTO));
     }
 
-    @PostMapping("/api/cards/deletecard")
+    @PostMapping("/deletecard")
     public ResponseEntity<?> deleteIndividualCard(@RequestBody @Valid CardRestRequest.DeleteCardDTO deleteCardDTO) {
 
         User sessionUser = (User) session.getAttribute("sessionUser");
