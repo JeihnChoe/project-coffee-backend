@@ -635,4 +635,16 @@ VALUES (1,1);
 INSERT INTO order_tb(`id`, `user_id`)
 VALUES (2,1);
 INSERT INTO order_tb(`id`, `user_id`)
-VALUES (3,2);
+VALUES (3,1);
+INSERT INTO order_tb(`id`, `user_id`)
+VALUES (4,2);
+INSERT INTO order_tb(`id`, `user_id`)
+VALUES (5,2);
+INSERT INTO order_tb(`id`, `user_id`)
+VALUES (6,2);
+INSERT INTO order_tb(`id`, `user_id`)
+VALUES (7,2);
+
+
+INSERT INTO item_tb(`id`, `option_id`, `order_id`, `cup_type`, `quantity`, `total_amount`, `payment_time`)
+VALUES (1,1,1,1,5,22500,2023-11-12)

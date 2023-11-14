@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import shop.mtcoding.projectcoffeebackend.order.Order;
 import shop.mtcoding.projectcoffeebackend.product.option.Option;
 
@@ -31,7 +32,8 @@ public class Item {
     private int quantity;
     @Column(nullable = false)
     private int totalAmount;
-    @Column(nullable = false)
+    @Column(length = 256)
+    @CreationTimestamp
     private Timestamp paymentTime; // 결제 시간(초 단위까지)
 
 
