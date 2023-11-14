@@ -24,7 +24,6 @@ public class ProductController {
     public String viewBeverage(@RequestParam(defaultValue = "0") Integer page, HttpServletRequest request,
                                @PathVariable Integer id) {
         System.out.println("id값 :" + id);
-        // Page<MyProductDTO> beveragePG = productService.음료조회(page, id);
 
         Page<ProductResponse.MyProductDTO> beveragePG = productService.음료조회(page, id);
         request.setAttribute("page", page);
