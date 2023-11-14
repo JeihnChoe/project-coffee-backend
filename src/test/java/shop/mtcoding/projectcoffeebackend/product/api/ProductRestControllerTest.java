@@ -31,7 +31,26 @@ public class ProductRestControllerTest extends MyWithRestDoc {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.error").isEmpty())
                 .andDo(MockMvcResultHandlers.print())
                 .andDo(document);
+    }
 
+    @Test
+    public void viewProductDetail() throws Exception {
+
+        //when
+        ResultActions resultActions =
+                mockMvc.perform(
+                        MockMvcRequestBuilders.get("/api/product/1/viewdetail")
+                                .contentType(MediaType.APPLICATION_JSON)
+                );
+        String responseBody = resultActions.andReturn().getResponse().getContentAsString();
+        System.out.println(responseBody);
+        //then
+        resultActions
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.success").value(true))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.error").isEmpty())
+                .andDo(MockMvcResultHandlers.print())
+                .andDo(document);
 
     }
 
