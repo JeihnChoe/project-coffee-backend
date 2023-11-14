@@ -640,4 +640,4 @@ INSERT INTO order_tb(`id`, `user_id`) VALUES (7,2);
 
 
 INSERT INTO item_tb(`id`, `option_id`, `order_id`, `cup_type`, `quantity`, `total_amount`, `payment_time`)
-VALUES (1,1,1,1,5,22500,2023-11-12)
+VALUES (1,1,1,1,5,22500,'2023-11-12')
