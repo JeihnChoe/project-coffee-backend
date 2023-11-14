@@ -3,7 +3,7 @@ ifndef::snippets[]
 endif::[]
 
 :user: user-rest-controller-test
-
+:promotion: promotion-rest-controller-test
 = REST API
 :toc: left
 :toclevels: 2
@@ -50,3 +50,25 @@ include::{snippets}/{user}/pwdupdate_test/http-request.adoc[]
 ===== Response
 
 include::{snippets}/{user}/pwdupdate_test/http-response.adoc[]
+
+== Promotion
+
+=== 1. 프로모션 전체 리스트보기
+
+===== Request
+
+include::{snippets}/{promotion}/view-promotion-list_test/http-request.adoc[]
+
+===== Response
+
+include::{snippets}/{promotion}/view-promotion-list_test/http-response.adoc[]
+
+=== 2. 개별 프로모션 보기
+
+===== Request
+
+include::{snippets}/{promotion}/detail-promotion_test/http-request.adoc[]
+
+===== Response
+
+include::{snippets}/{promotion}/detail-promotion_test/http-response.adoc[]
