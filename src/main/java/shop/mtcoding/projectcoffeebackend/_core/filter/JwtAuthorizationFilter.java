@@ -1,28 +1,21 @@
 package shop.mtcoding.projectcoffeebackend._core.filter;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import org.springframework.http.MediaType;
-
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import org.springframework.http.MediaType;
 import shop.mtcoding.projectcoffeebackend._core.errors.exception.Exception401;
 import shop.mtcoding.projectcoffeebackend._core.utils.JwtTokenUtils;
 import shop.mtcoding.projectcoffeebackend.user.User;
+
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * /carts/**
@@ -48,7 +41,6 @@ public class JwtAuthorizationFilter implements Filter {
             int id = decodedJWT.getClaim("id").asInt();
             String userId = decodedJWT.getClaim("loginId").asString();
 
-            // 컨트롤러에서 꺼내쓰기 쉽게하려고!!
             User sessionUser = User.builder().id(id).loginId(userId).build();
 
             HttpSession session = request.getSession();

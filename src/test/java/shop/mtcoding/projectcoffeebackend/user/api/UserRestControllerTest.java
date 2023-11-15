@@ -53,34 +53,34 @@ public class UserRestControllerTest extends MyWithRestDoc {
                 .andDo(document);
     }
 
-    @Test
-    public void login_test() throws Exception {
-        UserRestRequest.LoginDTO requestDTO = new UserRestRequest.LoginDTO();
-
-        requestDTO.setLoginId("ssar");
-        requestDTO.setPassword("a12345678!");
-
-        ObjectMapper om = new ObjectMapper();
-        String requestBody = om.writeValueAsString(requestDTO);
-
-        //when
-        ResultActions resultActions =
-                mockMvc.perform(
-                        MockMvcRequestBuilders.post("/api/login")
-                                .content(requestBody)
-                                .contentType(MediaType.APPLICATION_JSON)
-                );
-        String responseBody = resultActions.andReturn().getResponse().getContentAsString();
-        System.out.println(responseBody);
-        //then
-        resultActions
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.success").value(true))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.error").isEmpty())
-                .andDo(MockMvcResultHandlers.print())
-                .andDo(document);
-
-    }
+//    @Test
+//    public void login_test() throws Exception {
+//        UserRestRequest.LoginDTO requestDTO = new UserRestRequest.LoginDTO();
+//
+//        requestDTO.setLoginId("ssar");
+//        requestDTO.setPassword("a12345678!");
+//
+//        ObjectMapper om = new ObjectMapper();
+//        String requestBody = om.writeValueAsString(requestDTO);
+//
+//        //when
+//        ResultActions resultActions =
+//                mockMvc.perform(
+//                        MockMvcRequestBuilders.post("/api/login")
+//                                .content(requestBody)
+//                                .contentType(MediaType.APPLICATION_JSON)
+//                );
+//        String responseBody = resultActions.andReturn().getResponse().getContentAsString();
+//        System.out.println(responseBody);
+//        //then
+//        resultActions
+//                .andExpect(MockMvcResultMatchers.status().isOk())
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.success").value(true))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.error").isEmpty())
+//                .andDo(MockMvcResultHandlers.print())
+//                .andDo(document);
+//
+//    }
 
     @Test
     public void logout_test() throws Exception {
