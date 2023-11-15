@@ -75,4 +75,21 @@ public class OrderService {
 
         return response;
     }
+
+//    public void 매출집계() {
+//        // 일간 총 매출
+//        int itemPS = itemJPARepository.findTotalSales();
+//        System.out.println("일간 총 매출 : " + itemPS);
+//
+//        // 총 주문 건수
+//        int itemPS2 = orderJPARepository.findTotalOrders();
+//        System.out.println("일일 주문 건수 : " + itemPS2);
+//
+//        // 최고 매출 메뉴
+//        Item itemPS3 = itemJPARepository.findBestSaleMenu();
+//        System.out.println("최고 매출 메뉴 : " + itemPS3);
+////
+////        // 최대 판매 메뉴
+////        Item itemPS4 = itemJPARepository.findBestOrderMenu();
+//    }
 }
