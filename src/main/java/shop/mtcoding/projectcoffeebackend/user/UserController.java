@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.RequiredArgsConstructor;
+import shop.mtcoding.projectcoffeebackend.order.OrderService;
 
 @RequiredArgsConstructor
 @Controller
@@ -13,6 +14,7 @@ public class UserController {
 
     final private HttpSession session;
     final private UserService userService;
+    final private OrderService orderService;
 
     @GetMapping("/test")
     public String test() {
@@ -22,7 +24,7 @@ public class UserController {
 
     @GetMapping("/")
     public String index() {
-
+        //orderService.매출집계();
         return "index";
     }
     //

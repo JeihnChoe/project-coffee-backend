@@ -1,19 +1,19 @@
 package shop.mtcoding.projectcoffeebackend.order;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import shop.mtcoding.projectcoffeebackend.order.item.Item;
+import shop.mtcoding.projectcoffeebackend.product.option.Option;
 import shop.mtcoding.projectcoffeebackend.user.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -27,6 +27,9 @@ public class Order {
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
+    @JsonIgnoreProperties({ "order" })
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Item> items = new ArrayList<>();
 
     @Builder
     public Order(int id, User user) {
