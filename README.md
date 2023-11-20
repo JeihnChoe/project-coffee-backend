@@ -13,7 +13,10 @@
 ## 🎬 시연영상
 
 ---
-~시연영상~
+
+https://github.com/JeihnChoe/project-coffee-backend/assets/135561774/0e4bc879-cdce-40d2-9625-54f70bd28486
+
+
 
 ## 🔧 기술스택
 
@@ -100,7 +103,7 @@
 ## ➰ 모델링 연관관계
 
 ---
-![img.png](img.png)~사진~
+![img.png](img.png)
 
 ## <img src="https://camo.githubusercontent.com/0d8a5ad50a91a0e8e5e4dde9d0a8ddfae5156a2f876612132c2bbc00702fc623/68747470733a2f2f626c6f672e6b616b616f63646e2e6e65742f646e2f6d454b39742f62747241486a78575a58332f694547494c6d32725753724f4b7366696c6d505541312f696d672e706e67" width="22px" height="22px"></img>  Github 주소
 
